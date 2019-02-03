@@ -23,9 +23,9 @@ class App extends Component {
       <>
       <ul style={navStyle}>
         <NavLink style={linkStyle} to="/">Home</NavLink>
-        <NavLink style={linkStyle} to="/contacts">Contacts</NavLink>
         <NavLink style={linkStyle} to="/products">Products</NavLink>
-        <NavLink style={linkStyle} to="/products/146">Product</NavLink>
+        <NavLink style={linkStyle} to="/login">Login</NavLink>
+        <NavLink style={linkStyle} to="/cart">Cart</NavLink>
       </ul>
       <Route
         path="/"
@@ -38,16 +38,16 @@ class App extends Component {
             >
               <Switch location={location}>
                 <Route
-                  path="/products/:id"
-                  render={() => <DummyElement color="grey" title="PRODUCT" />}
+                  path="/cart"
+                  render={() => <DummyElement color="grey" title="CART" />}
                 />
                 <Route
                   path="/products"
                   render={() => <DummyElement color="lightblue" title="PRODUCTS" />}
                 />
                 <Route
-                  path="/contacts"
-                  render={() => <DummyElement color="green" title="CONTACTS" />}
+                  path="/login"
+                  render={() => <DummyElement color="green" title="LOGIN" />}
                 />
                 <Route
                   path="/"
