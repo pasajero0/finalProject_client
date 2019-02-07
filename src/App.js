@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import Dashboard from './components/Dashboard'
+
+import './App.scss';
 
 class App extends Component {
   render() {
@@ -20,45 +23,45 @@ class App extends Component {
       textAlign: 'center'
     };
     return (
-      <>
-      <ul style={navStyle}>
-        <NavLink style={linkStyle} to="/">Home</NavLink>
-        <NavLink style={linkStyle} to="/products">Products</NavLink>
-        <NavLink style={linkStyle} to="/login">Login</NavLink>
-        <NavLink style={linkStyle} to="/cart">Cart</NavLink>
-      </ul>
-      <Route
-        path="/"
-        render={({ location }) => (
-          <TransitionGroup>
-            <CSSTransition
-              key={location.key}
-              classNames="fade"
-              timeout={300}
-            >
-              <Switch location={location}>
-                <Route
-                  path="/cart"
-                  render={() => <DummyElement color="grey" title="CART" />}
-                />
-                <Route
-                  path="/products"
-                  render={() => <DummyElement color="lightblue" title="PRODUCTS" />}
-                />
-                <Route
-                  path="/login"
-                  render={() => <DummyElement color="green" title="LOGIN" />}
-                />
-                <Route
-                  path="/"
-                  render={() => <DummyElement color="tomato" title="HOME" />}
-                />
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
-        )}
-      />
-      </>
+        <>
+          <ul style={navStyle}>
+            <NavLink style={linkStyle} to="/">Home</NavLink>
+            <NavLink style={linkStyle} to="/contacts">Contacts</NavLink>
+            <NavLink style={linkStyle} to="/products">Products</NavLink>
+            <NavLink style={linkStyle} to="/products/146">Product</NavLink>
+          </ul>
+          <Route
+              path="/"
+              render={({ location }) => (
+                  <TransitionGroup>
+                    <CSSTransition
+                        key={location.key}
+                        classNames="fade"
+                        timeout={300}
+                    >
+                      <Switch location={location}>
+                        <Route
+                            path="/products/:id"
+                            render={() => <DummyElement color="grey" title="PRODUCT" />}
+                        />
+                        <Route
+                            path="/products"
+                            render={() => <DummyElement color="lightblue" title="PRODUCTS" />}
+                        />
+                        <Route
+                            path="/contacts"
+                            render={() => <DummyElement color="green" title="CONTACTS" />}
+                        />
+                        <Route
+                            path="/"
+                            component={Dashboard}
+                        />
+                      </Switch>
+                    </CSSTransition>
+                  </TransitionGroup>
+              )}
+          />
+        </>
     );
   }
 }
