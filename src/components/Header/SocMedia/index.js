@@ -5,10 +5,10 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaGooglePlusG } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 
-import '../header.scss';
+import '../Header.scss';
 
 //создание компонента с иконками соц-сетей
-class SocMedia extends Component  {
+class Index extends Component  {
 
     render(){
         return (
@@ -22,4 +22,4 @@ class SocMedia extends Component  {
     }
 }
 
-export default SocMedia;
+export default Index;

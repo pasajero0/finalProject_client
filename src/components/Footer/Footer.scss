@@ -3,19 +3,17 @@
     padding: 62px 0px 54px;
 }
 
-.mainLogo {
+.footerContent {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    font-family: 'Oswald', sans-serif;
-    color: #000000;
-    font-size: 80px;
-    margin-bottom: 50px;
-    text-transform: uppercase;
 }
 
 .footerMenu {
     display: flex;
     justify-content: center;
     font-family: 'Oswald', sans-serif;
+    margin-top: 50px;
 
     &__item {
         display: inline-block;

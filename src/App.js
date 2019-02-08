@@ -1,8 +1,9 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {NavLink, Route, Switch} from 'react-router-dom';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
-import Header from './components/Header/header.js';
-import Account from './components/Account/account.js';
+import Header from './components/Header';
+import Account from './components/Account';
+import Footer from './components/Footer';
 
 import './App.scss'
 
@@ -13,7 +14,8 @@ class App extends Component {
             <>
                 <Switch>
                     <Route exact path="/" component={Header}/>
-                    <Route exact path="/footer" component={Account}/>
+                    <Route exact path="/login" component={Account}/>
+                    <Route exact path="/footer" component={Footer}/>
                 </Switch>
             </>
         );
