@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
+import Login from '../../components/Account/Login/login.js';
 
-import Header from './components/Header/header.js';
-import Login from './components/Account/Login/login.js';
 
 import './account.scss';
 
@@ -10,8 +9,7 @@ class Account extends Component {
 
     render(){
         return(
-            <div>    
-                <Header/>
+            <div>
                 <Login/>
             </div>
         )
