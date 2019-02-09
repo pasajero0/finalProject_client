@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ProductsHeader from './ProductsHeader'
 import ProductsGallery from './ProductsGallery'
-import ProductsBanners from './ProductsBanners'
+// import ProductsBanners from './ProductsBanners'
 
 import './Products.scss'
 
@@ -12,7 +12,7 @@ class Products extends Component {
                 <section className='products'>
                     <ProductsHeader/>
                     <ProductsGallery/>
-                    <ProductsBanners/>
+                    {/*<ProductsBanners/>*/}
                 </section>
             </>
         );

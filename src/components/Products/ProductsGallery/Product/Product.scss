@@ -1,47 +1,74 @@
 .productItem {
-    width: 25%;
-    border: 1px solid #e0e0e0;
-    box-sizing: border-box;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    width: 18%;
+    margin-right: 18px;
+    margin-bottom: 67px;
+ /*   position: relative;
+    overflow: hidden;*/
+
+    &:nth-child(5n) {
+        margin-right: 0px;
+    }
+
+    //&::before {
+    //    content: '$89';
+    //    display: inline-block;
+    //    position: absolute;
+    //    top: 34px;
+    //    left: 35px;
+    //    color: #000000;
+    //    font-size: 16px;
+    //    z-index: 1;
+    //}
+}
+
+.productItemImg__link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
     overflow: hidden;
+}
 
-    &::before {
-        content: '$89';
-        display: inline-block;
-        position: absolute;
-        top: 34px;
-        left: 35px;
-        color: #000000;
-        font-size: 16px;
-        z-index: 1;
-    }
+.productItemImg__img {
+    display: inline-block;
+    max-width: 100%;
+    transition: all .5s ease-out;
 
-    &__link {
-        display: flex;
-        align-items: center;
-        max-width: 100%;
-    }
-
-    &__img {
-        display: inline-block;
-        max-width: 100%;
-        transition: all .5s ease-out;
-
-        &:hover,
-        &:focus,
-        &:active {
-            transform: scale(1.5);
-        }
+    &:hover,
+    &:focus,
+    &:active {
+        transform: scale(1.5);
     }
 }
 
-@media (max-width: 992px) {
-
-    .productItem {
-        width: 50%;
-
-        &::before {
-            font-size: 25px;
-        }
-    }
+.productItemTitle__link {
+    margin-bottom: 9px;
+    color: #000000;
+    font-size: 14px;
+    //font-family: $poppins;
 }
+
+.productItemPrice {
+    //font-family: $poppins;
+    color: #979797;
+    font-size: 14px;
+}
+
+
+//@media (max-width: 992px) {
+//
+//    .productItem {
+//        width: 47%;
+//
+//        &:nth-child(2n) {
+//            margin-right: 0px;
+//        }
+//
+///*        &::before {
+//            font-size: 25px;
+//        }*/
+//    }
+//}

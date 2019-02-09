@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0px 20px;
 }
 
 .burgerIcon {
@@ -25,7 +26,7 @@
     background-color: #ffffff;
     padding: 20px 180px;
     position: absolute;
-    bottom: -331px;
+    bottom: -363px;
     left: 0px;
     opacity: 0;
 }
@@ -47,7 +48,7 @@
         margin-bottom: 50px;
 
         &:last-child {
-            margin-bottom: 0px;
+            margin-bottom: 30px;
         }
     }
 

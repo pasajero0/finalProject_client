@@ -8,11 +8,15 @@ class Product extends Component {
         return (
             <>
                 <div className='productItem'>
-                    <a href="#" className="productItem__link">
+                    <a href="#" className="productItemImg__link">
                         <img src={this.props.imgSrc}
                              alt='Dress'
-                             className='productItem__img'/>
+                             className='productItemImg__img'/>
                     </a>
+                    <a href="#" className="productItemTitle__link">
+                        <span className="productItemTitle__title">{this.props.title}</span>
+                    </a>
+                    <span className="productItemPrice">{this.props.price}</span>
                 </div>
             </>
         );
