@@ -14,9 +14,12 @@ class Navbar extends Component {
                             <div className="navbarMenuContainer">
                                 <FaBars className='burgerIcon'/>
                                 <div className="navbarMenuContent">
-                                    <a href="#" className="navbarMenuLogo__link">
-                                        <p className="navbarMenuLogo">Uno</p>
-                                    </a>
+                                    <div className='navbarMenuClose'>
+                                        <div className='closeIcon'>X</div>
+                                        <a href="#" className="navbarMenuLogo__link">
+                                            <p className="navbarMenuLogo">Uno</p>
+                                        </a>
+                                    </div>
                                     <ul className="navbarNav">
                                         <li className="navbarNav__item">
                                             <a href="#" className="navbarNav__link">Category1</a>
@@ -35,10 +38,10 @@ class Navbar extends Component {
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <a href="#" className="mainLogo__link">
+                            <a href="/" className="mainLogo__link">
                                 <h1 className="mainLogo">Uno</h1>
                             </a>
+                            </div>
                             <NavbarIcons/>
                         </div>
                     </div>

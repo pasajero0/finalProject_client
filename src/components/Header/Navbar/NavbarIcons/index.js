@@ -16,7 +16,7 @@ class NavbarIcons extends Component {
                         </a>
                     </li>
                     <li className='NavbarIconsMenu__item'>
-                        <a href='#' className='NavbarIconsMenu__link'>
+                        <a href='/login' className='NavbarIconsMenu__link'>
                             <FaRegUser className='NavbarIconsMenu__icon'/>
                         </a>
                     </li>

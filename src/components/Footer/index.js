@@ -8,7 +8,7 @@ class Footer extends Component {
                 <div className='container'>
                     <div className="footerContent">
                         <a href="#" className="mainLogo__link">
-                            <h1 className='mainLogo'>Uno</h1>
+                            <h2 className='mainLogo'>Uno</h2>
                         </a>
                         <ul className='footerMenu'>
                             <li className='footerMenu__item'>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
 import Login from '../../components/Account/Login/login.js';
-
 
 import './account.scss';
 
@@ -10,7 +11,9 @@ class Account extends Component {
     render(){
         return(
             <div>
+            	<Header></Header>
                 <Login/>
+				<Footer></Footer>
             </div>
         )
     }
