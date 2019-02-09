@@ -1,0 +1,12 @@
+.productsHeader {
+  width: 100%;
+  background-color: #131313;
+  padding: 46px 0px 43px;
+}
+
+@media (max-width: 480px) {
+  .productsHeader {
+    display: none;
+  }
+}
+
