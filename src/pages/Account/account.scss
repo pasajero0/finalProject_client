@@ -4,7 +4,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 61vw;
+    min-height: 440px;
+    height: calc(100vh - 61px);
+    /*height: calc(100vh - 323px);*/
 
     &-info {
         margin-top: 50px;
