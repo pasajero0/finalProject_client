@@ -1,7 +1,15 @@
 .productsGalleryContent{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 50px;
+}
+
+@media (max-width: 992px) {
+
+    .productsGalleryContent {
+        justify-content: center;
+    }
 }
 
