@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import Products from '../../components/Products'
 
 ////////////////////////////////////
-import Cork from '../../components/Cork/Cork.js'
+import Cork from '../../components/Cork'
 ////////////////////////////////////
 
 class Homepage extends Component {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Login from './Login/login.js';
+import Login from './Login';
 
 import './account.scss';
 
