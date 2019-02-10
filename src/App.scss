@@ -1,0 +1,23 @@
+@import 'reset';
+@import 'vars';
+
+body {
+    font-family: $oswald, $poppins;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1440px;
+    min-width: 320px;
+    width: 100%;
+    //padding: 0px 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.mainLogo {
+    font-family: 'Oswald', sans-serif;
+    color: #333;
+    text-transform: uppercase;
+}
+
