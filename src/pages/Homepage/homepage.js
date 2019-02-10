@@ -2,11 +2,9 @@ import React, {Component} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Products from '../../components/Products'
-// import './homepage.scss';
 
 ////////////////////////////////////
 import Cork from '../../components/Cork/Cork.js'
-
 ////////////////////////////////////
 
 class Homepage extends Component {
@@ -17,8 +15,7 @@ class Homepage extends Component {
                 <Header/>
                 <Cork title='Slider' background='lightgreen'></Cork>
                 <Products/>
-                {/*<Cork title='Homepage' background='beige'></Cork>*/}
-                <Cork title='another section' background='lightyellow'></Cork>
+                {/*<Cork title='Homepage' background='lightyellow'></Cork>*/}
                 <Footer/>
             </>
         )

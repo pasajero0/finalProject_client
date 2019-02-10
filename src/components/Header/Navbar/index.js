@@ -6,20 +6,32 @@ import './Navbar.scss';
 class Navbar extends Component {
 
     render() {
+
+        const openCloseMenu = () => {
+            const hamburger = document.getElementById('nav-icon');
+            if (hamburger.classList.contains('open')){
+                document.getElementById('navbarMenuContent').setAttribute("style", "left:-3000px");
+                hamburger.classList.remove('open');
+            } else {
+                document.getElementById('navbarMenuContent').setAttribute("style", "left:0px");
+                hamburger.className = 'open';
+            }
+        }
+
         return (
             <>
                 <nav className="navbar">
                     <div className="container">
                         <div className="navbarContent">
                             <div className="navbarMenuContainer">
-                                <FaBars className='burgerIcon'/>
-                                <div className="navbarMenuContent">
-                                    <div className='navbarMenuClose'>
-                                        <div className='closeIcon'>X</div>
-                                        <a href="#" className="navbarMenuLogo__link">
-                                            <p className="navbarMenuLogo">Uno</p>
-                                        </a>
-                                    </div>
+                                <div id="nav-icon" onClick={openCloseMenu}>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                </div>
+                                {/*<FaBars onClick={openMenu} className='burgerIcon'/>*/}
+                                <div id='navbarMenuContent' className="navbarMenuContent">
                                     <ul className="navbarNav">
                                         <li className="navbarNav__item">
                                             <a href="#" className="navbarNav__link">Category1</a>
