@@ -2,10 +2,10 @@ const fs = require('fs');
 const props = {};
 const componentsPath = './src/components';
 
-const tmplClass = `import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+const tmplClass = `import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-import './{{name}}.scss'
+import './{{name}}.scss';
 
 const propTypes = {
 };
@@ -33,11 +33,11 @@ class {{name}} extends Component {
 
 export default {{name}};`;
 
-const tmplRedux = `import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
+const tmplRedux = `import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-import './{{name}}.scss'
+import './{{name}}.scss';
 
 const propTypes = {
 };
@@ -81,10 +81,10 @@ export default connect(mapStateToProps, mapDispatchToProps)({{name}});
 `;
 
 
-const tmplFunc = `import React from 'react'
-import PropTypes from 'prop-types'
+const tmplFunc = `import React from 'react';
+import PropTypes from 'prop-types';
 
-import './{{name}}.scss'
+import './{{name}}.scss';
 
 /**
  * General component description in JSDoc format. Markdown is *supported*.
@@ -111,8 +111,8 @@ const tmplScss = `@import '../../vars';
 .{{name}}{
 }`;
 
-const tmplSpec = `import React from 'react'
-import {{name}} from './{{name}}.js'
+const tmplSpec = `import React from 'react';
+import {{name}} from './{{name}}.js';
 
 describe('Test for {{name}} component', ()=>{
     const props = {};
@@ -153,10 +153,11 @@ const generateFiles = (name, type, dir) => {
 };
 
 // extract args form command line
-process.argv.forEach((value, index) => {
-  let matches = value.match(/--([^=]+)=([^\s]+)/);
+process.argv.forEach((value) => {
+  const matches = value.match(/--([^=]+)=([^\s]+)/);
   if (matches !== null) {
-    props[matches[1]] = matches[2];
+    const [, a, b] = matches;
+    props[a] = b;
   }
 });
 
@@ -165,7 +166,7 @@ if (props.name) {
   let dir = componentsPath;
   if (parts.length) {
     parts.forEach((value) => {
-      dir += '/' + value;
+      dir += `/${value}`;
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
       }
@@ -173,13 +174,3 @@ if (props.name) {
   }
   generateFiles(parts[parts.length - 1], props.type, dir);
 }
-
-
-
-
-
-
-
-
-
-
