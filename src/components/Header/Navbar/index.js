@@ -3,6 +3,9 @@ import NavbarIcons from './NavbarIcons';
 import {NavLink} from 'react-router-dom';
 import './Navbar.scss';
 
+const leftPosHide = {left: '-3000px'};
+const leftPosShow = {left: '0'}
+
 class Navbar extends Component {
 
     state = {
@@ -14,28 +17,19 @@ class Navbar extends Component {
     }
     render() {
 
-        let navbarMenuContentStyle = {left: '-3000px'}
-
-        let boxClass = ['navIcon'];
-
-        if(this.state.menuOpened) {
-            boxClass.push('open');
-            navbarMenuContentStyle = {left: '0'}
-        }
-
         return (
             <>
                 <nav className="navbar">
                     <div className="container">
                         <div className="navbarContent">
                             <div className="navbarMenuContainer">
-                                <div className={boxClass.join(' ')} onClick={this.toogleMenu.bind(this)}> 
+                                <div className={this.state.menuOpened ? 'navIcon open' : 'navIcon'} onClick={this.toogleMenu.bind(this)}> 
                                   <span></span>
                                   <span></span>
                                   <span></span>
                                   <span></span>
                                 </div>
-                                <div id='navbarMenuContent' className="navbarMenuContent" style={navbarMenuContentStyle}>
+                                <div id='navbarMenuContent' className="navbarMenuContent" style={this.state.menuOpened ? leftPosShow : leftPosHide}>
                                     <ul className="navbarNav">
                                         <li className="navbarNav__item">
                                             <NavLink to="#" className='navbarNav__link'>Category1</NavLink>
