@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import {FaBars} from "react-icons/fa";
-import NavbarIcons from './NavbarIcons'
+import NavbarIcons from './NavbarIcons/NavbarIcons'
 import {NavLink} from 'react-router-dom';
 import './Navbar.scss';
+
+const leftPosHide = {left: '-3000px'};
+const leftPosShow = {left: '0'};
 
 class Navbar extends Component {
 
     state = {
         menuOpened: false
-    }
+    };
 
     toogleMenu() {
         this.setState({menuOpened: !this.state.menuOpened});
@@ -16,46 +19,69 @@ class Navbar extends Component {
 
     render() {
         return (
-            <>
-                <nav className="navbar">
-                    <div className="container">
-                        <div className="navbarContent">
-                            <div className="navbarMenuContainer">
-                                <div className={this.state.menuOpened ? 'navIcon open' : 'navIcon'} onClick={this.toogleMenu.bind(this)}> 
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
+            <div className="navbar">
+                <div className="container">
+                    <div className="navbarContainer">
+                        <div className="navbarTop">
+                            <div className="navbarTopMainContent">
+                                <div className={this.state.menuOpened ? 'navBurger open' : 'navBurger'}
+                                     onClick={this.toogleMenu.bind(this)}>
+                                    <span className="navBurger__line"></span>
+                                    <span className="navBurger__line"></span>
+                                    <span className="navBurger__line"></span>
+                                    <span className="navBurger__line"></span>
+
                                 </div>
 
-                                <div id='navbarMenuContent' className="navbarMenuContent" style={this.state.menuOpened ? leftPosShow : leftPosHide}>
-                                    <ul className="navbarNav">
-                                        <li className="navbarNav__item">
-                                            <NavLink to="#" className='navbarNav__link'>Category1</NavLink>
-                                        </li>
-                                        <li className="navbarNav__item">
-                                            <NavLink to="#" className='navbarNav__link'>Category2</NavLink>
-                                        </li>
-                                        <li className="navbarNav__item">
-                                            <NavLink to="#" className='navbarNav__link'>Category3</NavLink>
-                                        </li>
-                                        <li className="navbarNav__item">
-                                            <NavLink to="#" className='navbarNav__link'>Category4</NavLink>
-                                        </li>
-                                        <li className="navbarNav__item">
-                                            <NavLink to="#" className='navbarNav__link'>Category5</NavLink>
-                                        </li>
-                                    </ul>
-                                </div>
                                 <NavLink to="/" className='mainLogo__link'>
                                     <h1 className="mainLogo">Uno</h1>
                                 </NavLink>
+
+                                <ul className="genderNav">
+                                    <li className="genderNav__item">
+                                        <a href="#" className="genderNav__link">Women</a>
+                                    </li>
+                                    <li className="genderNav__item">
+                                        <a href="#" className="genderNav__link">Men</a>
+                                    </li>
+                                </ul>
                             </div>
                             <NavbarIcons/>
                         </div>
+
+                        <div id='navbarMenuContent' className="navbarMenuContent"
+                             style={this.state.menuOpened ? leftPosShow : leftPosHide}>
+
+                            <ul className="switchNav">
+                                <li className="switchNav__item">
+                                    <a href="#" className="switchNav__link">Women</a>
+                                </li>
+                                <li className="switchNav__item">
+                                    <a href="#" className="switchNav__link">Men</a>
+                                </li>
+                            </ul>
+
+                            <ul className="navbarNav">
+                                <li className="navbarNav__item">
+                                    <NavLink to="#" className='navbarNav__link'>Clothing</NavLink>
+                                </li>
+                                <li className="navbarNav__item">
+                                    <NavLink to="#" className='navbarNav__link'>Accessories</NavLink>
+                                </li>
+                                <li className="navbarNav__item">
+                                    <NavLink to="#" className='navbarNav__link'>Shoes</NavLink>
+                                </li>
+                                <li className="navbarNav__item">
+                                    <NavLink to="#" className='navbarNav__link'>Sport</NavLink>
+                                </li>
+                                <li className="navbarNav__item">
+                                    <NavLink to="#" className='navbarNav__link'>Beauty</NavLink>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </nav>
-            </>
+                </div>
+            </div>
         )
     }
 }

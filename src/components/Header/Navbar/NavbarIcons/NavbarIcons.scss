@@ -3,8 +3,6 @@
 
     &__item {
         margin-right: 25px;
-        display: flex;
-        align-items: center;
 
         &:last-child {
             margin-right: 0px;
@@ -12,7 +10,9 @@
     }
 
     &__link {
-        color: #9d9d9d;
+        display: inline-flex;
+        width: 20px;
+        height: 20px;
     }
 
     &__search {
@@ -31,7 +31,7 @@
     &__icon {
         font-size: 20px;
         color: #000000;
-        font-weight: bold;
-        //font-family: $poppins;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
     }
 }
