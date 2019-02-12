@@ -5,38 +5,48 @@ import './UnoForm.scss';
 
 const propTypes = {
 	title:PropTypes.string.isRequired,
+
+	submitBtnTxt: PropTypes.string,
+	resetBtnTxt: PropTypes.string,
+	displayResetBtn: PropTypes.bool,
+
 	message:PropTypes.string,
-	// messageType: PropTypes.enum['error', 'info'],
-	// status: PropTypes.enum['loading']
+	messageType: PropTypes.oneOf(['error', 'info']),
+	status: PropTypes.oneOf(['loading'])
 };
 
 const defaultProps = {
-	title: 'form',
+	title: 'UnoForm',
+
+	submitBtnTxt: 'submit',
+	resetBtnTxt: 'reset',
+	displayResetBtn: false,
+
 	message: 'message',
 	messageType: 'info',
-	status: 'loading'
+	status: 'loading',
+
 };
 
-/**
- * General component description in JSDoc format. Markdown is *supported*.
- */
 class UnoForm extends Component {
     componentDidMount() {}
-    onSubmit(){}
-	onReset(){}
+    // onSubmit(){}
 
     render() {
         return (
             <div className="UnoForm">
-            {/* here is going to be body of the component */}
-            	<h2>{this.props.title}<h2>
-            	<form className="formBlock">
+            	<h2>{this.props.title}</h2>
+            	<form className="formBlock" onSubmit={this.props.onSubmit.bind(this)}>
+            	{console.log(this.props.children.value)}
             		<div className="formBlock__inputs">
-            			<input className="formBlock__input" type="email" placeholder="Email address*"/>
+            			{this.props.children}
             		</div>
             		<div className="formBlock__buttons">
-	            		<button className="formBlock__btn" type="submit">submit</button>
-            			<button className="formBlock__btn" type="reset">reset</button>
+	            		<button className="formBlock__btn" type="submit">{this.props.submitBtnTxt}</button>
+            			<button className="formBlock__btn" 
+		            			type="reset" 
+		            			style={this.props.displayResetBtn ? {display: 'block'} : {display: 'none'}}
+            			>{this.props.resetBtnTxt}</button>
             		</div>
             	</form>
             </div>
