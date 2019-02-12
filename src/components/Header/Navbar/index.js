@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import NavbarIcons from './NavbarIcons';
+import {FaBars} from "react-icons/fa";
+import NavbarIcons from './NavbarIcons'
 import {NavLink} from 'react-router-dom';
 import './Navbar.scss';
-
-const leftPosHide = {left: '-3000px'};
-const leftPosShow = {left: '0'}
 
 class Navbar extends Component {
 
@@ -15,8 +13,8 @@ class Navbar extends Component {
     toogleMenu() {
         this.setState({menuOpened: !this.state.menuOpened});
     }
-    render() {
 
+    render() {
         return (
             <>
                 <nav className="navbar">
@@ -29,6 +27,7 @@ class Navbar extends Component {
                                   <span></span>
                                   <span></span>
                                 </div>
+
                                 <div id='navbarMenuContent' className="navbarMenuContent" style={this.state.menuOpened ? leftPosShow : leftPosHide}>
                                     <ul className="navbarNav">
                                         <li className="navbarNav__item">

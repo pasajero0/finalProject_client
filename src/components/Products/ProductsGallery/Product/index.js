@@ -4,7 +4,6 @@ import './Product.scss'
 class Product extends Component {
 
     render() {
-        // console.log(this.props);
         return (
             <>
                 <div className="productItemContent">
