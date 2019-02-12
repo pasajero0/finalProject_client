@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import UnoForm from '../../components/UnoForm/UnoForm.js';
+import RenderForm from '../../components/RenderForm/RenderForm.js'
+
+// import UnoForm from '../../components/UnoForm/UnoForm.js';
 import Login from './Login';
 
 import './account.scss';
@@ -20,16 +22,14 @@ class Account extends Component {
             	<Header></Header>
                 <Login/>
 
-            	<UnoForm 	displayResetBtn={true} 
+				<RenderForm displayResetBtn={true} 
         					submitBtnTxt='Login' 
         					onSubmit={this.handleSubmit}>
-				{/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/}
 					<input className="formBlock__input" type="text" placeholder="Login"/>
 					<input className="formBlock__input" type="email" placeholder="Email address"/>
 					<input className="formBlock__input" type="password" placeholder="Password"/>
 					<input className="formBlock__input" type="password" placeholder="Repeat password"/>
-				{/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/}
-            	</UnoForm>
+				</RenderForm>
 
 				<Footer></Footer>
             </div>
