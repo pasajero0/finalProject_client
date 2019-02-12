@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {FaSearch} from 'react-icons/fa';
 import {FaRegUser} from 'react-icons/fa';
 import {FiShoppingCart} from 'react-icons/fi';
+import {NavLink} from 'react-router-dom';
 import './NavbarIcons.scss';
 
 class NavbarIcons extends Component {
@@ -11,19 +12,19 @@ class NavbarIcons extends Component {
                 <ul className='NavbarIconsMenu'>
                     <li className='NavbarIconsMenu__item'>
                         <input className='NavbarIconsMenu__search' type='search' name='search' placeholder='Search'/>
-                        <a href='#' className='NavbarIconsMenu__link'>
+                        <NavLink to="#" className='NavbarIconsMenu__link'>
                             <FaSearch className='NavbarIconsMenu__icon'/>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className='NavbarIconsMenu__item'>
-                        <a href='/login' className='NavbarIconsMenu__link'>
+                        <NavLink to="/login" className='NavbarIconsMenu__link'>
                             <FaRegUser className='NavbarIconsMenu__icon'/>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className='NavbarIconsMenu__item'>
-                        <a href='#' className='NavbarIconsMenu__link'>
+                        <NavLink to="#" className='NavbarIconsMenu__link'>
                             <FiShoppingCart className='NavbarIconsMenu__icon'/>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </>

@@ -1,58 +1,55 @@
 import React, {Component} from 'react';
 import {FaBars} from "react-icons/fa";
 import NavbarIcons from './NavbarIcons'
+import {NavLink} from 'react-router-dom';
 import './Navbar.scss';
 
 class Navbar extends Component {
 
+    state = {
+        menuOpened: false
+    }
+
+    toogleMenu() {
+        this.setState({menuOpened: !this.state.menuOpened});
+    }
+
     render() {
-
-        const openCloseMenu = () => {
-            const hamburger = document.getElementById('nav-icon');
-            if (hamburger.classList.contains('open')){
-                document.getElementById('navbarMenuContent').setAttribute("style", "left:-3000px");
-                hamburger.classList.remove('open');
-            } else {
-                document.getElementById('navbarMenuContent').setAttribute("style", "left:0px");
-                hamburger.className = 'open';
-            }
-        }
-
         return (
             <>
                 <nav className="navbar">
                     <div className="container">
                         <div className="navbarContent">
                             <div className="navbarMenuContainer">
-                                <div id="nav-icon" onClick={openCloseMenu}>
+                                <div className={this.state.menuOpened ? 'navIcon open' : 'navIcon'} onClick={this.toogleMenu.bind(this)}> 
                                   <span></span>
                                   <span></span>
                                   <span></span>
                                   <span></span>
                                 </div>
-                                {/*<FaBars onClick={openMenu} className='burgerIcon'/>*/}
-                                <div id='navbarMenuContent' className="navbarMenuContent">
+
+                                <div id='navbarMenuContent' className="navbarMenuContent" style={this.state.menuOpened ? leftPosShow : leftPosHide}>
                                     <ul className="navbarNav">
                                         <li className="navbarNav__item">
-                                            <a href="#" className="navbarNav__link">Category1</a>
+                                            <NavLink to="#" className='navbarNav__link'>Category1</NavLink>
                                         </li>
                                         <li className="navbarNav__item">
-                                            <a href="#" className="navbarNav__link">Category2</a>
+                                            <NavLink to="#" className='navbarNav__link'>Category2</NavLink>
                                         </li>
                                         <li className="navbarNav__item">
-                                            <a href="#" className="navbarNav__link">Category3</a>
+                                            <NavLink to="#" className='navbarNav__link'>Category3</NavLink>
                                         </li>
                                         <li className="navbarNav__item">
-                                            <a href="#" className="navbarNav__link">Category4</a>
+                                            <NavLink to="#" className='navbarNav__link'>Category4</NavLink>
                                         </li>
                                         <li className="navbarNav__item">
-                                            <a href="#" className="navbarNav__link">Category5</a>
+                                            <NavLink to="#" className='navbarNav__link'>Category5</NavLink>
                                         </li>
                                     </ul>
                                 </div>
-                            <a href="/" className="mainLogo__link">
-                                <h1 className="mainLogo">Uno</h1>
-                            </a>
+                                <NavLink to="/" className='mainLogo__link'>
+                                    <h1 className="mainLogo">Uno</h1>
+                                </NavLink>
                             </div>
                             <NavbarIcons/>
                         </div>
