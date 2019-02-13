@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Product from '../../Product'
-import './ProductsGallery.scss'
+import Product from '../Product/Product.js'
+import './ProductsList.scss'
 
-class ProductsGallery extends Component {
+class ProductsList extends Component {
     state = {
         products: [
             {
@@ -86,5 +86,5 @@ class ProductsGallery extends Component {
     }
 }
 
-export default ProductsGallery;
+export default ProductsList;
 

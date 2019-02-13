@@ -9,10 +9,8 @@ class NavbarIcons extends Component {
     render() {
         return (
             <>
+                <Search/>
                 <ul className="NavbarIconsMenu">
-                    <li className="NavbarIconsMenu__item">
-                        <Search/>
-                    </li>
                     <li className='NavbarIconsMenu__item'>
                         <NavLink to="/login" className='NavbarIconsMenu__link'>
                             <FaRegUser className='NavbarIconsMenu__icon'/>

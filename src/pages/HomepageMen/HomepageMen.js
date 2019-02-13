@@ -1,19 +1,18 @@
 import React, {Component} from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Products from '../../components/Products';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import ProductsList from '../../components/ProductsList/ProductsList.js';
 // import SimpleSlider from '../../components/SimpleSlider/SimpleSlider.js'
-import Cork from '../../components/Cork';
+import Cork from '../../components/Cork/Cork.jsx';
 
 class HomepageMen extends Component {
-
     render() {
         return (
             <>
                 <Header/>
                 <Cork title='Slider' background='lightyellow'></Cork>
                 {/*<SimpleSlider/>*/}
-                <Products/>
+                <ProductsList/>
                 {/*<Cork title='Homepage' background='lightyellow'></Cork>*/}
                 <Footer/>
             </>
