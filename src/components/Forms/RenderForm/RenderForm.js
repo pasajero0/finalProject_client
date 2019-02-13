@@ -6,23 +6,25 @@ import './RenderForm.scss';
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-function RenderForm({isPristine, isSubmitting, messageType, message, children, onSubmit, onReset, submitLabel, resetLabel, displayResetBtn}) {
+function RenderForm({title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset}) {
     return (
-            <div className="RenderForm">
-	            <form className="formBlock" onSubmit={onSubmit}>
-	        		<div className="formBlock__inputs">
+            <div className="renderForm">
+	            <form className="renderForm__formBlock" onSubmit={onSubmit}>
+	            	<h3 className="renderForm__title">
+	            		{title}
+	            	</h3>
+	        		<div className="renderForm__inputs">
 	        			{children}
 	        		</div>
-	        		<div className="formBlock__buttons">
-	            		<button className="formBlock__btn" type="submit">{submitLabel}</button>
-	        			<button className="formBlock__btn" 
+	        		<div className="renderForm__buttons">
+	            		<button className="renderForm__btn" type="submit">{submitLabel}</button>
+	        			<button className="renderForm__btn" 
 		            			type="reset" 
-		            			style={displayResetBtn ? {display: 'block'} : {display: 'none'}}
+		            			style={isVisibleReset ? {display: 'block'} : {display: 'none'}}
 	        			>{resetLabel}</button>
 	        		</div>
 	        	</form>
             </div>
-
     );
 }
 
@@ -31,7 +33,7 @@ RenderForm.propTypes = {
 
 	submitLabel: PropTypes.string,
 	resetLabel: PropTypes.string,
-	displayResetBtn: PropTypes.bool,
+	isVisibleReset: PropTypes.bool,
 
 	message:PropTypes.string,
 	messageType: PropTypes.oneOf(['error', 'info']),
@@ -39,11 +41,11 @@ RenderForm.propTypes = {
 };
 
 RenderForm.defaultProps = {
-	// title: 'UnoForm',
+	title: 'UnoForm',
 
 	submitLabel: 'submit',
 	resetLabel: 'reset',
-	displayResetBtn: false,
+	isVisibleReset: false,
 
 	message: 'message',
 	messageType: 'info',

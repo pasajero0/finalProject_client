@@ -1,4 +1,4 @@
-import { ALL_PRODUCTS } from '../../actions/products';
+import { ALL_PRODUCTS } from '../actions/products';
 
 const initialState = {
   productsList: { allProducts:[]}

@@ -1,13 +1,17 @@
-@import '../../vars';
+@import '../../../vars';
 
-.RenderForm{
+.renderForm{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: 50px 0;
+	
+	.renderForm__title{
+		text-align: center;
+	}
 
-	.formBlock__inputs {
+	.renderForm__inputs {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -15,20 +19,20 @@
 
 		input {
 			font-size: 14px;
-		    width: 45%;
+		    width: 40%;
 		    outline: none;
 		    padding-left: 5px;
-		    margin: 30px 10px;
+		    margin: 10px 5px;
 		    // border: none;
 		    // border-bottom: 2px solid #000;
 		}
 	}
-	.formBlock__buttons{
+	.renderForm__buttons{
 		display: flex;
 		justify-content: space-around;
 	    margin-top: 50px;
 	}
-	.formBlock__btn{
+	.renderForm__btn{
 		width: 160px;
 	    padding: 15px;
 	    color: #fff;
@@ -37,5 +41,6 @@
 	    outline: none;
 	    border: none;
 	    cursor: pointer;
+	    margin: 0 10px;
 	}
 }
