@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {FiSearch} from 'react-icons/fi';
 import {FaRegUser} from 'react-icons/fa';
 import {FiShoppingCart} from 'react-icons/fi';
 import {NavLink} from 'react-router-dom';
-import '../../../../_vars.scss';
+import Search from '../Search/Search.js';
 import './NavbarIcons.scss';
 
 class NavbarIcons extends Component {
@@ -12,12 +11,7 @@ class NavbarIcons extends Component {
             <>
                 <ul className="NavbarIconsMenu">
                     <li className="NavbarIconsMenu__item">
-                        <form action="url">
-                            <input className="NavbarIconsMenu__search" type="search" name="search" placeholder="Search"/>
-                            <NavLink to="#" className="NavbarIconsMenu__link">
-                                <FiSearch className="NavbarIconsMenu__icon"/>
-                            </NavLink>
-                        </form>
+                        <Search/>
                     </li>
                     <li className='NavbarIconsMenu__item'>
                         <NavLink to="/login" className='NavbarIconsMenu__link'>

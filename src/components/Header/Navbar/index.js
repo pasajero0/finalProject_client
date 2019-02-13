@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {FaBars} from "react-icons/fa";
 import NavbarIcons from './NavbarIcons/NavbarIcons'
 import {NavLink} from 'react-router-dom';
 import './Navbar.scss';
@@ -30,7 +29,6 @@ class Navbar extends Component {
                                     <span className="navBurger__line"></span>
                                     <span className="navBurger__line"></span>
                                     <span className="navBurger__line"></span>
-
                                 </div>
 
                                 <NavLink to="/" className='mainLogo__link'>
@@ -39,10 +37,10 @@ class Navbar extends Component {
 
                                 <ul className="genderNav">
                                     <li className="genderNav__item">
-                                        <a href="#" className="genderNav__link">Women</a>
+                                        <NavLink to="/women" className="genderNav__link">Women</NavLink>
                                     </li>
                                     <li className="genderNav__item">
-                                        <a href="#" className="genderNav__link">Men</a>
+                                        <NavLink to="/men" className="genderNav__link">Men</NavLink>
                                     </li>
                                 </ul>
                             </div>
