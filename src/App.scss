@@ -2,7 +2,7 @@
 @import 'vars';
 
 body {
-    font-family: $oswald, $poppins;
+    font-family: $oswald;
     box-sizing: border-box;
 }
 
@@ -10,15 +10,13 @@ body {
     max-width: 1440px;
     min-width: 320px;
     width: 100%;
-    //padding: 0px 20px;
+    padding: 0px 20px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
 .mainLogo {
-    font-family: 'Oswald', sans-serif;
     color: #000000;
-    font-size: 80px;
     text-transform: uppercase;
 }
 
