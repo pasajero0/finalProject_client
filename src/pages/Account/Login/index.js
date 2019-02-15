@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import '../account.scss';
+import '../Account.scss';
 
 // создание компонента Login
 class Login extends Component {

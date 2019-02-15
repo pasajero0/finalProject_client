@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { FaLongArrowAltRight } from "react-icons/fa";
-import '../account.scss';
+import '../Account.scss';
 //создание компонента REgistea
 class Register extends Component {
 

@@ -68,28 +68,22 @@ const LoginForm = (
 
   return (
     <RenderForm
-      title="Form title"
+      title=""
       submitLabel="Login"
       resetLabel="Reset"
-      isVisibleReset={true}
+      isVisibleReset={false}
       onSubmit={handleSubmit(onSubmitAction)}
-      onReset={reset}
-
-      error={error}
+      onReset={reset}  
+    >
+      {/*error={error}
       isSubmitting={submitting}
       isPristine={pristine}
       isSucceeded={submitSucceeded}
       isInvalid={invalid}
       message={message}
-      messageType={messageType}
-      
-    >
-  {/*<Field name="email" type="email" component={RenderField} label="Email" />
-      <Field name="password" type="text" component={RenderField} label="Password" />*/}
-      {/*<input className="formBlock__input" type="text" placeholder="Login"/>
-      <input className="formBlock__input" type="email" placeholder="Email address"/>
-      <input className="formBlock__input" type="password" placeholder="Password"/>
-      <input className="formBlock__input" type="password" placeholder="Repeat password"/>*/}
+      messageType={messageType}*/}
+      {/*<Field name="email" type="email" component={RenderField} label="Email" />
+      <Field name="password" type="password" component={RenderField} label="Password" />*/}
     </RenderForm>
   );
 };

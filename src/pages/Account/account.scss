@@ -73,3 +73,76 @@
 
 
 }
+
+
+.accountBlock {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 440px;
+    height: 100vh;
+
+    background: lightyellow;
+
+    &__title {
+        font-family: ﻿PlayfairDisplay-Regular, ﻿AdobeInvisFont, ﻿MyriadPro-Regular;
+        font-size: 80px;
+        text-align: center;
+        margin-bottom: 36px;
+    }
+
+    &__longLine, &__shortLine{
+        display: inline-block;
+        height: 1px;
+        background: #dbdbdb;
+    }
+    &__longLine{
+        width: 225px;
+        margin-bottom: 5px;
+    }
+    &__shortLine{
+        width: 82px;
+    }
+    &__switchButtons {
+        font-size: 14px;
+        margin-top: 87px;
+        margin-bottom: 43px;
+
+        .accountBlock__loginButton, .accountBlock__registerButton {
+            color: #c6c6c6;
+            cursor: pointer;
+        }
+        .accountBlock__switchButtons_active {
+            color: #000;
+            border-bottom: 2px solid #000;
+        }
+    }
+    &__info {
+        font-size: 13px;
+        color: rgba(133, 133, 133, 255);
+        text-align: center;
+    }
+    &__socialButtonsBlock{
+        margin-top: 50px;
+        .accountBlock__socialButton{
+            width: 165px;
+            padding: 15px 0;
+            border-radius: 30px;
+            color: #fff;
+            border: none;
+            outline: none;
+            text-transform: uppercase;
+            padding-left: 5px;
+            cursor: pointer;
+        }
+        .accountBlock__socialButton_facebook{
+            background-color: #325c94;
+            margin-right: 10px;
+        }
+        .accountBlock__socialButton_google{
+            background-color: #ea3032;
+        }
+    }
+}

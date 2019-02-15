@@ -9,7 +9,7 @@ import './RenderForm.scss';
 function RenderForm({title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset}) {
     return (
             <div className="renderForm">
-	            <form className="renderForm__formBlock" onSubmit={onSubmit}>
+	            <form className="renderForm__formBlock" onSubmit={onSubmit} onReset={onReset}>
 	            	<h3 className="renderForm__title">
 	            		{title}
 	            	</h3>
@@ -29,27 +29,26 @@ function RenderForm({title, children, onSubmit, onReset, submitLabel, resetLabel
 }
 
 RenderForm.propTypes = {
-	// title:PropTypes.string.isRequired,
-
+	title:PropTypes.string,
 	submitLabel: PropTypes.string,
 	resetLabel: PropTypes.string,
 	isVisibleReset: PropTypes.bool,
+	onClick: PropTypes.func.isRequired,
 
-	message:PropTypes.string,
-	messageType: PropTypes.oneOf(['error', 'info']),
-	status: PropTypes.oneOf(['loading'])
+	// message:PropTypes.string,
+	// messageType: PropTypes.oneOf(['error', 'info']),
+	// status: PropTypes.oneOf(['loading'])
 };
 
 RenderForm.defaultProps = {
-	title: 'UnoForm',
-
+	title: '',
 	submitLabel: 'submit',
 	resetLabel: 'reset',
 	isVisibleReset: false,
 
-	message: 'message',
-	messageType: 'info',
-	status: 'loading'
+	// message: 'message',
+	// messageType: 'info',
+	// status: 'loading'
 };
 
 export default RenderForm;
