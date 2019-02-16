@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import Products from '../../components/Products'
 
 ////////////////////////////////////
-import SimpleSlider from '../../components/SimpleSlider/SimpleSlider.js'
+import Slider from '../../components/Slider/Slider.js'
 ////////////////////////////////////
 
 class Homepage extends Component {
@@ -13,7 +13,7 @@ class Homepage extends Component {
         return (
             <>
                 <Header/>
-                <SimpleSlider/>
+                <Slider/>
                 <Products/>
                 {/*<Cork title='Homepage' background='lightyellow'></Cork>*/}
                 <Footer/>

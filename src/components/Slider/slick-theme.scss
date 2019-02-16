@@ -1,15 +1,12 @@
-@charset 'UTF-8';
-/* Slider */
-
-
 /* Arrows */
+
 .slick-prev,
 .slick-next
 {
     font-size: 0;
     line-height: 0;
 
-    position: absolute;
+    position: relative;
     top: 50%;
 
     display: block;
@@ -53,12 +50,13 @@
 .slick-prev:before,
 .slick-next:before
 {
-/*    font-family: 'slick';*/
+    font-family: 'slick';
     font-size: 20px;
     line-height: 1;
 
     opacity: .75;
-    color: black;
+    color: white;
+    background-color: gray;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -73,6 +71,7 @@
     right: -25px;
     left: auto;
 }
+
 .slick-prev:before
 {
     content: '←';
@@ -100,6 +99,7 @@
     content: '←';
 }
 
+
 /* Dots */
 .slick-dotted.slick-slider
 {
@@ -109,7 +109,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: 15px;
+    bottom: 5px;
 
     display: block;
 
@@ -165,8 +165,8 @@
 .slick-dots li button:before
 {
 /*    font-family: 'slick';*/
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 60px;
+    line-height: 60px;
 
     position: absolute;
     top: 0;
@@ -189,3 +189,4 @@
     opacity: .75;
     color: yellow;
 }
+
