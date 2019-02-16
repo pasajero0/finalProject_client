@@ -8,7 +8,7 @@ import { FaPinterestP } from "react-icons/fa";
 import '../Header.scss';
 
 //создание компонента с иконками соц-сетей
-class Index extends Component  {
+class SocMedia extends Component  {
 
     render(){
         return (
@@ -22,4 +22,4 @@ class Index extends Component  {
     }
 }
 
-export default Index;
+export default SocMedia;

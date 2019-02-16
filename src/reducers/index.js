@@ -3,7 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 import products from './products/products.js';
 
 const rootReducer = combineReducers({ 
-	form: formReducer ,
+	form: formReducer,
 	products
 });
 
