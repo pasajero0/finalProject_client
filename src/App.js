@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink, Route, Switch} from 'react-router-dom';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
-import Homepage from './pages/HomePage/Homepage.js'
+import Homepage from './pages/Homepage/Homepage.js'
 import HomepageWomen from './pages/HomepageWomen/HomepageWomen.js';
 import HomepageMen from './pages/HomepageMen/HomepageMen.js';
 import Account from './pages/Account';
