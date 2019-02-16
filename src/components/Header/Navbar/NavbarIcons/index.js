@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom'
 import {FaSearch} from 'react-icons/fa';
 import {FaRegUser} from 'react-icons/fa';
 import {FiShoppingCart} from 'react-icons/fi';
@@ -16,14 +17,14 @@ class NavbarIcons extends Component {
                         </a>
                     </li>
                     <li className='NavbarIconsMenu__item'>
-                        <a href='/login' className='NavbarIconsMenu__link'>
+                        <NavLink to='/login' className='NavbarIconsMenu__link'>
                             <FaRegUser className='NavbarIconsMenu__icon'/>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className='NavbarIconsMenu__item'>
-                        <a href='#' className='NavbarIconsMenu__link'>
+                        <NavLink to='/cart' className='NavbarIconsMenu__link'>
                             <FiShoppingCart className='NavbarIconsMenu__icon'/>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </>
