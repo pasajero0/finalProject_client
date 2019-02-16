@@ -1,90 +1,65 @@
 import React, {Component} from 'react';
-import Product from '../Product/Product.js'
-import './ProductsList.scss'
+import ProductListEntry from '../ProductListEntry/ProductListEntry.js';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {fetchAllProducts} from '../../actions/products'
+
+import './ProductsList.scss';
 
 class ProductsList extends Component {
-    state = {
-        products: [
-            {
-                id: 1,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 2,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 3,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 4,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 5,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 6,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 7,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 8,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 9,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            },
-            {
-                id: 10,
-                img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-                title: 'Dress',
-                price: '$89'
-            }
-        ]
+
+    componentDidMount = () => {
+        this.props.fetchAllProducts()
     };
 
     render() {
-
+        console.log(this.props.isFetching)
+        let productsList = this.props.products.map(item => {
+            return <ProductListEntry key={item.id}
+                                     imgSrc={item.img}
+                                     name={item.name}
+                                     price={item.price}/>
+        });
         return (
-            <>
-                <div className='productsGallery'>
-                    <div className="container">
-                        <div className='productsGalleryContent'>
-                            {this.state.products.map(item => {
-                                return <Product key={item.id} imgSrc={item.img} title={item.title} price={item.price}/>
-                            })}
-                        </div>
+            <div className='productsList'>
+                <div className="container">
+                    <div className='productsListContent'>
+                        {this.props.isFetching ? <span className="productsList__loader">Загрузка...</span> : productsList}
                     </div>
                 </div>
-            </>
+            </div>
         );
     }
 }
 
-export default ProductsList;
+ProductsList.propTypes = {
+    // gender: PropTypes.string,
+    // category: PropTypes.string,
+    id: PropTypes.number,
+    img: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.shape({
+        sum: PropTypes.number,
+        currency: PropTypes.string,
+    }),
+    // color: PropTypes.string,
+    // size: PropTypes.string,
+    // text: PropTypes.string,
+};
+
+
+const mapStateToProps = (state) => {
+    return {
+        products: state.products.productsList,
+        isFetching: state.products.isFetching
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchAllProducts: () => dispatch(fetchAllProducts())
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);
 

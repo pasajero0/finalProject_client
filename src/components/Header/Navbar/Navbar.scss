@@ -1,7 +1,3 @@
-.navbar {
-	position: relative;
-}
-
 .mainLogo {
 	font-size: 40px;
 }
@@ -15,6 +11,7 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20px;
+	position: relative;
 }
 
 .navbarTopMainContent {
@@ -142,8 +139,10 @@
 .navbarMenuContent {
 	display: flex;
 	justify-content: center;
-	background-color: #737373;
-	padding: 17px;
+	/*background-color: #737373;*/
+	border-top: 1px solid #737373;
+	border-bottom: 1px solid #737373;
+	padding: 17px 0px;
 }
 
 .switchNav {
@@ -162,14 +161,16 @@
 	}
 
 	&__link {
-		color: #ffffff;
+		//color: #ffffff;
+		color: #000000;
 		text-transform: uppercase;
 		position: relative;
 		font-size: 14px;
 		font-weight: bold;
 
 		&:hover {
-			color: #d9d9d9;
+			/*color: #d9d9d9;*/
+			color: #737373;
 		}
 	}
 }
@@ -182,6 +183,7 @@
 		top: 0px;
 		background-color: #ffffff;
 		width: 100%;
+		z-index: 3;
 	}
 
 	.navbarContainer {
@@ -214,9 +216,8 @@
 		width: 30%;
 		height: 100%;
 		padding: 0px;
-		z-index: 1;
-		overflow-y: scroll;
-		overflow-x: hidden;
+		z-index: 2;
+		overflow: hidden;
 	}
 
 	.navbarNav__link {
