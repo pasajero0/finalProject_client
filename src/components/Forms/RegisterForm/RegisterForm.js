@@ -1,25 +1,127 @@
-import React, {Component} from 'react';
-import { FaLongArrowAltRight } from "react-icons/fa";
-// import '../Account.scss';
+/**
+ * A prototype of Redux form.
+ *
+ * @version 1.0.0
+ * @see See [ReduxForm](https://redux-form.com/6.4.3) for more information about ReduxForm
+ * @author [Gennady Pugachhevsky](https://github.com/gen-a)
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import {
+  email, required, maxLength, minLength
+} from '../../../validation/validations';
+import { addCustomer } from '../../../actions/customers';
+import RenderForm from '../RenderForm/RenderForm.js';
+// import RenderField from '../RenderField/RenderField.js';
 
-class Register extends Component {
+/**
+ * Validate all form fields and return object with invalid entries error messages
+ * @param values {object} - form values
+ * @returns {{}}
+ */
+const validate = (values) => {
+  const errors = {};
 
-       render(){
-        return()
+  if (!required(values.email)) {
+    errors.email = 'E-mail is required';
+  } else {
+    if (!email(values.email)) {
+      errors.email = 'E-mail has to be valid email';
     }
-}
+  }
+  if (!required(values.subject)) {
+    errors.subject = 'Subject is required';
+  } else {
+    if (!minLength(2)(values.subject) || !maxLength(5)(values.subject)) {
+      errors.subject = 'Subject has tobe between 2 an d 5 chars length';
+    }
+  }
+  if (!required(values.body)) {
+    errors.body = 'Body is required';
+  }
+  return errors;
+};
 
-export default Register;
-            // <div>
-            //     <form className="form">
-            //        <p className="form-info">Creating an account will save you time at checkout and allow you to access 
-            //                 your order status and history.</p>
-            //        <div className="form-input-block">
-            //            <input className="form-input" type="email" placeholder="Email address*"/>
-            //             <input className="form-input" type="password" placeholder="Password*"/>   
-            //             <input className="form-input" type="email" placeholder="Email address*"/>
-            //             <input className="form-input" type="password" placeholder="Password*"/>   
-            //        </div>
-            //        <button className="form-login" type="submit">Register<FaLongArrowAltRight/></button>
-            //     </form>
-            // </div>
+/**
+ * ReduxForm container
+ */
+const RegisterForm = (
+  {
+    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded
+  }
+) => {
+  
+  // let messageType = '';
+  // let message = '';
+
+  // if (error) {
+  //   messageType = 'error';
+  //   message = error;
+  // } else if (submitSucceeded) {
+  //   messageType = 'success';
+  //   message = 'Saved!!';
+  // } else if (submitting) {
+  //   messageType = 'info';
+  //   message = 'Submitting...';
+  // }
+
+  return (
+    <RenderForm
+      title=""
+      submitLabel="Register"
+      resetLabel="Reset"
+      isVisibleReset={false}
+      onSubmit={handleSubmit(onSubmitAction)}
+      onReset={reset}  
+    >
+      {/*error={error}
+      isSubmitting={submitting}
+      isPristine={pristine}
+      isSucceeded={submitSucceeded}
+      isInvalid={invalid}
+      message={message}
+      messageType={messageType}*/}
+      {/*<Field name="email" type="email" component={RenderField} label="Email" />
+      <Field name="password" type="password" component={RenderField} label="Password" />*/}
+    </RenderForm>
+  );
+};
+
+RegisterForm.propTypes = {
+  /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
+  handleSubmit: PropTypes.func.isRequired,
+  /** Action connected to the form submission */
+  onSubmitAction: PropTypes.func.isRequired,
+  /** A generic error for the entire form given by the _error key */
+  error: PropTypes.string,
+  /** true if the form data is the same as its initialized values. Opposite of dirty. */
+  pristine: PropTypes.bool,
+  /** Resets all the values in the form to the initialized state, making it pristine again. */
+  reset: PropTypes.func.isRequired,
+  /** Whether or not your form is currently submitting */
+  submitting: PropTypes.bool,
+  /** true if the form has validation errors. Opposite of valid. */
+  invalid: PropTypes.bool,
+  /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
+  submitSucceeded: PropTypes.bool,
+};
+
+RegisterForm.defaultProps = {
+  error: '',
+  pristine: true,
+  submitting: false,
+  invalid: false,
+  submitSucceeded: false
+};
+
+const mapDispatchToProps = dispatch => (
+  {
+    onSubmitAction: data => dispatch(addCustomer(data))
+  }
+);
+
+export default reduxForm({
+  form: 'RegisterForm', validate
+})(connect(null, mapDispatchToProps)(RegisterForm));

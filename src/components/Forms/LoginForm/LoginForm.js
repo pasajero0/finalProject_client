@@ -52,19 +52,20 @@ const LoginForm = (
     error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded
   }
 ) => {
-  let messageType = '';
-  let message = '';
+  
+  // let messageType = '';
+  // let message = '';
 
-  if (error) {
-    messageType = 'error';
-    message = error;
-  } else if (submitSucceeded) {
-    messageType = 'success';
-    message = 'Saved!!';
-  } else if (submitting) {
-    messageType = 'info';
-    message = 'Submitting...';
-  }
+  // if (error) {
+  //   messageType = 'error';
+  //   message = error;
+  // } else if (submitSucceeded) {
+  //   messageType = 'success';
+  //   message = 'Saved!!';
+  // } else if (submitting) {
+  //   messageType = 'info';
+  //   message = 'Submitting...';
+  // }
 
   return (
     <RenderForm

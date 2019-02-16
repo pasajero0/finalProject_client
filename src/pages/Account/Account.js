@@ -5,29 +5,24 @@ import Footer from '../../components/Footer';
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import LoginForm from '../../components/Forms/LoginForm/LoginForm.js'
-import { displayLogin, displayRegister} from '../../actions/account'
+import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm.js'
+import { displayLoginOrRegister } from '../../actions/account'
 import './Account.scss';
-
-// import RenderForm from '../../components/Forms/RenderForm/RenderForm';
-// import UnoForm from '../../components/UnoForm/UnoForm.js';
-import Login from './Login';
 
 
 class Account extends Component {
 
+    onBtnClick = e => {
+        const btnName = e.currentTarget.innerText
+        console.log(btnName)
+        console.log('isAccountLogin: ', this.props.isAccountLogin)
+        console.log('state: ', this.store)
+        this.props.isAccountLoginAction(btnName)
+    }
+
     render(){
-        console.log(this.props)
 
-        let loginClass;
-        let registerClass;
-
-        if (this.props.isAccountLogin) {
-            loginClass = 'accountBlock__loginButton accountBlock__switchButtons_active';
-            registerClass = 'accountBlock__registerButton';
-        } else {
-            loginClass = 'accountBlock__loginButton';
-            registerClass = 'accountBlock__registerButton accountBlock__switchButtons_active';
-        }
+    
         return(
             <div>
             	<Header></Header>
@@ -36,8 +31,13 @@ class Account extends Component {
                     <span className="accountBlock__longLine"></span>
                     <span className="accountBlock__shortLine"></span>
                     <div className="accountBlock__switchButtons">
-                        <span onClick={displayLogin} className={loginClass}>LOGIN</span> / 
-                        <span onClick={displayRegister} className={registerClass}>REGISTER</span>
+                        <span   onClick={this.onBtnClick} 
+                                className={this.props.isAccountLogin ? 'accountBlock__loginButton accountBlock__switchButtons_active':'accountBlock__loginButton'}
+                                >LOGIN</span>&nbsp;/&nbsp;   
+
+                        <span   onClick={this.onBtnClick} 
+                                className={this.props.isAccountLogin ? 'accountBlock__registerButton':'accountBlock__registerButton accountBlock__switchButtons_active' }
+                                >REGISTER</span>
                     </div>
 
                     <div className="loginContainer" style={this.props.isAccountLogin ? {display: 'block'} : {display: 'none'}}>
@@ -50,7 +50,8 @@ class Account extends Component {
                     </div>
                     
                     <div className="registerContainer" style={ this.props.isAccountLogin ? {display: 'none'} : {display: 'block'}}>
-                        <h1>REGISTER</h1>
+                        <p className="accountBlock__info">Creating an accout will save you time at checkout and allow you to access your status and history</p>
+                        <RegisterForm />
                     </div>
 
                 </section>
@@ -60,14 +61,15 @@ class Account extends Component {
     }
 }
 const mapStateToProps = (state) => { 
+    // console.log(state);
     return {
-        isAccountLogin: false
+        isAccountLogin: state.account.isAccountLogin
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+    isAccountLoginAction: value => dispatch(displayLoginOrRegister(value))
   }
 }
 

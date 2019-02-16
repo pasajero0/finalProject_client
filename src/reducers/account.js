@@ -1,22 +1,17 @@
 import {
-	LOGIN,
-	REGISTER
+	DISPLAY_LOGIN_OR_REGISTER
 } from '../actions/account';
 
 const initialState = {
-  isLogin: true
+  isAccountLogin: true
 };
 
 function account(state = initialState, action) {
+    console.log('FROM REDUCERS: ', action)
+
   switch (action.type) {
-    case LOGIN :
-      return {
-        ...state
-      };
-	case REGISTER :
-      return {
-        ...state
-      };
+    case DISPLAY_LOGIN_OR_REGISTER :
+      return {...state, isAccountLogin: action.payload};
     default:
       return { ...state };
   }

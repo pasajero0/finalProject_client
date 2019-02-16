@@ -33,7 +33,8 @@ RenderForm.propTypes = {
 	submitLabel: PropTypes.string,
 	resetLabel: PropTypes.string,
 	isVisibleReset: PropTypes.bool,
-	onClick: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
+	onReset: PropTypes.func.isRequired
 
 	// message:PropTypes.string,
 	// messageType: PropTypes.oneOf(['error', 'info']),
