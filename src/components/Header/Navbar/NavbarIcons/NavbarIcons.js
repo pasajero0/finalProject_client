@@ -16,7 +16,7 @@ const NavbarIcons = () => {
                     </NavLink>
                 </li>
                 <li className='NavbarIconsMenu__item'>
-                    <NavLink to="#" className='NavbarIconsMenu__link'>
+                    <NavLink to="/cart" className='NavbarIconsMenu__link'>
                         <FiShoppingBag className='NavbarIconsMenu__icon'/>
                     </NavLink>
                 </li>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Product from '../../Products/ProductsGallery/Product';
+import ProductListEntry from '../../ProductListEntry/ProductListEntry';
 import './CartItem.scss';
 
 class CartItem extends Component {
