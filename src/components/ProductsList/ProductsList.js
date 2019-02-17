@@ -7,6 +7,20 @@ import {fetchAllProducts} from '../../actions/products'
 import './ProductsList.scss';
 
 class ProductsList extends Component {
+    static propTypes = {
+        // gender: PropTypes.string,
+        // category: PropTypes.string,
+        id: PropTypes.number,
+        img: PropTypes.string,
+        name: PropTypes.string,
+        price: PropTypes.shape({
+            sum: PropTypes.number,
+            currency: PropTypes.string,
+        }),
+        // color: PropTypes.string,
+        // size: PropTypes.string,
+        // text: PropTypes.string,
+    };
 
     componentDidMount = () => {
         this.props.fetchAllProducts()
@@ -31,22 +45,6 @@ class ProductsList extends Component {
         );
     }
 }
-
-ProductsList.propTypes = {
-    // gender: PropTypes.string,
-    // category: PropTypes.string,
-    id: PropTypes.number,
-    img: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.shape({
-        sum: PropTypes.number,
-        currency: PropTypes.string,
-    }),
-    // color: PropTypes.string,
-    // size: PropTypes.string,
-    // text: PropTypes.string,
-};
-
 
 const mapStateToProps = (state) => {
     return {
