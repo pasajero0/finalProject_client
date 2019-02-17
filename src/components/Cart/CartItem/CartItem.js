@@ -13,7 +13,7 @@ class CartItem extends Component {
                     className="cartItem__close"> &#10005;
                 </button>
                 <div className="cartItem__product">
-                    {/* <Product /> */}
+                    {/* <ProductListEntry /> */}
                     <img src={this.props.imgSrc}
                                  alt='Dress' className="cartItem__img"/>
                    <span className="cartItem__title">

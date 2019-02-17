@@ -3,6 +3,7 @@ import {
     FETCH_PRODUCTS_SUCCESS
 } from '../../actions/products';
 
+
 const initialState = {
     productsList: [],
     isFetching: false
