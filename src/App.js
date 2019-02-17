@@ -7,7 +7,6 @@ import HomepageMen from './pages/HomepageMen/HomepageMen.js';
 import Account from './pages/Account/Account.js';
 import MyCart from './pages/MyCart/MyCart'
 
-
 import './App.scss';
 
 class App extends Component {
