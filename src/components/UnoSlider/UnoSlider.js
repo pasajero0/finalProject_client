@@ -1,5 +1,5 @@
 import React from "react";
-import {Slider as SlickSlider} from "react-slick";
+import Slider from "react-slick";
 import "./slick.scss";
 import "./slick-theme.scss";
 import img1 from './img/1.jpg';
@@ -9,7 +9,7 @@ import img4 from './img/4.jpg';
 import img5 from './img/5.jpg';
 
 
-class Slider extends React.Component {
+class UnoSlider extends React.Component {
   render() {
     let settings = {
       dots: true,
@@ -41,9 +41,10 @@ class Slider extends React.Component {
                     src: img5
                 },
             ];
-      
+
     return (
-      <SlickSlider {...settings} className="slider">
+
+      <Slider {...settings} className="slider">
             
         <div className="slide_1">
             <img className="slider__img" alt="slide1"/> {
@@ -80,9 +81,9 @@ class Slider extends React.Component {
            )
         }
         </div>
-      </SlickSlider>
+      </Slider>
     );
   }
 }
 
-export default Slider
+export default UnoSlider;
