@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
-import { addCustomer } from '../../../actions/customers';
+import { loginCustomer } from '../../../actions/customers';
 import RenderForm from '../RenderForm/RenderForm.js';
 import RenderField from '../RenderField/RenderField.js';
 
@@ -115,7 +115,7 @@ LoginForm.defaultProps = {
 
 const mapDispatchToProps = dispatch => (
   {
-    onSubmitAction: data => dispatch(addCustomer(data))
+    onSubmitAction: data => dispatch(loginCustomer(data))
   }
 );
 

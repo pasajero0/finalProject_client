@@ -11,6 +11,7 @@ export const UPD_PROFILE_REJECTED = 'UPD_PROFILE_REJECTED';
 const urlFetchProfile = 'https://next.json-generator.com/api/json/get/NkO3JQZQ8';
 const urlUpdProfile = 'https://next.json-generator.com/api/json/get/NkO3JQZQ8';
 const urlAddCustomer = '/customers';
+const urlLoginCustomer = '/customers/login';
 
 /**
  * Fetching customer profile data from the server
@@ -70,7 +71,7 @@ export function addCustomer(data) {
         const res = result.data;
         if (res.success) {
           dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
-          dispatch(reset('LoginForm'));
+          dispatch(reset('RegisterForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
         }
@@ -81,3 +82,29 @@ export function addCustomer(data) {
       });
   };
 } 
+/**
+ * Update customer profile data
+ * @param data {object}
+ * @returns {function(*, *)}
+ */
+export function loginCustomer(data) {
+  return (dispatch, getState) => {
+    dispatch(
+      { type: UPD_PROFILE_PENDING, payload: { } }
+    );
+    return axios.post(urlLoginCustomer, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
+          dispatch(reset('LoginForm'));
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch({ type: UPD_PROFILE_REJECTED, payload: err });
+        throw err;
+      });
+  };
+}

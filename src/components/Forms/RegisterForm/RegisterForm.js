@@ -80,9 +80,9 @@ const RegisterForm = (
       message={message}
       messageType={messageType}*/}
     
-      <Field name="email" type="email" component={RenderField} label="Name" />
+      {/*<Field name="email" type="email" component={RenderField} label="Name" />*/}
       <Field name="email" type="email" component={RenderField} label="Email" />
-      <Field name="password" type="password" component={RenderField} label="Repeat password" />
+      {/*<Field name="password" type="password" component={RenderField} label="Repeat password" />*/}
       <Field name="password" type="password" component={RenderField} label="Password" />
     </RenderForm>
   );
