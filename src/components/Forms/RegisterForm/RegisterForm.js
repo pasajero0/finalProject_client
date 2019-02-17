@@ -1,9 +1,5 @@
 /**
- * A prototype of Redux form.
- *
- * @version 1.0.0
- * @see See [ReduxForm](https://redux-form.com/6.4.3) for more information about ReduxForm
- * @author [Gennady Pugachhevsky](https://github.com/gen-a)
+ * Redux form.
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -14,7 +10,7 @@ import {
 } from '../../../validation/validations';
 import { addCustomer } from '../../../actions/customers';
 import RenderForm from '../RenderForm/RenderForm.js';
-// import RenderField from '../RenderField/RenderField.js';
+import RenderField from '../RenderField/RenderField.js';
 
 /**
  * Validate all form fields and return object with invalid entries error messages
@@ -53,19 +49,19 @@ const RegisterForm = (
   }
 ) => {
   
-  // let messageType = '';
-  // let message = '';
+  let messageType = '';
+  let message = '';
 
-  // if (error) {
-  //   messageType = 'error';
-  //   message = error;
-  // } else if (submitSucceeded) {
-  //   messageType = 'success';
-  //   message = 'Saved!!';
-  // } else if (submitting) {
-  //   messageType = 'info';
-  //   message = 'Submitting...';
-  // }
+  if (error) {
+    messageType = 'error';
+    message = error;
+  } else if (submitSucceeded) {
+    messageType = 'success';
+    message = 'Saved!!';
+  } else if (submitting) {
+    messageType = 'info';
+    message = 'Submitting...';
+  }
 
   return (
     <RenderForm
@@ -83,8 +79,11 @@ const RegisterForm = (
       isInvalid={invalid}
       message={message}
       messageType={messageType}*/}
-      {/*<Field name="email" type="email" component={RenderField} label="Email" />
-      <Field name="password" type="password" component={RenderField} label="Password" />*/}
+    
+      <Field name="email" type="email" component={RenderField} label="Name" />
+      <Field name="email" type="email" component={RenderField} label="Email" />
+      <Field name="password" type="password" component={RenderField} label="Repeat password" />
+      <Field name="password" type="password" component={RenderField} label="Password" />
     </RenderForm>
   );
 };

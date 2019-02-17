@@ -8,23 +8,23 @@ import './RenderForm.scss';
  */
 function RenderForm({title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset}) {
     return (
-            <div className="renderForm">
-	            <form className="renderForm__formBlock" onSubmit={onSubmit} onReset={onReset}>
-	            	<h3 className="renderForm__title">
-	            		{title}
-	            	</h3>
-	        		<div className="renderForm__inputs">
-	        			{children}
-	        		</div>
-	        		<div className="renderForm__buttons">
-	            		<button className="renderForm__btn" type="submit">{submitLabel}</button>
-	        			<button className="renderForm__btn" 
-		            			type="reset" 
-		            			style={isVisibleReset ? {display: 'block'} : {display: 'none'}}
-	        			>{resetLabel}</button>
-	        		</div>
-	        	</form>
-            </div>
+		<div className="renderForm">
+			<form onSubmit={onSubmit} onReset={onReset}>
+				<h3 className="renderForm__title">
+					{title}
+				</h3>
+				<div className="renderForm__inputs">
+					{children}
+				</div>
+				<div className="renderForm__buttons">
+					<button className="renderForm__btn" type="submit">{submitLabel}</button>
+					<button className="renderForm__btn" 
+							type="reset" 
+							style={isVisibleReset ? {display: 'block'} : {display: 'none'}}
+					>{resetLabel}</button>
+				</div>
+			</form>
+		</div>
     );
 }
 

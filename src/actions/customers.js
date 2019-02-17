@@ -70,7 +70,7 @@ export function addCustomer(data) {
         const res = result.data;
         if (res.success) {
           dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
-          dispatch(reset('reduxFormExample'));
+          dispatch(reset('LoginForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
         }
