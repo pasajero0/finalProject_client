@@ -1,7 +1,7 @@
 import {
     FETCH_PRODUCTS_REQUEST,
     FETCH_PRODUCTS_SUCCESS
-} from '../../actions/products';
+} from '../actions/products';
 
 
 const initialState = {

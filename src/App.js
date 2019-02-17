@@ -4,7 +4,7 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import Homepage from './pages/Homepage/Homepage.js'
 import HomepageWomen from './pages/HomepageWomen/HomepageWomen.js';
 import HomepageMen from './pages/HomepageMen/HomepageMen.js';
-import Account from './pages/Account/';
+import Account from './pages/Account/Account.js';
 import MyCart from './pages/MyCart/MyCart'
 
 
