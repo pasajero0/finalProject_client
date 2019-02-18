@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {NavLink, Route, Switch} from 'react-router-dom';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
-import Homepage from './pages/HomePage/Homepage.js'
+import Homepage from './pages/Homepage/Homepage.js'
 import HomepageWomen from './pages/HomepageWomen/HomepageWomen.js';
 import HomepageMen from './pages/HomepageMen/HomepageMen.js';
-import Account from './pages/Account';
+import Account from './pages/Account/Account.js';
+import MyCart from './pages/MyCart/MyCart'
 
 import './App.scss';
 
@@ -18,6 +19,7 @@ class App extends Component {
                     <Route exact path="/women" component={HomepageWomen}/>
                     <Route exact path="/men" component={HomepageMen}/>
                     <Route exact path="/login" component={Account}/>
+                    <Route exact path="/cart" component={MyCart}/>
                 </Switch>
             </>
         );

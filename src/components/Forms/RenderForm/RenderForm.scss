@@ -1,0 +1,36 @@
+@import '../../../vars';
+
+.renderForm{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 50px 0;
+	
+	.renderForm__title{
+		text-align: center;
+	}
+
+	.renderForm__inputs {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 700px;
+	}
+	.renderForm__buttons{
+		display: flex;
+		justify-content: space-around;
+	    margin-top: 50px;
+	}
+	.renderForm__btn{
+		width: 160px;
+	    padding: 15px;
+	    color: #fff;
+	    background: #000;
+	    text-transform: uppercase;
+	    outline: none;
+	    border: none;
+	    cursor: pointer;
+	    margin: 0 10px;
+	}
+}

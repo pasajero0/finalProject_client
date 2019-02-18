@@ -1,0 +1,51 @@
+.cartItem {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e6e6e6;
+    text-align: center;
+    position: relative;
+
+    &__close {
+        flex-basis: 10%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__product {
+        display: flex;
+        flex-basis: 50%;
+        text-align: left;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    &__counter {
+        flex-basis: 20%;
+
+        &_box {
+            width: 40px;
+            padding: 5px;
+            outline: none;
+            border: 1px solid #e6e6e6;
+        }
+    }
+
+    &__price {
+        flex-basis: 20%;
+    }
+
+    &__img {
+        width: 40%;
+        height: auto;
+    }
+    &__title {
+        color: grey;
+        padding-left: 15px;
+    }
+
+}
