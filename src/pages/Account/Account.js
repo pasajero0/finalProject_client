@@ -2,22 +2,21 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
-import { FaFacebookF } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
-import LoginForm from '../../components/Forms/LoginForm/LoginForm.js'
-import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm.js'
-import { displayLoginOrRegister } from '../../actions/account'
+// import { FaFacebookF } from "react-icons/fa";
+// import { FaGoogle } from "react-icons/fa";
+import LoginForm from '../../components/Forms/LoginForm/LoginForm.js';
+import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm.js';
+import { displayLoginOrRegister } from '../../actions/account';
 import './Account.scss';
 
 
 class Account extends Component {
 
   onBtnClick = e => {
-    const btnName = e.currentTarget.innerText
-    console.log(btnName)
-    console.log('isAccountLogin: ', this.props.isAccountLogin)
-    console.log('state: ', this.store)
-    this.props.isAccountLoginAction(btnName)
+    const btnName = e.currentTarget.innerText;
+    console.log(btnName);
+    console.log('isAccountLogin: ', this.props.isAccountLogin);
+    this.props.isAccountLoginAction(btnName);
   }
 
   render(){
@@ -31,20 +30,18 @@ class Account extends Component {
             <div className="account__switchButtons">
               <button onClick={this.onBtnClick} 
                       className={this.props.isAccountLogin ? 'account__loginButton account__switchButtons_active':'account__loginButton'}
-                      >LOGIN</button> 
-              &nbsp;/&nbsp;   
-
-              <button   onClick={this.onBtnClick} 
+                      >LOGIN</button> /&nbsp;   
+              <button onClick={this.onBtnClick} 
                       className={this.props.isAccountLogin ? 'account__registerButton':'account__registerButton account__switchButtons_active' }
                       >REGISTER</button>
             </div>
 
             <div style={this.props.isAccountLogin ? {display: 'block'} : {display: 'none'}}>
               <p className="account__info">If you have an account with us, log in using your email address</p>
-              <div className="account__socialButtons">
+              {/* <div className="account__socialButtons">
                 <button className="account__socialButton account__socialButton_facebook"><FaFacebookF className="account__socialButtonIcon"/>Facebook</button>
                 <button className="account__socialButton account__socialButton_google"><FaGoogle className="account__socialButtonIcon"/>Google</button>
-              </div>
+              </div> */}
               <LoginForm />
             </div>
             
@@ -72,6 +69,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Account)
-
-// export default Account;
+export default connect(mapStateToProps, mapDispatchToProps)(Account);
