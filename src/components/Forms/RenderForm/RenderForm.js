@@ -6,10 +6,11 @@ import './RenderForm.scss';
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-function RenderForm({title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset}) {
+function RenderForm({title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset, message}) {
     return (
 		<div className="renderForm">
 			<form onSubmit={onSubmit} onReset={onReset}>
+				{message && <strong>{message}</strong>}
 				<h3 className="renderForm__title">
 					{title}
 				</h3>
@@ -34,9 +35,8 @@ RenderForm.propTypes = {
 	resetLabel: PropTypes.string,
 	isVisibleReset: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
-	onReset: PropTypes.func.isRequired
-
-	// message:PropTypes.string,
+	onReset: PropTypes.func.isRequired,
+	message:PropTypes.string,
 	// messageType: PropTypes.oneOf(['error', 'info']),
 	// status: PropTypes.oneOf(['loading'])
 };
@@ -46,10 +46,6 @@ RenderForm.defaultProps = {
 	submitLabel: 'submit',
 	resetLabel: 'reset',
 	isVisibleReset: false,
-
-	// message: 'message',
-	// messageType: 'info',
-	// status: 'loading'
 };
 
 export default RenderForm;

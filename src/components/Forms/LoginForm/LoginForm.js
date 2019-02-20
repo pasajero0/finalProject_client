@@ -5,10 +5,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
 import { loginCustomer } from '../../../actions/customers';
+import {showSystemMessage} from '../../../actions/app';
 import RenderForm from '../RenderForm/RenderForm.js';
 import RenderField from '../RenderField/RenderField.js';
 
@@ -46,13 +48,17 @@ const validate = (values) => {
  */
 const LoginForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded
+    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage
   }
 ) => {
-  
   let messageType = '';
   let message = '';
-
+  if (submitSucceeded) {
+      setSystemMessage ( 'You have been logged in', 'info')
+  }
+  if(isAuthenticated) {
+    return <Redirect to="/profile" />
+  }
   if (error) {
     messageType = 'error';
     message = error;
@@ -71,15 +77,14 @@ const LoginForm = (
       resetLabel="Reset"
       isVisibleReset={false}
       onSubmit={handleSubmit(onSubmitAction)}
-      onReset={reset}  
-    >
-      {/* isSubmitting={submitting}
+      onReset={reset}
+      isSubmitting={submitting}
       isPristine={pristine}
       isSucceeded={submitSucceeded}
       isInvalid={invalid}
       message={message}
-      messageType={messageType} */}
-
+      messageType={messageType} 
+    >
       <Field name="email" type="email" component={RenderField} label='Email'/>
       <Field name="password" type="password" component={RenderField} label='Password'/>
     </RenderForm>
@@ -113,13 +118,21 @@ LoginForm.defaultProps = {
   submitSucceeded: false
 };
 
+const mapStateToProps = (state) => { 
+  // console.log(state);
+  return {
+    isAuthenticated: state.customers.isAuthenticated,
+  }
+}
+
 const mapDispatchToProps = dispatch => (
   {
-    onSubmitAction: data => dispatch(loginCustomer(data))
+    onSubmitAction: data => dispatch(loginCustomer(data)),
+    setSystemMessage: (text, type) => dispatch(showSystemMessage(text,type))
   }
 );
 
 export default reduxForm({
   form: 'LoginForm', validate
-})(connect(null, mapDispatchToProps)(LoginForm));
+})(connect(mapStateToProps, mapDispatchToProps)(LoginForm));
  
