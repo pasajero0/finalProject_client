@@ -7,8 +7,6 @@ const initialState = {
 };
 
 function account(state = initialState, action) {
-    console.log('FROM REDUCERS: ', action)
-
   switch (action.type) {
     case DISPLAY_LOGIN_OR_REGISTER :
       return {...state, isAccountLogin: action.payload};

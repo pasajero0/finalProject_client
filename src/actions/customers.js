@@ -11,18 +11,31 @@ export const UPD_PROFILE_REJECTED = 'UPD_PROFILE_REJECTED';
 const urlFetchProfile = 'https://next.json-generator.com/api/json/get/NkO3JQZQ8';
 const urlUpdProfile = 'https://next.json-generator.com/api/json/get/NkO3JQZQ8';
 const urlAddCustomer = '/customers';
-const urlLoginCustomer = '/customers/login';
+const urlLoginCustomer = '/customers/auth';
+const urlProfile = '/customers/profile'
 
 /**
  * Fetching customer profile data from the server
  * @returns {function(*, *)}
  */
+// export function fetchProfile() {
+//   return (dispatch, getState) => {
+//     dispatch(
+//       { type: FETCH_PROFILE_PENDING, payload: { } }
+//     );
+//     axios.get(urlFetchProfile)
+//       .then((result) => {
+//         dispatch({ type: FETCH_PROFILE_FULFILLED, payload: { profile: result.data } });
+//       })
+//       .catch(err => dispatch({ type: FETCH_PROFILE_REJECTED, payload: err }));
+//   };
+// }
 export function fetchProfile() {
   return (dispatch, getState) => {
     dispatch(
       { type: FETCH_PROFILE_PENDING, payload: { } }
     );
-    axios.get(urlFetchProfile)
+    axios.get(urlProfile)
       .then((result) => {
         dispatch({ type: FETCH_PROFILE_FULFILLED, payload: { profile: result.data } });
       })
@@ -35,21 +48,42 @@ export function fetchProfile() {
  * @param data {object}
  * @returns {function(*, *)}
  */
+// export function updProfile(data) {
+//   return (dispatch, getState) => {
+//     dispatch(
+//       { type: UPD_PROFILE_PENDING, payload: { } }
+//     );
+//     axios.get(urlUpdProfile)
+//       .then((result) => {
+//         if (result.success){
+//           dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
+//         } else {
+//           throw new SubmissionError({
+//             //email: 'email',
+//             //body: 'body',
+//             //subject: 'subject',
+//             //error: 'No letter has been sent'
+//           });
+//         }
+//       })
+//       .catch(err => dispatch({ type: UPD_PROFILE_REJECTED, payload: err }));
+//   };
+// }
 export function updProfile(data) {
   return (dispatch, getState) => {
     dispatch(
       { type: UPD_PROFILE_PENDING, payload: { } }
     );
-    axios.get(urlUpdProfile)
+    axios.get(urlProfile)
       .then((result) => {
         if (result.success){
           dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
         } else {
           throw new SubmissionError({
-            //email: 'Sad email',
-            //body: 'Stupid body',
-            //subject: 'Crazy subject',
-            //_error: 'No letter has been sent'
+            //email: 'email',
+            //body: 'body',
+            //subject: 'subject',
+            //error: 'No letter has been sent'
           });
         }
       })
@@ -62,6 +96,7 @@ export function updProfile(data) {
  * @returns {function(*, *)}
  */
 export function addCustomer(data) {
+  console.log('======================> addCustomerAction', data)
   return (dispatch, getState) => {
     dispatch(
       { type: UPD_PROFILE_PENDING, payload: { } }
@@ -88,6 +123,7 @@ export function addCustomer(data) {
  * @returns {function(*, *)}
  */
 export function loginCustomer(data) {
+  console.log('======================> loginCustomerAction', data)
   return (dispatch, getState) => {
     dispatch(
       { type: UPD_PROFILE_PENDING, payload: { } }
@@ -98,12 +134,18 @@ export function loginCustomer(data) {
         if (res.success) {
           dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
           dispatch(reset('LoginForm'));
+          //////////////////////
+          alert('LOGIN SUCCESS')
+          //////////////////////
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
         }
       })
       .catch((err) => {
         dispatch({ type: UPD_PROFILE_REJECTED, payload: err });
+        //////////////////////
+        alert('LOGIN ERROR')
+        //////////////////////
         throw err;
       });
   };

@@ -14,8 +14,6 @@ class Account extends Component {
 
   onBtnClick = e => {
     const btnName = e.currentTarget.innerText;
-    console.log(btnName);
-    console.log('isAccountLogin: ', this.props.isAccountLogin);
     this.props.isAccountLoginAction(btnName);
   }
 
