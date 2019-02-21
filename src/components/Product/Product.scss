@@ -1,0 +1,111 @@
+.product {
+	margin-bottom: 200px;
+}
+
+.productContent {
+	display: flex;
+	justify-content: center;
+}
+
+.saveForLaterIcon {
+	position: inherit;
+}
+
+.productInfo {
+	display: flex;
+	flex-direction: column;
+
+	&__name {
+		font-family: 'Poppins', sans-serif;
+		color: #000000;
+		font-size: 30px;
+		margin-bottom: 9px;
+	}
+
+	&__box {
+		border: 2px solid #737373;
+		box-sizing: border-box;
+		background-color: #ffffff;
+		width: 40px;
+		height: 30px;
+	}
+
+	&__buy {
+		display: flex;
+		align-items: center;
+		//justify-content: space-between;
+
+		.addProductToCartBtn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 2px solid #e95252;
+			box-sizing: border-box;
+			background-color: #ffffff;
+			width: 166px;
+			height: 47px;
+			cursor: pointer;
+			text-transform: uppercase;
+			color: #e95252;
+			font-family: 'Oswald', sans-serif;
+			font-weight: bold;
+			margin-right: 25px;
+
+			&__icon {
+				color: #e95252;
+				font-size: 25px;
+				margin-right: 20px;
+
+			}
+		}
+
+		.saveForLaterBtn {
+			border: 2px solid #737373;
+			height: 30px;
+			width: 30px;
+			background-color: #ffffff;
+			cursor: pointer;
+		}
+	}
+}
+
+
+.star-rating{
+	font-size: 0;
+}
+.star-rating__wrap{
+	display: inline-block;
+	font-size: 15px;
+}
+.star-rating__wrap:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.star-rating__ico{
+	float: right;
+	padding-left: 2px;
+	cursor: pointer;
+	color: #eb5050;
+}
+.star-rating__ico:last-child{
+	padding-left: 0;
+}
+.star-rating__input{
+	display: none;
+}
+.star-rating__ico:hover:before,
+.star-rating__ico:hover ~ .star-rating__ico:before,
+.star-rating__input:checked ~ .star-rating__ico:before
+{
+	content: "\f005";
+}
+
+
+//input[type=number]::-webkit-inner-spin-button,
+//input[type=number]::-webkit-outer-spin-button {
+//	-webkit-appearance: none;
+//	-moz-appearance: none;
+//	appearance: none;
+//	margin: 0;
+//}

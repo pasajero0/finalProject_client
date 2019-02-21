@@ -3,24 +3,24 @@ import ProductListEntry from '../ProductListEntry/ProductListEntry.js';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {fetchAllProducts} from '../../actions/products'
-
 import './ProductsList.scss';
 
+const propTypes = {
+    // gender: PropTypes.string,
+    // category: PropTypes.string,
+    id: PropTypes.number,
+    img: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.shape({
+        sum: PropTypes.number,
+        currency: PropTypes.string,
+    }),
+    // color: PropTypes.string,
+    // size: PropTypes.string,
+    // text: PropTypes.string,
+};
+
 class ProductsList extends Component {
-    static propTypes = {
-        // gender: PropTypes.string,
-        // category: PropTypes.string,
-        id: PropTypes.number,
-        img: PropTypes.string,
-        name: PropTypes.string,
-        price: PropTypes.shape({
-            sum: PropTypes.number,
-            currency: PropTypes.string,
-        }),
-        // color: PropTypes.string,
-        // size: PropTypes.string,
-        // text: PropTypes.string,
-    };
 
     componentDidMount = () => {
         this.props.fetchAllProducts()
@@ -45,6 +45,8 @@ class ProductsList extends Component {
         );
     }
 }
+
+ProductListEntry.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
     return {

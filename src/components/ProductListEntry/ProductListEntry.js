@@ -1,7 +1,22 @@
 import React, {Component} from 'react';
-import {FiShoppingBag} from "react-icons/fi";
+import SaveForLaterIcon from '../SaveForLaterIcon/SaveForLaterIcon.js';
 import './ProductListEntry.scss'
 import PropTypes from "prop-types";
+
+const propTypes = {
+    // gender: PropTypes.string,
+    // category: PropTypes.string,
+    id: PropTypes.number,
+    img: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.shape({
+        sum: PropTypes.number,
+        currency: PropTypes.string,
+    }),
+    // color: PropTypes.string,
+    // size: PropTypes.string,
+    // text: PropTypes.string,
+};
 
 class ProductListEntry extends Component {
 
@@ -18,28 +33,16 @@ class ProductListEntry extends Component {
                         {this.props.name}
                     </a>
                     <span className="productItemPrice">{this.props.price.sum}{this.props.price.currency}</span>
-                    <button className="addProductItemToCartBtn">
-                        <FiShoppingBag className="addProductItemToCartBtn__icon"/>
-                    </button>
+                    <SaveForLaterIcon className="saveForLaterIcon"/>
+                    {/*<button className="addProductItemToCartBtn">*/}
+                    {/*<FiShoppingBag className="addProductItemToCartBtn__icon"/>*/}
+                    {/*</button>*/}
                 </div>
             </div>
         );
     }
 }
 
-ProductListEntry.propTypes = {
-    // gender: PropTypes.string,
-    // category: PropTypes.string,
-    id: PropTypes.number,
-    img: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.shape({
-        sum: PropTypes.number,
-        currency: PropTypes.string,
-    }),
-    // color: PropTypes.string,
-    // size: PropTypes.string,
-    // text: PropTypes.string,
-};
+ProductListEntry.propTypes = propTypes;
 
 export default ProductListEntry;

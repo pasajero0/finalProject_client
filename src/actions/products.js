@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-export const FETCH_PRODUCTS_REQUEST = 'FETCH_PRODUCTS_REQUEST';
-export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
+export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
+export const FETCH_PRODUCTS_FULFILLED = 'FETCH_PRODUCTS_FULFILLED';
 
 export function fetchAllProducts() {
     return dispatch => {
         dispatch({
-            type: FETCH_PRODUCTS_REQUEST,
+            type: FETCH_PRODUCTS_PENDING,
         });
-        setTimeout(() => {
+        // setTimeout(() => {
             axios.get('../api/products.json')
                 .then(res => res.data)
                 .then(data => {
@@ -17,13 +17,13 @@ export function fetchAllProducts() {
                     };
 
                     dispatch({
-                        type: FETCH_PRODUCTS_SUCCESS,
+                        type: FETCH_PRODUCTS_FULFILLED,
                         payload: productsList
                     })
 
                 })
                 .catch(err => console.log(err))
-        }, 3000);
+        // }, 3000);
     }
 }
 

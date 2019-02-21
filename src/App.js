@@ -5,7 +5,8 @@ import Homepage from './pages/Homepage/Homepage.js'
 import HomepageWomen from './pages/HomepageWomen/HomepageWomen.js';
 import HomepageMen from './pages/HomepageMen/HomepageMen.js';
 import Account from './pages/Account/Account.js';
-import MyCart from './pages/MyCart/MyCart'
+import MyCart from './pages/MyCart/MyCart.js'
+import ProductPage from './pages/ProductPage/ProductPage.js'
 
 import './App.scss';
 
@@ -20,6 +21,7 @@ class App extends Component {
                     <Route exact path="/men" component={HomepageMen}/>
                     <Route exact path="/login" component={Account}/>
                     <Route exact path="/cart" component={MyCart}/>
+                    <Route exact path="/product" component={ProductPage}/>
                 </Switch>
             </>
         );

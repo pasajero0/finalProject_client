@@ -36,10 +36,8 @@
 
 	& .slick-list {
 		position: relative;
-
 		display: block;
 		overflow: hidden;
-
 		margin: 0;
 		padding: 0;
 	}
@@ -53,7 +51,6 @@
 	& .slick-slide {
 		display: none;
 		float: left;
-
 		height: 100%;
 		min-height: 1px;
 	}
@@ -86,8 +83,6 @@
 				background-color: #ffffff;
 			}
 		}
-
-
 	}
 
 	& .slick-prev {
@@ -187,16 +182,9 @@
 				}
 			}
 		}
-
-
 	}
-
 }
 
-//.slider .slick-prev::before, .slider .slick-next::before {
-//	background-color: #ffffff;
-//	opacity: 1;
-//}
 
 
 

@@ -1,0 +1,15 @@
+.saveForLaterIcon {
+	font-size: 25px;
+	color: #737373;
+
+	&:hover,
+	&:active,
+	&:focus {
+		fill: #737373;
+	}
+
+	& .saved {
+		fill: #737373;
+	}
+
+}

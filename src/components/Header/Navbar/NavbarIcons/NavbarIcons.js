@@ -9,15 +9,18 @@ const NavbarIcons = () => {
     return (
         <>
             <Search/>
-            <ul className="NavbarIconsMenu">
-                <li className='NavbarIconsMenu__item'>
-                    <NavLink to="/login" className='NavbarIconsMenu__link'>
-                        <FaRegUser className='NavbarIconsMenu__icon'/>
+            <ul className="NavbarIcons">
+                <li className="NavbarIcons__item">
+                    <NavLink to="/login" className="NavbarIcons__link">
+                        <FaRegUser className="NavbarIcons__icon"/>
                     </NavLink>
                 </li>
-                <li className='NavbarIconsMenu__item'>
-                    <NavLink to="/cart" className='NavbarIconsMenu__link'>
-                        <FiShoppingBag className='NavbarIconsMenu__icon'/>
+                <li className="NavbarIcons__item">
+                    <NavLink to="/cart" className="NavbarIcons__link NavbarIcons__cartLink">
+                        <FiShoppingBag className="NavbarIcons__icon"/>
+                        <div className="productsQuantity">
+                            <span className="productsQuantity__number">3</span>
+                        </div>
                     </NavLink>
                 </li>
             </ul>
