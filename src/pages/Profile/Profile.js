@@ -17,7 +17,7 @@ const defaultProps = {
 class Profile extends Component {
 
     render() {
-        const { isAuthenticated, email } = this.props
+        const { isAuthenticated, email, onClick} = this.props
         if(!isAuthenticated) {
             return <Redirect to="/login" />
         }
@@ -29,7 +29,7 @@ class Profile extends Component {
                         <h1 className="profile__title">YOUR PROFILE</h1>
                         <div className="profile__info">
                             <p className="profile__text">email: { email }</p>
-                            <button className="profile__button" onClick={logoutCustomer}>LOG OUT</button>
+                            <button className="profile__button" onClick={()=>onClick()}>LOG OUT</button>
                         </div> 
                     </div>
                 </section>
@@ -52,7 +52,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => (
     {
-        logoutCustomer: data => dispatch(logoutCustomer(data)),
+        onClick: data => dispatch(logoutCustomer()),
     }
   );
 

@@ -132,13 +132,18 @@ export function logoutCustomer () {
     axios.get(urlLogoutCustomer)
       .then((result) => {
         console.log(result);
-        dispatch({ 
-          type: SET_IS_AUTHENTICATED, 
-          payload: { 
-            isAuthenticated: false, 
-            profile: {}
-          } 
-        });
+        if (result.success) {
+          dispatch({ 
+            type: SET_IS_AUTHENTICATED, 
+            payload: { 
+              isAuthenticated: false, 
+              profile: {}
+            } 
+          });  
+        } else {
+          console.log('logoutCustomer get result', result.success);
+        }
+        
       })
       .catch( (err) => {
         dispatch( 

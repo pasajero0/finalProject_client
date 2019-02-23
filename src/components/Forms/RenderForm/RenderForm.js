@@ -43,7 +43,7 @@ RenderForm.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	onReset: PropTypes.func.isRequired,
 	message: PropTypes.string,
-	messageType: PropTypes.oneOf(['error', 'info']),
+	// messageType: PropTypes.oneOf(['error', 'info']),
 	status: PropTypes.oneOf(['loading'])
 };
 
