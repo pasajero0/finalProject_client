@@ -1,7 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
+import { logoutCustomer } from '../../actions/customers';
 import './Profile.scss';
 
 const propTypes = {
@@ -14,12 +17,20 @@ const defaultProps = {
 class Profile extends Component {
 
     render() {
+        const { isAuthenticated, email } = this.props
+        if(!isAuthenticated) {
+            return <Redirect to="/login" />
+        }
         return (
             <>
                 <Header></Header>
-                <section className="Profile">
+                <section className="profile">
                     <div className="container">
-                        <h1 className="title">PROFILE</h1>
+                        <h1 className="profile__title">YOUR PROFILE</h1>
+                        <div className="profile__info">
+                            <p className="profile__text">email: { email }</p>
+                            <button className="profile__button" onClick={logoutCustomer}>LOG OUT</button>
+                        </div> 
                     </div>
                 </section>
                 <Footer></Footer>
@@ -31,4 +42,18 @@ class Profile extends Component {
 Profile.propTypes = propTypes;
 Profile.defaultProps = defaultProps;
 
-export default Profile;
+const mapStateToProps = (state) => { 
+    console.log(state);
+    return {
+        isAuthenticated: state.customers.isAuthenticated,
+        email: state.customers.profile.email,
+    }
+  }
+
+const mapDispatchToProps = dispatch => (
+    {
+        logoutCustomer: data => dispatch(logoutCustomer(data)),
+    }
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

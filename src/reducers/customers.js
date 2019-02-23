@@ -2,9 +2,9 @@ import {
   FETCH_PROFILE_FULFILLED,
   FETCH_PROFILE_REJECTED,
   FETCH_PROFILE_PENDING,
-  UPD_PROFILE_PENDING,
-  UPD_PROFILE_FULFILLED,
-  UPD_PROFILE_REJECTED,
+  UPDATE_PROFILE_PENDING,
+  UPDATE_PROFILE_FULFILLED,
+  UPDATE_PROFILE_REJECTED,
   SET_IS_AUTHENTICATED
 } from '../actions/customers';
 
@@ -20,7 +20,8 @@ function customers(state = initialState, action) {
     case SET_IS_AUTHENTICATED:
       return {
         ...state,
-        isAuthenticated: action.payload
+        isAuthenticated: action.payload.isAuthenticated,
+        profile: action.payload.profile
       }
     case FETCH_PROFILE_PENDING:
       return {
@@ -34,15 +35,15 @@ function customers(state = initialState, action) {
       return {
         ...state
       };
-    case UPD_PROFILE_PENDING:
+    case UPDATE_PROFILE_PENDING:
       return {
         ...state
       };
-    case UPD_PROFILE_REJECTED:
+    case UPDATE_PROFILE_REJECTED:
       return {
         ...state
       };
-    case UPD_PROFILE_FULFILLED:
+    case UPDATE_PROFILE_FULFILLED:
       return {
         ...state
       };

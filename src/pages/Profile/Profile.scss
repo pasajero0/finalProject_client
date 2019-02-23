@@ -1,4 +1,31 @@
 @import '../../vars';
 
-.Profile{
+.profile{
+    &__title {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    &__info {
+        height: 75vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0 ;
+    }
+    &__text {
+        margin: 5px 0
+    }
+    &__button{
+        width: 160px;
+	    padding: 15px;
+	    color: #fff;
+	    background: #000;
+	    text-transform: uppercase;
+	    outline: none;
+	    border: none;
+	    cursor: pointer;
+	    margin: 10px 0;
+    }
 }

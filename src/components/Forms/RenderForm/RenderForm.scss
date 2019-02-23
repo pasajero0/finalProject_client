@@ -7,22 +7,22 @@
 	align-items: center;
 	margin: 50px 0;
 	
-	.renderForm__title{
+	&__title{
 		text-align: center;
 	}
 
-	.renderForm__inputs {
+	&__inputs {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		max-width: 700px;
 	}
-	.renderForm__buttons{
+	&__buttons{
 		display: flex;
 		justify-content: space-around;
 	    margin-top: 50px;
 	}
-	.renderForm__btn{
+	&__btn{
 		width: 160px;
 	    padding: 15px;
 	    color: #fff;
@@ -32,5 +32,9 @@
 	    border: none;
 	    cursor: pointer;
 	    margin: 0 10px;
+	}
+	&__message {
+		text-align: center;
+		height: 20px;
 	}
 }

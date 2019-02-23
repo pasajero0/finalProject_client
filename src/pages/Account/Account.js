@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 // import { FaFacebookF } from "react-icons/fa";
@@ -32,10 +32,10 @@ class Account extends Component {
 
             <div style={isLoginFormActive ? {display: 'block'} : {display: 'none'}}>
               <p className="account__info">If you have an account with us, log in using your email address</p>
-              {/* <div className="account__socialButtons">
+              { /* <div className="account__socialButtons">
                 <button className="account__socialButton account__socialButton_facebook"><FaFacebookF className="account__socialButtonIcon"/>Facebook</button>
                 <button className="account__socialButton account__socialButton_google"><FaGoogle className="account__socialButtonIcon"/>Google</button>
-              </div> */}
+              </div> */ }
               <LoginForm />
             </div>
             
