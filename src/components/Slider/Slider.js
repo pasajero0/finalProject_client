@@ -16,6 +16,7 @@ const defaultProps = {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        adaptiveHeight: true,
     }
 };
 
@@ -25,6 +26,7 @@ const Slider = ({images, settings}) => (
             {images.map(image =>
                 <div key={image.id}>
                     <img className="slider__img" src={image.src} alt={image.alt}/>
+                    <a href={image.link}></a> 
                 </div>)}
         </SlickSlider>
     </div>
