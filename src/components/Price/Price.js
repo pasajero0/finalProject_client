@@ -15,19 +15,20 @@ const Price = ( props ) => {
 
   }
 
-  return (
+  return
     <span className={priceClass}>{`${currency} ${convertPrice(num)}`}</span>
   );
 };
 
 Price.propTypes = {
- currency: PropTypes.string,
- num: PropTypes.number
+ currency: PropTypes.string.isRequired,
+ num: PropTypes.number.isRequired
 }
 
 
 Price.defaultProps = {
-  currency: '$'
+  currency: '$',
+  num: 89
 };
 
 
