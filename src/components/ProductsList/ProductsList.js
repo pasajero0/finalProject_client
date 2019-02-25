@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ProductListEntry from '../ProductListEntry/ProductListEntry.js';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {fetchAllProducts} from '../../actions/products'
+import {fetchProducts} from '../../actions/products'
 import './ProductsList.scss';
 
 const propTypes = {
@@ -23,14 +23,14 @@ const propTypes = {
 class ProductsList extends Component {
 
     componentDidMount = () => {
-        this.props.fetchAllProducts()
+        this.props.fetchProducts()
     };
 
     render() {
-        console.log(this.props.isFetching)
+        console.log(this.props.isFetching);
         let productsList = this.props.products.map(item => {
             return <ProductListEntry key={item.id}
-                                     imgSrc={item.img}
+                                     img={item.img}
                                      name={item.name}
                                      price={item.price}/>
         });
@@ -57,7 +57,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAllProducts: () => dispatch(fetchAllProducts())
+        fetchProducts: () => dispatch(fetchProducts())
     }
 };
 

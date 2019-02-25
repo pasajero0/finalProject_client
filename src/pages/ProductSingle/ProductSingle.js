@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import Product from '../../components/Product/Product.js'
 
-class ProductPage extends Component {
+class ProductSingle extends Component {
 
     render() {
         return (
@@ -17,4 +17,4 @@ class ProductPage extends Component {
 }
 
 
-export default ProductPage;
+export default ProductSingle;

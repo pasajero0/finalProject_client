@@ -9,7 +9,7 @@ class Homepage extends Component {
         return (
             <>
                 <Header/>
-                <Slider images={[
+{/*                <Slider images={[
                     {id: 1, src: process.env.PUBLIC_URL + '/slider-images/1.jpg', alt: ''},
                     {id: 2, src: process.env.PUBLIC_URL + '/slider-images/2.jpg', alt: ''},
                     {id: 3, src: process.env.PUBLIC_URL + '/slider-images/3.jpg', alt: ''},
@@ -23,7 +23,7 @@ class Homepage extends Component {
                             slidesToShow: 1,
                             slidesToScroll: 1
                         }}
-                />
+                />*/}
                 <ProductsList/>
                 <Footer/>
             </>

@@ -1,23 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {FaRegUser} from 'react-icons/fa';
-import {FiShoppingBag} from 'react-icons/fi';
+// import {FiShoppingBag} from 'react-icons/fi';
 import {NavLink} from 'react-router-dom';
 import Search from '../Search/Search.js';
+import AddProductToCartIcon from '../../../AddProductToCartIcon/AddProductToCartIcon.js';
+
 import './NavbarIcons.scss';
 
 const NavbarIcons = () => {
     return (
         <>
             <Search/>
-            <ul className="NavbarIcons">
-                <li className="NavbarIcons__item">
-                    <NavLink to="/login" className="NavbarIcons__link">
-                        <FaRegUser className="NavbarIcons__icon"/>
+            <ul className="navbarIcons">
+                <li className="navbarIcons__item">
+                    <NavLink to="/login" className="navbarIcons__link">
+                        <FaRegUser className="navbarIcons__icon"/>
                     </NavLink>
                 </li>
-                <li className="NavbarIcons__item">
-                    <NavLink to="/cart" className="NavbarIcons__link NavbarIcons__cartLink">
-                        <FiShoppingBag className="NavbarIcons__icon"/>
+                <li className="navbarIcons__item">
+                    <NavLink to="/basket" className="navbarIcons__link navbarIcons__cartLink">
+                        <AddProductToCartIcon className="navbarIcons__icon addProductToCartIcon"/>
                         <div className="productsQuantity">
                             <span className="productsQuantity__number">3</span>
                         </div>

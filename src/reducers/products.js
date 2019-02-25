@@ -1,6 +1,7 @@
 import {
     FETCH_PRODUCTS_PENDING,
-    FETCH_PRODUCTS_FULFILLED
+    FETCH_PRODUCTS_FULFILLED,
+    FETCH_PRODUCTS_REJECTED
 } from '../actions/products';
 
 
@@ -17,6 +18,8 @@ function products(state = initialState, action) {
             };
         case 'FETCH_PRODUCTS_FULFILLED':
             return {...state, ...action.payload, isFetching: false};
+        case 'FETCH_PRODUCTS_REJECTED':
+            return {...state};
         default:
             return {...state}
     }

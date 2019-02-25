@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {FiHeart} from "react-icons/fi";
-import './SaveForLaterIcon.scss';
+import './SaveProdutForLaterIcon.scss';
 
-class SaveForLaterIcon extends Component {
+class SaveProductForLaterIcon extends Component {
     state = {
         saveForLater: false
     };
@@ -20,4 +20,4 @@ class SaveForLaterIcon extends Component {
     }
 }
 
-export default SaveForLaterIcon;
+export default SaveProductForLaterIcon;

@@ -3,6 +3,8 @@
     "id": 1,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "woman",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -12,6 +14,8 @@
     "id": 2,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "woman",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -21,6 +25,8 @@
     "id": 3,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "woman",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -30,6 +36,8 @@
     "id": 4,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "woman",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -39,6 +47,8 @@
     "id": 5,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "woman",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -48,6 +58,8 @@
     "id": 6,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "men",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -57,6 +69,8 @@
     "id": 7,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "men",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -66,6 +80,8 @@
     "id": 8,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "men",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -75,6 +91,8 @@
     "id": 9,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "men",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"
@@ -84,6 +102,8 @@
     "id": 10,
     "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
     "name": "Dress",
+    "gender": "men",
+    "description": "Voluptate velit elit nostrud laborum Lorem nulla minim. Id laboris deserunt eiusmod ea excepteur ut. Nisi anim tempor deserunt excepteur ea. Incididunt aliqua fugiat ex commodo sunt cillum anim consequat eiusmod minim pariatur aliquip tempor. Exercitation ea qui aute et est cupidatat elit. Nostrud anim reprehenderit in incididunt proident. Aute veniam nisi culpa qui velit sunt veniam ullamco sint consequat nulla et pariatur enim.\n\nSit magna aute cupidatat labore ut officia. Ipsum dolore aliqua adipisicing et voluptate. Consequat aliqua pariatur velit pariatur voluptate commodo mollit ad ea. Commodo eiusmod deserunt cupidatat consequat magna labore exercitation ad nostrud ipsum irure excepteur.",
     "price": {
       "sum": 89,
       "currency": "$"

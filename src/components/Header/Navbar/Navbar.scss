@@ -126,12 +126,8 @@
 			visibility: hidden;
 		}
 
-		&:hover::after {
+		&.active::after {
 			visibility: visible;
-		}
-
-		&:hover {
-			color: #000000;
 		}
 	}
 }
@@ -139,7 +135,6 @@
 .navbarMenuContent {
 	display: flex;
 	justify-content: center;
-	/*background-color: #737373;*/
 	border-top: 1px solid #737373;
 	border-bottom: 1px solid #737373;
 	padding: 17px 0px;
@@ -161,7 +156,6 @@
 	}
 
 	&__link {
-		//color: #ffffff;
 		color: #000000;
 		text-transform: uppercase;
 		position: relative;
@@ -169,7 +163,6 @@
 		font-weight: bold;
 
 		&:hover {
-			/*color: #d9d9d9;*/
 			color: #737373;
 		}
 	}

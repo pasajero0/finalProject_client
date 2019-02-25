@@ -1,6 +1,6 @@
-.saveForLaterIcon {
-	font-size: 25px;
+.addProductToCartIcon {
 	color: #737373;
+	cursor: pointer;
 
 	&:hover,
 	&:active,
@@ -8,8 +8,8 @@
 		fill: #737373;
 	}
 
-	& .saved {
+	& .added {
 		fill: #737373;
 	}
-
 }
+

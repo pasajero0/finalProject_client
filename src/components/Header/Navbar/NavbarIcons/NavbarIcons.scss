@@ -1,4 +1,4 @@
-.NavbarIcons {
+.navbarIcons {
 	display: flex;
 	align-items: center;
 
@@ -27,6 +27,9 @@
 		position: relative;
 	}
 
+	.addProductToCartIcon {
+		position: static;
+	}
 }
 
 .productsQuantity {
@@ -35,7 +38,7 @@
 	height: 43%;
 	bottom: 5px;
 	left: 5px;
-	background-color: #ffffff;
+	background-color: transparent;
 	text-align: center;
 	display: flex;
 	align-items: center;
@@ -44,7 +47,7 @@
 	&__number {
 		color: #737373;
 		font-family: 'Poppins', sans-serif;
-		font-size: 10px;
+		font-size: 8px;
 		font-weight: bold;
 	}
 }
