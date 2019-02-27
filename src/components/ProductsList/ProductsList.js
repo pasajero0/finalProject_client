@@ -6,51 +6,65 @@ import {fetchProducts} from '../../actions/products'
 import './ProductsList.scss';
 
 const propTypes = {
-    // gender: PropTypes.string,
-    // category: PropTypes.string,
-    id: PropTypes.number,
-    img: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.shape({
-        sum: PropTypes.number,
-        currency: PropTypes.string,
+    productsList: PropTypes.shape({
+        records: PropTypes.array,
+        page: PropTypes.number,
+        perPage: PropTypes.number,
+        count: PropTypes.number,
+        pagesTotal: PropTypes.number,
     }),
-    // color: PropTypes.string,
-    // size: PropTypes.string,
-    // text: PropTypes.string,
+};
+
+const defaultProps = {
+    productsList: {
+        records: [],
+        page: 1,
+        perPage: 10,
+        count: 0,
+        pagesTotal: 0,
+    }
 };
 
 class ProductsList extends Component {
 
+
+
     componentDidMount = () => {
-        this.props.fetchProducts()
+        const { department } = this.props;
+        this.props.fetchProducts({department})
     };
 
     render() {
-        console.log(this.props.isFetching);
-        let productsList = this.props.products.map(item => {
+        const {productsList} = this.props;
+
+        // console.log("++++++++++++", productsList)
+        let productsListEntry = productsList.records.map(item => {
             return <ProductListEntry key={item.id}
-                                     img={item.img}
+                                     img={item.pictures[0]}
                                      name={item.name}
-                                     price={item.price}/>
+                                     price={item.price}
+            />
         });
         return (
-            <div className='productsList'>
+            <section className='productsList'>
                 <div className="container">
                     <div className='productsListContent'>
-                        {this.props.isFetching ? <span className="productsList__loader">Загрузка...</span> : productsList}
+                        {this.props.isFetching ?
+                            <span className="productsList__loader">Loading...</span> : productsListEntry}
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }
 
 ProductListEntry.propTypes = propTypes;
+ProductListEntry.defaultProps = defaultProps;
+
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products.productsList,
+        productsList: state.products.productsList,
         isFetching: state.products.isFetching
     }
 };

@@ -4,28 +4,24 @@ export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
 export const FETCH_PRODUCTS_FULFILLED = 'FETCH_PRODUCTS_FULFILLED';
 export const FETCH_PRODUCTS_REJECTED = 'FETCH_PRODUCTS_REJECTED';
 
-export function fetchProducts() {
+export function fetchProducts(requestData) {
     return dispatch => {
         dispatch({
             type: FETCH_PRODUCTS_PENDING,
         });
-        axios.get('../api/products.json')
+        axios.get('../api/products.json', requestData)
             .then(res => res.data)
             .then(data => {
-                let productsList = {
-                    productsList: data
-                };
-                // for (let key in productsList) {
-                //     productsList[key] = productsList[key].filter((item) => {
-                //         return item.gender === "woman" ? item : null
-                //     })
-                // }
-
-                dispatch({
-                    type: FETCH_PRODUCTS_FULFILLED,
-                    payload: productsList
-                })
-
+                // const products = JSON.parse(data.data);
+                //console.log("==========================", products);
+                if (data.success) {
+                    dispatch({
+                        type: FETCH_PRODUCTS_FULFILLED,
+                        payload: data.data
+                    })
+                } else {
+                    throw new Error ("Error")
+                }
             })
             .catch(err => dispatch({
                 type: FETCH_PRODUCTS_REJECTED,

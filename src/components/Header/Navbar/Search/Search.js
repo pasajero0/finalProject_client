@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {NavLink} from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi';
 import {MdClose} from 'react-icons/md'
 import './Search.scss';

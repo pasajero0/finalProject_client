@@ -6,7 +6,13 @@ import {
 
 
 const initialState = {
-    productsList: [],
+    productsList: {
+        records: [],
+        page: 1,
+        perPage: 10,
+        count: 0,
+        pagesTotal: 0,
+    },
     isFetching: false
 };
 
@@ -17,7 +23,7 @@ function products(state = initialState, action) {
                 ...state, isFetching: true
             };
         case 'FETCH_PRODUCTS_FULFILLED':
-            return {...state, ...action.payload, isFetching: false};
+            return {...state, productsList: {...action.payload}, isFetching: false};
         case 'FETCH_PRODUCTS_REJECTED':
             return {...state};
         default:

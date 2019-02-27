@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from '../Banner/Banner.js'
+import Banner from '../GenderBanners/GenderBanners.js'
 import './ProductsBanners.scss'
 
 const ProductsBanners = () => {

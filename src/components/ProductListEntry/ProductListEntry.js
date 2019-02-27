@@ -6,15 +6,16 @@ import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLa
 import './ProductListEntry.scss';
 import PropTypes from "prop-types";
 
+
 const propTypes = {
-    // gender: PropTypes.string,
+    gender: PropTypes.string,
     // category: PropTypes.string,
     id: PropTypes.number,
     img: PropTypes.string,
     name: PropTypes.string,
     price: PropTypes.shape({
-        sum: PropTypes.number,
-        currency: PropTypes.string,
+        retail: PropTypes.number,
+        sale: PropTypes.number,
     }),
     // color: PropTypes.string,
     // size: PropTypes.string,
@@ -24,32 +25,32 @@ const propTypes = {
 class ProductListEntry extends Component {
 
     render() {
-        let productListEntryItem = this.props.products.filter((product) => {
-            return product.id
-        });
+        const {productsList} = this.props;
 
-        let productListEntryItemRender = (
-            <div className="productListEntry" key={productListEntryItem[0].id}>
-                <div className='productListEntryItem'>
-                    <NavLink to={`/products/${productListEntryItem[0].id}`} className="productListEntryItem__imgLink">
-                        <img src={productListEntryItem[0].img}
-                             alt={productListEntryItem[0].name}
-                             className='productListEntryItem__img'/>
-                    </NavLink>
-                    <NavLink to={`/products/${productListEntryItem[0].id}`} className="productListEntryItem__nameLink">
-                        {productListEntryItem[0].name}
-                    </NavLink>
-                    <span
-                        className="productListEntryItem__price">{productListEntryItem[0].price.currency}{productListEntryItem[0].price.sum}</span>
-                    <SaveProductForLaterIcon className="saveForLaterIcon"/>
-                    <AddProductToCartIcon className="addProductToCartIcon"/>
+        let productListEntryRender = productsList.map((product, index) => {
+            return (
+                <div className="productListEntry" key={index}>
+                    <div className='productListEntryItem'>
+                        <NavLink to={`${product.gender}/${product.id}`} className="productListEntryItem__imgLink">
+                            <img src={product.img}
+                                 alt={product.name}
+                                 className='productListEntryItem__img'/>
+                        </NavLink>
+                        <NavLink to={`${product.gender}/${product.id}`} className="productListEntryItem__nameLink">
+                            {product.name}
+                        </NavLink>
+                        <span
+                            className="productListEntryItem__price">${product.price.retail}</span>
+                        <SaveProductForLaterIcon className="saveForLaterIcon"/>
+                        <AddProductToCartIcon className="addProductToCartIcon"/>
+                    </div>
                 </div>
-            </div>
-        );
+            )
+        });
 
         return (
             <>
-                {productListEntryItemRender}
+                {productListEntryRender}
             </>
         );
     }
@@ -59,7 +60,7 @@ ProductListEntry.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products.productsList,
+        productsList: state.products.productsList,
     }
 };
 

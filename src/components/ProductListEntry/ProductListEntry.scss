@@ -1,8 +1,13 @@
 .productListEntry {
 	display: flex;
 	justify-content: center;
+	margin-right: 1%;
 	width: 19%;
 	margin-bottom: 67px;
+
+	&:nth-child(5n) {
+		margin-right: 0%;
+	}
 }
 
 .productListEntryItem {

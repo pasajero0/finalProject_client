@@ -6,6 +6,8 @@ import {FiShoppingBag} from 'react-icons/fi';
 import './Product.scss'
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import {NavLink} from "react-router-dom";
+import AddProductToCartIcon from "../ProductListEntry/ProductListEntry";
 
 const propTypes = {
     // _id: PropTypes.string,
@@ -38,66 +40,63 @@ const propTypes = {
 class Product extends Component {
     render() {
 
-        // let mailInfo = this.props.mails[this.props.match.params.folders].filter( (item) => {
-        //     return item.id === Number(this.props.match.params.id) ? item : null
-        // });
-        let productItem = this.props.products.filter((product) => {
-            return product.id;
-        });
+        const {productsList} = this.props;
 
-        let productItemRender = (
-            <div className="product" key={productItem[0].id}>
-                <div className="container">
-                    <div className='productContent'>
-                        <ProductSlider images={[
-                            {id: 1, src: process.env.PUBLIC_URL + '/productSlider-images/1.jpg', alt: ''},
-                            {id: 2, src: process.env.PUBLIC_URL + '/productSlider-images/2.jpg', alt: ''},
-                            {id: 3, src: process.env.PUBLIC_URL + '/productSlider-images/3.jpg', alt: ''},
-                            // {id: 4, src: process.env.PUBLIC_URL + '/productSlider-images/4.jpg', alt: ''},
-                            // {id: 5, src: process.env.PUBLIC_URL + '/productSlider-images/5.jpg', alt: ''},
+        let productRender = productsList.map((product, index) => {
+            return (
+                <div className="product" key={product.id}>
+                    <div className="container">
+                        <div className='productContent'>
+                            <ProductSlider images={[
+                                {id: 1, src: process.env.PUBLIC_URL + '/productSlider-images/1.jpg', alt: ''},
+                                {id: 2, src: process.env.PUBLIC_URL + '/productSlider-images/2.jpg', alt: ''},
+                                {id: 3, src: process.env.PUBLIC_URL + '/productSlider-images/3.jpg', alt: ''},
+                                // {id: 4, src: process.env.PUBLIC_URL + '/productSlider-images/4.jpg', alt: ''},
+                                // {id: 5, src: process.env.PUBLIC_URL + '/productSlider-images/5.jpg', alt: ''},
 
-                        ]}
-                                       settings={{
-                                           customPaging: function (i) {
-                                               return (
-                                                   <a>
-                                                       <img
-                                                           src={`/productSlider-images/${i + 1}.jpg`}
-                                                       />
-                                                   </a>
-                                               );
-                                           },
-                                           dots: true,
-                                           dotsClass: "slick-dots slick-thumb",
-                                           infinite: true,
-                                           speed: 500,
-                                           slidesToShow: 1,
-                                           slidesToScroll: 1,
-                                       }}
-                        />
-                        <div className="productInfo">
-                            <p className="productInfo__name">{productItem[0].name}</p>
-                            <StarRating className="productInfo__rating"/>
-                            <p className="productInfo__price">{productItem[0].price.currency}{productItem[0].price.sum}</p>
-                            <div className="productInfo__buy">
-                                <button className="addProductToCartBtn">
-                                    <FiShoppingBag className="addProductToCartBtn__icon"/>
-                                    Add to cart
-                                </button>
-                                <SaveProductForLaterIcon className="saveForLaterBtn__icon"/>
+                            ]}
+                                           settings={{
+                                               customPaging: function (i) {
+                                                   return (
+                                                       <a>
+                                                           <img
+                                                               src={`/productSlider-images/${i + 1}.jpg`}
+                                                           />
+                                                       </a>
+                                                   );
+                                               },
+                                               dots: true,
+                                               dotsClass: "slick-dots slick-thumb",
+                                               infinite: true,
+                                               speed: 500,
+                                               slidesToShow: 1,
+                                               slidesToScroll: 1,
+                                           }}
+                            />
+                            <div className="productInfo">
+                                <p className="productInfo__name">{product.name}</p>
+                                <StarRating className="productInfo__rating"/>
+                                <p className="productInfo__price">{product.price.currency}{product.price.sum}</p>
+                                <div className="productInfo__buy">
+                                    <button className="addProductToCartBtn">
+                                        <FiShoppingBag className="addProductToCartBtn__icon"/>
+                                        Add to cart
+                                    </button>
+                                    <SaveProductForLaterIcon className="saveForLaterBtn__icon"/>
+                                </div>
                             </div>
-                        </div>
-                        {/*<div className="textContent">*/}
+                            {/*<div className="textContent">*/}
                             {/*<p className="productInfo__description">{productItem[0].description}</p>*/}
-                        {/*</div>*/}
+                            {/*</div>*/}
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            )
+        });
 
         return (
             <>
-                {productItemRender}
+                {productRender}
             </>
         )
     }
@@ -108,7 +107,7 @@ Product.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
     return {
-        products: state.products.productsList,
+        productsList: state.products.productsList,
     }
 };
 

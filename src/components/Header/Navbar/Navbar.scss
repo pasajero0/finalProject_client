@@ -1,3 +1,7 @@
+.navbar {
+	padding-bottom: 20px;
+}
+
 .mainLogo {
 	font-size: 40px;
 }
@@ -133,7 +137,7 @@
 }
 
 .navbarMenuContent {
-	display: flex;
+	display: none;
 	justify-content: center;
 	border-top: 1px solid #737373;
 	border-bottom: 1px solid #737373;
