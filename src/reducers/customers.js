@@ -45,7 +45,9 @@ function customers(state = initialState, action) {
       };
     case UPDATE_PROFILE_FULFILLED:
       return {
-        ...state
+        ...state,
+        isAuthenticated: action.payload.isAuthenticated,
+        profile: action.payload.profile
       };
     default:
       return { ...state };

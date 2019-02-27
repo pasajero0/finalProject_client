@@ -11,7 +11,7 @@ export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
 
 const urlAddCustomer = '/customers';
 const urlLoginCustomer = '/customers/auth';
-const urlLogoutCustomer ='/customers/logout';
+const urlLogoutCustomer = '/customers/logout';
 const urlProfile = '/customers/profile';
 
 /**
@@ -43,14 +43,14 @@ export function updProfile(data) {
     );
     axios.get(urlProfile)
       .then((result) => {
-        if (result.success){
+        if (result.success) {
           dispatch({ type: UPDATE_PROFILE_FULFILLED, payload: { profile: result.data } });
         } else {
           throw new SubmissionError({
-            //email: 'email',
-            //body: 'body',
-            //subject: 'subject',
-            //error: 'No letter has been sent'
+            // email: 'email',
+            // body: 'body',
+            // subject: 'subject',
+            // error: 'No letter has been sent'
           });
         }
       })
@@ -71,7 +71,13 @@ export function addCustomer(data) {
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          dispatch({ type: UPDATE_PROFILE_FULFILLED, payload: { profile: result.data } });
+          dispatch({
+            type: UPDATE_PROFILE_FULFILLED,
+            payload: {
+              profile: { email: result.data.data.email, data: result.data.data },
+              isAuthenticated: true,
+            }
+          });
           dispatch(reset('RegisterForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
@@ -82,7 +88,7 @@ export function addCustomer(data) {
         throw err;
       });
   };
-} 
+}
 /**
  * Update customer profile data
  * @param data {object}
@@ -97,12 +103,12 @@ export function loginCustomer(data) {
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          dispatch({ 
-            type: SET_IS_AUTHENTICATED, 
-            payload: { 
-                      isAuthenticated: true, 
-                      profile: {email: data.email}
-                    } 
+          dispatch({
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: true,
+              profile: { email: data.email }
+            }
           });
           dispatch(reset('LoginForm'));
         } else {
@@ -110,47 +116,78 @@ export function loginCustomer(data) {
         }
       })
       .catch((err) => {
-        dispatch({ 
-          type: SET_IS_AUTHENTICATED, 
-          payload: { 
-            isAuthenticated: false, 
+        dispatch({
+          type: SET_IS_AUTHENTICATED,
+          payload: {
+            isAuthenticated: false,
             profile: {}
-          } 
+          }
         });
         throw err;
       });
   };
 }
-
-export function logoutCustomer () {
-  console.log('logoutCustomer');
+export function logoutCustomer() {
+  console.log('logoutCustomer----');
   return (dispatch, getState) => {
-
-    dispatch(
-      { type: UPDATE_PROFILE_PENDING, payload: { } }
-    );
+    console.log('=================================>');
     axios.get(urlLogoutCustomer)
-      .then((result) => {
-        console.log(result);
-        dispatch({ 
-          type: SET_IS_AUTHENTICATED, 
-          payload: { 
-            isAuthenticated: false, 
-            profile: {}
-          } 
-        });
+      .then(({ data }) => {
+        console.log(data);
+        if (data.success) {
+          dispatch({
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: false,
+              profile: {}
+            }
+          });
+        } else {
+          console.log('logoutCustomer get result', data.success);
+        }
       })
-      .catch( (err) => {
-        dispatch( 
-          { 
-            type: SET_IS_AUTHENTICATED, 
-            payload:{ 
-                      isAuthenticated: true
-                    } 
+      .catch((err) => {
+        dispatch(
+          {
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: true
+            }
           }
         );
         throw err;
       });
-
   };
 }
+// export function logoutCustomer () {
+//   console.log('logoutCustomer');
+//   return (dispatch, getState) => {
+
+//     dispatch(
+//       { type: UPDATE_PROFILE_PENDING, payload: { } }
+//     );
+//     axios.get(urlLogoutCustomer)
+//       .then((result) => {
+//         console.log(result);
+//         dispatch({
+//           type: SET_IS_AUTHENTICATED,
+//           payload: {
+//             isAuthenticated: false,
+//             profile: {}
+//           }
+//         });
+//       })
+//       .catch( (err) => {
+//         dispatch(
+//           {
+//             type: SET_IS_AUTHENTICATED,
+//             payload:{
+//                       isAuthenticated: true
+//                     }
+//           }
+//         );
+//         throw err;
+//       });
+
+//   };
+// }

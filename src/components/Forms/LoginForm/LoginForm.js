@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
@@ -128,7 +128,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => (
   {
     onSubmitAction: data => dispatch(loginCustomer(data)),
-    setSystemMessage: (text, type) => dispatch(showSystemMessage(text,type))
+    setSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
   }
 );
 
