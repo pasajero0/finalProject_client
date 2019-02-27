@@ -23,7 +23,7 @@ function products(state = initialState, action) {
                 ...state, isFetching: true
             };
         case 'FETCH_PRODUCTS_FULFILLED':
-            return {...state, productsList: {...action.payload}, isFetching: false};
+            return {...state, productsList: action.payload, isFetching: false};
         case 'FETCH_PRODUCTS_REJECTED':
             return {...state};
         default:

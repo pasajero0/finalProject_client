@@ -13,7 +13,7 @@ export function fetchProducts(requestData) {
             .then(res => res.data)
             .then(data => {
                 // const products = JSON.parse(data.data);
-                //console.log("==========================", products);
+                console.log("==========================", data);
                 if (data.success) {
                     dispatch({
                         type: FETCH_PRODUCTS_FULFILLED,

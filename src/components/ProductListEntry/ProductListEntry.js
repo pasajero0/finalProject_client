@@ -13,7 +13,7 @@ const propTypes = {
     id: PropTypes.number,
     img: PropTypes.string,
     name: PropTypes.string,
-    price: PropTypes.shape({
+    prices: PropTypes.shape({
         retail: PropTypes.number,
         sale: PropTypes.number,
     }),
@@ -23,45 +23,36 @@ const propTypes = {
 };
 
 class ProductListEntry extends Component {
-
     render() {
-        const {productsList} = this.props;
 
-        let productListEntryRender = productsList.map((product, index) => {
-            return (
-                <div className="productListEntry" key={index}>
-                    <div className='productListEntryItem'>
-                        <NavLink to={`${product.gender}/${product.id}`} className="productListEntryItem__imgLink">
-                            <img src={product.img}
-                                 alt={product.name}
-                                 className='productListEntryItem__img'/>
-                        </NavLink>
-                        <NavLink to={`${product.gender}/${product.id}`} className="productListEntryItem__nameLink">
-                            {product.name}
-                        </NavLink>
-                        <span
-                            className="productListEntryItem__price">${product.price.retail}</span>
-                        <SaveProductForLaterIcon className="saveForLaterIcon"/>
-                        <AddProductToCartIcon className="addProductToCartIcon"/>
-                    </div>
-                </div>
-            )
-        });
-
+        console.log("==========================", this.props.prices);
         return (
-            <>
-                {productListEntryRender}
-            </>
-        );
+            <div className="productListEntry" key={this.props.index}>
+                <div className='productListEntryItem'>
+                    <NavLink to={`${this.props.gender}/${this.props.id}`} className="productListEntryItem__imgLink">
+                        <img src={this.props.img}
+                             alt={this.props.name}
+                             className='productListEntryItem__img'/>
+                    </NavLink>
+                    <NavLink to={`${this.props.gender}/${this.props.id}`} className="productListEntryItem__nameLink">
+                        {this.props.name}
+                    </NavLink>
+                    <span
+                        className="productListEntryItem__price">${this.props.prices.retail}</span>
+                    <SaveProductForLaterIcon className="saveForLaterIcon"/>
+                    <AddProductToCartIcon className="addProductToCartIcon"/>
+                </div>
+            </div>
+        )
     }
 }
 
 ProductListEntry.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-    return {
-        productsList: state.products.productsList,
-    }
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         productsList: state.products.productsList,
+//     }
+// };
 
-export default connect(mapStateToProps)(ProductListEntry);
+export default ProductListEntry;

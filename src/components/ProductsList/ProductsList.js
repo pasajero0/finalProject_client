@@ -37,12 +37,12 @@ class ProductsList extends Component {
     render() {
         const {productsList} = this.props;
 
-        // console.log("++++++++++++", productsList)
+        console.log("++++++++++++", productsList)
         let productsListEntry = productsList.records.map(item => {
             return <ProductListEntry key={item.id}
                                      img={item.pictures[0]}
                                      name={item.name}
-                                     price={item.price}
+                                     price={item.prices.retail}
             />
         });
         return (
@@ -60,7 +60,6 @@ class ProductsList extends Component {
 
 ProductListEntry.propTypes = propTypes;
 ProductListEntry.defaultProps = defaultProps;
-
 
 const mapStateToProps = (state) => {
     return {
