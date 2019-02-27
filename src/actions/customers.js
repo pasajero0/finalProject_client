@@ -132,18 +132,18 @@ export function logoutCustomer() {
   return (dispatch, getState) => {
     console.log('=================================>');
     axios.get(urlLogoutCustomer)
-      .then(({ data }) => {
-        console.log(data);
-        if (data.success) {
-          dispatch({
-            type: SET_IS_AUTHENTICATED,
-            payload: {
-              isAuthenticated: false,
+      .then((result) => {
+        console.log(result);
+        if (result.success) {
+          dispatch({ 
+            type: SET_IS_AUTHENTICATED, 
+            payload: { 
+              isAuthenticated: false, 
               profile: {}
-            }
-          });
+            } 
+          });  
         } else {
-          console.log('logoutCustomer get result', data.success);
+          console.log('logoutCustomer get result', result.success);
         }
       })
       .catch((err) => {
@@ -159,35 +159,3 @@ export function logoutCustomer() {
       });
   };
 }
-// export function logoutCustomer () {
-//   console.log('logoutCustomer');
-//   return (dispatch, getState) => {
-
-//     dispatch(
-//       { type: UPDATE_PROFILE_PENDING, payload: { } }
-//     );
-//     axios.get(urlLogoutCustomer)
-//       .then((result) => {
-//         console.log(result);
-//         dispatch({
-//           type: SET_IS_AUTHENTICATED,
-//           payload: {
-//             isAuthenticated: false,
-//             profile: {}
-//           }
-//         });
-//       })
-//       .catch( (err) => {
-//         dispatch(
-//           {
-//             type: SET_IS_AUTHENTICATED,
-//             payload:{
-//                       isAuthenticated: true
-//                     }
-//           }
-//         );
-//         throw err;
-//       });
-
-//   };
-// }
