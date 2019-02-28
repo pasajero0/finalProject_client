@@ -8,12 +8,13 @@ export const UPDATE_PROFILE_PENDING = 'UPDATE_PROFILE_PENDING';
 export const UPDATE_PROFILE_FULFILLED = 'UPDATE_PROFILE_FULFILLED';
 export const UPDATE_PROFILE_REJECTED = 'UPDATE_PROFILE_REJECTED';
 export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
+export const GET_TOKEN = 'GET_TOKEN';
 
 const urlAddCustomer = '/customers';
 const urlLoginCustomer = '/customers/auth';
 const urlLogoutCustomer ='/customers/logout';
 const urlProfile = '/customers/profile';
-
+const urlGetToken = '/password/send-token';
 /**
  * Fetching customer profile data from the server
  * @returns {function(*, *)}
@@ -101,7 +102,7 @@ export function loginCustomer(data) {
             type: SET_IS_AUTHENTICATED, 
             payload: { 
                       isAuthenticated: true, 
-                      profile: {email: data.email}
+                      email: data.email
                     } 
           });
           dispatch(reset('LoginForm'));
@@ -114,7 +115,7 @@ export function loginCustomer(data) {
           type: SET_IS_AUTHENTICATED, 
           payload: { 
             isAuthenticated: false, 
-            profile: {}
+            email: ''
           } 
         });
         throw err;
@@ -130,9 +131,8 @@ export function logoutCustomer () {
       { type: UPDATE_PROFILE_PENDING, payload: { } }
     );
     axios.get(urlLogoutCustomer)
-      .then((result) => {
-        console.log(result);
-        if (result.success) {
+      .then(({data}) => {
+        if (data.success) {
           dispatch({ 
             type: SET_IS_AUTHENTICATED, 
             payload: { 
@@ -141,7 +141,7 @@ export function logoutCustomer () {
             } 
           });  
         } else {
-          console.log('logoutCustomer get result', result.success);
+          console.log('logoutCustomer get result');
         }
         
       })
@@ -159,3 +159,34 @@ export function logoutCustomer () {
 
   };
 }
+
+export function getToken (data) {
+  return (dispatch, getState) => {
+    axios.post(urlGetToken, data)
+      .then( result => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({ 
+            type: GET_TOKEN, 
+            payload: true 
+          });  
+          console.log(res)
+        } else {
+          console.log('logoutCustomer get result', res);
+        }
+        
+      })
+      .catch( (err) => {
+        dispatch( 
+          { 
+            type: GET_TOKEN, 
+            payload:false
+          }
+        );
+        throw err;
+      });
+
+  };
+}
+
+export function resetPassword () {}

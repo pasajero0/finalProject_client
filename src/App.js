@@ -7,7 +7,8 @@ import HomepageWomen from './pages/HomepageWomen/HomepageWomen.js';
 import HomepageMen from './pages/HomepageMen/HomepageMen.js';
 import Account from './pages/Account/Account.js';
 import Profile from './pages/Profile/Profile.js';
-import MyCart from './pages/MyCart/MyCart'
+import MyCart from './pages/MyCart/MyCart';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 
 import './App.scss';
 
@@ -23,6 +24,8 @@ class App extends Component {
                     <Route exact path="/login" component={Account}/>
                     <Route exact path="/profile" component={Profile}/>
                     <Route exact path="/cart" component={MyCart}/>
+                    <Route exact path="/reset-password" component={ResetPassword}/> {/*email fiel*/}
+                    <Route exact path="/reset-password/:token" component={ResetPassword}/> {/*password and repeat password fields*/}
                 </Switch>
             </>
         );
@@ -30,3 +33,4 @@ class App extends Component {
 }
 
 export default App;
+

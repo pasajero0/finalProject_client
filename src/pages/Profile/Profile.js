@@ -1,6 +1,6 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Redirect} from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
@@ -15,9 +15,9 @@ const defaultProps = {
 
 
 class Profile extends Component {
-
+    
     render() {
-        const { isAuthenticated, email, onClick} = this.props
+        const { isAuthenticated, profile, onClickLogout } = this.props
         if(!isAuthenticated) {
             return <Redirect to="/login" />
         }
@@ -28,8 +28,9 @@ class Profile extends Component {
                     <div className="container">
                         <h1 className="profile__title">YOUR PROFILE</h1>
                         <div className="profile__info">
-                            <p className="profile__text">email: { email }</p>
-                            <button className="profile__button" onClick={()=>onClick()}>LOG OUT</button>
+                            <p className="profile__text">email: { profile.email }</p>
+                            <NavLink to="/reset-password" className="profile__button">RESET PASSWORD</NavLink>
+                            <button className="profile__button" onClick={()=>onClickLogout()}>LOG OUT</button>
                         </div> 
                     </div>
                 </section>
@@ -43,16 +44,16 @@ Profile.propTypes = propTypes;
 Profile.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => { 
-    console.log(state);
+    {/*console.log('===================>', state);*/}
     return {
         isAuthenticated: state.customers.isAuthenticated,
-        email: state.customers.profile.email,
+        profile: state.customers.profile,
     }
   }
 
 const mapDispatchToProps = dispatch => (
     {
-        onClick: data => dispatch(logoutCustomer()),
+        onClickLogout: data => dispatch(logoutCustomer()),
     }
   );
 

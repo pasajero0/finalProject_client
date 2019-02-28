@@ -1,26 +1,19 @@
-/**
- * Redux form.
- */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
-import { loginCustomer } from '../../../actions/customers';
-import {showSystemMessage} from '../../../actions/app';
-import RenderForm from '../RenderForm/RenderForm.js';
-import RenderField from '../RenderField/RenderField.js';
+import { resetPassword } from '../../../actions/customers';
+import RenderField from '../RenderField/RenderField';
+import RenderForm from '../RenderForm/RenderForm';
 
 /**
  * Validate all form fields and return object with invalid entries error messages
  * @param values {object} - form values
  * @returns {{}}
  */
-
 const validate = (values) => {
   const errors = {};
 
@@ -47,19 +40,14 @@ const validate = (values) => {
 /**
  * ReduxForm container
  */
-const LoginForm = (
+const ResetPasswordForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage
+    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded
   }
 ) => {
   let messageType = '';
   let message = '';
-  if (submitSucceeded) {
-      setSystemMessage ( 'You have been logged in', 'info')
-  }
-  if(isAuthenticated) {
-    return <Redirect to="/profile" />
-  }
+
   if (error) {
     messageType = 'error';
     message = error;
@@ -73,28 +61,26 @@ const LoginForm = (
 
   return (
     <RenderForm
-      title=""
-      submitLabel="Login"
-      resetLabel="Reset"
-      isVisibleReset={false}
-      onSubmit={handleSubmit(onSubmitAction)}
-      onReset={reset}
+      error={error}
       isSubmitting={submitting}
       isPristine={pristine}
       isSucceeded={submitSucceeded}
       isInvalid={invalid}
+      onSubmit={handleSubmit(onSubmitAction)}
+      onReset={reset}
+      title="Reset Password"
       message={message}
-      messageType={messageType} 
+      messageType={messageType}
+      submitLabel="Submit"
+      resetLabel="Reset"
     >
-      <Field name="email" type="email" component={RenderField} label='Email'/>
-      <Field name="password" type="password" component={RenderField} label='Password'/>
-
-      <NavLink to="/reset-password" className="profile__button">forgot password</NavLink>
+      <Field name="password" type="password" component={RenderField} label="Repeat password" />
+      <Field name="password" type="password" component={RenderField} label="Password" />
     </RenderForm>
   );
 };
 
-LoginForm.propTypes = {
+ResetPasswordForm.propTypes = {
   /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
   handleSubmit: PropTypes.func.isRequired,
   /** Action connected to the form submission */
@@ -113,7 +99,7 @@ LoginForm.propTypes = {
   submitSucceeded: PropTypes.bool,
 };
 
-LoginForm.defaultProps = {
+ResetPasswordForm.defaultProps = {
   error: '',
   pristine: true,
   submitting: false,
@@ -121,21 +107,12 @@ LoginForm.defaultProps = {
   submitSucceeded: false
 };
 
-const mapStateToProps = (state) => { 
-  // console.log(state);
-  return {
-    isAuthenticated: state.customers.isAuthenticated,
-  }
-}
-
 const mapDispatchToProps = dispatch => (
   {
-    onSubmitAction: data => dispatch(loginCustomer(data)),
-    setSystemMessage: (text, type) => dispatch(showSystemMessage(text,type))
+    onSubmitAction: data => dispatch(resetPassword(data))
   }
 );
 
 export default reduxForm({
-  form: 'LoginForm', validate
-})(connect(mapStateToProps, mapDispatchToProps)(LoginForm));
- 
+  form: 'ResetPasswordForm', validate
+})(connect(null, mapDispatchToProps)(ResetPasswordForm));
