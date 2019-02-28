@@ -27,6 +27,7 @@ class Homepage extends Component {
                         }}
                 />
                 <ProductsList/>
+                <RenderLoader/>
                 {/*<Cork title='Homepage' background='lightyellow'></Cork>*/}
                 <Footer/>
             </>
