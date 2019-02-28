@@ -5,10 +5,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
 import { addCustomer } from '../../../actions/customers';
+import {showSystemMessage} from '../../../actions/app';
 import RenderForm from '../RenderForm/RenderForm.js';
 import RenderField from '../RenderField/RenderField.js';
 
@@ -45,12 +47,19 @@ const validate = (values) => {
  */
 const RegisterForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded
+    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage
   }
 ) => {
   
   let messageType = '';
   let message = '';
+
+  if (submitSucceeded) {
+    setSystemMessage ( 'You have been registered', 'info')
+  }
+  if(isAuthenticated) {
+    return <Redirect to="/profile" />
+  }
 
   if (error) {
     messageType = 'error';
@@ -71,14 +80,14 @@ const RegisterForm = (
       isVisibleReset={false}
       onSubmit={handleSubmit(onSubmitAction)}
       onReset={reset}  
-    >
-      {/*error={error}
+      error={error}
       isSubmitting={submitting}
       isPristine={pristine}
       isSucceeded={submitSucceeded}
       isInvalid={invalid}
       message={message}
-      messageType={messageType}*/}
+      messageType={messageType}
+    >
     
       {/*<Field name="name" type="text" component={RenderField} label="Name" />*/}
       <Field name="email" type="email" component={RenderField} label="Email" />
@@ -115,12 +124,20 @@ RegisterForm.defaultProps = {
   submitSucceeded: false
 };
 
+const mapStateToProps = (state) => { 
+  // console.log(state);
+  return {
+    isAuthenticated: state.customers.isAuthenticated,
+  }
+}
+
 const mapDispatchToProps = dispatch => (
   {
-    onSubmitAction: data => dispatch(addCustomer(data))
+    onSubmitAction: data => dispatch(addCustomer(data)),
+    setSystemMessage: (text, type) => dispatch(showSystemMessage(text,type))
   }
 );
 
 export default reduxForm({
   form: 'RegisterForm', validate
-})(connect(null, mapDispatchToProps)(RegisterForm));
+})(connect(mapStateToProps, mapDispatchToProps)(RegisterForm));

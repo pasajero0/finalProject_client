@@ -44,7 +44,6 @@ Profile.propTypes = propTypes;
 Profile.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => { 
-    {/*console.log('===================>', state);*/}
     return {
         isAuthenticated: state.customers.isAuthenticated,
         profile: state.customers.profile,

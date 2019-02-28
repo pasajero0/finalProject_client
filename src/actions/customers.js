@@ -12,7 +12,7 @@ export const GET_TOKEN = 'GET_TOKEN';
 
 const urlAddCustomer = '/customers';
 const urlLoginCustomer = '/customers/auth';
-const urlLogoutCustomer ='/customers/logout';
+const urlLogoutCustomer = '/customers/logout';
 const urlProfile = '/customers/profile';
 const urlGetToken = '/password/send-token';
 /**
@@ -44,14 +44,14 @@ export function updProfile(data) {
     );
     axios.get(urlProfile)
       .then((result) => {
-        if (result.success){
+        if (result.success) {
           dispatch({ type: UPDATE_PROFILE_FULFILLED, payload: { profile: result.data } });
         } else {
           throw new SubmissionError({
-            //email: 'email',
-            //body: 'body',
-            //subject: 'subject',
-            //error: 'No letter has been sent'
+            // email: 'email',
+            // body: 'body',
+            // subject: 'subject',
+            // error: 'No letter has been sent'
           });
         }
       })
@@ -72,7 +72,13 @@ export function addCustomer(data) {
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          dispatch({ type: UPDATE_PROFILE_FULFILLED, payload: { profile: result.data } });
+          dispatch({
+            type: UPDATE_PROFILE_FULFILLED,
+            payload: {
+              profile: { email: result.data.data.email, data: result.data.data },
+              isAuthenticated: true,
+            }
+          });
           dispatch(reset('RegisterForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
@@ -83,7 +89,7 @@ export function addCustomer(data) {
         throw err;
       });
   };
-} 
+}
 /**
  * Update customer profile data
  * @param data {object}
@@ -98,12 +104,12 @@ export function loginCustomer(data) {
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          dispatch({ 
-            type: SET_IS_AUTHENTICATED, 
-            payload: { 
-                      isAuthenticated: true, 
-                      email: data.email
-                    } 
+          dispatch({
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: true,
+              profile: { email: data.email }
+            }
           });
           dispatch(reset('LoginForm'));
         } else {
@@ -111,25 +117,21 @@ export function loginCustomer(data) {
         }
       })
       .catch((err) => {
-        dispatch({ 
-          type: SET_IS_AUTHENTICATED, 
-          payload: { 
-            isAuthenticated: false, 
-            email: ''
-          } 
+        dispatch({
+          type: SET_IS_AUTHENTICATED,
+          payload: {
+            isAuthenticated: false,
+            profile: {}
+          }
         });
         throw err;
       });
   };
 }
-
-export function logoutCustomer () {
-  console.log('logoutCustomer');
+export function logoutCustomer() {
+  console.log('logoutCustomer----');
   return (dispatch, getState) => {
-
-    dispatch(
-      { type: UPDATE_PROFILE_PENDING, payload: { } }
-    );
+    console.log('=================================>');
     axios.get(urlLogoutCustomer)
       .then(({data}) => {
         if (data.success) {
@@ -143,20 +145,18 @@ export function logoutCustomer () {
         } else {
           console.log('logoutCustomer get result');
         }
-        
       })
-      .catch( (err) => {
-        dispatch( 
-          { 
-            type: SET_IS_AUTHENTICATED, 
-            payload:{ 
-                      isAuthenticated: true
-                    } 
+      .catch((err) => {
+        dispatch(
+          {
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: true
+            }
           }
         );
         throw err;
       });
-
   };
 }
 

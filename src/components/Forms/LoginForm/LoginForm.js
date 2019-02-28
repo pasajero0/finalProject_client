@@ -131,7 +131,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => (
   {
     onSubmitAction: data => dispatch(loginCustomer(data)),
-    setSystemMessage: (text, type) => dispatch(showSystemMessage(text,type))
+    setSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
   }
 );
 
