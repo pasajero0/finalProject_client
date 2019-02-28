@@ -1,5 +1,5 @@
 import React from 'react';
-import RenderLoader from 'react-loader-spinner';
+import Loader from 'react-loader-spinner';
 
 
 const RenderLoader = () => {
