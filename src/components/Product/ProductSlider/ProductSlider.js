@@ -13,10 +13,9 @@ const defaultProps = {
     settings: {
         customPaging: function (i) {
             return (
-                <span>
-                    <img src={`${baseUrl}/productSlider-images/${i + 1}.jpg`}
-                         alt="Product"/>
-                </span>
+                <a>
+                    <img src={`${baseUrl}/productSlider-images/${i + 1}.jpg`}/>
+                </a>
             );
         },
         dots: true,

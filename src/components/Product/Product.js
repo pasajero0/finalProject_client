@@ -35,12 +35,10 @@ class Product extends Component {
                                        settings={{
                                            customPaging: function (i) {
                                                return (
-                                                   <span>
+                                                   <a>
                                                        <img
-                                                           src={`/productSlider-images/${i + 1}.jpg`}
-                                                           alt="Product"
-                                                       />
-                                                   </span>
+                                                           src={`/productSlider-images/${i + 1}.jpg`}/>
+                                                   </a>
                                                );
                                            },
                                            dots: true,
@@ -75,6 +73,5 @@ class Product extends Component {
 
 
 Product.propTypes = propTypes;
-
 
 export default Product;
