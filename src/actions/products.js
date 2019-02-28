@@ -4,6 +4,7 @@ export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
 export const FETCH_PRODUCTS_FULFILLED = 'FETCH_PRODUCTS_FULFILLED';
 export const FETCH_PRODUCTS_REJECTED = 'FETCH_PRODUCTS_REJECTED';
 
+
 export function fetchProducts(requestData) {
     return dispatch => {
         dispatch({
@@ -12,8 +13,7 @@ export function fetchProducts(requestData) {
         axios.get('../api/products.json', requestData)
             .then(res => res.data)
             .then(data => {
-                // const products = JSON.parse(data.data);
-                console.log("==========================", data);
+                // console.log("==========================", data);
                 if (data.success) {
                     dispatch({
                         type: FETCH_PRODUCTS_FULFILLED,

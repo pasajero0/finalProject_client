@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from "react-slick";
-import { baseUrl } from "./config";
+import {baseUrl} from "./config";
 import './ProductSlider.scss'
 import PropTypes from "prop-types";
 
@@ -13,9 +13,10 @@ const defaultProps = {
     settings: {
         customPaging: function (i) {
             return (
-                <a>
-                    <img src={`${baseUrl}/productSlider-images/${i + 1}.jpg`}/>
-                </a>
+                <span>
+                    <img src={`${baseUrl}/productSlider-images/${i + 1}.jpg`}
+                         alt="Product"/>
+                </span>
             );
         },
         dots: true,

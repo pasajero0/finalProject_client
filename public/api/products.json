@@ -5,10 +5,11 @@
       {
         "company": "Geofarm",
         "country": "Ghana",
-        "prices":{
-          "retail":890,
-          "sale":890
+        "prices": {
+          "retail": 890,
+          "sale": 890
         },
+        "gender": "women",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -27,6 +28,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "women",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -45,6 +47,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "women",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -63,6 +66,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "women",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -81,6 +85,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "men",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -99,6 +104,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "men",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -117,6 +123,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "men",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -135,6 +142,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "men",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,
@@ -153,6 +161,7 @@
           "retail":890,
           "sale":890
         },
+        "gender": "men",
         "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
         "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
         "isBrandNew": false,

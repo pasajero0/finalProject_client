@@ -18,13 +18,13 @@ const initialState = {
 
 function products(state = initialState, action) {
     switch (action.type) {
-        case 'FETCH_PRODUCTS_PENDING':
+        case FETCH_PRODUCTS_PENDING:
             return {
                 ...state, isFetching: true
             };
-        case 'FETCH_PRODUCTS_FULFILLED':
+        case FETCH_PRODUCTS_FULFILLED:
             return {...state, productsList: action.payload, isFetching: false};
-        case 'FETCH_PRODUCTS_REJECTED':
+        case FETCH_PRODUCTS_REJECTED:
             return {...state};
         default:
             return {...state}

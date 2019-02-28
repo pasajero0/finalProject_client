@@ -5,17 +5,16 @@ import ProductsList from '../../components/ProductsList/ProductsList.js';
 import Slider from '../../components/Slider/Slider.js';
 
 
-class HomepageWomen extends Component {
+class HomepageGender extends Component {
     render() {
-        // console.log("==================", this.props.match.params.department);
+        // console.log("==================", this.props);
 
         const {
             match: {
-                params: {
-                    department
-                }
+                params: {department}
             }
         } = this.props;
+
         return (
             <>
                 <Header/>
@@ -41,4 +40,4 @@ class HomepageWomen extends Component {
     }
 }
 
-export default HomepageWomen;
+export default HomepageGender;

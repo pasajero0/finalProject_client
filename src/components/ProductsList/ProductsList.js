@@ -13,6 +13,8 @@ const propTypes = {
         count: PropTypes.number,
         pagesTotal: PropTypes.number,
     }),
+    isFetching: PropTypes.bool,
+    fetchProducts: PropTypes.func
 };
 
 const defaultProps = {
@@ -27,8 +29,6 @@ const defaultProps = {
 
 class ProductsList extends Component {
 
-
-
     componentDidMount = () => {
         const { department } = this.props;
         this.props.fetchProducts({department})
@@ -37,12 +37,13 @@ class ProductsList extends Component {
     render() {
         const {productsList} = this.props;
 
-        console.log("++++++++++++", productsList)
         let productsListEntry = productsList.records.map(item => {
             return <ProductListEntry key={item.id}
-                                     img={item.pictures[0]}
+                                     id={item.id}
+                                     pictures={item.pictures[0]}
                                      name={item.name}
-                                     price={item.prices.retail}
+                                     prices={item.prices}
+                                     gender={item.gender}
             />
         });
         return (

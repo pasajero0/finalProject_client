@@ -52,10 +52,10 @@ class Navbar extends Component {
 
                             <ul className="switchNav">
                                 <li className="switchNav__item">
-                                    <a href="#" className="switchNav__link">Women</a>
+                                    {/*<a href="#" className="switchNav__link">Women</a>*/}
                                 </li>
                                 <li className="switchNav__item">
-                                    <a href="#" className="switchNav__link">Men</a>
+                                    {/*<a href="#" className="switchNav__link">Men</a>*/}
                                 </li>
                             </ul>
 

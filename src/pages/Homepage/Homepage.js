@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
-import Banner from '../../components/GenderBanners/GenderBanners.js';
+import GenderBanners from '../../components/GenderBanners/GenderBanners.js';
 
 
 class Homepage extends Component {
@@ -9,7 +9,7 @@ class Homepage extends Component {
         return (
             <>
                 <Header/>
-                <Banner/>
+                <GenderBanners/>
                 <Footer/>
             </>
         )

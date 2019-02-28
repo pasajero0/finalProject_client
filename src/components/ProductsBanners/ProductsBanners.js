@@ -8,6 +8,6 @@ const ProductsBanners = () => {
             <Banner/>
         </>
     )
-}
+};
 
 export default ProductsBanners;

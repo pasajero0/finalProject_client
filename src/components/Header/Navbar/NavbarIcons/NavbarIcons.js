@@ -1,9 +1,9 @@
 import React from 'react';
 import {FaRegUser} from 'react-icons/fa';
+import AddProductToCartIcon from '../../../AddProductToCartIcon/AddProductToCartIcon.js';
 // import {FiShoppingBag} from 'react-icons/fi';
 import {NavLink} from 'react-router-dom';
 import Search from '../Search/Search.js';
-import AddProductToCartIcon from '../../../AddProductToCartIcon/AddProductToCartIcon.js';
 
 import './NavbarIcons.scss';
 
