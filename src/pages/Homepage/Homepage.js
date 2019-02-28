@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer.js';
 import ProductsList from '../../components/ProductsList/ProductsList.js'
 import Slider from '../../components/Slider/Slider.js';
 import Cork from '../../components/Cork/Cork.jsx'
+import RenderLoader from '../../components/RenderLoader/RenderLoader.js';
 
 class Homepage extends Component {
     render() {
