@@ -1,0 +1,20 @@
+{
+  "path":"./src/components",
+  "templates":{
+    "class":"statefulComponent.js",
+    "func":"functionalComponent.js",
+    "cont":"containerComponent.js",
+    "form":"reduxFormComponent"
+  },
+  "default":"func",
+  "conventions":{
+    "classNameCase":"camel"
+  },
+  "replacements":{
+    "__authorName__":"",
+    "__componentName__":"",
+    "__className__":"",
+    "__wrapComponentName__":"__wrapComponentName__",
+    "__wrapComponentPath__":"__wrapComponentPath__"
+  }
+}
