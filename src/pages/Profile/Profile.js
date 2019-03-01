@@ -8,6 +8,7 @@ import { logoutCustomer } from '../../actions/customers';
 import './Profile.scss';
 
 const propTypes = {
+    isAuthenticated: PropTypes.bool.isReq
 };
 
 const defaultProps = {
@@ -43,16 +44,16 @@ class Profile extends Component {
 Profile.propTypes = propTypes;
 Profile.defaultProps = defaultProps;
 
-const mapStateToProps = (state) => { 
+const mapStateToProps = state => { 
     return {
         isAuthenticated: state.customers.isAuthenticated,
         profile: state.customers.profile,
     }
-  }
+}
 
 const mapDispatchToProps = dispatch => (
     {
-        onClickLogout: data => dispatch(logoutCustomer()),
+        onClickLogout: data => dispatch(logoutCustomer(data)),
     }
   );
 

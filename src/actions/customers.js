@@ -20,7 +20,7 @@ const urlGetToken = '/password/send-token';
  * @returns {function(*, *)}
  */
 export function fetchProfile() {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(
       { type: FETCH_PROFILE_PENDING, payload: { } }
     );
@@ -38,7 +38,7 @@ export function fetchProfile() {
  * @returns {function(*, *)}
  */
 export function updProfile(data) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(
       { type: UPDATE_PROFILE_PENDING, payload: { } }
     );
@@ -64,7 +64,7 @@ export function updProfile(data) {
  * @returns {function(*, *)}
  */
 export function addCustomer(data) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(
       { type: UPDATE_PROFILE_PENDING, payload: { } }
     );
@@ -96,7 +96,7 @@ export function addCustomer(data) {
  * @returns {function(*, *)}
  */
 export function loginCustomer(data) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(
       { type: UPDATE_PROFILE_PENDING, payload: { } }
     );
@@ -129,19 +129,17 @@ export function loginCustomer(data) {
   };
 }
 export function logoutCustomer() {
-  console.log('logoutCustomer----');
-  return (dispatch, getState) => {
-    console.log('=================================>');
+  return (dispatch) => {
     axios.get(urlLogoutCustomer)
-      .then(({data}) => {
+      .then(({ data }) => {
         if (data.success) {
-          dispatch({ 
-            type: SET_IS_AUTHENTICATED, 
-            payload: { 
-              isAuthenticated: false, 
+          dispatch({
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: false,
               profile: {}
-            } 
-          });  
+            }
+          });
         } else {
           console.log('logoutCustomer get result');
         }
@@ -160,33 +158,31 @@ export function logoutCustomer() {
   };
 }
 
-export function getToken (data) {
-  return (dispatch, getState) => {
+export function getToken(data) {
+  return (dispatch) => {
     axios.post(urlGetToken, data)
-      .then( result => {
+      .then((result) => {
         const res = result.data;
         if (res.success) {
-          dispatch({ 
-            type: GET_TOKEN, 
-            payload: true 
-          });  
-          console.log(res)
+          dispatch({
+            type: GET_TOKEN,
+            payload: true
+          });
+          console.log(res);
         } else {
           console.log('logoutCustomer get result', res);
         }
-        
       })
-      .catch( (err) => {
-        dispatch( 
-          { 
-            type: GET_TOKEN, 
-            payload:false
+      .catch((err) => {
+        dispatch(
+          {
+            type: GET_TOKEN,
+            payload: false
           }
         );
         throw err;
       });
-
   };
 }
 
-export function resetPassword () {}
+export function resetPassword() {}

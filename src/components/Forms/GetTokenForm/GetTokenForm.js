@@ -53,7 +53,7 @@ const GetTokenForm = (
     message = error;
   } else if (submitSucceeded) {
     messageType = 'success';
-    message = 'Saved';
+    message = 'Sending letter...';
   } else if (submitting) {
     messageType = 'info';
     message = 'Submitting...';

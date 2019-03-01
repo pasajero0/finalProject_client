@@ -5,15 +5,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
 import { loginCustomer } from '../../../actions/customers';
-import {showSystemMessage} from '../../../actions/app';
-import RenderForm from '../RenderForm/RenderForm.js';
-import RenderField from '../RenderField/RenderField.js';
+import { showSystemMessage } from '../../../actions/app';
+import RenderForm from '../RenderForm/RenderForm';
+import RenderField from '../RenderField/RenderField';
 
 /**
  * Validate all form fields and return object with invalid entries error messages
@@ -26,17 +26,13 @@ const validate = (values) => {
 
   if (!required(values.email)) {
     errors.email = 'E-mail is required';
-  } else {
-    if (!email(values.email)) {
-      errors.email = 'E-mail has to be valid email';
-    }
+  } else if (!email(values.email)) {
+    errors.email = 'E-mail has to be valid email';
   }
   if (!required(values.subject)) {
     errors.subject = 'Subject is required';
-  } else {
-    if (!minLength(2)(values.subject) || !maxLength(5)(values.subject)) {
-      errors.subject = 'Subject has tobe between 2 an d 5 chars length';
-    }
+  } else if (!minLength(2)(values.subject) || !maxLength(5)(values.subject)) {
+    errors.subject = 'Subject has tobe between 2 an d 5 chars length';
   }
   if (!required(values.body)) {
     errors.body = 'Body is required';
@@ -55,10 +51,10 @@ const LoginForm = (
   let messageType = '';
   let message = '';
   if (submitSucceeded) {
-      setSystemMessage ( 'You have been logged in', 'info')
+    setSystemMessage('You have been logged in', 'info');
   }
-  if(isAuthenticated) {
-    return <Redirect to="/profile" />
+  if (isAuthenticated) {
+    return <Redirect to="/profile" />;
   }
   if (error) {
     messageType = 'error';
@@ -72,25 +68,26 @@ const LoginForm = (
   }
 
   return (
-    <RenderForm
-      title=""
-      submitLabel="Login"
-      resetLabel="Reset"
-      isVisibleReset={false}
-      onSubmit={handleSubmit(onSubmitAction)}
-      onReset={reset}
-      isSubmitting={submitting}
-      isPristine={pristine}
-      isSucceeded={submitSucceeded}
-      isInvalid={invalid}
-      message={message}
-      messageType={messageType} 
-    >
-      <Field name="email" type="email" component={RenderField} label='Email'/>
-      <Field name="password" type="password" component={RenderField} label='Password'/>
-
-      <NavLink to="/reset-password" className="profile__button">forgot password</NavLink>
-    </RenderForm>
+    <>
+      <RenderForm
+        title=""
+        submitLabel="Login"
+        resetLabel="Reset"
+        isVisibleReset={false}
+        onSubmit={handleSubmit(onSubmitAction)}
+        onReset={reset}
+        isSubmitting={submitting}
+        isPristine={pristine}
+        isSucceeded={submitSucceeded}
+        isInvalid={invalid}
+        message={message}
+        messageType={messageType}
+      >
+        <Field name="email" type="email" component={RenderField} label="Email" />
+        <Field name="password" type="password" component={RenderField} label="Password" />
+      </RenderForm>
+      <NavLink to="/reset-password">forgot password</NavLink>
+    </>
   );
 };
 
@@ -121,13 +118,10 @@ LoginForm.defaultProps = {
   submitSucceeded: false
 };
 
-const mapStateToProps = (state) => { 
-  // console.log(state);
-  return {
-    isAuthenticated: state.customers.isAuthenticated,
-  }
-}
 
+const mapStateToProps = state => ({
+  isAuthenticated: state.customers.isAuthenticated,
+});
 const mapDispatchToProps = dispatch => (
   {
     onSubmitAction: data => dispatch(loginCustomer(data)),
@@ -138,4 +132,3 @@ const mapDispatchToProps = dispatch => (
 export default reduxForm({
   form: 'LoginForm', validate
 })(connect(mapStateToProps, mapDispatchToProps)(LoginForm));
- 

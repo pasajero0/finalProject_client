@@ -24,7 +24,7 @@ function customers(state = initialState, action) {
         ...state,
         isAuthenticated: action.payload.isAuthenticated,
         profile: { email: action.payload.email }
-      }
+      };
     case FETCH_PROFILE_PENDING:
       return {
         ...state
@@ -51,14 +51,14 @@ function customers(state = initialState, action) {
         isAuthenticated: action.payload.isAuthenticated,
         profile: action.payload.profile
       };
-    case GET_TOKEN: 
+    case GET_TOKEN:
       return {
-        ...state, 
+        ...state,
         isSentResetPasswordToken: action.payload
-      }
+      };
     default:
       return { ...state };
   }
 }
 
-export default customers; 
+export default customers;
