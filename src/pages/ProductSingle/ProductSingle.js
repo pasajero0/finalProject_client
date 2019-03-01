@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
-import GenderBanners from '../../components/GenderBanners/GenderBanners.js';
+import Product from '../../components/Product/Product.js'
 
+class ProductSingle extends Component {
 
-class Homepage extends Component {
     render() {
         return (
             <>
                 <Header/>
-                <GenderBanners/>
+                <Product/>
                 <Footer/>
             </>
         )
     }
 }
 
-export default Homepage;
+
+export default ProductSingle;

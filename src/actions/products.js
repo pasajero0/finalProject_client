@@ -1,29 +1,32 @@
 import axios from 'axios';
 
-export const FETCH_PRODUCTS_REQUEST = 'FETCH_PRODUCTS_REQUEST';
-export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
+export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
+export const FETCH_PRODUCTS_FULFILLED = 'FETCH_PRODUCTS_FULFILLED';
+export const FETCH_PRODUCTS_REJECTED = 'FETCH_PRODUCTS_REJECTED';
 
-export function fetchAllProducts() {
+
+export function fetchProducts(requestData) {
     return dispatch => {
         dispatch({
-            type: FETCH_PRODUCTS_REQUEST,
+            type: FETCH_PRODUCTS_PENDING,
         });
-        setTimeout(() => {
-            axios.get('../api/products.json')
-                .then(res => res.data)
-                .then(data => {
-                    let productsList = {
-                        productsList: data
-                    };
-
+        axios.get('../api/products.json', requestData)
+            .then(res => res.data)
+            .then(data => {
+                // console.log("==========================", data);
+                if (data.success) {
                     dispatch({
-                        type: FETCH_PRODUCTS_SUCCESS,
-                        payload: productsList
+                        type: FETCH_PRODUCTS_FULFILLED,
+                        payload: data.data
                     })
-
-                })
-                .catch(err => console.log(err))
-        }, 3000);
+                } else {
+                    throw new Error ("Error")
+                }
+            })
+            .catch(err => dispatch({
+                type: FETCH_PRODUCTS_REJECTED,
+                payload: err
+            }))
     }
 }
 

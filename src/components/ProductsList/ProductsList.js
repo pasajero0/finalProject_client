@@ -2,60 +2,76 @@ import React, {Component} from 'react';
 import ProductListEntry from '../ProductListEntry/ProductListEntry.js';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {fetchAllProducts} from '../../actions/products'
-
+import {fetchProducts} from '../../actions/products'
 import './ProductsList.scss';
 
+const propTypes = {
+    productsList: PropTypes.shape({
+        records: PropTypes.array,
+        page: PropTypes.number,
+        perPage: PropTypes.number,
+        count: PropTypes.number,
+        pagesTotal: PropTypes.number,
+    }),
+    isFetching: PropTypes.bool,
+    fetchProducts: PropTypes.func
+};
+
+const defaultProps = {
+    productsList: {
+        records: [],
+        page: 1,
+        perPage: 10,
+        count: 0,
+        pagesTotal: 0,
+    }
+};
+
 class ProductsList extends Component {
-    static propTypes = {
-        // gender: PropTypes.string,
-        // category: PropTypes.string,
-        id: PropTypes.number,
-        img: PropTypes.string,
-        name: PropTypes.string,
-        price: PropTypes.shape({
-            sum: PropTypes.number,
-            currency: PropTypes.string,
-        }),
-        // color: PropTypes.string,
-        // size: PropTypes.string,
-        // text: PropTypes.string,
-    };
 
     componentDidMount = () => {
-        this.props.fetchAllProducts()
+        const { department } = this.props;
+        this.props.fetchProducts({department})
     };
 
     render() {
-        console.log(this.props.isFetching)
-        let productsList = this.props.products.map(item => {
+        const {productsList} = this.props;
+
+        let productsListEntry = productsList.records.map(item => {
             return <ProductListEntry key={item.id}
-                                     imgSrc={item.img}
+                                     id={item.id}
+                                     pictures={item.pictures[0]}
                                      name={item.name}
-                                     price={item.price}/>
+                                     prices={item.prices}
+                                     gender={item.gender}
+            />
         });
         return (
-            <div className='productsList'>
+            <section className='productsList'>
                 <div className="container">
                     <div className='productsListContent'>
-                        {this.props.isFetching ? <span className="productsList__loader">Загрузка...</span> : productsList}
+                        {this.props.isFetching ?
+                            <span className="productsList__loader">Loading...</span> : productsListEntry}
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }
 
+ProductListEntry.propTypes = propTypes;
+ProductListEntry.defaultProps = defaultProps;
+
 const mapStateToProps = (state) => {
     return {
-        products: state.products.productsList,
+        productsList: state.products.productsList,
         isFetching: state.products.isFetching
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAllProducts: () => dispatch(fetchAllProducts())
+        fetchProducts: () => dispatch(fetchProducts())
     }
 };
 
