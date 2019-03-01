@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import products from './products.js';
-import customers from './customers.js';
-import account from './account.js'
+import products from './products';
+import customers from './customers';
+import app from './app'
 
 const rootReducer = combineReducers({
   form: formReducer,
   products,
   customers,
-  account
+  app
 });
 
 export default rootReducer;

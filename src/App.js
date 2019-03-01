@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Homepage from './pages/Homepage/Homepage.js'
-import HomepageGender from './pages/HomepageGender/HomepageGender.js';
-import Account from './pages/Account/Account.js';
-import ProductSingle from './pages/ProductSingle/ProductSingle.js';
-import MyCart from './pages/MyCart/MyCart.js'
+import Homepage from './pages/Homepage/Homepage'
+import HomepageGender from './pages/HomepageGender/HomepageGender';
+import Account from './pages/Account/Account';
+import Profile from './pages/Profile/Profile';
+import MyCart from './pages/MyCart/MyCart';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 
 import './App.scss';
 
@@ -18,7 +19,10 @@ class App extends Component {
                     <Route exact path="/:department" component={HomepageGender}/>
                     <Route exact path="/:department/:id" component={ProductSingle}/>
                     <Route exact path="/login" component={Account}/>
+                    <Route exact path="/profile" component={Profile}/>
                     <Route exact path="/cart" component={MyCart}/>
+                    <Route exact path="/reset-password" component={ResetPassword}/> 
+                    <Route exact path="/reset-password/:token" component={ResetPassword}/>
                 </Switch>
             </>
         );
@@ -26,3 +30,4 @@ class App extends Component {
 }
 
 export default App;
+

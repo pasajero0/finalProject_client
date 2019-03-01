@@ -1,38 +1,35 @@
-/**
- * Redux form.
- */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
-import { loginCustomer } from '../../../actions/customers';
-import { showSystemMessage } from '../../../actions/app';
-import RenderForm from '../RenderForm/RenderForm';
+import { getToken } from '../../../actions/customers';
 import RenderField from '../RenderField/RenderField';
+import RenderForm from '../RenderForm/RenderForm';
 
 /**
  * Validate all form fields and return object with invalid entries error messages
  * @param values {object} - form values
  * @returns {{}}
  */
-
 const validate = (values) => {
   const errors = {};
 
   if (!required(values.email)) {
     errors.email = 'E-mail is required';
-  } else if (!email(values.email)) {
-    errors.email = 'E-mail has to be valid email';
+  } else {
+    if (!email(values.email)) {
+      errors.email = 'E-mail has to be valid email';
+    }
   }
   if (!required(values.subject)) {
     errors.subject = 'Subject is required';
-  } else if (!minLength(2)(values.subject) || !maxLength(5)(values.subject)) {
-    errors.subject = 'Subject has tobe between 2 an d 5 chars length';
+  } else {
+    if (!minLength(2)(values.subject) || !maxLength(5)(values.subject)) {
+      errors.subject = 'Subject has tobe between 2 an d 5 chars length';
+    }
   }
   if (!required(values.body)) {
     errors.body = 'Body is required';
@@ -43,55 +40,46 @@ const validate = (values) => {
 /**
  * ReduxForm container
  */
-const LoginForm = (
+const GetTokenForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage
+    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded
   }
 ) => {
   let messageType = '';
   let message = '';
-  if (submitSucceeded) {
-    setSystemMessage('You have been logged in', 'info');
-  }
-  if (isAuthenticated) {
-    return <Redirect to="/profile" />;
-  }
+
   if (error) {
     messageType = 'error';
     message = error;
   } else if (submitSucceeded) {
     messageType = 'success';
-    message = 'Saved!!';
+    message = 'Sending letter...';
   } else if (submitting) {
     messageType = 'info';
     message = 'Submitting...';
   }
 
   return (
-    <>
-      <RenderForm
-        title=""
-        submitLabel="Login"
-        resetLabel="Reset"
-        isVisibleReset={false}
-        onSubmit={handleSubmit(onSubmitAction)}
-        onReset={reset}
-        isSubmitting={submitting}
-        isPristine={pristine}
-        isSucceeded={submitSucceeded}
-        isInvalid={invalid}
-        message={message}
-        messageType={messageType}
-      >
-        <Field name="email" type="email" component={RenderField} label="Email" />
-        <Field name="password" type="password" component={RenderField} label="Password" />
-      </RenderForm>
-      <NavLink to="/reset-password">forgot password</NavLink>
-    </>
+    <RenderForm
+      error={error}
+      isSubmitting={submitting}
+      isPristine={pristine}
+      isSucceeded={submitSucceeded}
+      isInvalid={invalid}
+      onSubmit={handleSubmit(onSubmitAction)}
+      onReset={reset}
+      title="ResetPassword"
+      message={message}
+      messageType={messageType}
+      submitLabel="Submit"
+      resetLabel="Reset"
+    >
+      <Field name="email" type="email" component={RenderField} label="Email" />
+    </RenderForm>
   );
 };
 
-LoginForm.propTypes = {
+GetTokenForm.propTypes = {
   /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
   handleSubmit: PropTypes.func.isRequired,
   /** Action connected to the form submission */
@@ -110,7 +98,7 @@ LoginForm.propTypes = {
   submitSucceeded: PropTypes.bool,
 };
 
-LoginForm.defaultProps = {
+GetTokenForm.defaultProps = {
   error: '',
   pristine: true,
   submitting: false,
@@ -118,17 +106,12 @@ LoginForm.defaultProps = {
   submitSucceeded: false
 };
 
-
-const mapStateToProps = state => ({
-  isAuthenticated: state.customers.isAuthenticated,
-});
 const mapDispatchToProps = dispatch => (
   {
-    onSubmitAction: data => dispatch(loginCustomer(data)),
-    setSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
+    onSubmitAction: data => dispatch(getToken(data))
   }
 );
 
 export default reduxForm({
-  form: 'LoginForm', validate
-})(connect(mapStateToProps, mapDispatchToProps)(LoginForm));
+  form: 'GetTokenForm', validate
+})(connect(null, mapDispatchToProps)(GetTokenForm));
