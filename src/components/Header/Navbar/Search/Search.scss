@@ -3,13 +3,13 @@
 	align-items: center;
 	justify-content: space-between;
 	position: absolute;
-	right: 90px;
+	right: 100px;
 }
 
 .searchLink {
 	display: flex;
-	width: 20px;
-	height: 20px;
+	width: 26px;
+	height: 26px;
 	position: absolute;
 	right: 0px;
 }
@@ -17,7 +17,7 @@
 .searchLinkIconSearch {
 	display: block;
 	color: #737373;
-	font-size: 20px;
+	font-size: 26px;
 
 	&.hide {
 		display: none;
@@ -30,7 +30,7 @@
 	&.show {
 		display: block;
 		color: #737373;
-		font-size: 20px;
+		font-size: 26px;
 	}
 }
 
@@ -93,8 +93,8 @@
 		border: none;
 		background-color: transparent;
 		position: relative;
-		right: 31px;
-		bottom: -8px;
+		right: 34px;
+		bottom: -5px;
 		padding: 0px;
 		cursor: pointer;
 		height: 20px;
@@ -108,8 +108,8 @@
 	&__icon {
 		font-size: 20px;
 		color: #737373;
-		width: 20px;
-		height: 20px;
+		width: 26px;
+		height: 26px;
 		font-family: 'Poppins', sans-serif;
 	}
 }

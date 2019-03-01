@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {NavLink} from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi';
 import {MdClose} from 'react-icons/md'
 import './Search.scss';
@@ -17,10 +16,10 @@ class Search extends Component {
     render() {
         return (
             <div className="searchContent">
-                <a href="#" className="searchLink" onClick={this.tooglesearchForm}>
+                <span className="searchLink" onClick={this.tooglesearchForm}>
                     <FiSearch className={this.state.searchFormOpened ? "searchLinkIconSearch hide" : "searchLinkIconSearch"}/>
                     <MdClose className={this.state.searchFormOpened ? "searchLinkIconClose show" : "searchLinkIconClose"}/>
-                </a>
+                </span>
 
 
                 <form action="#" method="get"
@@ -34,7 +33,7 @@ class Search extends Component {
                 <div className="searchFormResult">
                     <ul className="searchFormResult__list">
                         <li className="searchFormResult__item">
-                            <a href="#" className="searchFormResult__link"></a>
+                            {/*<a href="#" className="searchFormResult__link"></a>*/}
                         </li>
                     </ul>
                 </div>

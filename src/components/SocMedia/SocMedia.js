@@ -5,7 +5,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaGooglePlusG } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 
-import '../Header.scss';
+import '../Header/Header.scss';
 
 //создание компонента с иконками соц-сетей
 class SocMedia extends Component  {

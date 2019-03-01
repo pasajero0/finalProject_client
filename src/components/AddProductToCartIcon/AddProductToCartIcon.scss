@@ -1,0 +1,15 @@
+.addProductToCartIcon {
+	color: #737373;
+	cursor: pointer;
+
+	&:hover,
+	&:active,
+	&:focus {
+		fill: #737373;
+	}
+
+	& .added {
+		fill: #737373;
+	}
+}
+

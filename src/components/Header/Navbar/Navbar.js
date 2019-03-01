@@ -37,7 +37,7 @@ class Navbar extends Component {
 
                                 <ul className="genderNav">
                                     <li className="genderNav__item">
-                                        <NavLink to="/women" className="genderNav__link">Women</NavLink>
+                                        <NavLink exact to="/women" activeClassName="active" className="genderNav__link ">Women</NavLink>
                                     </li>
                                     <li className="genderNav__item">
                                         <NavLink to="/men" className="genderNav__link">Men</NavLink>
@@ -52,10 +52,10 @@ class Navbar extends Component {
 
                             <ul className="switchNav">
                                 <li className="switchNav__item">
-                                    <a href="#" className="switchNav__link">Women</a>
+                                    {/*<a href="#" className="switchNav__link">Women</a>*/}
                                 </li>
                                 <li className="switchNav__item">
-                                    <a href="#" className="switchNav__link">Men</a>
+                                    {/*<a href="#" className="switchNav__link">Men</a>*/}
                                 </li>
                             </ul>
 

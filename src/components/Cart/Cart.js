@@ -5,7 +5,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import './Cart.scss';
 
 class Cart extends Component {
- 
+
       state = {
         deleteCartItem: false,
         products: [{
@@ -26,13 +26,13 @@ class Cart extends Component {
               title: 'Dress',
               price: '$89'
             }]
-      }
+      };
 
   removeItem = () => {
     this.setState({
       deleteCartItem: !this.state.deleteCartItem
     })
-  }
+  };
 
 // getNumberInput = (e) => {
 //     let count= e.target.value;
@@ -41,21 +41,21 @@ class Cart extends Component {
 // }
 
     render() {
- 
+
         let totalAmount = 0;
         this.state.products.map(item => {
           let price = Number(item.price.slice(1));
           totalAmount += price;
           return totalAmount;
-        })
+        });
 
-      
+
         return (
          <div>
                 <div className="cart">
                 <h1 className="cart__header">Cart</h1>
                     <div className="cartTableHeader">
-                        <div className="cartTableHeader__product">Product</div>
+                        <div className="cartTableHeader__product">ProductSingle</div>
                         <div className="cartTableHeader__quantity">Quantity</div>
                         <div className="cartTableHeader__price">Price</div>
                     </div>
@@ -70,9 +70,8 @@ class Cart extends Component {
                     </div>
                     <button className="cart__btnCheckout">Proceed to checkout <FaLongArrowAltRight/></button>
                 </div>
-                
           </div>
-        )     
+        )
     }
 }
 

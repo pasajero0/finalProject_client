@@ -11,7 +11,12 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+<<<<<<< HEAD
     "react-icons": "^3.4.0",
+=======
+    "react-icons": "^3.3.0",
+    "react-loader-spinner": "^2.3.0",
+>>>>>>> 977ca3bbe1d119926e404c94c5b5310c79c248b6
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",

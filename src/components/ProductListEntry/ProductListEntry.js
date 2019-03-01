@@ -1,45 +1,46 @@
 import React, {Component} from 'react';
-import {FiShoppingBag} from "react-icons/fi";
-import './ProductListEntry.scss'
+import {NavLink} from 'react-router-dom';
+import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon.js';
+import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon.js';
+import './ProductListEntry.scss';
 import PropTypes from "prop-types";
 
-class ProductListEntry extends Component {
+const propTypes = {
+    gender: PropTypes.string,
+    id: PropTypes.string,
+    pictures: PropTypes.string,
+    name: PropTypes.string,
+    prices: PropTypes.shape({
+        retail: PropTypes.number,
+        sale: PropTypes.number,
+    })
+};
 
+class ProductListEntry extends Component {
     render() {
+        // console.log("==========================", this.props.gender);
         return (
-            <div className="productItemContent">
-                <div className='productItem'>
-                    <a href="#" className="productItemImg__link">
-                        <img src={this.props.imgSrc}
-                             alt='Dress'
-                             className='productItemImg__img'/>
-                    </a>
-                    <a href="#" className="productItemName__link">
+            <div className="productListEntry" key={this.props.index}>
+                <div className='productListEntryItem'>
+                    <NavLink to={`${this.props.gender}/${this.props.id}`} className="productListEntryItem__imgLink">
+                        <img src={this.props.pictures}
+                             alt={this.props.name}
+                             className='productListEntryItem__img'/>
+                    </NavLink>
+                    <NavLink to={`${this.props.gender}/${this.props.id}`} className="productListEntryItem__nameLink">
                         {this.props.name}
-                    </a>
-                    <span className="productItemPrice">{this.props.price.sum}{this.props.price.currency}</span>
-                    <button className="addProductItemToCartBtn">
-                        <FiShoppingBag className="addProductItemToCartBtn__icon"/>
-                    </button>
+                    </NavLink>
+                    <span
+                        className="productListEntryItem__price">${this.props.prices.retail}
+                    </span>
+                    <SaveProductForLaterIcon className="saveForLaterIcon"/>
+                    <AddProductToCartIcon className="addProductToCartIcon"/>
                 </div>
             </div>
-        );
+        )
     }
 }
 
-ProductListEntry.propTypes = {
-    // gender: PropTypes.string,
-    // category: PropTypes.string,
-    id: PropTypes.number,
-    img: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.shape({
-        sum: PropTypes.number,
-        currency: PropTypes.string,
-    }),
-    // color: PropTypes.string,
-    // size: PropTypes.string,
-    // text: PropTypes.string,
-};
+ProductListEntry.propTypes = propTypes;
 
 export default ProductListEntry;

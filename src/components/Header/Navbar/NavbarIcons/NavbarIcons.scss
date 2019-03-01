@@ -1,25 +1,56 @@
-.NavbarIconsMenu {
-    display: flex;
-    align-items: center;
+.navbarIcons {
+	display: flex;
+	align-items: center;
 
-    &__item {
-        margin-right: 25px;
+	&__item {
+		margin-right: 25px;
 
-        &:last-child {
-            margin-right: 0px;
-        }
-    }
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
 
-    &__link {
-        display: inline-flex;
-        width: 20px;
-        height: 20px;
-    }
+	&__link {
+		display: inline-flex;
+		width: 26px;
+		height: 26px;
+	}
 
-    &__icon {
-        font-size: 20px;
-        color: #737373;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
+	&__icon {
+		font-size: 26px;
+		color: #737373;
+		width: 100%;
+		font-family: 'Poppins', sans-serif;
+	}
+
+	&__cartLink {
+		position: relative;
+	}
+
+	.addProductToCartIcon {
+		position: static;
+		font-size: 25px;
+	}
 }
+
+.productsQuantity {
+	position: absolute;
+	width: 60%;
+	height: 43%;
+	bottom: 7px;
+	left: 7px;
+	background-color: transparent;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__number {
+		color: #737373;
+		font-family: 'Poppins', sans-serif;
+		font-size: 8px;
+		font-weight: bold;
+	}
+}
+
+
