@@ -1,0 +1,14 @@
+.saveForLaterIcon {
+	color: #737373;
+	cursor: pointer;
+
+	&:hover,
+	&:active,
+	&:focus {
+		fill: #737373;
+	}
+
+	& .saved {
+		fill: #737373;
+	}
+}

@@ -5,7 +5,7 @@ export function displayLoginOrRegister ( value ) {
 
   return {
     type: DISPLAY_LOGIN_OR_REGISTER,
-    payload: value === 'LOGIN' ? true : false
+    payload: value === 'LOGIN'
   }
 }
 

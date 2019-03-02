@@ -1,93 +1,182 @@
-[
-  {
-    "id": 1,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
+{"data": {
+    "perPage": 10,
+    "page": 1,
+    "records": [
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices": {
+          "retail": 890,
+          "sale": 890
+        },
+        "gender": "women",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d25767534317eр3c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "women",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d2576753431аe7e3c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "women",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d2576753431797e3c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "women",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d25767534327e7e3c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "men",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d2576734317e7e3c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "men",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d25767534017e7e3c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "men",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d55767534317e7e3c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "men",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d25767534317e7e6c48fd"
+      },
+      {
+        "company": "Geofarm",
+        "country": "Ghana",
+        "prices":{
+          "retail":890,
+          "sale":890
+        },
+        "gender": "men",
+        "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
+        "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
+        "isBrandNew": false,
+        "isPopular": true,
+        "isAvailable": false,
+        "isOnSale": false,
+        "rate": 5,
+        "pictures": ["https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg"],
+        "added": "Sun, 23 Sep 2018 08:59:43 GMT",
+        "id": "5c6d25767534317e753c48fd"
+      }
+    ],
+    "count": 94,
+    "pagesTotal": 10
   },
-  {
-    "id": 2,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 3,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 4,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 5,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 6,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 7,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 8,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 9,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  },
-  {
-    "id": 10,
-    "img": "https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg",
-    "name": "Dress",
-    "price": {
-      "sum": 89,
-      "currency": "$"
-    }
-  }
-]
-
+  "message": "",
+  "success": true
+}

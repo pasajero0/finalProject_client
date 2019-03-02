@@ -1,0 +1,81 @@
+.genderBannersContent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 50px;
+}
+
+.genderBanner {
+	width: 45%;
+	margin-right: 30px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	&:last-child {
+		margin-right: 0px;
+	}
+
+	&.men {
+		justify-content: flex-start;
+	}
+
+	&__img {
+		width: 100%;
+		//width: 450px;
+		//height: 550px;
+	}
+
+	&__link {
+		position: absolute;
+		bottom: 50%;
+		left: 35%;
+		text-transform: uppercase;
+		color: #000;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		border: 2px solid #000;
+		background-color: #fff;
+		padding: 10px 15px;
+		width: 80px;
+	}
+}
+
+@media (max-width: 980px) {
+
+	.genderBanner {
+		width: 40%;
+
+		//&__img {
+		//	width: 350px;
+		//	height: 450px;
+		//}
+	}
+}
+
+@media (max-width: 800px) {
+
+	.genderBanner {
+		width: 35%;
+
+		//&__img {
+		//	width: 300px;
+		//	height: 400px;
+		//}
+	}
+}
+
+
+@media (max-width: 700px) {
+
+	.genderBanner {
+		width: 35%;
+
+		//&__img {
+		//	width: 300px;
+		//	height: 400px;
+		//}
+	}
+}
