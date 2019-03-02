@@ -11,8 +11,9 @@ const propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       department: PropTypes.string,
-      page: PropTypes.number,
-    })
+      page: PropTypes.string,
+    }),
+    path: PropTypes.string.isRequired
   })
 };
 
@@ -25,7 +26,8 @@ const defaultProps = {
   },
 };
 
-const HomepageGender = ({ match: { params: { department, page } } }) => (
+const HomepageGender = ({ match }) => {
+  return (
   <>
     <Header />
     <Slider
@@ -44,10 +46,10 @@ const HomepageGender = ({ match: { params: { department, page } } }) => (
         slidesToScroll: 1,
       }}
     />
-    <ProductsList department={department} page={page} />
+    <ProductsList routeData={match} />
     <Footer />
   </>
-);
+)};
 
 HomepageGender.propTypes = propTypes;
 HomepageGender.defaultProps = defaultProps;

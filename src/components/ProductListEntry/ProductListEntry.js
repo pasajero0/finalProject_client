@@ -1,45 +1,43 @@
-import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
-import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon.js';
-import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon.js';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
+import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
+
 import './ProductListEntry.scss';
-import PropTypes from "prop-types";
+
 
 const propTypes = {
-    gender: PropTypes.string,
-    id: PropTypes.string,
-    pictures: PropTypes.string,
-    name: PropTypes.string,
-    prices: PropTypes.shape({
-        retail: PropTypes.number,
-        sale: PropTypes.number,
-    })
+  link: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  prices: PropTypes.shape({
+    retail: PropTypes.number.isRequired,
+    sale: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
-class ProductListEntry extends Component {
-    render() {
-        // console.log("==========================", this.props.gender);
-        return (
-            <div className="productListEntry" key={this.props.index}>
-                <div className='productListEntryItem'>
-                    <NavLink to={`${this.props.gender}/${this.props.id}`} className="productListEntryItem__imgLink">
-                        <img src={this.props.pictures}
-                             alt={this.props.name}
-                             className='productListEntryItem__img'/>
-                    </NavLink>
-                    <NavLink to={`${this.props.gender}/${this.props.id}`} className="productListEntryItem__nameLink">
-                        {this.props.name}
-                    </NavLink>
-                    <span
-                        className="productListEntryItem__price">${this.props.prices.retail}
-                    </span>
-                    <SaveProductForLaterIcon className="saveForLaterIcon"/>
-                    <AddProductToCartIcon className="addProductToCartIcon"/>
-                </div>
-            </div>
-        )
-    }
-}
+const ProductListEntry = ({ link, picture, name, slug, prices }) => (
+  <div className="productListEntry" key={slug}>
+    <div className="productListEntryItem">
+      <NavLink to={link} className="productListEntryItem__imgLink">
+        <img
+          src={picture}
+          alt={name}
+          className="productListEntryItem__img"
+        />
+      </NavLink>
+
+      <NavLink to={link} className="productListEntryItem__nameLink">
+        {name}
+      </NavLink>
+      <span className="productListEntryItem__price">${prices.retail}</span>
+      <SaveProductForLaterIcon className="saveForLaterIcon" />
+      <AddProductToCartIcon className="addProductToCartIcon" />
+    </div>
+  </div>
+);
 
 ProductListEntry.propTypes = propTypes;
 
