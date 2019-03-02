@@ -36,7 +36,7 @@ class Navbar extends Component {
 
         console.group('DEPARTMENTS IN NAV BAR');
         console.log(departments);
-        console.log('/-------------- end */');
+        console.groupEnd();
 
         return (
             <div className="navbar">
