@@ -15,7 +15,7 @@ const propTypes = {
   prices: PropTypes.shape({
     retail: PropTypes.number.isRequired,
     sale: PropTypes.number.isRequired,
-  }).isRequired,
+  }).isRequired
 };
 
 const ProductListEntry = ({ link, picture, name, slug, prices }) => (

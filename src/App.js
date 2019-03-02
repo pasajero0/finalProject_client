@@ -1,42 +1,56 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Homepage from './pages/Homepage/Homepage';
-import Department from './pages/HomepageGender/HomepageGender';
-import Product from './pages/ProductSingle/ProductSingle';
-import Account from './pages/Account/Account';
-import Profile from './pages/Profile/Profile';
-import MyCart from './pages/MyCart/MyCart';
-import ResetPassword from './pages/ResetPassword/ResetPassword';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import { fetchDepartments } from './actions/app';
+import Layout from './components/Layout/Layout';
 
 import './App.scss';
 
-const App = () => (
-  <>
-    <Switch>
-      <Route exact path="/" component={Homepage} />
-      <Route exact path="/login" component={Account} />
-      <Route exact path="/profile" component={Profile} />
-      <Route exact path="/cart" component={MyCart} />
-      <Route exact path="/reset-password" component={ResetPassword} />
-      <Route exact path="/reset-password/:token" component={ResetPassword} />
+const propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  departments: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.number,
+      name: PropTypes.string,
+      slug: PropTypes.string,
+      parent: PropTypes.number,
+      position: PropTypes.number,
+      filters: PropTypes.shape,
+    })),
+  callFetchDepartments: PropTypes.func.isRequired
+};
 
-      <Route exact path="/:department" component={Department} />
-      <Route exact path="/:department/page/:page" component={Department} />
-      <Route exact path="/:department/filter/:filter" component={Department} />
-      <Route exact path="/:department/filter/:filter/page/:page" component={Department} />
-      <Route exact path="/:department/search/:search" component={Department} />
-      <Route exact path="/:department/search/:search/page/:page" component={Department} />
-
-      <Route exact path="/:department/product/:product" component={Product} />
-      <Route exact path="/:department/page/:page/product/:product" component={Product} />
-      <Route exact path="/:department/filter/:filter/product/:product" component={Product} />
-      <Route exact path="/:department/filter/:filter/page/:page/product/:product" component={Product} />
-      <Route exact path="/:department/search/:search/product/:product" component={Product} />
-      <Route exact path="/:department/search/:search/page/:page/product/:product" component={Product} />
+const defaultProps = {
+  departments: []
+};
 
 
-    </Switch>
-  </>
-);
 
-export default App;
+
+
+class App extends Component {
+
+  render() {
+    const { isFetching, departments, callFetchDepartments } = this.props;
+    if (!isFetching && departments.length === 0) {
+      callFetchDepartments();
+    }
+    return isFetching ? <div>LOADING...</div> : <Layout/>;
+  }
+}
+
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
+
+const mapStateToProps = state => ({
+  departments: state.app.departments,
+  isFetching: state.app.isFetching
+});
+
+const mapDispatchToProps = dispatch => ({
+  callFetchDepartments: () => dispatch(fetchDepartments())
+});
+
+const C = connect(mapStateToProps, mapDispatchToProps)(App);
+export default props => <Route render={routeProps => <C {...routeProps} {...props} />}/>;
