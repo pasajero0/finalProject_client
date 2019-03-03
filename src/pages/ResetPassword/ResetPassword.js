@@ -4,16 +4,18 @@ import PropTypes from 'prop-types';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import GetTokenForm from '../../components/Forms/GetTokenForm/GetTokenForm';
-// import ResetPasswordForm from '../../components/Forms/ResetPasswordForm/ResetPasswordForm';
+import ResetPasswordForm from '../../components/Forms/ResetPasswordForm/ResetPasswordForm';
 
 import './ResetPassword.scss';
 
 const propTypes = {
   isSentResetPasswordToken: PropTypes.bool,
+  isAuthenticated: PropTypes.bool,
 };
 
 const defaultProps = {
   isSentResetPasswordToken: false,
+  isAuthenticated: false,
 };
 
 /**
@@ -22,18 +24,24 @@ const defaultProps = {
 class ResetPassword extends Component {
     
   render() {
+  	
+  	// console.log(this.props.match);
 
     const {
       match: {
         params: {token}
       }
     } = this.props;
-    const { isSentResetPasswordToken } = this.props;
-      
+    const { isSentResetPasswordToken, isAuthenticated } = this.props;
+    
+	
+
     let form;
 
-    if (token) {
-      //form = <ResetPasswordForm />;
+    if (isAuthenticated){
+    	form = <ResetPasswordForm />;
+    } else if (token) {
+   		form = <ResetPasswordForm />;
     } else {
       if (isSentResetPasswordToken) {
         form = (
@@ -65,6 +73,7 @@ ResetPassword.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
   return {
+  	isAuthenticated: state.customers.isAuthenticated,
     isSentResetPasswordToken: state.customers.isSentResetPasswordToken,
   };
 };

@@ -17,22 +17,18 @@ import RenderForm from '../RenderForm/RenderForm';
 const validate = (values) => {
   const errors = {};
 
-  if (!required(values.email)) {
-    errors.email = 'E-mail is required';
-  } else {
-    if (!email(values.email)) {
-      errors.email = 'E-mail has to be valid email';
-    }
+  if (!required(values.newPassword)) {
+    errors.newPassword = 'New password is required';
+  } else if (!required(values.repeatPassword)) {
+    errors.repeatPassword = 'Repeat password is required';
+  } 
+  if (!minLength(6)(values.newPassword)) {
+    errors.newPassword = 'Password must be at least 6 numbers';
+  } else if (!minLength(6)(values.repeatPassword)) {
+    errors.repeatPassword = 'Password must be at least 6 numbers';
   }
-  if (!required(values.subject)) {
-    errors.subject = 'Subject is required';
-  } else {
-    if (!minLength(2)(values.subject) || !maxLength(5)(values.subject)) {
-      errors.subject = 'Subject has tobe between 2 an d 5 chars length';
-    }
-  }
-  if (!required(values.body)) {
-    errors.body = 'Body is required';
+  if (values.newPassword != values.repeatPassword) {
+    errors.repeatPassword = 'Repeat password does not match!';
   }
   return errors;
 };
@@ -53,7 +49,7 @@ const ResetPasswordForm = (
     message = error;
   } else if (submitSucceeded) {
     messageType = 'success';
-    message = 'Saved!!';
+    message = 'Password has been changed';
   } else if (submitting) {
     messageType = 'info';
     message = 'Submitting...';
@@ -74,8 +70,8 @@ const ResetPasswordForm = (
       submitLabel="Submit"
       resetLabel="Reset"
     >
-      <Field name="password" type="password" component={RenderField} label="Repeat password" />
-      <Field name="password" type="password" component={RenderField} label="Password" />
+      <Field name="newPassword" type="password" component={RenderField} label="New password" />
+      <Field name="repeatPassword" type="password" component={RenderField} label="Repeat password" />
     </RenderForm>
   );
 };

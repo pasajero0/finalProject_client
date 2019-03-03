@@ -23,7 +23,7 @@ function customers(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: action.payload.isAuthenticated,
-        profile: { email: action.payload.email }
+        profile: action.payload.profile
       };
     case FETCH_PROFILE_PENDING:
       return {

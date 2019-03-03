@@ -8,10 +8,11 @@ import { logoutCustomer } from '../../actions/customers';
 import './Profile.scss';
 
 const propTypes = {
-    isAuthenticated: PropTypes.bool.isReq
+    isAuthenticated: PropTypes.bool.isReq,
 };
 
 const defaultProps = {
+    isAuthenticated: false,
 };
 
 

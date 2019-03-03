@@ -24,16 +24,6 @@ const validate = (values) => {
       errors.email = 'E-mail has to be valid email';
     }
   }
-  if (!required(values.subject)) {
-    errors.subject = 'Subject is required';
-  } else {
-    if (!minLength(2)(values.subject) || !maxLength(5)(values.subject)) {
-      errors.subject = 'Subject has tobe between 2 an d 5 chars length';
-    }
-  }
-  if (!required(values.body)) {
-    errors.body = 'Body is required';
-  }
   return errors;
 };
 

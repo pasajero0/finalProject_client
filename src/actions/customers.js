@@ -96,6 +96,7 @@ export function addCustomer(data) {
  * @returns {function(*, *)}
  */
 export function loginCustomer(data) {
+  console.log('================================>', data)
   return (dispatch) => {
     dispatch(
       { type: UPDATE_PROFILE_PENDING, payload: { } }
@@ -103,6 +104,7 @@ export function loginCustomer(data) {
     return axios.post(urlLoginCustomer, data)
       .then((result) => {
         const res = result.data;
+        
         if (res.success) {
           dispatch({
             type: SET_IS_AUTHENTICATED,
