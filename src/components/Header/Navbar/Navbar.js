@@ -1,10 +1,25 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import NavbarIcons from './NavbarIcons/NavbarIcons'
 import {NavLink} from 'react-router-dom';
 import './Navbar.scss';
 
 const leftPosHide = {left: '-3000px'};
 const leftPosShow = {left: '0'};
+
+const propTypes = {
+  departments: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.number,
+      name: PropTypes.string,
+      slug: PropTypes.string,
+      parent: PropTypes.number,
+      position: PropTypes.number,
+      filters: PropTypes.shape,
+    }))
+};
+
 
 class Navbar extends Component {
 
@@ -17,6 +32,12 @@ class Navbar extends Component {
     }
 
     render() {
+        const { departments } = this.props;
+
+        console.group('DEPARTMENTS IN NAV BAR');
+        console.log(departments);
+        console.groupEnd();
+
         return (
             <div className="navbar">
                 <div className="container">
@@ -84,4 +105,10 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+Navbar.propTypes = propTypes;
+
+const mapStateToProps = state => ({
+  departments: state.app.departments,
+});
+
+export default connect(mapStateToProps, null)(Navbar);

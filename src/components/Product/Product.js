@@ -12,7 +12,6 @@ import './Product.scss';
 
 // import AddProductToCartIcon from "../ProductListEntry/ProductListEntry";
 
-
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
   callFetchProduct: PropTypes.func.isRequired,
@@ -24,11 +23,8 @@ const propTypes = {
       department: PropTypes.string,
       page: PropTypes.string
     })
-  })
-
-
-
-
+  }),
+  onAddToCart: PropTypes.func,
 };
 
 const defaultProps = {
@@ -42,26 +38,19 @@ const defaultProps = {
       sale: 0
     }
   },
-  routeData: {
-    path: '',
-    url: '',
-    params: {
-      department: '',
-      page: '1'
-    }
-  }
+  onAddToCart: () => {}
 };
 
 
 class Product extends Component {
 
   componentDidMount() {
-    const { routeData, routeData: { params }, callFetchProduct } = this.props;
+    const { routeData: { params }, callFetchProduct } = this.props;
     callFetchProduct(params.product);
   }
 
   render() {
-    const { productData:{ slug, pictures, name, prices }, imagesDir, isFetching } = this.props;
+    const { productData:{ description, slug, pictures, name, prices }, imagesDir, isFetching, onAddToCart } = this.props;
 
     return (
       <div className="product" key={slug}>
@@ -79,7 +68,7 @@ class Product extends Component {
                     ))
                   }
                   settings={{
-                    customPaging: i => (<a><img src={`${imagesDir}/sm-${pictures[i]}`} alt="" /></a>),
+                    customPaging: i => (<img src={`${imagesDir}/sm-${pictures[i]}`} alt="" />),
                     dots: true,
                     dotsClass: 'slick-dots slick-thumb',
                     infinite: true,
@@ -94,23 +83,24 @@ class Product extends Component {
                   <StarRating className="productInfo__rating"/>
                   <p className="productInfo__price">${prices.retail}</p>
                   <div className="productInfo__buy">
-                    <button className="addProductToCartBtn">
+                    <button className="addProductToCartBtn" onClick={() => onAddToCart(
+                      { slug, pictures, name, prices }
+                    )}>
                       <FiShoppingBag className="addProductToCartBtn__icon"/>
                       Add to cart
                     </button>
                     <SaveProductForLaterIcon className="saveForLaterBtn__icon"/>
                   </div>
+                  <div className="textContent">
+                    <p className="productInfo__description">{description}</p>
+                  </div>
                 </div>
-                {/*<div className="textContent">*/}
-                {/*<p className="productInfo__description">{this.props.description}</p>*/}
-                {/*</div>*/}
-
                 </>
               )}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

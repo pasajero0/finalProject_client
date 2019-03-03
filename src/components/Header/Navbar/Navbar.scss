@@ -1,3 +1,5 @@
+
+
 .navbar {
 	padding-bottom: 20px;
 }
@@ -24,7 +26,7 @@
 }
 
 .navBurger {
-	display: none;
+	display: flex;
 	width: 25px;
 	height: 20px;
 	position: relative;
@@ -137,7 +139,7 @@
 }
 
 .navbarMenuContent {
-	display: none;
+	display: flex;
 	justify-content: center;
 	border-top: 1px solid #737373;
 	border-bottom: 1px solid #737373;

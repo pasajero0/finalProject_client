@@ -18,7 +18,6 @@ export function fetchProduct(slug) {
     dispatch({
       type: FETCH_PRODUCT_PENDING,
     });
-    console.log(replaceInRoute(urlFetchProduct, { slug }));
     axios.get(replaceInRoute(urlFetchProduct, { slug }))
       .then(res => res.data)
       .then((data) => {

@@ -65,6 +65,7 @@ class ProductsList extends Component {
                 productsList.records.map(item => (
                   <ProductListEntry
                     key={item.slug}
+                    slug={item.slug}
                     picture={`${imagesDir}/md-${item.pictures[0]}`}
                     name={item.name}
                     prices={item.prices}
