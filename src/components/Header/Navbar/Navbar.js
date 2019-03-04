@@ -11,10 +11,10 @@ const leftPosShow = {left: '0'};
 const propTypes = {
   departments: PropTypes.arrayOf(
     PropTypes.shape({
-      _id: PropTypes.number,
+      _id: PropTypes.string,
       name: PropTypes.string,
       slug: PropTypes.string,
-      parent: PropTypes.number,
+      parent: PropTypes.string,
       position: PropTypes.number,
       filters: PropTypes.shape,
     }))
