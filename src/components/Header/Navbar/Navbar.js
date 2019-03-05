@@ -32,19 +32,22 @@ class Navbar extends Component {
   }
 
   render() {
-    const { departments } = this.props;
+    const { departments, currentDepartment } = this.props;
 
     console.group('DEPARTMENTS IN NAV BAR');
     console.log(departments);
     console.groupEnd();
 
-    const rootDepartments = departments.filter((department)=>{
-      return department.parent === "0";
-    });
-
-
-
-
+    // filter root level's departments for top menu
+    const rootDepartments = departments.filter((department) => department.parent === "0");
+    // collect data of root department
+    const current = departments.filter((department) => department.slug === currentDepartment);
+    let childrenDepartments = [];
+    if (current.length) {
+      // collect data for children departments
+      const parentId = current[0].parent === "0" ? current[0].id : current[0].parent;
+      childrenDepartments = departments.filter((department) => department.parent === parentId);
+    }
 
     return (
       <div className="navbar">
@@ -69,13 +72,17 @@ class Navbar extends Component {
                     rootDepartments.map((department) => {
                       return (
                         <li className="genderNav__item" key={department.slug}>
-                          <NavLink to={`/${department.slug}`} className="genderNav__link">{department.name}</NavLink>
+                          <NavLink
+                            to={`/${department.slug}`}
+                            className="genderNav__link"
+                            activeClassName={currentDepartment === department.slug ? 'active' : ''}
+                          >{department.name}</NavLink>
                         </li>
                       );
                     })
                   }
 
-{/*
+                  {/*
                   <li className="genderNav__item">
                     <NavLink to="/women" activeClassName="active" className="genderNav__link ">Women</NavLink>
                   </li>
@@ -100,7 +107,24 @@ class Navbar extends Component {
               </ul>
 
               <ul className="navbarNav">
-                <li className="navbarNav__item">
+                {
+                  childrenDepartments.length > 0
+                  &&
+                  childrenDepartments.map((department) => {
+                    return (
+                      <li className="navbarNav__item" key={department.slug}>
+                        <NavLink
+                          to={`/${department.slug}`}
+                          className="navbarNav__link"
+                          activeClassName={currentDepartment === department.slug ? 'active' : ''}
+                        >{department.name}</NavLink>
+                      </li>
+                    );
+                  })
+                }
+
+
+                {/*                <li className="navbarNav__item">
                   <NavLink to="#" className='navbarNav__link'>Clothing</NavLink>
                 </li>
                 <li className="navbarNav__item">
@@ -114,7 +138,7 @@ class Navbar extends Component {
                 </li>
                 <li className="navbarNav__item">
                   <NavLink to="#" className='navbarNav__link'>Beauty</NavLink>
-                </li>
+                </li>*/}
               </ul>
             </div>
           </div>
@@ -128,6 +152,7 @@ Navbar.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   departments: state.app.departments,
+  currentDepartment: state.products.currentDepartment,
 });
 
 export default connect(mapStateToProps, null)(Navbar);

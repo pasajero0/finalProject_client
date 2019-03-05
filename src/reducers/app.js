@@ -15,7 +15,7 @@ const initialState = {
     isVisible: false
   },
   departments:[],
-  isFetching: false
+  isFetching: false,
 };
 
 function app(state = initialState, action) {
