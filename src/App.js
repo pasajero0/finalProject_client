@@ -26,17 +26,18 @@ const defaultProps = {
 };
 
 
-
-
-
 class App extends Component {
 
-  render() {
+  componentDidMount(){
     const { isFetching, departments, callFetchDepartments } = this.props;
     if (!isFetching && departments.length === 0) {
       callFetchDepartments();
     }
-    return isFetching ? <div>LOADING...</div> : <Layout/>;
+  }
+
+  render() {
+    const { isFetching } = this.props;
+    return isFetching ? <div>LOADING...</div> : <Layout />;
   }
 }
 

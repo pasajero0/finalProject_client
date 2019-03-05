@@ -27,10 +27,11 @@ const defaultProps = {
 };
 
 const HomepageGender = ({ match }) => {
+  const {department} = match.params;
   return (
   <>
     <Header />
-    <Slider
+  {/*  <Slider
       images={[
         { id: 1, src: `${sliderImagesDir}/slider-images/1.jpg`, alt: '' },
         { id: 2, src: `${sliderImagesDir}/slider-images/2.jpg`, alt: '' },
@@ -45,8 +46,8 @@ const HomepageGender = ({ match }) => {
         slidesToShow: 1,
         slidesToScroll: 1,
       }}
-    />
-    <ProductsList routeData={match} />
+    />*/}
+    <ProductsList routeData={match} key={department} />
     <Footer />
   </>
 )};

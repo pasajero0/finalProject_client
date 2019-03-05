@@ -24,6 +24,8 @@ const Layout = () => (
     <Route exact path="/reset-password/:token" component={ResetPassword}/>
 
     <Route exact path="/:department" component={Department}/>
+
+
     <Route exact path="/:department/page/:page" component={Department}/>
     <Route exact path="/:department/filter/:filter" component={Department}/>
     <Route exact path="/:department/filter/:filter/page/:page" component={Department}/>
