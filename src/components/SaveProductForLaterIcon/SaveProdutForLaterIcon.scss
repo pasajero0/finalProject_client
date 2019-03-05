@@ -1,14 +1,17 @@
-.saveForLaterIcon {
-	color: #737373;
+@import '../../vars';
+
+.saveProductForLaterIcon {
+	color: $primary;
 	cursor: pointer;
+	font-size: 25px;
 
 	&:hover,
 	&:active,
 	&:focus {
-		fill: #737373;
+		fill: $primary;
 	}
 
 	& .saved {
-		fill: #737373;
+		fill: $primary;
 	}
 }

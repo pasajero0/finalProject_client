@@ -58,7 +58,7 @@ class ProductsList extends Component {
     return (
       <section className="productsList">
         <div className="container">
-          <div className="productsListContent">
+          <div className="productsList__content">
             {isFetching
               ? <span className="productsList__loader">Loading...</span>
               : (

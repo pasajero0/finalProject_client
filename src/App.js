@@ -25,10 +25,6 @@ const defaultProps = {
   departments: []
 };
 
-
-
-
-
 class App extends Component {
 
   render() {

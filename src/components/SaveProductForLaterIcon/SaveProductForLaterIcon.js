@@ -13,7 +13,7 @@ class SaveProductForLaterIcon extends Component {
 
     render() {
         return (
-            <FiHeart className={this.state.saveForLater ? "saveForLaterIcon saved" : "saveForLaterIcon"}
+            <FiHeart className={this.state.saveForLater ? "saveProductForLaterIcon saved" : "saveProductForLaterIcon"}
                      onClick={this.toogleSaveForLater}
             />
         )

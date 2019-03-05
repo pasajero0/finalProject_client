@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FiShoppingBag } from 'react-icons/fi';
-
-import ProductSlider from './ProductSlider/ProductSlider';
 import StarRating from '../StarRating/StarRating';
 import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
+import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import { fetchProduct } from '../../actions/products';
 
 import './Product.scss';
-
-// import AddProductToCartIcon from "../ProductListEntry/ProductListEntry";
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
@@ -53,53 +49,42 @@ class Product extends Component {
     const { productData:{ description, slug, pictures, name, prices }, imagesDir, isFetching, onAddToCart } = this.props;
 
     return (
-      <div className="product" key={slug}>
+      <section className="product" key={slug}>
         <div className="container">
-          <div className="productContent">
-            {isFetching
+          <div className="product__content">
+            { isFetching
               ? <span className="productsList__loader">Loading...</span>
               : (
                 <>
-                <div style={{position: 'relative', width: '300px', height: '300px' , overflow: 'hidden'}}>
-                <ProductSlider
-                  images={
-                    pictures.map((picture, i) => (
-                      { id: i, src: `${imagesDir}/md-${picture}`, alt: '' }
-                    ))
-                  }
-                  settings={{
-                    customPaging: i => (<img src={`${imagesDir}/sm-${pictures[i]}`} alt="" />),
-                    dots: true,
-                    dotsClass: 'slick-dots slick-thumb',
-                    infinite: true,
-                    speed: 500,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                  }}
-                />
-                </div>
-                <div className="productInfo">
-                  <p className="productInfo__name">{name}</p>
-                  <StarRating className="productInfo__rating"/>
-                  <p className="productInfo__price">${prices.retail}</p>
-                  <div className="productInfo__buy">
-                    <button className="addProductToCartBtn" onClick={() => onAddToCart(
-                      { slug, pictures, name, prices }
-                    )}>
-                      <FiShoppingBag className="addProductToCartBtn__icon"/>
-                      Add to cart
-                    </button>
-                    <SaveProductForLaterIcon className="saveForLaterBtn__icon"/>
+                  <div className="productSlider">
+                    <img className="productSlider__mainImg" src={`${imagesDir}/md-${pictures[0]}`} alt="Product" />
+                    <div className="productSlider__smImg">
+                      <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[1]}`} alt="Product" />
+                      <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[2]}`} alt="Product" />
+                      <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[3]}`} alt="Product" />
+                    </div>
                   </div>
-                  <div className="textContent">
-                    <p className="productInfo__description">{description}</p>
+                  <div className="product__info">
+                    <p className="product__name">{name}</p>
+                    <StarRating className="product__rating" />
+                    <p className="product__price">${prices.retail}</p>
+                    <div className="product__buy">
+                      <button className="product__btn" onClick={() => onAddToCart(
+                        { slug, pictures, name, prices })}>
+                        <AddProductToCartIcon className="addProductToCartIcon" />
+                        Add to cart
+                      </button>
+                      <SaveProductForLaterIcon className="saveProductForLaterIcon" />
+                    </div>
+                    <div className="product__textBlock">
+                      <p className="product__description">{description}</p>
+                    </div>
                   </div>
-                </div>
                 </>
               )}
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

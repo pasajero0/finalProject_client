@@ -22,13 +22,13 @@ const defaultProps = {
 
 const Slider = ({ images, settings }) => (
   <div className="slider">
-      <SlickSlider {...settings} className="slider">
-        {images.map(image =>
-          <div key={image.id}>
-              <img className="slider__img" src={image.src} alt={image.alt} />
-              <a href={image.link}></a>
-          </div>)}
-      </SlickSlider>
+    <SlickSlider {...settings} className="slider">
+      {images.map(image =>
+        <div key={image.id}>
+          <img className="slider__img" src={image.src} alt={image.alt} />
+          <a href={image.link} />
+        </div>)}
+    </SlickSlider>
   </div>
 );
 

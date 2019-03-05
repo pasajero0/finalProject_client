@@ -14,7 +14,7 @@ const initialState = {
     type: '',
     isVisible: false
   },
-  departments:[],
+  departments: [],
   isFetching: false
 };
 

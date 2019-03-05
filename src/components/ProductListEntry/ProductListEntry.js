@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 
 import './ProductListEntry.scss';
-
 
 const propTypes = {
   link: PropTypes.string.isRequired,
@@ -20,21 +18,19 @@ const propTypes = {
 
 const ProductListEntry = ({ link, picture, name, slug, prices }) => (
   <div className="productListEntry" key={slug}>
-    <div className="productListEntryItem">
-      <NavLink to={link} className="productListEntryItem__imgLink">
+    <div className="productListEntry__content">
+      <NavLink to={link} className="productListEntry__imgLink">
         <img
           src={picture}
           alt={name}
-          className="productListEntryItem__img"
+          className="productListEntry__img"
         />
+        <SaveProductForLaterIcon className="saveProductForLaterIcon" />
       </NavLink>
-
-      <NavLink to={link} className="productListEntryItem__nameLink">
+      <NavLink to={link} className="productListEntry__nameLink">
         {name}
       </NavLink>
-      <span className="productListEntryItem__price">${prices.retail}</span>
-      <SaveProductForLaterIcon className="saveForLaterIcon" />
-      <AddProductToCartIcon className="addProductToCartIcon" />
+      <span className="productListEntry__price">${prices.retail}</span>
     </div>
   </div>
 );

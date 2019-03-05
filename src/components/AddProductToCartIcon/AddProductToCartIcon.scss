@@ -1,15 +1,7 @@
+@import '../../vars';
+
 .addProductToCartIcon {
-	color: #737373;
+	color: $primary;
 	cursor: pointer;
-
-	&:hover,
-	&:active,
-	&:focus {
-		fill: #737373;
-	}
-
-	& .added {
-		fill: #737373;
-	}
 }
 

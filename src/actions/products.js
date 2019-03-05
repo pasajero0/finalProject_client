@@ -12,7 +12,6 @@ export const FETCH_PRODUCTS_REJECTED = 'FETCH_PRODUCTS_REJECTED';
 const urlFetchProducts = '/products';
 const urlFetchProduct = '/products/:slug';
 
-
 export function fetchProduct(slug) {
   return (dispatch) => {
     dispatch({

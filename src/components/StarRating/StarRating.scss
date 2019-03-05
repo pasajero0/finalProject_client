@@ -1,35 +1,18 @@
+@import '../../vars';
+
 .starRating {
-	font-size: 0;
+	display: flex;
+	align-items: center;
+	font-size: 20px;
 
-	&__wrap {
-		display: inline-block;
-		font-size: 15px;
-
-		&::after {
-			content: "";
-			display: table;
-			clear: both;
-		}
+	&__item {
+		color: $primary_200;
+		margin-right: 10px;
 	}
 
-	&__ico {
-		float: right;
-		padding-left: 2px;
-		cursor: pointer;
-		color: #eb5050;
-
-		&:last-child {
-			padding-left: 0;
-		}
-	}
-
-	&__input {
-		display: none;
+	.checked {
+		color: $secondary;
 	}
 }
 
-.starRating__ico:hover:before,
-.starRating__ico:hover ~ .starRating__ico:before,
-.starRating__input:checked ~ .starRating__ico:before {
-	content: "\f005";
-}
+

@@ -11,7 +11,6 @@ const urlFetchDepartments = '/departments';
 
 
 export function fetchDepartments() {
-
   return (dispatch) => {
     dispatch({
       type: FETCH_DEPARTMENTS_PENDING,

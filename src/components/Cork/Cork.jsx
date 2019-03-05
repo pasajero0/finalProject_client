@@ -1,20 +1,30 @@
-import React, {Component} from 'react';
-import './Cork.scss'
+import React from 'react';
+import './Cork.scss';
+import PropTypes from 'prop-types';
 
+const propTypes = {
+  style: PropTypes.shape({
+    background: PropTypes.string,
+  }),
+  title: PropTypes.string,
+};
 
-class Cork extends Component  {
-    render(){
-		let style = {
-		  background: this.props.background
-		};
-        return (
-           <>
-				<div className='corkBlock' style={style}>
-					<p className='corkTitle'>{this.props.title}</p>
-				</div>
-           </>
-        )
-    }
-}
+const defaultProps = {
+  style: ({
+    background: '',
+  }),
+  title: '',
+};
+
+const Cork = ({ style, title }) => {
+  return (
+    <div className="corkBlock" style={style}>
+      <p className="corkTitle">{title}</p>
+    </div>
+  );
+};
+
+Cork.propTypes = propTypes;
+Cork.defaultProps = defaultProps;
 
 export default Cork;
