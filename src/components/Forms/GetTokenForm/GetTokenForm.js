@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import {
-  email, required, maxLength, minLength
+  email, required
 } from '../../../validation/validations';
 import { getToken } from '../../../actions/customers';
 import RenderField from '../RenderField/RenderField';
@@ -19,10 +19,8 @@ const validate = (values) => {
 
   if (!required(values.email)) {
     errors.email = 'E-mail is required';
-  } else {
-    if (!email(values.email)) {
-      errors.email = 'E-mail has to be valid email';
-    }
+  } else if (!email(values.email)) {
+    errors.email = 'E-mail has to be valid email';
   }
   return errors;
 };

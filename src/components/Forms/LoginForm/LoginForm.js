@@ -5,8 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
@@ -45,7 +44,16 @@ const validate = (values) => {
  */
 const LoginForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage
+    error,
+    onSubmitAction,
+    handleSubmit,
+    pristine,
+    reset,
+    submitting,
+    invalid,
+    submitSucceeded,
+    isAuthenticated,
+    setSystemMessage
   }
 ) => {
   let messageType = '';
@@ -61,7 +69,7 @@ const LoginForm = (
     message = error;
   } else if (submitSucceeded) {
     messageType = 'success';
-    message = 'Saved!!';
+    message = 'Success!';
   } else if (submitting) {
     messageType = 'info';
     message = 'Submitting...';
@@ -86,7 +94,9 @@ const LoginForm = (
         <Field name="email" type="email" component={RenderField} label="Email" />
         <Field name="password" type="password" component={RenderField} label="Password" />
       </RenderForm>
-      <NavLink to="/reset-password">forgot password</NavLink>
+      <p className="account__info">
+        <NavLink to="/reset-password">forgot password?</NavLink>
+      </p>
     </>
   );
 };
@@ -108,6 +118,10 @@ LoginForm.propTypes = {
   invalid: PropTypes.bool,
   /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
   submitSucceeded: PropTypes.bool,
+
+  isAuthenticated: PropTypes.bool,
+
+  setSystemMessage: PropTypes.string,
 };
 
 LoginForm.defaultProps = {
@@ -115,7 +129,9 @@ LoginForm.defaultProps = {
   pristine: true,
   submitting: false,
   invalid: false,
-  submitSucceeded: false
+  submitSucceeded: false,
+  isAuthenticated: false,
+  setSystemMessage: ''
 };
 
 

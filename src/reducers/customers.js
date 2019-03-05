@@ -6,7 +6,8 @@ import {
   UPDATE_PROFILE_FULFILLED,
   UPDATE_PROFILE_REJECTED,
   SET_IS_AUTHENTICATED,
-  GET_TOKEN
+  GET_TOKEN,
+  RESET_PASSWORD
 } from '../actions/customers';
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
   error: '',
   profile: {},
   isAuthenticated: false,
-  isSentResetPasswordToken: false
+  isSentResetPasswordToken: false,
+  isPasswordReseted: false
 };
 
 function customers(state = initialState, action) {
@@ -55,6 +57,12 @@ function customers(state = initialState, action) {
       return {
         ...state,
         isSentResetPasswordToken: action.payload
+      };
+    case RESET_PASSWORD:
+      return {
+        ...state,
+        isPasswordReseted: action.payload
+
       };
     default:
       return { ...state };

@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import {
-  email, required, maxLength, minLength
+  required, minLength
 } from '../../../validation/validations';
 import { resetPassword } from '../../../actions/customers';
+import { showSystemMessage } from '../../../actions/app';
 import RenderField from '../RenderField/RenderField';
 import RenderForm from '../RenderForm/RenderForm';
 
@@ -19,17 +20,20 @@ const validate = (values) => {
 
   if (!required(values.newPassword)) {
     errors.newPassword = 'New password is required';
-  } else if (!required(values.repeatPassword)) {
-    errors.repeatPassword = 'Repeat password is required';
-  } 
-  if (!minLength(6)(values.newPassword)) {
+  } else if (!minLength(6)(values.newPassword)) {
     errors.newPassword = 'Password must be at least 6 numbers';
+  }
+
+  if (!required(values.repeatPassword)) {
+    errors.repeatPassword = 'Repeat password is required';
   } else if (!minLength(6)(values.repeatPassword)) {
     errors.repeatPassword = 'Password must be at least 6 numbers';
   }
-  if (values.newPassword != values.repeatPassword) {
+
+  if (values.newPassword !== values.repeatPassword) {
     errors.repeatPassword = 'Repeat password does not match!';
   }
+
   return errors;
 };
 
@@ -38,12 +42,25 @@ const validate = (values) => {
  */
 const ResetPasswordForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded
+    error,
+    onSubmitAction,
+    handleSubmit,
+    pristine,
+    reset,
+    submitting,
+    invalid,
+    submitSucceeded,
+    setSystemMessage,
+    token,
+    email
   }
 ) => {
   let messageType = '';
   let message = '';
 
+  if (submitSucceeded) {
+    setSystemMessage('You have been change your password', 'info');
+  }
   if (error) {
     messageType = 'error';
     message = error;
@@ -55,6 +72,13 @@ const ResetPasswordForm = (
     message = 'Submitting...';
   }
 
+  let changeData;
+
+  if (token) {
+    changeData = data => onSubmitAction({ password: data.newPassword, token });
+  } else if (email) {
+    changeData = data => onSubmitAction({ password: data.newPassword, email });
+  }
   return (
     <RenderForm
       error={error}
@@ -62,7 +86,7 @@ const ResetPasswordForm = (
       isPristine={pristine}
       isSucceeded={submitSucceeded}
       isInvalid={invalid}
-      onSubmit={handleSubmit(onSubmitAction)}
+      onSubmit={handleSubmit(changeData)}
       onReset={reset}
       title="Reset Password"
       message={message}
@@ -93,6 +117,12 @@ ResetPasswordForm.propTypes = {
   invalid: PropTypes.bool,
   /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
   submitSucceeded: PropTypes.bool,
+
+  setSystemMessage: PropTypes.func.isRequired,
+
+  token: PropTypes.string,
+
+  email: PropTypes.string
 };
 
 ResetPasswordForm.defaultProps = {
@@ -100,12 +130,15 @@ ResetPasswordForm.defaultProps = {
   pristine: true,
   submitting: false,
   invalid: false,
-  submitSucceeded: false
+  submitSucceeded: false,
+  token: '',
+  email: ''
 };
 
 const mapDispatchToProps = dispatch => (
   {
-    onSubmitAction: data => dispatch(resetPassword(data))
+    onSubmitAction: data => dispatch(resetPassword(data)),
+    setSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
   }
 );
 
