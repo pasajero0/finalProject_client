@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaRegUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-import AddProductToCartIcon from '../../../AddProductToCartIcon/AddProductToCartIcon.js';
+import AddProductToCartIcon from '../../../AddProductToCartIcon/AddProductToCartIcon';
 // import {FiShoppingBag} from 'react-icons/fi';
 import Search from '../Search/Search';
 

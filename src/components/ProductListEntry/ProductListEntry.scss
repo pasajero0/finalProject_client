@@ -5,7 +5,7 @@
 	justify-content: center;
 	margin-right: 1%;
 	width: 19%;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 
 	&:nth-child(5n) {
 		margin-right: 0%;
@@ -26,23 +26,23 @@
 		//overflow: hidden;
 	}
 
-	//&__img {
-	//	display: inline-block;
-	//	max-width: 100%;
-	//	transition: all .5s ease-out;
-	//
-	//	&:hover,
-	//	&:focus,
-	//	&:active {
-	//		transform: scale(1.5);
-	//	}
-	//}
+	&__img {
+		//display: inline-block;
+		max-width: 100%;
+		//transition: all .5s ease-out;
+
+		//&:hover,
+		//&:focus,
+		//&:active {
+		//	transform: scale(1.5);
+		//}
+	}
 
 	&__nameLink {
 		margin-bottom: 15px;
 		color: $primary_dark;
 		font-size: 14px;
-		line-height: 24px;
+		line-height: 20px;
 		font-family: $poppins;
 		height: 40px;
 	}
@@ -56,7 +56,9 @@
 	.saveProductForLaterIcon {
 		position: absolute;
 		bottom: 103px;
-		left: 10px;
+		right: 10px;
+		padding: 5px;
+		background-color: $primary_light;
 	}
 }
 
@@ -72,6 +74,8 @@
 
 		&__nameLink {
 			font-size: 20px;
+			line-height: 24px;
+			height: 50px;
 		}
 
 		&__price {
@@ -79,8 +83,8 @@
 		}
 
 		.saveProductForLaterIcon {
-			bottom: 113px;
-			left: 20px;
+			bottom: 130px;
+			right: 20px;
 			font-size: 40px;
 		}
 	}
@@ -91,12 +95,12 @@
 	.productListEntry {
 
 		&__nameLink {
-			height: 45px;
+			//height: 45px;
 		}
 
 		.saveProductForLaterIcon {
 			bottom: 113px;
-			left: 10px;
+			right: 10px;
 		}
 	}
 }
@@ -114,7 +118,7 @@
 
 		.saveProductForLaterIcon {
 			bottom: 108px;
-			left: 10px;
+			right: 10px;
 			font-size: 25px;
 		}
 	}

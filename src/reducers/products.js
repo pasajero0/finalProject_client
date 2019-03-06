@@ -4,7 +4,8 @@ import {
   FETCH_PRODUCTS_REJECTED,
   FETCH_PRODUCT_PENDING,
   FETCH_PRODUCT_FULFILLED,
-  FETCH_PRODUCT_REJECTED
+  FETCH_PRODUCT_REJECTED,
+  SET_CURRENT_DEPARTMENT,
 } from '../actions/products';
 
 
@@ -27,11 +28,17 @@ const initialState = {
     pagesTotal: 0,
   },
   isFetching: false,
-  imagesDir: '/product-images'
+  imagesDir: '/product-images',
+  currentDepartment: ''
 };
 
 function products(state = initialState, action) {
   switch (action.type) {
+    case SET_CURRENT_DEPARTMENT:
+      return {
+        ...state,
+        currentDepartment: action.payload
+      };
     case FETCH_PRODUCT_PENDING:
     case FETCH_PRODUCTS_PENDING:
       return {

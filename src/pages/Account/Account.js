@@ -1,17 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import Header from '../../components/Header/Header.js';
-import Footer from '../../components/Footer/Footer.js';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 // import { FaFacebookF } from "react-icons/fa";
 // import { FaGoogle } from "react-icons/fa";
-import LoginForm from '../../components/Forms/LoginForm/LoginForm.js';
-import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm.js';
+import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm';
 import { setLoginFormActiveStatus } from '../../actions/app';
 import './Account.scss';
 
 
 class Account extends Component {
-
   render(){
     const {setLoginFormActiveStatus, isLoginFormActive} = this.props
     return(
@@ -48,19 +47,20 @@ class Account extends Component {
         <Footer></Footer>
       </div>
     )
-  }
-}
+  };
+};
+
 const mapStateToProps = (state) => { 
   // console.log(state);
   return {
     isLoginFormActive: state.app.isLoginFormActive
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setLoginFormActiveStatus: value => dispatch(setLoginFormActiveStatus(value))
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

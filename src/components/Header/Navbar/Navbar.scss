@@ -1,5 +1,3 @@
-@import '../../../vars';
-
 .navbar {
 }
 
@@ -7,9 +5,9 @@
 	font-size: 40px;
 }
 
-.navbarContainer {
-	padding: 20px 0px 20px;
-}
+//.navbarContainer {
+//	padding: 20px 0px 20px;
+//}
 
 .navbarTop {
 	display: flex;
@@ -25,7 +23,7 @@
 }
 
 .navBurger {
-	display: flex;
+	display: none;
 	width: 25px;
 	height: 20px;
 	position: relative;
@@ -137,9 +135,42 @@
 	}
 }
 
-//.switchNav {
-//	display: none;
-//}
+.navbarMenuContent {
+	display: flex;
+	justify-content: center;
+	border-top: 1px solid #737373;
+	border-bottom: 1px solid #737373;
+	padding: 17px 0px;
+}
+
+.switchNav {
+	display: none;
+}
+
+.navbarNav {
+	display: flex;
+
+	&__item {
+		margin-right: 25px;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+
+	&__link {
+		color: #000000;
+		text-transform: uppercase;
+		position: relative;
+		font-size: 14px;
+		font-weight: bold;
+
+		&:hover {
+			color: #737373;
+		}
+	}
+}
+
 
 @media (max-width: 480px) {
 

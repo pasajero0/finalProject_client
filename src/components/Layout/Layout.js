@@ -23,19 +23,21 @@ const Layout = () => (
     <Route exact path="/reset-password" component={ResetPassword} />
     <Route exact path="/reset-password/:token" component={ResetPassword} />
 
-    <Route exact path="/:department" component={Department} />
-    <Route exact path="/:department/page/:page" component={Department} />
-    <Route exact path="/:department/filter/:filter" component={Department} />
-    <Route exact path="/:department/filter/:filter/page/:page" component={Department} />
-    <Route exact path="/:department/search/:search" component={Department} />
-    <Route exact path="/:department/search/:search/page/:page" component={Department} />
+    <Route exact path="/:department" component={Department}/>
 
-    <Route exact path="/:department/product/:product" component={Product} />
-    <Route exact path="/:department/page/:page/product/:product" component={Product} />
-    <Route exact path="/:department/filter/:filter/product/:product" component={Product} />
-    <Route exact path="/:department/filter/:filter/page/:page/product/:product" component={Product} />
-    <Route exact path="/:department/search/:search/product/:product" component={Product} />
-    <Route exact path="/:department/search/:search/page/:page/product/:product" component={Product} />
+
+    <Route exact path="/:department/page/:page" component={Department}/>
+    <Route exact path="/:department/filter/:filter" component={Department}/>
+    <Route exact path="/:department/filter/:filter/page/:page" component={Department}/>
+    <Route exact path="/:department/search/:search" component={Department}/>
+    <Route exact path="/:department/search/:search/page/:page" component={Department}/>
+
+    <Route exact path="/:department/product/:product" component={Product}/>
+    <Route exact path="/:department/page/:page/product/:product" component={Product}/>
+    <Route exact path="/:department/filter/:filter/product/:product" component={Product}/>
+    <Route exact path="/:department/filter/:filter/page/:page/product/:product" component={Product}/>
+    <Route exact path="/:department/search/:search/product/:product" component={Product}/>
+    <Route exact path="/:department/search/:search/page/:page/product/:product" component={Product}/>
 
   </Switch>
 );

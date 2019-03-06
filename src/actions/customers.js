@@ -9,12 +9,14 @@ export const UPDATE_PROFILE_FULFILLED = 'UPDATE_PROFILE_FULFILLED';
 export const UPDATE_PROFILE_REJECTED = 'UPDATE_PROFILE_REJECTED';
 export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
 export const GET_TOKEN = 'GET_TOKEN';
+export const RESET_PASSWORD = 'RESET_PASSWORD';
 
 const urlAddCustomer = '/customers';
 const urlLoginCustomer = '/customers/auth';
 const urlLogoutCustomer = '/customers/logout';
 const urlProfile = '/customers/profile';
 const urlGetToken = '/password/send-token';
+const urlSavePassword = '/password/save';
 /**
  * Fetching customer profile data from the server
  * @returns {function(*, *)}
@@ -38,6 +40,7 @@ export function fetchProfile() {
  * @returns {function(*, *)}
  */
 export function updProfile(data) {
+  console.log('updProfile ====================> ', data);
   return (dispatch) => {
     dispatch(
       { type: UPDATE_PROFILE_PENDING, payload: { } }
@@ -96,7 +99,6 @@ export function addCustomer(data) {
  * @returns {function(*, *)}
  */
 export function loginCustomer(data) {
-  console.log('================================>', data)
   return (dispatch) => {
     dispatch(
       { type: UPDATE_PROFILE_PENDING, payload: { } }
@@ -104,7 +106,6 @@ export function loginCustomer(data) {
     return axios.post(urlLoginCustomer, data)
       .then((result) => {
         const res = result.data;
-        
         if (res.success) {
           dispatch({
             type: SET_IS_AUTHENTICATED,
@@ -170,7 +171,6 @@ export function getToken(data) {
             type: GET_TOKEN,
             payload: true
           });
-          console.log(res);
         } else {
           console.log('logoutCustomer get result', res);
         }
@@ -187,4 +187,39 @@ export function getToken(data) {
   };
 }
 
-export function resetPassword() {}
+export function resetPassword(data) {
+  console.log('resetPasswordFunc ======> ', data);
+  return (dispatch) => {
+    axios.post(urlSavePassword, data)
+      .then((result) => {
+        const res = result.data;
+        console.log('res ======> ', res);
+        if (res.success) {
+          dispatch({
+            type: RESET_PASSWORD,
+            payload: true
+          });
+        } else {
+          console.log('logoutCustomer get result', res);
+        }
+      })
+      .catch((err) => {
+        dispatch(
+          {
+            type: RESET_PASSWORD,
+            payload: false
+          }
+        );
+        throw err;
+      });
+  };
+}
+
+export function setPasswordReseted(data) {
+  return (dispatch) => {
+    dispatch({
+      type: RESET_PASSWORD,
+      payload: data
+    });
+  };
+}

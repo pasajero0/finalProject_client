@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductListEntry from '../ProductListEntry/ProductListEntry';
-import { fetchProducts } from '../../actions/products';
+import { fetchProducts, setCurrentDepartment } from '../../actions/products';
 import { replaceInRoute } from '../../utils/helpers';
 
 import './ProductsList.scss';
@@ -17,6 +17,7 @@ const propTypes = {
   }),
   isFetching: PropTypes.bool.isRequired,
   callFetchProducts: PropTypes.func.isRequired,
+  callSetCurrentDepartment: PropTypes.func.isRequired,
   imagesDir: PropTypes.string.isRequired,
   routeData: PropTypes.shape({
     path: PropTypes.string,
@@ -49,8 +50,9 @@ const defaultProps = {
 class ProductsList extends Component {
 
   componentDidMount() {
-    const { routeData: { params }, callFetchProducts } = this.props;
+    const { routeData: { params }, callFetchProducts, callSetCurrentDepartment } = this.props;
     callFetchProducts(params);
+    callSetCurrentDepartment(params.department);
   }
 
   render() {
@@ -93,7 +95,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  callFetchProducts: requestData => dispatch(fetchProducts(requestData))
+  callFetchProducts: requestData => dispatch(fetchProducts(requestData)),
+  callSetCurrentDepartment: name => dispatch(setCurrentDepartment(name))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);
