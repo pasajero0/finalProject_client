@@ -5,6 +5,7 @@ import StarRating from '../StarRating/StarRating';
 import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import { fetchProduct } from '../../actions/products';
+import { addToCart } from '../../actions/cart';
 
 import './Product.scss';
 
@@ -20,7 +21,7 @@ const propTypes = {
       page: PropTypes.string
     })
   }),
-  onAddToCart: PropTypes.func,
+  onAddToCart: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -44,6 +45,10 @@ class Product extends Component {
     const { routeData: { params }, callFetchProduct } = this.props;
     callFetchProduct(params.product);
   }
+addToCart(product){
+   const { callAddToCart } = this.props;
+   callAddToCart(product);
+}
 
   render() {
     const { productData:{ description, slug, pictures, name, prices }, imagesDir, isFetching, onAddToCart } = this.props;
@@ -99,7 +104,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  callFetchProduct: requestData => dispatch(fetchProduct(requestData))
+  callFetchProduct: requestData => dispatch(fetchProduct(requestData)),
+  callAddToCart: product => dispatch(addToCart(product))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
