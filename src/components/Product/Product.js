@@ -74,8 +74,7 @@ addToCart(product){
                     <StarRating className="product__rating" />
                     <p className="product__price">${prices.retail}</p>
                     <div className="product__buy">
-                      <button className="product__btn" onClick={() => onAddToCart(
-                        { slug, pictures, name, prices })}>
+                      <button className="product__btn" onClick={() => this.addToCart({slug, picture: pictures[0], price: prices.retail, name})}>
                         <AddProductToCartIcon className="addProductToCartIcon" />
                         Add to cart
                       </button>
