@@ -26,9 +26,6 @@ const defaultProps = {
 };
 
 
-
-
-
 class App extends Component {
 
   render() {

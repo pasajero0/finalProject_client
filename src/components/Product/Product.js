@@ -7,6 +7,7 @@ import ProductSlider from './ProductSlider/ProductSlider';
 import StarRating from '../StarRating/StarRating';
 import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 import { fetchProduct } from '../../actions/products';
+import { addToCart } from '../../actions/cart';
 
 import './Product.scss';
 
@@ -24,7 +25,7 @@ const propTypes = {
       page: PropTypes.string
     })
   }),
-  onAddToCart: PropTypes.func,
+  onAddToCart: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -48,6 +49,10 @@ class Product extends Component {
     const { routeData: { params }, callFetchProduct } = this.props;
     callFetchProduct(params.product);
   }
+addToCart(product){
+   const { callAddToCart } = this.props;
+   callAddToCart(product);
+}
 
   render() {
     const { productData:{ description, slug, pictures, name, prices }, imagesDir, isFetching, onAddToCart } = this.props;
@@ -83,9 +88,10 @@ class Product extends Component {
                   <StarRating className="productInfo__rating"/>
                   <p className="productInfo__price">${prices.retail}</p>
                   <div className="productInfo__buy">
-                    <button className="addProductToCartBtn" onClick={() => onAddToCart(
-                      { slug, pictures, name, prices }
-                    )}>
+                    <button 
+                    className="addProductToCartBtn" 
+                    onClick={() => this.addToCart({slug, picture: pictures[0], price: prices.retail, name})}
+                    >
                       <FiShoppingBag className="addProductToCartBtn__icon"/>
                       Add to cart
                     </button>
@@ -114,7 +120,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  callFetchProduct: requestData => dispatch(fetchProduct(requestData))
+  callFetchProduct: requestData => dispatch(fetchProduct(requestData)),
+  callAddToCart: product => dispatch(addToCart(product))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
