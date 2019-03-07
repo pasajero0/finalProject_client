@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import StarRating from '../StarRating/StarRating';
 import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import { fetchProduct } from '../../actions/products';
-import { addToCart } from '../../actions/cart';
+import { addProductToCart } from '../../actions/cart';
 
 import './Product.scss';
 
@@ -21,7 +21,7 @@ const propTypes = {
       page: PropTypes.string
     })
   }),
-  onAddToCart: PropTypes.func.isRequired
+  callAddProductToCart: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -35,55 +35,94 @@ const defaultProps = {
       sale: 0
     }
   },
-  onAddToCart: () => {}
+  onAddToCart: () => {
+  }
 };
 
 
 class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.mainPicture = createRef();
+  }
 
   componentDidMount() {
     const { routeData: { params }, callFetchProduct } = this.props;
     callFetchProduct(params.product);
   }
-addToCart(product){
-   const { callAddToCart } = this.props;
-   callAddToCart(product);
-}
+
+  onAddToCartStartAnimation() {
+    const src = this.mainPicture.current;
+    const duplicate = src.cloneNode(true);
+    const rect = src.getBoundingClientRect();
+    duplicate.style.position = 'fixed';
+    duplicate.style.width = `${rect.width}px`;
+    duplicate.style.height = `${rect.height}px`;
+    duplicate.style.top = `${rect.top}px`;
+    duplicate.style.left = `${rect.left}px`;
+    duplicate.style.transition = 'all 0.6s ease-out';
+    duplicate.style.transformOrigin = 'top-left';
+    document.getElementById('root').append(duplicate);
+    setTimeout(()=>{
+      duplicate.style.left = `${window.innerWidth}px`;
+      duplicate.style.top = `${0 - rect.width}px`;
+      duplicate.style.transform = 'scale(0.2) rotate(45deg)';
+      duplicate.style.opacity = '0';
+    }, 10);
+
+  }
 
   render() {
-    const { productData:{ description, slug, pictures, name, prices }, imagesDir, isFetching, onAddToCart } = this.props;
+    const { productData: { description, slug, pictures, name, prices }, imagesDir, isFetching, callAddProductToCart } = this.props;
 
     return (
       <section className="product" key={slug}>
         <div className="container">
           <div className="product__content">
-            { isFetching
+            {isFetching
               ? <span className="productsList__loader">Loading...</span>
               : (
                 <>
-                  <div className="productSlider">
-                    <img className="productSlider__mainImg" src={`${imagesDir}/md-${pictures[0]}`} alt="Product" />
-                    <div className="productSlider__smImg">
-                      <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[1]}`} alt="Product" />
-                      <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[2]}`} alt="Product" />
-                      <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[3]}`} alt="Product" />
-                    </div>
+                <div className="productSlider">
+                  <img
+                    className="productSlider__mainImg"
+                    src={`${imagesDir}/md-${pictures[0]}`}
+                    alt="Product"
+                    ref={this.mainPicture}
+                  />
+
+
+                  <div className="productSlider__smImg">
+                    <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[1]}`} alt="Product"/>
+                    <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[2]}`} alt="Product"/>
+                    <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[3]}`} alt="Product"/>
                   </div>
-                  <div className="product__info">
-                    <p className="product__name">{name}</p>
-                    <StarRating className="product__rating" />
-                    <p className="product__price">${prices.retail}</p>
-                    <div className="product__buy">
-                      <button className="product__btn" onClick={() => this.addToCart({slug, picture: pictures[0], price: prices.retail, name})}>
-                        <AddProductToCartIcon className="addProductToCartIcon" />
-                        Add to cart
-                      </button>
-                      <SaveProductForLaterIcon className="saveProductForLaterIcon" />
-                    </div>
-                    <div className="product__textBlock">
-                      <p className="product__description">{description}</p>
-                    </div>
+                </div>
+                <div className="product__info">
+                  <p className="product__name">{name}</p>
+                  <StarRating className="product__rating"/>
+                  <p className="product__price">${prices.retail}</p>
+                  <div className="product__buy">
+                    <button
+                      className="product__btn"
+                      onClick={() => {callAddProductToCart({
+                        slug,
+                        picture: pictures[0],
+                        price: prices.retail,
+                        name
+                      });
+                      this.onAddToCartStartAnimation();
+                    }}
+                    >
+                      <AddProductToCartIcon className="addProductToCartIcon"/>
+                      Add to cart
+                    </button>
+                    <SaveProductForLaterIcon className="saveProductForLaterIcon"/>
                   </div>
+                  <div className="product__textBlock">
+                    <p className="product__description">{description}</p>
+                  </div>
+                </div>
                 </>
               )}
           </div>
@@ -104,7 +143,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   callFetchProduct: requestData => dispatch(fetchProduct(requestData)),
-  callAddToCart: product => dispatch(addToCart(product))
+  callAddProductToCart: product => dispatch(addProductToCart(product))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
