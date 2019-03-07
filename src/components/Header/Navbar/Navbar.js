@@ -81,14 +81,6 @@ class Navbar extends Component {
                       );
                     })
                   }
-
-                  {/*
-                  <li className="genderNav__item">
-                    <NavLink to="/women" activeClassName="active" className="genderNav__link ">Women</NavLink>
-                  </li>
-                  <li className="genderNav__item">
-                    <NavLink to="/men" className="genderNav__link">Men</NavLink>
-                  </li>*/}
                 </ul>
               </div>
               <NavbarIcons/>
@@ -98,12 +90,19 @@ class Navbar extends Component {
                  style={this.state.menuOpened ? leftPosShow : leftPosHide}>
 
               <ul className="switchNav">
-                <li className="switchNav__item">
-                  {/*<a href="#" className="switchNav__link">Women</a>*/}
-                </li>
-                <li className="switchNav__item">
-                  {/*<a href="#" className="switchNav__link">Men</a>*/}
-                </li>
+                {
+                  rootDepartments.map((department) => {
+                    return (
+                      <li className="switchNav__item" key={department.slug}>
+                        <NavLink
+                          to={`/${department.slug}`}
+                          className="switchNav__link"
+                          activeClassName={currentDepartment === department.slug ? 'active' : ''}
+                        >{department.name}</NavLink>
+                      </li>
+                    );
+                  })
+                }
               </ul>
 
               <ul className="navbarNav">
@@ -122,23 +121,6 @@ class Navbar extends Component {
                     );
                   })
                 }
-
-
-                {/*                <li className="navbarNav__item">
-                  <NavLink to="#" className='navbarNav__link'>Clothing</NavLink>
-                </li>
-                <li className="navbarNav__item">
-                  <NavLink to="#" className='navbarNav__link'>Accessories</NavLink>
-                </li>
-                <li className="navbarNav__item">
-                  <NavLink to="#" className='navbarNav__link'>Shoes</NavLink>
-                </li>
-                <li className="navbarNav__item">
-                  <NavLink to="#" className='navbarNav__link'>Sport</NavLink>
-                </li>
-                <li className="navbarNav__item">
-                  <NavLink to="#" className='navbarNav__link'>Beauty</NavLink>
-                </li>*/}
               </ul>
             </div>
           </div>
