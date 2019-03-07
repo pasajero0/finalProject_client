@@ -5,7 +5,7 @@ import StarRating from '../StarRating/StarRating';
 import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import { fetchProduct } from '../../actions/products';
-import { addToCart } from '../../actions/cart';
+import { addProductToCart } from '../../actions/cart';
 
 import './Product.scss';
 
@@ -21,7 +21,7 @@ const propTypes = {
       page: PropTypes.string
     })
   }),
-  onAddToCart: PropTypes.func.isRequired
+  callAddProductToCart: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -51,7 +51,7 @@ addToCart(product){
 }
 
   render() {
-    const { productData:{ description, slug, pictures, name, prices }, imagesDir, isFetching, onAddToCart } = this.props;
+    const { productData:{ description, slug, pictures, name, prices }, imagesDir, isFetching,  callAddProductToCart} = this.props;
 
     return (
       <section className="product" key={slug}>
@@ -74,7 +74,7 @@ addToCart(product){
                     <StarRating className="product__rating" />
                     <p className="product__price">${prices.retail}</p>
                     <div className="product__buy">
-                      <button className="product__btn" onClick={() => this.addToCart({slug, picture: pictures[0], price: prices.retail, name})}>
+                      <button className="product__btn" onClick={() => callAddProductToCart({slug, picture: pictures[0], price: prices.retail, name})}>
                         <AddProductToCartIcon className="addProductToCartIcon" />
                         Add to cart
                       </button>
@@ -104,7 +104,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   callFetchProduct: requestData => dispatch(fetchProduct(requestData)),
-  callAddToCart: product => dispatch(addToCart(product))
+  callAddProductToCart: product => dispatch(addProductToCart(product))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
