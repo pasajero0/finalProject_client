@@ -6,14 +6,13 @@ const propTypes = {
   style: PropTypes.shape({
     background: PropTypes.string,
   }),
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired
 };
 
 const defaultProps = {
   style: ({
-    background: '',
-  }),
-  title: '',
+    background: 'beige',
+  })
 };
 
 const Cork = ({ style, title }) => {
