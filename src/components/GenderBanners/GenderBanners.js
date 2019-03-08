@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './GenderBanners.scss';
 
 const GenderBanners = () => {
@@ -9,17 +9,17 @@ const GenderBanners = () => {
         <div className="genderBanners__content">
           <NavLink to="/women" className="genderBanner">
             <img
-              src="https://images.asos-media.com/products/vero-moda-bright-check-double-breasted-blazer/11789064-3?$XXL$&wid=513&fit=constrain"
+              src="https://social.massimodutti.com/paper/wp-content/uploads/2019/02/road-17.jpg"
               alt="Women banner"
-              className="genderBanner__img" />
-            <NavLink to="/women" className="genderBanner__link">Shop women</NavLink>
+              className="genderBanner__img"/>
+            <span className="genderBanner__text">Shop women</span>
           </NavLink>
           <NavLink to="/men" className="genderBanner men">
             <img
-              src="https://images.asos-media.com/products/river-island-skinny-suit-waistcoat-in-grey-check/11369318-1-grey?$XXL$&wid=513&fit=constrain"
+              src="http://blog.sight-management.com/wp-content/uploads/2019/02/think-07-1224x761.jpg"
               alt="Men banner"
-              className="genderBanner__img" />
-            <NavLink to="/men" className="genderBanner__link">Shop men</NavLink>
+              className="genderBanner__img"/>
+            <span className="genderBanner__text">Shop men</span>
           </NavLink>
         </div>
       </div>
