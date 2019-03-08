@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import NavbarIcons from './NavbarIcons/NavbarIcons'
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
-const leftPosHide = {left: '-3000px'};
-const leftPosShow = {left: '0'};
+const leftPosHide = { left: '-3000px' };
+const leftPosShow = { left: '0' };
 
 const propTypes = {
   departments: PropTypes.arrayOf(
@@ -28,15 +28,17 @@ class Navbar extends Component {
   };
 
   toogleMenu() {
-    this.setState({menuOpened: !this.state.menuOpened});
+    this.setState({ menuOpened: !this.state.menuOpened });
   }
 
   render() {
-    const {departments, currentDepartment} = this.props;
+    const { departments, department: currentDepartment } = this.props;
 
     console.group('DEPARTMENTS IN NAV BAR');
     console.log(departments);
     console.groupEnd();
+    console.log(currentDepartment);
+    console.log('--------------------------');
 
     // filter root level's departments for top menu
     const rootDepartments = departments.filter((department) => department.parent === "0");
@@ -105,23 +107,20 @@ class Navbar extends Component {
                 }
               </ul>
 
-              <ul className="navbarNav">
-                {
-                  childrenDepartments.length > 0
-                  &&
-                  childrenDepartments.map((department) => {
-                    return (
-                      <li className="navbarNav__item" key={department.slug}>
-                        <NavLink
-                          to={`/${department.slug}`}
-                          className="navbarNav__link"
-                          activeClassName={currentDepartment === department.slug ? 'active' : ''}
-                        >{department.name}</NavLink>
-                      </li>
-                    );
-                  })
-                }
-              </ul>
+              {childrenDepartments.length > 0
+              &&
+              ( <ul className="navbarNav">
+                {childrenDepartments.map((department) => (
+                  <li className="navbarNav__item" key={department.slug}>
+                    <NavLink
+                      to={`/${department.slug}`}
+                      className="navbarNav__link"
+                      activeClassName={currentDepartment === department.slug ? 'active' : ''}
+                    >{department.name}</NavLink>
+                  </li>
+                ))}
+              </ul>)
+              }
             </div>
           </div>
         </div>
@@ -134,7 +133,6 @@ Navbar.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   departments: state.app.departments,
-  currentDepartment: state.products.currentDepartment,
 });
 
 export default connect(mapStateToProps, null)(Navbar);
