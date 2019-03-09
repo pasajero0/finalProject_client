@@ -1,5 +1,14 @@
 import axios from 'axios';
 import { SubmissionError, reset } from 'redux-form';
+import {
+  URL_API_ADD_CUSTOMER,
+  URL_API_LOGIN_CUSTOMER,
+  URL_API_LOGOUT_CUSTOMER,
+  URL_API_FETCH_PROFILE,
+  URL_API_UPDATE_PROFILE,
+  URL_API_GET_RESET_PASSWORD_TOKEN,
+  URL_API_SAVE_PASSWORD
+} from '../config/app';
 
 export const FETCH_PROFILE_FULFILLED = 'FETCH_PROFILE_FULFILLED';
 export const FETCH_PROFILE_REJECTED = 'FETCH_PROFILE_REJECTED';
@@ -11,54 +20,21 @@ export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
 export const GET_TOKEN = 'GET_TOKEN';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 
-const urlAddCustomer = '/customers';
-const urlLoginCustomer = '/customers/auth';
-const urlLogoutCustomer = '/customers/logout';
-const urlProfile = '/customers/profile';
-const urlGetToken = '/password/send-token';
-const urlSavePassword = '/password/save';
 /**
- * Fetching customer profile data from the server
+ * Load profile data
  * @returns {function(*, *)}
  */
 export function fetchProfile() {
   return (dispatch) => {
-    dispatch(
-      { type: FETCH_PROFILE_PENDING, payload: { } }
-    );
-    axios.get(urlProfile)
-      .then((result) => {
-        dispatch({ type: FETCH_PROFILE_FULFILLED, payload: { profile: result.data } });
-      })
-      .catch(err => dispatch({ type: FETCH_PROFILE_REJECTED, payload: err }));
-  };
-}
-
-/**
- * Update customer profile data
- * @param data {object}
- * @returns {function(*, *)}
- */
-export function updProfile() {
-  return (dispatch) => {
-    dispatch({ type: UPDATE_PROFILE_PENDING, payload: { } });
-    axios.get(urlProfile)
+    dispatch({ type: UPDATE_PROFILE_PENDING, payload: {} });
+    axios.get(URL_API_FETCH_PROFILE)
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          const undefinedToEmptystring = value => value ? value : '';
           dispatch({
             type: UPDATE_PROFILE_FULFILLED,
             payload: {
-              profile: {
-                email: res.data.email,
-                first_name: undefinedToEmptystring(res.data.first_name),
-                last_name: undefinedToEmptystring(res.data.last_name),
-                city: undefinedToEmptystring(res.data.city),
-                zip: undefinedToEmptystring(res.data.zip),
-                address: undefinedToEmptystring(res.data.address),
-                phone: undefinedToEmptystring(res.data.phone),
-              },
+              profile: { ...res.data },
               isAuthenticated: true,
             }
           });
@@ -74,6 +50,7 @@ export function updProfile() {
       .catch(err => dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err }));
   };
 }
+
 /**
  * Update customer profile data
  * @param data {object}
@@ -82,16 +59,16 @@ export function updProfile() {
 export function addCustomer(data) {
   return (dispatch) => {
     dispatch(
-      { type: UPDATE_PROFILE_PENDING, payload: { } }
+      { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
-    return axios.post(urlAddCustomer, data)
+    return axios.post(URL_API_ADD_CUSTOMER, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {
           dispatch({
             type: UPDATE_PROFILE_FULFILLED,
             payload: {
-              profile: { email: result.data.data.email, data: result.data.data },
+              profile: { ...res.data },
               isAuthenticated: true,
             }
           });
@@ -106,6 +83,7 @@ export function addCustomer(data) {
       });
   };
 }
+
 /**
  * Update customer profile data
  * @param data {object}
@@ -114,9 +92,9 @@ export function addCustomer(data) {
 export function loginCustomer(data) {
   return (dispatch) => {
     dispatch(
-      { type: UPDATE_PROFILE_PENDING, payload: { } }
+      { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
-    return axios.post(urlLoginCustomer, data)
+    return axios.post(URL_API_LOGIN_CUSTOMER, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {
@@ -124,7 +102,7 @@ export function loginCustomer(data) {
             type: SET_IS_AUTHENTICATED,
             payload: {
               isAuthenticated: true,
-              profile: { email: data.email }
+              profile: { ...res.data }
             }
           });
           dispatch(reset('LoginForm'));
@@ -144,9 +122,10 @@ export function loginCustomer(data) {
       });
   };
 }
+
 export function logoutCustomer() {
   return (dispatch) => {
-    axios.get(urlLogoutCustomer)
+    axios.get(URL_API_LOGOUT_CUSTOMER)
       .then(({ data }) => {
         if (data.success) {
           dispatch({
@@ -176,7 +155,7 @@ export function logoutCustomer() {
 
 export function getToken(data) {
   return (dispatch) => {
-    axios.post(urlGetToken, data)
+    axios.post(URL_API_GET_RESET_PASSWORD_TOKEN, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {
@@ -203,7 +182,7 @@ export function getToken(data) {
 export function resetPassword(data) {
   console.log('resetPasswordFunc ======> ', data);
   return (dispatch) => {
-    axios.post(urlSavePassword, data)
+    axios.post(URL_API_SAVE_PASSWORD, data)
       .then((result) => {
         const res = result.data;
         console.log('res ======> ', res);
@@ -237,12 +216,12 @@ export function setPasswordReseted(data) {
   };
 }
 
-export function putProfileData(data) {
+export function updateProfileData(data) {
   return (dispatch) => {
     dispatch(
-      { type: UPDATE_PROFILE_PENDING, payload: { } }
+      { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
-    axios.put(urlProfile, data)
+    axios.put(URL_API_UPDATE_PROFILE, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {

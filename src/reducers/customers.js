@@ -24,8 +24,7 @@ function customers(state = initialState, action) {
     case SET_IS_AUTHENTICATED:
       return {
         ...state,
-        isAuthenticated: action.payload.isAuthenticated,
-        profile: action.payload.profile
+        ...action.payload
       };
     case FETCH_PROFILE_PENDING:
       return {
@@ -50,8 +49,7 @@ function customers(state = initialState, action) {
     case UPDATE_PROFILE_FULFILLED:
       return {
         ...state,
-        isAuthenticated: action.payload.isAuthenticated,
-        profile: action.payload.profile
+        ...action.payload
       };
     case GET_TOKEN:
       return {

@@ -3,7 +3,7 @@
  * It responses on rendering cart view.
  * @module Cart
  */
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import CartItem from './CartItem/CartItem';
 import { FaLongArrowAltRight } from 'react-icons/fa';

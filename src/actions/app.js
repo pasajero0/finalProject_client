@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { URL_API_FETCH_DEPARTMENTS } from '../config/app';
 
 export const SET_LOGIN_FORM_ACTIVE_STATUS = 'SET_LOGIN_FORM_ACTIVE_STATUS';
 export const SHOW_SYSTEM_MESSAGE = 'SHOW_SYSTEM_MESSAGE';
@@ -8,15 +8,12 @@ export const FETCH_DEPARTMENTS_PENDING = 'FETCH_DEPARTMENTS_PENDING';
 export const FETCH_DEPARTMENTS_FULFILLED = 'FETCH_DEPARTMENTS_FULFILLED';
 export const FETCH_DEPARTMENTS_REJECTED = 'FETCH_DEPARTMENTS_REJECTED';
 
-const urlFetchDepartments = '/departments';
-
-
 export function fetchDepartments() {
   return (dispatch) => {
     dispatch({
       type: FETCH_DEPARTMENTS_PENDING,
     });
-    axios.get(urlFetchDepartments)
+    axios.get(URL_API_FETCH_DEPARTMENTS)
       .then(res => res.data)
       .then((data) => {
         if (data.success) {

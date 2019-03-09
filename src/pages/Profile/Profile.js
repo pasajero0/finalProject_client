@@ -5,44 +5,65 @@ import { connect } from 'react-redux';
 import Header from '../../components/Header/Header';
 import ProfileForm from '../../components/Forms/ProfileForm/ProfileForm';
 import Footer from '../../components/Footer/Footer';
-import { logoutCustomer, updProfile } from '../../actions/customers';
+import { logoutCustomer, fetchProfile } from '../../actions/customers';
 import './Profile.scss';
 
 const propTypes = {
-  isAuthenticated: PropTypes.bool.isReq,
-  onClickLogout: PropTypes.func.isRequired,
-  profile: PropTypes.obj
+  isAuthenticated: PropTypes.bool.isRequired,
+  callLogoutCustomer: PropTypes.func.isRequired,
+  callFetchProfile: PropTypes.func.isRequired,
+  profile: PropTypes.shape({
+    email: PropTypes.string,
+    number: PropTypes.string,
+    creation_date: PropTypes.string,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    last_name: PropTypes.string,
+    phone: PropTypes.string,
+    zip: PropTypes.string,
+    first_name: PropTypes.string,
+    id: PropTypes.string
+  })
 };
 
 const defaultProps = {
-  isAuthenticated: false,
-  profile: {}
+  profile: {
+    email: '',
+    number: '',
+    creation_date: '',
+    address: '',
+    city: '',
+    last_name: '',
+    phone: '',
+    zip: '',
+    first_name: '',
+    id: ''
+  }
 };
 
-const Profile = (props) => {
-  const { isAuthenticated, profile, onClickLogout, loadFullProfileInfo } = props;
+const Profile = ({ isAuthenticated, profile, callLogoutCustomer, callFetchProfile }) => {
 
   if (!isAuthenticated) {
     return <Redirect to="/login" />;
   }
 
-  loadFullProfileInfo();
+  callFetchProfile();
 
   return (
     <>
-      <Header />
-      <section className="profile">
-        <div className="container">
-          <h1 className="profile__title">YOUR PROFILE</h1>
-          <div className="profile__info">
-            <p className="profile__text"> email: { profile.email } </p>
-            <ProfileForm />
-            <NavLink to="/reset-password" className="profile__button">RESET PASSWORD</NavLink>
-            <button type="button" className="profile__button" onClick={() => onClickLogout()}>LOG OUT</button>
-          </div>
+    <Header/>
+    <section className="profile">
+      <div className="container">
+        <h1 className="profile__title">YOUR PROFILE</h1>
+        <div className="profile__info">
+          <p className="profile__text"> email: {profile.email} </p>
+          <ProfileForm/>
+          <NavLink to="/reset-password" className="profile__button">RESET PASSWORD</NavLink>
+          <button type="button" className="profile__button" onClick={() => callLogoutCustomer()}>LOG OUT</button>
         </div>
-      </section>
-      <Footer />
+      </div>
+    </section>
+    <Footer/>
     </>
   );
 };
@@ -56,8 +77,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onClickLogout: data => dispatch(logoutCustomer(data)),
-  loadFullProfileInfo: () => dispatch(updProfile())
+  callLogoutCustomer: data => dispatch(logoutCustomer(data)),
+  callFetchProfile: () => dispatch(fetchProfile())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
