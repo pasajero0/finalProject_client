@@ -39,16 +39,29 @@ export function fetchProfile() {
  * @param data {object}
  * @returns {function(*, *)}
  */
-export function updProfile(data) {
-  console.log('updProfile ====================> ', data);
+export function updProfile() {
   return (dispatch) => {
-    dispatch(
-      { type: UPDATE_PROFILE_PENDING, payload: { } }
-    );
+    dispatch({ type: UPDATE_PROFILE_PENDING, payload: { } });
     axios.get(urlProfile)
       .then((result) => {
-        if (result.success) {
-          dispatch({ type: UPDATE_PROFILE_FULFILLED, payload: { profile: result.data } });
+        const res = result.data;
+        if (res.success) {
+          const undefinedToEmptystring = value => value ? value : '';
+          dispatch({
+            type: UPDATE_PROFILE_FULFILLED,
+            payload: {
+              profile: {
+                email: res.data.email,
+                first_name: undefinedToEmptystring(res.data.first_name),
+                last_name: undefinedToEmptystring(res.data.last_name),
+                city: undefinedToEmptystring(res.data.city),
+                zip: undefinedToEmptystring(res.data.zip),
+                address: undefinedToEmptystring(res.data.address),
+                phone: undefinedToEmptystring(res.data.phone),
+              },
+              isAuthenticated: true,
+            }
+          });
         } else {
           throw new SubmissionError({
             // email: 'email',
@@ -221,5 +234,32 @@ export function setPasswordReseted(data) {
       type: RESET_PASSWORD,
       payload: data
     });
+  };
+}
+
+export function putProfileData(data) {
+  return (dispatch) => {
+    dispatch(
+      { type: UPDATE_PROFILE_PENDING, payload: { } }
+    );
+    axios.put(urlProfile, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({
+            type: UPDATE_PROFILE_FULFILLED,
+            payload: {
+              profile: res.data,
+              isAuthenticated: true,
+            }
+          });
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
+        throw err;
+      });
   };
 }

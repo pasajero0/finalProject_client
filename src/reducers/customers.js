@@ -37,7 +37,7 @@ function customers(state = initialState, action) {
       };
     case FETCH_PROFILE_FULFILLED:
       return {
-        ...state
+        ...state,
       };
     case UPDATE_PROFILE_PENDING:
       return {
