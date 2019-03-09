@@ -46,8 +46,13 @@ const Profile = ({ isAuthenticated, profile, callLogoutCustomer, callFetchProfil
   if (!isAuthenticated) {
     return <Redirect to="/login" />;
   }
+/*
+  if (!profile.email) {
+    callFetchProfile();
+    return <div>loading...</div>;
+  }
+*/
 
-  callFetchProfile();
 
   return (
     <>

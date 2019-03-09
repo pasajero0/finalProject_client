@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { URL_API_FETCH_DEPARTMENTS } from '../config/app';
 
+axios.defaults.withCredentials = true;
+
 export const SET_LOGIN_FORM_ACTIVE_STATUS = 'SET_LOGIN_FORM_ACTIVE_STATUS';
 export const SHOW_SYSTEM_MESSAGE = 'SHOW_SYSTEM_MESSAGE';
 export const HIDE_SYSTEM_MESSAGE = 'HIDE_SYSTEM_MESSAGE';

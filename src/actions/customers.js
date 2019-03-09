@@ -10,6 +10,8 @@ import {
   URL_API_SAVE_PASSWORD
 } from '../config/app';
 
+axios.defaults.withCredentials = true;
+
 export const FETCH_PROFILE_FULFILLED = 'FETCH_PROFILE_FULFILLED';
 export const FETCH_PROFILE_REJECTED = 'FETCH_PROFILE_REJECTED';
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING';
@@ -19,6 +21,8 @@ export const UPDATE_PROFILE_REJECTED = 'UPDATE_PROFILE_REJECTED';
 export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
 export const GET_TOKEN = 'GET_TOKEN';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
+
+
 
 /**
  * Load profile data
@@ -227,10 +231,7 @@ export function updateProfileData(data) {
         if (res.success) {
           dispatch({
             type: UPDATE_PROFILE_FULFILLED,
-            payload: {
-              profile: res.data,
-              isAuthenticated: true,
-            }
+            payload: { ...res.data }
           });
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });

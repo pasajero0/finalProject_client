@@ -2,6 +2,8 @@ import axios from 'axios';
 import { replaceInRoute } from '../utils/helpers';
 import { URL_API_FETCH_PRODUCTS, URL_API_FETCH_PRODUCT } from '../config/app';
 
+axios.defaults.withCredentials = true;
+
 export const SET_CURRENT_DEPARTMENT = 'SET_CURRENT_DEPARTMENT';
 export const FETCH_PRODUCT_PENDING = 'FETCH_PRODUCT_PENDING';
 export const FETCH_PRODUCT_FULFILLED = 'FETCH_PRODUCT_FULFILLED';

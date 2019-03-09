@@ -132,12 +132,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   callUpdateProfileData: data => dispatch(updateProfileData(data)),
 });
-/*
-export default reduxForm({
-  form: 'ProfileForm',
-  validate
-})(connect(mapStateToProps, mapDispatchToProps)(ProfileForm));
-*/
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'ProfileForm'

@@ -49,7 +49,7 @@ function customers(state = initialState, action) {
     case UPDATE_PROFILE_FULFILLED:
       return {
         ...state,
-        ...action.payload
+        profile: action.payload
       };
     case GET_TOKEN:
       return {
