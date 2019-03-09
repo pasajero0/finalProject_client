@@ -37,6 +37,7 @@ function customers(state = initialState, action) {
     case FETCH_PROFILE_FULFILLED:
       return {
         ...state,
+        profile: action.payload
       };
     case UPDATE_PROFILE_PENDING:
       return {
@@ -49,7 +50,10 @@ function customers(state = initialState, action) {
     case UPDATE_PROFILE_FULFILLED:
       return {
         ...state,
-        profile: action.payload
+        profile: {
+          ...state.profile,
+          ...action.payload
+        }
       };
     case GET_TOKEN:
       return {

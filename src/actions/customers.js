@@ -30,28 +30,22 @@ export const RESET_PASSWORD = 'RESET_PASSWORD';
  */
 export function fetchProfile() {
   return (dispatch) => {
-    dispatch({ type: UPDATE_PROFILE_PENDING, payload: {} });
+    dispatch({ type: FETCH_PROFILE_PENDING, payload: {} });
     axios.get(URL_API_FETCH_PROFILE)
       .then((result) => {
         const res = result.data;
         if (res.success) {
           dispatch({
-            type: UPDATE_PROFILE_FULFILLED,
+            type: FETCH_PROFILE_FULFILLED,
             payload: {
-              profile: { ...res.data },
-              isAuthenticated: true,
+              profile: { ...res.data }
             }
           });
         } else {
-          throw new SubmissionError({
-            // email: 'email',
-            // body: 'body',
-            // subject: 'subject',
-            // error: 'No letter has been sent'
-          });
+          throw new Error('Unable to fetch profile');
         }
       })
-      .catch(err => dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err }));
+      .catch(err => dispatch({ type: FETCH_PROFILE_REJECTED, payload: err }));
   };
 }
 
