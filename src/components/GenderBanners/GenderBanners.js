@@ -1,6 +1,9 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './GenderBanners.scss';
+
+const ImagesDir = process.env.PUBLIC_URL;
+
 
 const GenderBanners = () => {
   return (
@@ -9,17 +12,21 @@ const GenderBanners = () => {
         <div className="genderBanners__content">
           <NavLink to="/women" className="genderBanner">
             <img
-              src="https://social.massimodutti.com/paper/wp-content/uploads/2019/02/road-17.jpg"
+              src={`${ImagesDir}/banners/4.jpg`}
               alt="Women banner"
               className="genderBanner__img"/>
-            <span className="genderBanner__text">Shop women</span>
+            <div className="genderBanner__link">
+              <span className="genderBanner__text">Shop women</span>
+            </div>
           </NavLink>
           <NavLink to="/men" className="genderBanner men">
             <img
-              src="http://blog.sight-management.com/wp-content/uploads/2019/02/think-07-1224x761.jpg"
+              src={`${ImagesDir}/banners/8.jpg`}
               alt="Men banner"
               className="genderBanner__img"/>
-            <span className="genderBanner__text">Shop men</span>
+            <div className="genderBanner__link">
+              <span className="genderBanner__text">Shop men</span>
+            </div>
           </NavLink>
         </div>
       </div>
