@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './GenderBanners.scss';
 
+const ImagesDir = process.env.PUBLIC_URL;
+
+
 const GenderBanners = () => {
   return (
     <section className="genderBanners">
@@ -9,17 +12,21 @@ const GenderBanners = () => {
         <div className="genderBanners__content">
           <NavLink to="/women" className="genderBanner">
             <img
-              src="https://images.asos-media.com/products/vero-moda-bright-check-double-breasted-blazer/11789064-3?$XXL$&wid=513&fit=constrain"
+              src={`${ImagesDir}/banners/4.jpg`}
               alt="Women banner"
-              className="genderBanner__img" />
-            <NavLink to="/women" className="genderBanner__link">Shop women</NavLink>
+              className="genderBanner__img"/>
+            <div className="genderBanner__link">
+              <span className="genderBanner__text">Shop women</span>
+            </div>
           </NavLink>
           <NavLink to="/men" className="genderBanner men">
             <img
-              src="https://images.asos-media.com/products/river-island-skinny-suit-waistcoat-in-grey-check/11369318-1-grey?$XXL$&wid=513&fit=constrain"
+              src={`${ImagesDir}/banners/8.jpg`}
               alt="Men banner"
-              className="genderBanner__img" />
-            <NavLink to="/men" className="genderBanner__link">Shop men</NavLink>
+              className="genderBanner__img"/>
+            <div className="genderBanner__link">
+              <span className="genderBanner__text">Shop men</span>
+            </div>
           </NavLink>
         </div>
       </div>

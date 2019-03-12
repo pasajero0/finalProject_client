@@ -55,6 +55,8 @@ class Product extends Component {
     const src = this.mainPicture.current;
     const duplicate = src.cloneNode(true);
     const rect = src.getBoundingClientRect();
+    const parent = document.getElementById('root');
+
     duplicate.style.position = 'fixed';
     duplicate.style.width = `${rect.width}px`;
     duplicate.style.height = `${rect.height}px`;
@@ -62,14 +64,17 @@ class Product extends Component {
     duplicate.style.left = `${rect.left}px`;
     duplicate.style.transition = 'all 0.6s ease-out';
     duplicate.style.transformOrigin = 'top-left';
-    document.getElementById('root').append(duplicate);
+
+    parent.append(duplicate);
     setTimeout(()=>{
       duplicate.style.left = `${window.innerWidth}px`;
       duplicate.style.top = `${0 - rect.width}px`;
       duplicate.style.transform = 'scale(0.2) rotate(45deg)';
       duplicate.style.opacity = '0';
     }, 10);
-
+    setTimeout(()=>{
+      duplicate.remove();
+    }, 700);
   }
 
   render() {

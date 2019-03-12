@@ -2,10 +2,10 @@ import React from 'react';
 import Navbar from './Navbar/Navbar';
 import './Header.scss';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className="header">
-      <Navbar />
+      <Navbar {...props} />
     </header>
   );
 };

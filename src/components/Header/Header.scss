@@ -1,4 +1,15 @@
 .header {
-	padding: 20px 0px 40px;
+	padding: 20px 0px 20px;
+}
+
+@media (max-width: 480px) {
+
+	.header {
+		position: fixed;
+		top: 0px;
+		background-color: #ffffff;
+		width: 100%;
+		z-index: 3;
+	}
 }
 

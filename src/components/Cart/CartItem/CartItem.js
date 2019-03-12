@@ -42,7 +42,7 @@ const CartItem = ({
         type="number"
         name="quantity"
         min="0"
-        onChange={e => onChangeQuantity(e.currentTarget.value)}
+        onChange={e => onChangeQuantity(parseInt(e.currentTarget.value))}
       />
     </div>
     <div className="cartItem__price">

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { FiSearch } from 'react-icons/fi';
-import { MdClose } from 'react-icons/md'
+import React, {Component} from "react";
+import {FiSearch} from 'react-icons/fi';
+import {MdClose} from 'react-icons/md'
 import './Search.scss';
 
 

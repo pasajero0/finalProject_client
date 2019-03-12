@@ -45,6 +45,25 @@
 		line-height: 20px;
 		font-family: $poppins;
 		height: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+
+
+		//position: relative;
+		//
+		//&:after {
+		//	content: "";
+		//	text-align: right;
+		//	position: absolute;
+		//	bottom: 0;
+		//	right: 0;
+		//	width: 70%;
+		//	height: 1.2em;
+		//	background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+		//}
 	}
 
 	&__price {
@@ -75,7 +94,7 @@
 		&__nameLink {
 			font-size: 20px;
 			line-height: 24px;
-			height: 50px;
+			//height: 50px;
 		}
 
 		&__price {
