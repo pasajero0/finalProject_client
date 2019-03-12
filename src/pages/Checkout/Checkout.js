@@ -29,6 +29,7 @@ function Checkout(props) {
 }
 
 Checkout.propTypes = {
+  cartCount: PropTypes.number.isRequired,
 };
 
 Checkout.defaultProps = {

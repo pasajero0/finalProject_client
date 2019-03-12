@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
+import { createTextMask } from 'redux-form-input-masks';
 import { connect } from 'react-redux';
 import {
   email,
   required,
   maxLength,
-  minLength
+  minLength,
+  stringValidation,
+  phone,
+  creditCard
 } from '../../../validation/validations';
 import { submitChekout } from '../../../actions/customers';
 import RenderField from '../RenderField/RenderField';
@@ -22,17 +26,23 @@ const validate = (values) => {
   const errors = {};
   if (!required(values.first_name)) {
     errors.first_name = 'First name is required';
+  } else if (!stringValidation(values.first_name)) {
+    errors.first_name = 'Letters, space or "-" only';
   }
   if (!required(values.last_name)) {
     errors.last_name = 'Last name is required';
+  } else if (!stringValidation(values.last_name)) {
+    errors.last_name = 'Letters, space or "-" only';
   }
   if (!required(values.email)) {
     errors.email = 'E-mail is required';
   } else if (!email(values.email)) {
-    errors.email = 'E-mail has to be valid email';
+    errors.email = 'E-mail has to be valid';
   }
   if (!required(values.city)) {
     errors.city = 'City is required';
+  } else if (!stringValidation(values.city)) {
+    errors.city = 'Letters only';
   }
   if (!required(values.zip)) {
     errors.zip = 'ZIP is required';
@@ -42,11 +52,13 @@ const validate = (values) => {
   }
   if (!required(values.phone)) {
     errors.phone = 'Phone is required';
+  } else if (!phone(values.phone)) {
+    errors.phone = 'Phone has to be valid';
   }
   if (!required(values.card)) {
     errors.card = 'Card is required';
-  } else if (!minLength(16)(values.card) || !maxLength(16)(values.card)) {
-    errors.card = 'Card must contain 16 digits';
+  } else if (!creditCard(values.card)) {
+    errors.card = 'Credit card has to be valid';
   }
   if (!required(values.exp_date)) {
     errors.exp_date = 'Expiration date is required';
@@ -58,6 +70,14 @@ const validate = (values) => {
   }
   return errors;
 };
+
+const creditCardMask = createTextMask({
+  pattern: '9999 9999 9999 9999',
+});
+
+const expDateMask = createTextMask({
+  pattern: '99/99',
+});
 
 /**
  * ReduxForm container
@@ -167,16 +187,18 @@ const CheckoutForm = ({
         type="text"
         component={RenderField}
         label="Card *"
+        {...creditCardMask}
       />
       <Field
         name="exp_date"
         type="text"
         component={RenderField}
         label="Expiration date *"
+        {...expDateMask}
       />
       <Field
         name="cvs"
-        type="text"
+        type="password"
         component={RenderField}
         label="CVS *"
       />
@@ -202,7 +224,13 @@ CheckoutForm.propTypes = {
   /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
   submitSucceeded: PropTypes.bool,
   /** Array with products in cart */
-  products: PropTypes.array,
+  products: PropTypes.shape([{
+    name: PropTypes.string,
+    picture: PropTypes.string,
+    price: PropTypes.number,
+    quantity: PropTypes.number,
+    slug: PropTypes.string
+  }]),
   /** Count of products in cart */
   count: PropTypes.number,
   /** Total price of all products in cart  */

@@ -41,7 +41,12 @@ const defaultProps = {
   }
 };
 
-const Profile = ({ isAuthenticated, profile, callLogoutCustomer, callFetchProfile }) => {
+const Profile = ({
+  isAuthenticated,
+  profile,
+  callLogoutCustomer,
+  callFetchProfile
+}) => {
   if (!isAuthenticated) {
     return <Redirect to="/login" />;
   }
@@ -60,7 +65,7 @@ const Profile = ({ isAuthenticated, profile, callLogoutCustomer, callFetchProfil
         <div className="container">
           <h1 className="profile__title">YOUR PROFILE</h1>
           <div className="profile__info">
-            <p className="profile__text"> email: {profile.email} </p>
+            <p className="profile__text">email: { profile.email }</p>
             <ProfileForm />
             <NavLink to="/reset-password" className="profile__button">RESET PASSWORD</NavLink>
             <button type="button" className="profile__button" onClick={() => callLogoutCustomer()}>LOG OUT</button>

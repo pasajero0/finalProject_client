@@ -135,7 +135,7 @@ export function logoutCustomer() {
             }
           });
         } else {
-          console.log('logoutCustomer get result');
+          throw new SubmissionError({ ...data.data, _error: data.message });
         }
       })
       .catch((err) => {
@@ -163,7 +163,7 @@ export function getToken(data) {
             payload: true
           });
         } else {
-          console.log('logoutCustomer get result', res);
+          throw new SubmissionError({ ...res.data, _error: res.message });
         }
       })
       .catch((err) => {
@@ -179,19 +179,17 @@ export function getToken(data) {
 }
 
 export function resetPassword(data) {
-  console.log('resetPasswordFunc ======> ', data);
   return (dispatch) => {
     axios.post(URL_API_SAVE_PASSWORD, data)
       .then((result) => {
         const res = result.data;
-        console.log('res ======> ', res);
         if (res.success) {
           dispatch({
             type: RESET_PASSWORD,
             payload: true
           });
         } else {
-          console.log('logoutCustomer get result', res);
+          throw new SubmissionError({ ...res.data, _error: res.message });
         }
       })
       .catch((err) => {
@@ -246,10 +244,8 @@ export function submitChekout(data) {
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          ///////////////////////////////
           alert(res.message);
-          console.log('submitChekout <><><><><><><><><><><><>', res.message, {...res.data});
-          ///////////////////////////////
+          console.log('submitChekout <><><><><><><><><><><><>', res.message, { ...res.data });
           dispatch({
             type: ADD_ORDERS,
             payload: { ...res.data }

@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import {
+  stringValidation,
+  phone
+} from '../../../validation/validations';
 import { updateProfileData } from '../../../actions/customers';
 import RenderField from '../RenderField/RenderField';
 import RenderForm from '../RenderForm/RenderForm';
@@ -34,7 +38,22 @@ const defaultProps = {
   invalid: false,
   submitSucceeded: false
 };
-
+const validate = (values) => {
+  const errors = {};
+  if (!stringValidation(values.first_name)) {
+    errors.first_name = 'Letters, space or "-" only';
+  } 
+  if (!stringValidation(values.last_name)) {
+    errors.last_name = 'Letters, space or "-" only';
+  }
+  if (!stringValidation(values.city)) {
+    errors.city = 'Letters only';
+  }
+  if (!phone(values.phone)) {
+    errors.phone = 'Phone has to be valid';
+  }
+  return errors;
+};
 /**
  * ReduxForm container
  */
@@ -76,7 +95,6 @@ function ProfileForm({
       messageType={messageType}
       submitLabel="Submit"
       resetLabel="Reset"
-
     >
 
       <Field
@@ -133,5 +151,5 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  form: 'ProfileForm'
+  form: 'ProfileForm', validate
 })(ProfileForm));
