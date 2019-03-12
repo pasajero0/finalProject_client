@@ -1,0 +1,17 @@
+@import '../../vars';
+
+.saveProductForLaterIcon {
+	color: $primary;
+	cursor: pointer;
+	font-size: 25px;
+
+	&:hover,
+	&:active,
+	&:focus {
+		fill: $primary;
+	}
+
+	& .saved {
+		fill: $primary;
+	}
+}

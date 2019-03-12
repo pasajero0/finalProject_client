@@ -1,45 +1,40 @@
-import React, {Component} from 'react';
-import {FiShoppingBag} from "react-icons/fi";
-import './ProductListEntry.scss'
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 
-class ProductListEntry extends Component {
+import './ProductListEntry.scss';
 
-    render() {
-        return (
-            <div className="productItemContent">
-                <div className='productItem'>
-                    <a href="#" className="productItemImg__link">
-                        <img src={this.props.imgSrc}
-                             alt='Dress'
-                             className='productItemImg__img'/>
-                    </a>
-                    <a href="#" className="productItemName__link">
-                        {this.props.name}
-                    </a>
-                    <span className="productItemPrice">{this.props.price.sum}{this.props.price.currency}</span>
-                    <button className="addProductItemToCartBtn">
-                        <FiShoppingBag className="addProductItemToCartBtn__icon"/>
-                    </button>
-                </div>
-            </div>
-        );
-    }
-}
-
-ProductListEntry.propTypes = {
-    // gender: PropTypes.string,
-    // category: PropTypes.string,
-    id: PropTypes.number,
-    img: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.shape({
-        sum: PropTypes.number,
-        currency: PropTypes.string,
-    }),
-    // color: PropTypes.string,
-    // size: PropTypes.string,
-    // text: PropTypes.string,
+const propTypes = {
+  link: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  prices: PropTypes.shape({
+    retail: PropTypes.number.isRequired,
+    sale: PropTypes.number.isRequired,
+  }).isRequired
 };
+
+const ProductListEntry = ({ link, picture, name, slug, prices }) => (
+  <div className="productListEntry" key={slug}>
+    <div className="productListEntry__content">
+      <NavLink to={link} className="productListEntry__imgLink">
+        <img
+          src={picture}
+          alt={name}
+          className="productListEntry__img"
+        />
+        <SaveProductForLaterIcon className="saveProductForLaterIcon" />
+      </NavLink>
+      <NavLink to={link} className="productListEntry__nameLink">
+        {name}
+      </NavLink>
+      <span className="productListEntry__price">${prices.retail}</span>
+    </div>
+  </div>
+);
+
+ProductListEntry.propTypes = propTypes;
 
 export default ProductListEntry;

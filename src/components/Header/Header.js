@@ -1,16 +1,13 @@
 import React from 'react';
 import Navbar from './Navbar/Navbar';
-
 import './Header.scss';
 
-const Header = () => {
-
-    return (
-        <header className='header'>
-            <Navbar/>
-        </header>
-    )
-
+const Header = (props) => {
+  return (
+    <header className="header">
+      <Navbar {...props} />
+    </header>
+  );
 };
 
 export default Header;

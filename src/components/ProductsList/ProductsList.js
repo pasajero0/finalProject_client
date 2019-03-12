@@ -1,63 +1,102 @@
-import React, {Component} from 'react';
-import ProductListEntry from '../ProductListEntry/ProductListEntry.js';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {fetchAllProducts} from '../../actions/products'
+import { connect } from 'react-redux';
+import ProductListEntry from '../ProductListEntry/ProductListEntry';
+import { fetchProducts, setCurrentDepartment } from '../../actions/products';
+import { replaceInRoute } from '../../utils/helpers';
 
 import './ProductsList.scss';
 
-class ProductsList extends Component {
-    static propTypes = {
-        // gender: PropTypes.string,
-        // category: PropTypes.string,
-        id: PropTypes.number,
-        img: PropTypes.string,
-        name: PropTypes.string,
-        price: PropTypes.shape({
-            sum: PropTypes.number,
-            currency: PropTypes.string,
-        }),
-        // color: PropTypes.string,
-        // size: PropTypes.string,
-        // text: PropTypes.string,
-    };
+const propTypes = {
+  productsList: PropTypes.shape({
+    records: PropTypes.array,
+    page: PropTypes.number,
+    perPage: PropTypes.number,
+    count: PropTypes.number,
+    pagesTotal: PropTypes.number,
+  }),
+  isFetching: PropTypes.bool.isRequired,
+  callFetchProducts: PropTypes.func.isRequired,
+  callSetCurrentDepartment: PropTypes.func.isRequired,
+  imagesDir: PropTypes.string.isRequired,
+  routeData: PropTypes.shape({
+    path: PropTypes.string,
+    url: PropTypes.string,
+    params: PropTypes.shape({
+      department: PropTypes.string,
+      page: PropTypes.string
+    })
+  })
+};
 
-    componentDidMount = () => {
-        this.props.fetchAllProducts()
-    };
-
-    render() {
-        console.log(this.props.isFetching)
-        let productsList = this.props.products.map(item => {
-            return <ProductListEntry key={item.id}
-                                     imgSrc={item.img}
-                                     name={item.name}
-                                     price={item.price}/>
-        });
-        return (
-            <div className='productsList'>
-                <div className="container">
-                    <div className='productsListContent'>
-                        {this.props.isFetching ? <span className="productsList__loader">Загрузка...</span> : productsList}
-                    </div>
-                </div>
-            </div>
-        );
+const defaultProps = {
+  productsList: {
+    records: [],
+    page: 1,
+    perPage: 10,
+    count: 0,
+    pagesTotal: 0,
+  },
+  routeData: {
+    path: '',
+    url: '',
+    params: {
+      department: '',
+      page: '1'
     }
+  }
+};
+
+class ProductsList extends Component {
+
+  componentDidMount() {
+    const { routeData: { params }, callFetchProducts, callSetCurrentDepartment } = this.props;
+    callFetchProducts(params);
+    callSetCurrentDepartment(params.department);
+  }
+
+  render() {
+    const { routeData, productsList, imagesDir, isFetching } = this.props;
+    return (
+      <section className="productsList">
+        <div className="container">
+          <div className="productsList__content">
+            {isFetching
+              ? <span className="productsList__loader">Loading...</span>
+              : (
+                productsList.records.map(item => (
+                  <ProductListEntry
+                    key={item.slug}
+                    slug={item.slug}
+                    picture={`${imagesDir}/md-${item.pictures[0]}`}
+                    name={item.name}
+                    prices={item.prices}
+                    link={replaceInRoute(
+                      `${routeData.path}/product/:product`,
+                      { ...routeData.params, product: item.slug }
+                    )}
+                  />
+                ))
+              )}
+          </div>
+        </div>
+      </section>
+    );
+  }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        products: state.products.productsList,
-        isFetching: state.products.isFetching
-    }
-};
+ProductsList.propTypes = propTypes;
+ProductsList.defaultProps = defaultProps;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchAllProducts: () => dispatch(fetchAllProducts())
-    }
-};
+const mapStateToProps = state => ({
+  productsList: state.products.productsList,
+  isFetching: state.products.isFetching,
+  imagesDir: state.products.imagesDir
+});
+
+const mapDispatchToProps = dispatch => ({
+  callFetchProducts: requestData => dispatch(fetchProducts(requestData)),
+  callSetCurrentDepartment: name => dispatch(setCurrentDepartment(name))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);
-

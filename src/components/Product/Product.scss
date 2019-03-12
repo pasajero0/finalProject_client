@@ -1,0 +1,125 @@
+@import '../../vars';
+
+.product {
+	padding-bottom: 50px;
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		padding: 0px 300px;
+	}
+
+	.productSlider {
+		margin-right: 30px;
+		display: flex;
+		flex-direction: column;
+
+		&__mainImg {
+			margin-bottom: 20px;
+			height: 400px;
+			width: 300px;
+		}
+
+		&__smImg {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&__img {
+			margin-right: 10px;
+			width: 93px;
+			height: 115px;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+		}
+	}
+
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__name {
+		font-family: $poppins;
+		color: $primary_dark;
+		font-size: 30px;
+		margin-bottom: 20px;
+	}
+
+	.starRating {
+		margin-bottom: 40px;
+	}
+
+	&__price {
+		font-family: $primary_dark;
+		color: $secondary;
+		font-size: 25px;
+		margin-bottom: 40px;
+	}
+
+	&__buy {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 2px solid $secondary;
+		box-sizing: border-box;
+		background-color: $primary_light;
+		padding: 10px 20px;
+		cursor: pointer;
+		text-transform: uppercase;
+		color: $secondary;
+		font-family: $oswald;
+		font-weight: bold;
+		margin-right: 25px;
+
+
+		&:hover {
+			background-color: $secondary;
+			border: 2px solid transparent;
+			color: $primary_light;
+		}
+
+		&:hover .addProductToCartIcon {
+			color: $primary_light;
+		}
+	}
+
+	.addProductToCartIcon {
+		color: $secondary;
+		font-size: 25px;
+		margin-right: 20px;
+	}
+
+	.saveProductForLaterIcon {
+		position: inherit;
+	}
+
+	&__description {
+		font-family: $poppins;
+		color: $primary;
+		font-size: 14px;
+		line-height: 24px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
