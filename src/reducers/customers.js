@@ -7,7 +7,8 @@ import {
   UPDATE_PROFILE_REJECTED,
   SET_IS_AUTHENTICATED,
   GET_TOKEN,
-  RESET_PASSWORD
+  RESET_PASSWORD,
+  ADD_ORDERS
 } from '../actions/customers';
 
 const initialState = {
@@ -65,6 +66,10 @@ function customers(state = initialState, action) {
         ...state,
         isPasswordReseted: action.payload
 
+      };
+    case ADD_ORDERS:
+      return {
+        ...state
       };
     default:
       return { ...state };

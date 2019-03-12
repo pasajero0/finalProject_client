@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import CartItem from './CartItem/CartItem';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { connect } from 'react-redux';
@@ -76,10 +77,10 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
             ${total}
           </span>
         </div>
-        <button className="cart__btnCheckout">
+        <NavLink to="/checkout" className="cart__btnCheckout">
           Proceed to checkout
           <FaLongArrowAltRight />
-        </button>
+        </NavLink>
       </div>
     </div>
   );

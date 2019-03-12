@@ -39,16 +39,15 @@ const defaultProps = {
  * ReduxForm container
  */
 function ProfileForm({
-                       error,
-                       callUpdateProfileData,
-                       handleSubmit,
-                       pristine,
-                       reset,
-                       submitting,
-                       invalid,
-                       submitSucceeded,
-                       initialValues
-                     }) {
+  error,
+  callUpdateProfileData,
+  handleSubmit,
+  pristine,
+  reset,
+  submitting,
+  invalid,
+  submitSucceeded
+}) {
   let messageType = '';
   let message = '';
 
@@ -62,7 +61,7 @@ function ProfileForm({
     messageType = 'info';
     message = 'Submitting...';
   }
-  console.log('>>>>>>>>>>>>>>>>>>>>>>', initialValues);
+
   return (
     <RenderForm
       error={error}
@@ -136,5 +135,3 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'ProfileForm'
 })(ProfileForm));
-
-

@@ -42,33 +42,32 @@ const defaultProps = {
 };
 
 const Profile = ({ isAuthenticated, profile, callLogoutCustomer, callFetchProfile }) => {
-
   if (!isAuthenticated) {
     return <Redirect to="/login" />;
   }
-/*
-  if (!profile.email) {
-    callFetchProfile();
-    return <div>loading...</div>;
-  }
-*/
+  /*
+    if (!profile.email) {
+      callFetchProfile();
+      return <div>loading...</div>;
+    }
+  */
 
 
   return (
     <>
-    <Header/>
-    <section className="profile">
-      <div className="container">
-        <h1 className="profile__title">YOUR PROFILE</h1>
-        <div className="profile__info">
-          <p className="profile__text"> email: {profile.email} </p>
-          <ProfileForm/>
-          <NavLink to="/reset-password" className="profile__button">RESET PASSWORD</NavLink>
-          <button type="button" className="profile__button" onClick={() => callLogoutCustomer()}>LOG OUT</button>
+      <Header />
+      <section className="profile">
+        <div className="container">
+          <h1 className="profile__title">YOUR PROFILE</h1>
+          <div className="profile__info">
+            <p className="profile__text"> email: {profile.email} </p>
+            <ProfileForm />
+            <NavLink to="/reset-password" className="profile__button">RESET PASSWORD</NavLink>
+            <button type="button" className="profile__button" onClick={() => callLogoutCustomer()}>LOG OUT</button>
+          </div>
         </div>
-      </div>
-    </section>
-    <Footer/>
+      </section>
+      <Footer />
     </>
   );
 };

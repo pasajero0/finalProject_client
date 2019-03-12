@@ -4,9 +4,11 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import {
   email,
-  required
+  required,
+  maxLength,
+  minLength
 } from '../../../validation/validations';
-import { getToken } from '../../../actions/customers';
+import { submitChekout } from '../../../actions/customers';
 import RenderField from '../RenderField/RenderField';
 import RenderForm from '../RenderForm/RenderForm';
 import './CheckoutForm.scss';
@@ -18,11 +20,41 @@ import './CheckoutForm.scss';
  */
 const validate = (values) => {
   const errors = {};
-
+  if (!required(values.first_name)) {
+    errors.first_name = 'First name is required';
+  }
+  if (!required(values.last_name)) {
+    errors.last_name = 'Last name is required';
+  }
   if (!required(values.email)) {
     errors.email = 'E-mail is required';
   } else if (!email(values.email)) {
     errors.email = 'E-mail has to be valid email';
+  }
+  if (!required(values.city)) {
+    errors.city = 'City is required';
+  }
+  if (!required(values.zip)) {
+    errors.zip = 'ZIP is required';
+  }
+  if (!required(values.address)) {
+    errors.address = 'Address is required';
+  }
+  if (!required(values.phone)) {
+    errors.phone = 'Phone is required';
+  }
+  if (!required(values.card)) {
+    errors.card = 'Card is required';
+  } else if (!minLength(16)(values.card) || !maxLength(16)(values.card)) {
+    errors.card = 'Card must contain 16 digits';
+  }
+  if (!required(values.exp_date)) {
+    errors.exp_date = 'Expiration date is required';
+  }
+  if (!required(values.cvs)) {
+    errors.cvs = 'CVS is required';
+  } else if (!minLength(3)(values.cvs) || !maxLength(3)(values.cvs)) {
+    errors.cvs = 'CVS must contain only 3 digits';
   }
   return errors;
 };
@@ -32,13 +64,16 @@ const validate = (values) => {
  */
 const CheckoutForm = ({
   error,
-  onSubmitAction,
+  callSubmitChekout,
   handleSubmit,
   pristine,
   reset,
   submitting,
   invalid,
-  submitSucceeded
+  submitSucceeded,
+  products,
+  total,
+  count
 }) => {
   let messageType = '';
   let message = '';
@@ -54,6 +89,22 @@ const CheckoutForm = ({
     message = 'Submitting...';
   }
 
+  const changeData = (data) => {
+    const newData = {
+      first_name: data.first_name,
+      last_name: data.last_name,
+      email: data.email,
+      city: data.city,
+      zip: data.zip,
+      address: data.address,
+      phone: data.phone,
+      card_number: data.card,
+      products,
+      total,
+      count
+    };
+    return callSubmitChekout(newData);
+  };
   return (
     <RenderForm
       error={error}
@@ -61,9 +112,9 @@ const CheckoutForm = ({
       isPristine={pristine}
       isSucceeded={submitSucceeded}
       isInvalid={invalid}
-      onSubmit={handleSubmit(onSubmitAction)}
+      onSubmit={handleSubmit(changeData)}
       onReset={reset}
-      title="CheckoutForm"
+      title="Checkout"
       message={message}
       messageType={messageType}
       submitLabel="Submit"
@@ -73,61 +124,61 @@ const CheckoutForm = ({
         name="first_name"
         type="text"
         component={RenderField}
-        label="First name"
+        label="First name *"
       />
       <Field
         name="last_name"
         type="text"
         component={RenderField}
-        label="Last name"
+        label="Last name *"
       />
       <Field
         name="email"
         type="email"
         component={RenderField}
-        label="Email"
+        label="Email *"
       />
       <Field
         name="city"
         type="text"
         component={RenderField}
-        label="City"
+        label="City *"
       />
       <Field
         name="zip"
         type="text"
         component={RenderField}
-        label="ZIP"
+        label="ZIP *"
       />
       <Field
         name="address"
         type="text"
         component={RenderField}
-        label="Address"
+        label="Address *"
       />
       <Field
         name="phone"
         type="tel"
         component={RenderField}
-        label="Phone"
+        label="Phone *"
       />
       <Field
         name="card"
         type="text"
         component={RenderField}
-        label="Card"
+        label="Card *"
       />
       <Field
         name="exp_date"
         type="text"
         component={RenderField}
-        label="expDate"
+        label="Expiration date *"
       />
       <Field
         name="cvs"
         type="text"
         component={RenderField}
-        label="CVS"
+        label="CVS *"
       />
     </RenderForm>
   );
@@ -137,7 +188,7 @@ CheckoutForm.propTypes = {
   /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
   handleSubmit: PropTypes.func.isRequired,
   /** Action connected to the form submission */
-  onSubmitAction: PropTypes.func.isRequired,
+  callSubmitChekout: PropTypes.func.isRequired,
   /** A generic error for the entire form given by the _error key */
   error: PropTypes.string,
   /** true if the form data is the same as its initialized values. Opposite of dirty. */
@@ -150,6 +201,12 @@ CheckoutForm.propTypes = {
   invalid: PropTypes.bool,
   /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
   submitSucceeded: PropTypes.bool,
+  /** Array with products in cart */
+  products: PropTypes.array,
+  /** Count of products in cart */
+  count: PropTypes.number,
+  /** Total price of all products in cart  */
+  total: PropTypes.number,
 };
 
 CheckoutForm.defaultProps = {
@@ -157,14 +214,23 @@ CheckoutForm.defaultProps = {
   pristine: true,
   submitting: false,
   invalid: false,
-  submitSucceeded: false
+  submitSucceeded: false,
+  products: [],
+  count: 0,
+  total: 0,
 };
 
-const mapDispatchToProps = dispatch => ({
-  onSubmitAction: data => dispatch(getToken(data))
+const mapStateToProps = state => ({
+  initialValues: state.customers.profile,
+  products: state.cart.products,
+  total: state.cart.total,
+  count: state.cart.count,
 });
 
-export default reduxForm({
-  form: 'CheckoutForm',
-  validate
-})(connect(null, mapDispatchToProps)(CheckoutForm));
+const mapDispatchToProps = dispatch => ({
+  callSubmitChekout: data => dispatch(submitChekout(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
+  form: 'CheckoutForm', validate
+})(CheckoutForm));

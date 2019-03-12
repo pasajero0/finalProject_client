@@ -7,7 +7,8 @@ import {
   URL_API_FETCH_PROFILE,
   URL_API_UPDATE_PROFILE,
   URL_API_GET_RESET_PASSWORD_TOKEN,
-  URL_API_SAVE_PASSWORD
+  URL_API_SAVE_PASSWORD,
+  URL_API_ADD_ORDERS
 } from '../config/app';
 
 axios.defaults.withCredentials = true;
@@ -21,7 +22,7 @@ export const UPDATE_PROFILE_REJECTED = 'UPDATE_PROFILE_REJECTED';
 export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
 export const GET_TOKEN = 'GET_TOKEN';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
-
+export const ADD_ORDERS = 'ADD_ORDERS';
 
 
 /**
@@ -233,6 +234,32 @@ export function updateProfileData(data) {
       })
       .catch((err) => {
         dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
+        throw err;
+      });
+  };
+}
+
+export function submitChekout(data) {
+  console.log('submitChekout ==================> ', data);
+  return (dispatch) => {
+    axios.post(URL_API_ADD_ORDERS, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          ///////////////////////////////
+          alert(res.message);
+          console.log('submitChekout <><><><><><><><><><><><>', res.message, {...res.data});
+          ///////////////////////////////
+          dispatch({
+            type: ADD_ORDERS,
+            payload: { ...res.data }
+          });
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch({ type: ADD_ORDERS, payload: err });
         throw err;
       });
   };
