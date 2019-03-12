@@ -67,6 +67,5 @@
       ],
       "extensions": "scss"
     }
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

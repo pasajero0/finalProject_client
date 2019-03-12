@@ -39,13 +39,46 @@ const validate = (values) => {
   return errors;
 };
 
+const propTypes = {
+  /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
+  handleSubmit: PropTypes.func.isRequired,
+  /** Action connected to the form submission */
+  callLoginCustomer: PropTypes.func.isRequired,
+  /** A generic error for the entire form given by the _error key */
+  error: PropTypes.string,
+  /** true if the form data is the same as its initialized values. Opposite of dirty. */
+  pristine: PropTypes.bool,
+  /** Resets all the values in the form to the initialized state, making it pristine again. */
+  reset: PropTypes.func.isRequired,
+  /** Whether or not your form is currently submitting */
+  submitting: PropTypes.bool,
+  /** true if the form has validation errors. Opposite of valid. */
+  invalid: PropTypes.bool,
+  /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
+  submitSucceeded: PropTypes.bool,
+
+  isAuthenticated: PropTypes.bool,
+  /** Handler to show system message. */
+  callShowSystemMessage: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+  error: '',
+  pristine: true,
+  submitting: false,
+  invalid: false,
+  submitSucceeded: false,
+  isAuthenticated: false,
+};
+
+
 /**
  * ReduxForm container
  */
 const LoginForm = (
   {
     error,
-    onSubmitAction,
+    callLoginCustomer,
     handleSubmit,
     pristine,
     reset,
@@ -53,13 +86,13 @@ const LoginForm = (
     invalid,
     submitSucceeded,
     isAuthenticated,
-    setSystemMessage
+    callShowSystemMessage
   }
 ) => {
   let messageType = '';
   let message = '';
   if (submitSucceeded) {
-    setSystemMessage('You have been logged in', 'info');
+    callShowSystemMessage('You have been logged in', 'info');
   }
   if (isAuthenticated) {
     return <Redirect to="/profile" />;
@@ -82,7 +115,7 @@ const LoginForm = (
         submitLabel="Login"
         resetLabel="Reset"
         isVisibleReset={false}
-        onSubmit={handleSubmit(onSubmitAction)}
+        onSubmit={handleSubmit(callLoginCustomer)}
         onReset={reset}
         isSubmitting={submitting}
         isPristine={pristine}
@@ -101,47 +134,17 @@ const LoginForm = (
   );
 };
 
-LoginForm.propTypes = {
-  /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
-  handleSubmit: PropTypes.func.isRequired,
-  /** Action connected to the form submission */
-  onSubmitAction: PropTypes.func.isRequired,
-  /** A generic error for the entire form given by the _error key */
-  error: PropTypes.string,
-  /** true if the form data is the same as its initialized values. Opposite of dirty. */
-  pristine: PropTypes.bool,
-  /** Resets all the values in the form to the initialized state, making it pristine again. */
-  reset: PropTypes.func.isRequired,
-  /** Whether or not your form is currently submitting */
-  submitting: PropTypes.bool,
-  /** true if the form has validation errors. Opposite of valid. */
-  invalid: PropTypes.bool,
-  /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
-  submitSucceeded: PropTypes.bool,
 
-  isAuthenticated: PropTypes.bool,
-
-  setSystemMessage: PropTypes.string,
-};
-
-LoginForm.defaultProps = {
-  error: '',
-  pristine: true,
-  submitting: false,
-  invalid: false,
-  submitSucceeded: false,
-  isAuthenticated: false,
-  setSystemMessage: ''
-};
-
+LoginForm.propTypes = propTypes;
+LoginForm.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
   isAuthenticated: state.customers.isAuthenticated,
 });
 const mapDispatchToProps = dispatch => (
   {
-    onSubmitAction: data => dispatch(loginCustomer(data)),
-    setSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
+    callLoginCustomer: data => dispatch(loginCustomer(data)),
+    callShowSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
   }
 );
 

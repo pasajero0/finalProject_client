@@ -7,7 +7,8 @@ import {
   UPDATE_PROFILE_REJECTED,
   SET_IS_AUTHENTICATED,
   GET_TOKEN,
-  RESET_PASSWORD
+  RESET_PASSWORD,
+  ADD_ORDERS
 } from '../actions/customers';
 
 const initialState = {
@@ -24,8 +25,7 @@ function customers(state = initialState, action) {
     case SET_IS_AUTHENTICATED:
       return {
         ...state,
-        isAuthenticated: action.payload.isAuthenticated,
-        profile: action.payload.profile
+        ...action.payload
       };
     case FETCH_PROFILE_PENDING:
       return {
@@ -37,7 +37,8 @@ function customers(state = initialState, action) {
       };
     case FETCH_PROFILE_FULFILLED:
       return {
-        ...state
+        ...state,
+        profile: action.payload
       };
     case UPDATE_PROFILE_PENDING:
       return {
@@ -50,8 +51,10 @@ function customers(state = initialState, action) {
     case UPDATE_PROFILE_FULFILLED:
       return {
         ...state,
-        isAuthenticated: action.payload.isAuthenticated,
-        profile: action.payload.profile
+        profile: {
+          ...state.profile,
+          ...action.payload
+        }
       };
     case GET_TOKEN:
       return {
@@ -63,6 +66,10 @@ function customers(state = initialState, action) {
         ...state,
         isPasswordReseted: action.payload
 
+      };
+    case ADD_ORDERS:
+      return {
+        ...state
       };
     default:
       return { ...state };

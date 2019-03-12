@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { replaceInRoute } from '../utils/helpers';
+import { URL_API_FETCH_PRODUCTS, URL_API_FETCH_PRODUCT } from '../config/app';
+
+axios.defaults.withCredentials = true;
 
 export const SET_CURRENT_DEPARTMENT = 'SET_CURRENT_DEPARTMENT';
 export const FETCH_PRODUCT_PENDING = 'FETCH_PRODUCT_PENDING';
@@ -10,10 +13,6 @@ export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
 export const FETCH_PRODUCTS_FULFILLED = 'FETCH_PRODUCTS_FULFILLED';
 export const FETCH_PRODUCTS_REJECTED = 'FETCH_PRODUCTS_REJECTED';
 
-const urlFetchProducts = '/products';
-const urlFetchProduct = '/products/:slug';
-
-
 export function setCurrentDepartment(value) {
   return { type: SET_CURRENT_DEPARTMENT, payload: value };
 }
@@ -23,7 +22,7 @@ export function fetchProduct(slug) {
     dispatch({
       type: FETCH_PRODUCT_PENDING,
     });
-    axios.get(replaceInRoute(urlFetchProduct, { slug }))
+    axios.get(replaceInRoute(URL_API_FETCH_PRODUCT, { slug }))
       .then(res => res.data)
       .then((data) => {
         if (data.success) {
@@ -45,7 +44,7 @@ export function fetchProducts(requestData) {
     dispatch({
       type: FETCH_PRODUCTS_PENDING,
     });
-    axios.get(urlFetchProducts, { params: requestData })
+    axios.get(URL_API_FETCH_PRODUCTS, { params: requestData })
       .then(res => res.data)
       .then((data) => {
         if (data.success) {
