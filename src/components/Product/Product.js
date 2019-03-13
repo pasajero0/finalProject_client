@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import StarRating from '../StarRating/StarRating';
 import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
+import ImageSlider from '../ImageSlider/ImageSlider';
 import { fetchProduct } from '../../actions/products';
 import { addProductToCart } from '../../actions/cart';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
@@ -89,21 +90,8 @@ class Product extends Component {
               ? <span className="productsList__loader">Loading...</span>
               : (
                 <>
-                <div className="productSlider">
-                  <img
-                    className="productSlider__mainImg"
-                    src={`${URL_PRODUCT_IMAGES}/md-${pictures[0]}`}
-                    alt="Product"
-                    ref={this.mainPicture}
-                  />
+                 <ImageSlider images={pictures}/>
 
-
-                  <div className="productSlider__smImg">
-                    <img className="productSlider__img" src={`${URL_PRODUCT_IMAGES}/sm-${pictures[1]}`} alt="Product"/>
-                    <img className="productSlider__img" src={`${URL_PRODUCT_IMAGES}/sm-${pictures[2]}`} alt="Product"/>
-                    <img className="productSlider__img" src={`${URL_PRODUCT_IMAGES}/sm-${pictures[3]}`} alt="Product"/>
-                  </div>
-                </div>
                 <div className="product__info">
                   <p className="product__name">{name}</p>
                   <StarRating className="product__rating"/>
@@ -125,9 +113,7 @@ class Product extends Component {
                     </button>
                     <SaveProductForLaterIcon className="saveProductForLaterIcon"/>
                   </div>
-                  <div className="product__textBlock">
                     <p className="product__description">{description}</p>
-                  </div>
                 </div>
                 </>
               )}

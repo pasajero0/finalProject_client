@@ -1,0 +1,49 @@
+@import '../../vars';
+
+.imageSlider {
+
+	//margin-right: 30px;
+	display: flex;
+	justify-content: center;
+	//flex-direction: column;
+	width: 50%;
+
+	&__mainBox {
+		position: relative;	
+	}
+
+	&__mainImg {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		margin-bottom: 10px;
+		//width: 51%;
+		//width: 75%;
+		//height: 400px;
+		//width: 300px;
+		opacity: 0;
+
+		&_current {
+			opacity: 1;
+		}
+	}
+
+	&__smImg {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	&__img {
+		margin-right: 10px;
+		//width: 16%;
+		//width: 24%;
+		//width: 93px;
+		//height: 115px;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+
+}
