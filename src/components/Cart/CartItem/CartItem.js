@@ -41,7 +41,7 @@ const CartItem = ({
         className="cartItem__counter_box"
         type="number"
         name="quantity"
-        min="0"
+        min="1"
         onChange={e => onChangeQuantity(parseInt(e.currentTarget.value))}
       />
     </div>

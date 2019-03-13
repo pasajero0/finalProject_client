@@ -10,6 +10,7 @@ import CartItem from './CartItem/CartItem';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { updateProductInCart } from '../../actions/cart';
+import { URL_PRODUCT_IMAGES } from '../../config/app';
 
 import './Cart.scss';
 
@@ -67,7 +68,7 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
             key={slug}
             price={price}
             quantity={quantity}
-            picture={`${imagesDir}/sm-${picture}`}
+            picture={`${URL_PRODUCT_IMAGES}/sm-${picture}`}
             onChangeQuantity={q => callUpdateProductInCart(slug, q)}
           />
         ))}
