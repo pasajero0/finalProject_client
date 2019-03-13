@@ -6,13 +6,14 @@ import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLa
 import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import { fetchProduct } from '../../actions/products';
 import { addProductToCart } from '../../actions/cart';
+import { URL_PRODUCT_IMAGES } from '../../config/app';
+
 
 import './Product.scss';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
   callFetchProduct: PropTypes.func.isRequired,
-  imagesDir: PropTypes.string.isRequired,
   routeData: PropTypes.shape({
     path: PropTypes.string,
     url: PropTypes.string,
@@ -78,7 +79,7 @@ class Product extends Component {
   }
 
   render() {
-    const { productData: { description, slug, pictures, name, prices }, imagesDir, isFetching, callAddProductToCart } = this.props;
+    const { productData: { description, slug, pictures, name, prices }, isFetching, callAddProductToCart } = this.props;
 
     return (
       <section className="product" key={slug}>
@@ -91,16 +92,16 @@ class Product extends Component {
                 <div className="productSlider">
                   <img
                     className="productSlider__mainImg"
-                    src={`${imagesDir}/md-${pictures[0]}`}
+                    src={`${URL_PRODUCT_IMAGES}/md-${pictures[0]}`}
                     alt="Product"
                     ref={this.mainPicture}
                   />
 
 
                   <div className="productSlider__smImg">
-                    <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[1]}`} alt="Product"/>
-                    <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[2]}`} alt="Product"/>
-                    <img className="productSlider__img" src={`${imagesDir}/sm-${pictures[3]}`} alt="Product"/>
+                    <img className="productSlider__img" src={`${URL_PRODUCT_IMAGES}/sm-${pictures[1]}`} alt="Product"/>
+                    <img className="productSlider__img" src={`${URL_PRODUCT_IMAGES}/sm-${pictures[2]}`} alt="Product"/>
+                    <img className="productSlider__img" src={`${URL_PRODUCT_IMAGES}/sm-${pictures[3]}`} alt="Product"/>
                   </div>
                 </div>
                 <div className="product__info">
@@ -142,8 +143,7 @@ Product.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
   productData: state.products.productData,
-  isFetching: state.products.isFetching,
-  imagesDir: state.products.imagesDir
+  isFetching: state.products.isFetching
 });
 
 const mapDispatchToProps = dispatch => ({

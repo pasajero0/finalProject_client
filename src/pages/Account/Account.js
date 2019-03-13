@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -9,49 +10,63 @@ import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm';
 import { setLoginFormActiveStatus } from '../../actions/app';
 import './Account.scss';
 
-
-class Account extends Component {
-  render(){
-    const {setLoginFormActiveStatus, isLoginFormActive} = this.props
-    return(
-      <div>
-        <Header></Header>
-          <section className="account">
-            <h2 className="account__title">Account</h2>
-            <span className="account__longLine"></span>
-            <span className="account__shortLine"></span>
-            <div className="account__switchButtons">
-              <button onClick={()=>setLoginFormActiveStatus(true)} 
-                      className={isLoginFormActive ? 'account__loginButton account__switchButtons_active':'account__loginButton'}
-                      >LOGIN</button> /&nbsp;   
-              <button onClick={()=>setLoginFormActiveStatus(false)} 
-                      className={isLoginFormActive ? 'account__registerButton':'account__registerButton account__switchButtons_active' }
-                      >REGISTER</button>
-            </div>
-
-            <div style={isLoginFormActive ? {display: 'block'} : {display: 'none'}}>
-              <p className="account__info">If you have an account with us, log in using your email address</p>
-              { /* <div className="account__socialButtons">
-                <button className="account__socialButton account__socialButton_facebook"><FaFacebookF className="account__socialButtonIcon"/>Facebook</button>
-                <button className="account__socialButton account__socialButton_google"><FaGoogle className="account__socialButtonIcon"/>Google</button>
-              </div> */ }
-              <LoginForm />
-            </div>
-            
-            <div style={ this.props.isLoginFormActive ? {display: 'none'} : {display: 'block'}}>
-              <p className="account__info">Creating an accout will save you time at checkout and allow you to access your status and history</p>
-              <RegisterForm />
-            </div>
-
-          </section>
-        <Footer></Footer>
-      </div>
-    )
-  };
+const propTypes = {
+  setLoginFormActiveStatusInAcc: PropTypes.bool.isRequired,
+  isLoginFormActive: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => { 
-  // console.log(state);
+const defaultProps = {
+};
+
+const Account = (props) => {
+  const { setLoginFormActiveStatusInAcc, isLoginFormActive } = props;
+  return (
+    <div>
+      <Header />
+      <section className="account">
+        <h2 className="account__title">Account</h2>
+        <span className="account__longLine" />
+        <span className="account__shortLine"/>
+        <div className="account__switchButtons">
+          <button 
+            onClick={() => setLoginFormActiveStatusInAcc(true)} 
+            className={isLoginFormActive ? 'account__loginButton account__switchButtons_active':'account__loginButton'}
+            type="button"
+          >LOGIN
+          </button>
+          /&nbsp;
+          <button 
+            onClick={() => setLoginFormActiveStatusInAcc(false)} 
+            className={isLoginFormActive ? 'account__registerButton':'account__registerButton account__switchButtons_active' }
+            type="button"
+            >REGISTER
+          </button>
+        </div>
+
+        <div style={isLoginFormActive ? { display: 'block' } : { display: 'none' }}>
+          <p className="account__info">If you have an account with us, log in using your email address</p>
+          { /* <div className="account__socialButtons">
+            <button className="account__socialButton account__socialButton_facebook"><FaFacebookF className="account__socialButtonIcon"/>Facebook</button>
+            <button className="account__socialButton account__socialButton_google"><FaGoogle className="account__socialButtonIcon"/>Google</button>
+          </div> */ }
+          <LoginForm />
+        </div>
+
+        <div style={isLoginFormActive ? { display: 'none' } : { display: 'block' }}>
+          <p className="account__info">Creating an accout will save you time at checkout and allow you to access your status and history</p>
+          <RegisterForm />
+        </div>
+
+      </section>
+      <Footer />
+    </div>
+  );
+};
+
+Account.propTypes = propTypes;
+Account.defaultProps = defaultProps;
+
+const mapStateToProps = (state) => {
   return {
     isLoginFormActive: state.app.isLoginFormActive
   };
@@ -59,7 +74,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setLoginFormActiveStatus: value => dispatch(setLoginFormActiveStatus(value))
+    setLoginFormActiveStatusInAcc: value => dispatch(setLoginFormActiveStatus(value))
   };
 };
 

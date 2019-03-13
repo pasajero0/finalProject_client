@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ProductListEntry from '../ProductListEntry/ProductListEntry';
 import { fetchProducts, setCurrentDepartment } from '../../actions/products';
 import { replaceInRoute } from '../../utils/helpers';
+import { URL_PRODUCT_IMAGES } from '../../config/app';
 
 import './ProductsList.scss';
 
@@ -56,7 +57,7 @@ class ProductsList extends Component {
   }
 
   render() {
-    const { routeData, productsList, imagesDir, isFetching } = this.props;
+    const { routeData, productsList, isFetching } = this.props;
     return (
       <section className="productsList">
         <div className="container">
@@ -68,7 +69,7 @@ class ProductsList extends Component {
                   <ProductListEntry
                     key={item.slug}
                     slug={item.slug}
-                    picture={`${imagesDir}/md-${item.pictures[0]}`}
+                    picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
                     name={item.name}
                     prices={item.prices}
                     link={replaceInRoute(
@@ -90,8 +91,7 @@ ProductsList.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
   productsList: state.products.productsList,
-  isFetching: state.products.isFetching,
-  imagesDir: state.products.imagesDir
+  isFetching: state.products.isFetching
 });
 
 const mapDispatchToProps = dispatch => ({

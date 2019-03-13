@@ -26,7 +26,6 @@ const Slider = ({ images, settings }) => (
       {images.map(image =>
         <div key={image.id}>
           <img className="slider__img" src={image.src} alt={image.alt} />
-          <a href={image.link} />
         </div>)}
     </SlickSlider>
   </div>

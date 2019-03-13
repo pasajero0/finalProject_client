@@ -5,7 +5,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 50px 0;
+	box-sizing: border-box;
+	padding: 30px 0;
 	
 	&__title{
 		text-align: center;
@@ -15,7 +16,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		max-width: 700px;
+		max-width: 500px;
 	}
 	&__buttons{
 		display: flex;
