@@ -34,5 +34,7 @@ class ClickOutside extends Component {
     );
   }
 }
+ClickOutside.propTypes = propTypes;
+ClickOutside.defaultProps = defaultProps;
 
 export default ClickOutside;
