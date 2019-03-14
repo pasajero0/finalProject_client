@@ -1,50 +1,72 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FaRegUser } from 'react-icons/fa';
+import { FaRegUser, FaUserCircle } from 'react-icons/fa';
+import { FiShoppingCart } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
-import AddProductToCartIcon from '../../../AddProductToCartIcon/AddProductToCartIcon';
-// import {FiShoppingBag} from 'react-icons/fi';
-import Search from '../Search/Search';
+import Tool from '../Tool/Tool';
+import { setUserMenuVisibility } from '../../../../actions/app';
+
+
+
 
 import './NavbarIcons.scss';
 
 
 const propTypes = {
-  cartCount: PropTypes.number
+  cartCount: PropTypes.number,
+  isAuthenticated: PropTypes.bool,
+  callSetUserMenuVisibility: PropTypes.func.isRequired
 };
 
 const defaultProps = {
-  cartCount: 0
+  cartCount: 0,
+  isAuthenticated: false
 };
 
 
-const NavbarIcons = ({ cartCount }) => {
+const NavbarIcons = ({ cartCount, isAuthenticated, callSetUserMenuVisibility }) => {
   return (
     <>
-    <Search/>
     <ul className="navbarIcons">
       <li className="navbarIcons__item">
-        <NavLink to="/login" className="navbarIcons__link">
-          <FaRegUser className="navbarIcons__icon"/>
-        </NavLink>
+        {isAuthenticated
+          ? (
+            <button
+              type="button"
+              className="navbarIcons__button"
+              onClick={(e) => {
+                e.stopPropagation();
+                callSetUserMenuVisibility(true);
+              }}
+            >
+              <Tool icon={FaUserCircle} />
+            </button>
+
+          )
+          : (
+            <NavLink to="/login" >
+              <Tool icon={FaRegUser} />
+            </NavLink>
+          )
+        }
       </li>
-      <li className="navbarIcons__item navbarIcons__buttonBox">
+
+      <li className="navbarIcons__item">
         {cartCount > 0 && (
-          <NavLink to="/cart" className="navbarIcons__link navbarIcons__cartLink" id="shoppingCartIcon">
-            <AddProductToCartIcon className="navbarIcons__icon addProductToCartIcon"/>
-            <div className="productsQuantity">
-              <span className="productsQuantity__number navbarIcons__cartQuantity">{cartCount}</span>
-            </div>
+          <NavLink to="/cart" className="navbarIcons__link" id="shoppingCartIcon">
+            <Tool icon={FiShoppingCart}>
+              <div className="navbarIcons__quantity">
+                {cartCount}
+              </div>
+            </Tool>
           </NavLink>
         )}
         {cartCount === 0 && (
-          <span style={{ opacity:0.2 }}>
-            <AddProductToCartIcon className="navbarIcons__icon" />
-          </span>
+          <div className="navbarIcons__link">
+            <Tool icon={FiShoppingCart} disabled />
+          </div>
         )}
-        
-
 
       </li>
     </ul>
@@ -56,7 +78,11 @@ NavbarIcons.propTypes = propTypes;
 NavbarIcons.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
-  cartCount: state.cart.count
+  cartCount: state.cart.count,
+  isAuthenticated: state.customers.isAuthenticated,
 });
 
-export default connect(mapStateToProps, null)(NavbarIcons);
+const mapDispatchToProps = dispatch => ({
+  callSetUserMenuVisibility: value => dispatch(setUserMenuVisibility(value))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarIcons);

@@ -19,7 +19,6 @@ const propTypes = {
   isFetching: PropTypes.bool.isRequired,
   callFetchProducts: PropTypes.func.isRequired,
   callSetCurrentDepartment: PropTypes.func.isRequired,
-  imagesDir: PropTypes.string.isRequired,
   routeData: PropTypes.shape({
     path: PropTypes.string,
     url: PropTypes.string,

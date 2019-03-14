@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import NavbarIcons from './NavbarIcons/NavbarIcons'
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
+import UserMenu from "./UserMenu/UserMenu";
+import Search from './Search/Search';
 
 const leftPosHide = { left: '-3000px' };
 const leftPosShow = { left: '0' };
@@ -52,41 +54,55 @@ class Navbar extends Component {
     }
 
     return (
+
       <div className="navbar">
-        <div className="container">
-          <div className="navbarContainer">
-            <div className="navbarTop">
-              <div className="navbarTopMainContent">
-                <div className={this.state.menuOpened ? 'navBurger open' : 'navBurger'}
-                     onClick={this.toogleMenu.bind(this)}>
-                  <span className="navBurger__line"></span>
-                  <span className="navBurger__line"></span>
-                  <span className="navBurger__line"></span>
-                  <span className="navBurger__line"></span>
-                </div>
-
-                <NavLink to="/" className='mainLogo__link'>
-                  <h1 className="mainLogo">Uno</h1>
-                </NavLink>
-
-                <ul className="genderNav">
-                  {
-                    rootDepartments.map((department) => {
-                      return (
-                        <li className="genderNav__item" key={department.slug}>
-                          <NavLink
-                            to={`/${department.slug}`}
-                            className="genderNav__link"
-                            activeClassName={currentDepartment === department.slug ? 'active' : ''}
-                          >{department.name}</NavLink>
-                        </li>
-                      );
-                    })
-                  }
-                </ul>
-              </div>
-              <NavbarIcons/>
+        <div className="navbar__top">
+          <div className="navbar__menuSwitch">
+            <div className={this.state.menuOpened ? 'navBurger open' : 'navBurger'}
+                 onClick={this.toogleMenu.bind(this)}>
+              <span className="navBurger__line"></span>
+              <span className="navBurger__line"></span>
+              <span className="navBurger__line"></span>
+              <span className="navBurger__line"></span>
             </div>
+          </div>
+
+          <div className="navbar__logo">
+            <NavLink to="/" className="navbar__logoLink">
+              <div className="mainLogo">Uno</div>
+            </NavLink>
+          </div>
+
+          <ul className="navbar__rootMenu">
+            {
+              rootDepartments.map((department) => {
+                return (
+                  <li className="navbar__rootMenuEntry" key={department.slug}>
+                    <NavLink
+                      to={`/${department.slug}`}
+                      className="navbar__rootMenuLink"
+                      activeClassName={currentDepartment === department.slug
+                        ? 'navbar__rootMenuLink_active'
+                        : ''}
+                    >{department.name}</NavLink>
+                  </li>
+                );
+              })
+            }
+          </ul>
+
+          <div className="navbar__search">
+            <Search/>
+          </div>
+          <div className="navbar__tools">
+            <NavbarIcons/>
+          </div>
+          <UserMenu/>
+        </div>
+
+
+
+          <div className="navbarContainer">
 
             <div id='navbarMenuContent' className="navbarMenuContent"
                  style={this.state.menuOpened ? leftPosShow : leftPosHide}>
@@ -99,7 +115,9 @@ class Navbar extends Component {
                         <NavLink
                           to={`/${department.slug}`}
                           className="switchNav__link"
-                          activeClassName={currentDepartment === department.slug ? 'active' : ''}
+                          activeClassName={currentDepartment === department.slug
+                            ? 'active'
+                            : ''}
                         >{department.name}</NavLink>
                       </li>
                     );
@@ -110,21 +128,27 @@ class Navbar extends Component {
               {childrenDepartments.length > 0
               &&
               ( <ul className="navbarNav">
-                {childrenDepartments.map((department) => (
-                  <li className="navbarNav__item" key={department.slug}>
-                    <NavLink
-                      to={`/${department.slug}`}
-                      className="navbarNav__link"
-                      activeClassName={currentDepartment === department.slug ? 'active' : ''}
-                    >{department.name}</NavLink>
-                  </li>
-                ))}
+                {childrenDepartments.map((department) => {
+                  return (
+                    <li className="navbarNav__item" key={department.slug}>
+                      <NavLink
+                        to={`/${department.slug}`}
+                        className="navbarNav__link"
+                        activeClassName={
+                          currentDepartment === department.slug
+                            ? 'navbarNav__link_active'
+                            : ''
+                        }
+                      >{department.name}</NavLink>
+                    </li>
+                  )
+                })}
               </ul>)
               }
             </div>
           </div>
         </div>
-      </div>
+
     )
   }
 }

@@ -1,58 +1,38 @@
 @import '../../../../vars';
 
 .navbarIcons {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: flex-end;
+  &__button{
+    background: transparent;
+    outline: none;
+    border: 0;
+    padding: 0;
+    cursor:pointer;
+  }
+  &__item {
+    flex: 0 0 48px;
+    margin-left: 0;
+  }
 
-	&__item {
-		margin-right: 25px;
+  &__quantity {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    font-size: 12px;
+    color: white;
+    line-height: 20px;
+    background-color: #737373;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 
-		&:last-child {
-			margin-right: 0px;
-		}
-	}
-
-	&__link {
-		display: inline-flex;
-		width: 26px;
-		height: 26px;
-	}
-
-	&__icon {
-		font-size: 26px;
-		color: #737373;
-		width: 100%;
-		font-family: $poppins;
-	}
-
-	&__cartLink {
-		position: relative;
-	}
-
-	.addProductToCartIcon {
-		position: static;
-		font-size: 25px;
-	}
 }
 
-.productsQuantity {
-	position: absolute;
-	width: 60%;
-	height: 43%;
-	bottom: 7px;
-	left: 7px;
-	background-color: transparent;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&__number {
-		color: #737373;
-		font-family: $poppins;
-		font-size: 8px;
-		font-weight: bold;
-	}
-}
 
 

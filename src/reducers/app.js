@@ -4,7 +4,8 @@ import {
   HIDE_SYSTEM_MESSAGE,
   FETCH_DEPARTMENTS_PENDING,
   FETCH_DEPARTMENTS_FULFILLED,
-  FETCH_DEPARTMENTS_REJECTED
+  FETCH_DEPARTMENTS_REJECTED,
+  SET_USER_MENU_VISIBILITY
 } from '../actions/app';
 
 const initialState = {
@@ -15,11 +16,17 @@ const initialState = {
     isVisible: false
   },
   departments: [],
-  isFetching: false
+  isFetching: false,
+  isVisibleUserMenu: false,
 };
 
 function app(state = initialState, action) {
   switch (action.type) {
+    case SET_USER_MENU_VISIBILITY:
+      return {
+        ...state,
+        isVisibleUserMenu: action.payload
+      };
     case FETCH_DEPARTMENTS_PENDING:
       return {
         ...state,

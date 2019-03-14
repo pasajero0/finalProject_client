@@ -40,7 +40,7 @@
     "start-react": "react-scripts start",
     "server": "cd ../ && npm run server",
     "client": "npm-run-all -p watch-styles-sass start-react",
-    "server-start": "concurrently \"npm run client\" \"npm run server\"",
+    "server-start": "concurrently \"npm run client\" \"npm run server\"",go
     "watch-styles-sass": "npm-watch"
   },
   "eslintConfig": {
