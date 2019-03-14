@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import './ImageSlider.scss';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
@@ -15,6 +15,7 @@ const defaultProps = {};
 class ImageSlider extends Component{
   constructor(props) {
     super(props);
+    this.slidesBox = React.createRef();
     this.state = {
       current: 0
     };
@@ -31,7 +32,7 @@ class ImageSlider extends Component{
     return (
       <div className="imageSlider">
         <div className="imageSlider__content">
-          <div className="imageSlider__mainBox">
+          <div className="imageSlider__mainBox" ref={this.slidesBox}>
             {images.map((image, index) => {
               return (
                 <img

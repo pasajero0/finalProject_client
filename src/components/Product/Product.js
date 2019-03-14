@@ -54,7 +54,7 @@ class Product extends Component {
   }
 
   onAddToCartStartAnimation() {
-    const src = this.mainPicture.current;
+    const src = this.mainPicture.current.querySelectorAll('.imageSlider__mainImg_current')[0];
     const duplicate = src.cloneNode(true);
     const rect = src.getBoundingClientRect();
     const parent = document.getElementById('root');
@@ -90,8 +90,9 @@ class Product extends Component {
               ? <span className="productsList__loader">Loading...</span>
               : (
                 <>
-                 <ImageSlider images={pictures}/>
-
+                <div ref={this.mainPicture}>
+                 <ImageSlider images={pictures} />
+                </div>div>
                 <div className="product__info">
                   <p className="product__name">{name}</p>
                   <StarRating className="product__rating"/>
