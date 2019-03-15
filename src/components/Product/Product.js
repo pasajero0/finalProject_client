@@ -90,9 +90,9 @@ class Product extends Component {
               ? <span className="productsList__loader">Loading...</span>
               : (
                 <>
-                <div ref={this.mainPicture}>
+                <div ref={this.mainPicture} className="imageSlider__container">
                  <ImageSlider images={pictures} />
-                </div>div>
+                </div>
                 <div className="product__info">
                   <p className="product__name">{name}</p>
                   <StarRating className="product__rating"/>

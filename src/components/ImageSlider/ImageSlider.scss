@@ -2,14 +2,15 @@
 
 .imageSlider {
 
-	//margin-right: 30px;
-	display: flex;
-	justify-content: center;
-	//flex-direction: column;
-	width: 50%;
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row-reverse;
+	}
 
 	&__mainBox {
-		position: relative;	
+		position: relative;
+		width: 500px;
 	}
 
 	&__mainImg {
@@ -17,11 +18,8 @@
 		top: 0px;
 		left: 0px;
 		margin-bottom: 10px;
-		//width: 51%;
-		//width: 75%;
-		//height: 400px;
-		//width: 300px;
 		opacity: 0;
+		width: 100%;
 
 		&_current {
 			opacity: 1;
@@ -30,20 +28,88 @@
 
 	&__smImg {
 		display: flex;
-		align-items: center;
-		justify-content: flex-start;
+		flex-direction: column;
 	}
 
-	&__img {
-		margin-right: 10px;
-		//width: 16%;
-		//width: 24%;
-		//width: 93px;
-		//height: 115px;
+	&__btn {
+		display: inline-flex;
+		border: none;
+		padding: 0px;
+		margin-bottom: 9px;
+		width: 80%;
 
 		&:last-child {
-			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			border: transparent;
 		}
 	}
 
+	&__img {
+
+		width: 100%;
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-image-width: 0px;
+		}
+	}
+}
+
+@media (max-width: 650px) {
+
+	.imageSlider {
+
+		&__content {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&__mainBox {
+			width: 400px;
+			height: 540px;
+			margin-bottom: 0px;
+		}
+
+		&__mainImg {
+			margin-bottom: 0px;
+			width: 100%;
+		}
+
+		&__smImg {
+			flex-direction: row;
+			width: 100%;
+			margin-right: 0px;
+			position: relative;
+			bottom: 0px;
+		}
+
+		&__btn {
+			width: 100%;
+			justify-content: space-between;
+			margin-right: 10px;
+			margin-bottom: 0px;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+		}
+	}
+}
+
+@media (max-width: 440px) {
+
+	.imageSlider {
+
+		&__mainBox {
+			width: 300px;
+			height: 410px;
+			margin-bottom: 0px;
+		}
+	}
 }
