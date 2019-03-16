@@ -35,13 +35,6 @@ class Navbar extends Component {
 
   render() {
     const { departments, department: currentDepartment } = this.props;
-
-    console.group('DEPARTMENTS IN NAV BAR');
-    console.log(departments);
-    console.groupEnd();
-    console.log(currentDepartment);
-    console.log('--------------------------');
-
     // filter root level's departments for top menu
     const rootDepartments = departments.filter((department) => department.parent === "0");
     // collect data of root department

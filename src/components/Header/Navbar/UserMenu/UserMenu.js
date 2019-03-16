@@ -4,6 +4,7 @@ import { NavLink, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ClickOutside from './ClickOutside/ClickOutside';
 import { setUserMenuVisibility } from '../../../../actions/app';
+import { logoutCustomer } from '../../../../actions/customers';
 import './UserMenu.scss';
 
 const propTypes = {
@@ -20,11 +21,10 @@ const defaultProps = {
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-const UserMenu = ({ isAuthenticated, isVisible, callSetUserMenuVisibility, match:{path:currentRoute} }) => {
+const UserMenu = ({ callLogoutCustomer, isAuthenticated, isVisible, callSetUserMenuVisibility, match:{path:currentRoute} }) => {
   const entries = [
     { name: 'Personal data', route: '/profile' },
     { name: 'Orders history', route: '/orders-history' },
-    { name: 'Logout', route: '/logout' },
   ];
   if (!isAuthenticated) {
     return null;
@@ -55,6 +55,10 @@ const UserMenu = ({ isAuthenticated, isVisible, callSetUserMenuVisibility, match
               </li>
             ))
           }
+<li className="userMenu__entry">
+
+          <button type="button" className="userMenu__link" onClick={() => callLogoutCustomer()}>Logout</button>
+  </li>
         </ul>
       </div>
     </ClickOutside>
@@ -71,7 +75,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  callSetUserMenuVisibility: value => dispatch(setUserMenuVisibility(value))
+  callSetUserMenuVisibility: value => dispatch(setUserMenuVisibility(value)),
+  callLogoutCustomer: data => dispatch(logoutCustomer(data)),
 });
 //export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
 

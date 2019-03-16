@@ -21,6 +21,7 @@
   }
 
   &__entry {
+    position: relative;
     border-top: 1px solid rgba(0, 0, 0, .3);
     &:first-child {
       border-top: none;
@@ -28,6 +29,8 @@
   }
 
   &__link {
+    box-sizing: border-box;
+    font-family: "Oswald";
     display: block;
     position: relative;
     min-width: 200px;
@@ -35,7 +38,14 @@
     transition: .4s all;
     color: black;
     font-size: 1rem;
+    line-height:1.25em;
     text-transform: uppercase;
+    background: none;
+    outline: none;
+    border: 0;
+    text-align:left;
+    cursor:pointer;
+    width:100%;
 
     &:hover {
       background: #dedede;
