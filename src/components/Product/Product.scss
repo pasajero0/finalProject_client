@@ -8,14 +8,15 @@
 		justify-content: center;
 	}
 
-
 	.imageSlider__container {
 		margin-right: 20px;
+		width: 50%;
 	}
 
 	&__info {
 		display: flex;
 		flex-direction: column;
+		width: 50%;
 	}
 
 	&__name {
@@ -55,7 +56,7 @@
 		color: $secondary;
 		font-family: $oswald;
 		font-weight: bold;
-		margin-right: 25px;
+		margin-right: 20px;
 
 
 		&:hover {
@@ -99,11 +100,13 @@
 		.imageSlider__container {
 			margin-right: 0px;
 			margin-bottom: 20px;
+			width: 100%;
+			flex-wrap: wrap;
 		}
-
 
 		&__info {
 			align-items: center;
+			width: 100%;
 		}
 
 		&__name {
@@ -117,12 +120,10 @@
 
 		&__btn {
 			padding: 10px 20px;
-			margin-right: 25px;
 		}
 
 		.addProductToCartIcon {
 			font-size: 25px;
-			margin-right: 20px;
 		}
 
 		.saveProductForLaterIcon {

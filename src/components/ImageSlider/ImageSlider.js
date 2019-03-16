@@ -32,31 +32,39 @@ class ImageSlider extends Component{
     return (
       <div className="imageSlider">
         <div className="imageSlider__content">
-          <div className="imageSlider__mainBox" ref={this.slidesBox}>
-            {images.map((image, index) => {
-              return (
-                <img
-                  className={index === current
-                    ? 'imageSlider__mainImg imageSlider__mainImg_current'
-                    : 'imageSlider__mainImg'
-                  }
-                  src={`${URL_PRODUCT_IMAGES}/md-${image}`}
-                  alt="Product"
-                  key={image}
-                />
-              )
-            })}
+          <div className="imageSlider__mainBox">    
+            <div className="imageSlider__mainFrame" ref={this.slidesBox}>
+              {images.map((image, index) => {
+                return (
+                  <img
+                    className={index === current
+                      ? 'imageSlider__mainImg imageSlider__mainImg_current'
+                      : 'imageSlider__mainImg'
+                    }
+                    src={`${URL_PRODUCT_IMAGES}/md-${image}`}
+                    alt="Product"
+                    key={image}
+                  />
+                )
+              })}
+              </div>
           </div>
 
           <div className="imageSlider__smImg">
             {images.map((image, index) => {
               return (
                 <button
-                  className="imageSlider__btn"
+                  className={index === current
+                      ? 'imageSlider__btn imageSlider__btn_current'
+                      : 'imageSlider__btn'
+                    }
                   onClick={() => {this.setCurrent(index);}}
                 >
                   <img
-                    className="imageSlider__img"
+                    className={index === current
+                    ? 'imageSlider__img imageSlider__img_current'
+                    : 'imageSlider__img'
+                  }
                     src={`${URL_PRODUCT_IMAGES}/sm-${image}`}
                     alt="Product"
                     key={image}
