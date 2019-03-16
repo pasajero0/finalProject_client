@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ClickOutside from './ClickOutside/ClickOutside';
 import { setUserMenuVisibility } from '../../../../actions/app';
@@ -20,8 +20,7 @@ const defaultProps = {
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-const UserMenu = ({ isAuthenticated, isVisible, callSetUserMenuVisibility }) => {
-  const currentRoute = '/orders-history';
+const UserMenu = ({ isAuthenticated, isVisible, callSetUserMenuVisibility, match:{path:currentRoute} }) => {
   const entries = [
     { name: 'Personal data', route: '/profile' },
     { name: 'Orders history', route: '/orders-history' },
@@ -74,4 +73,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   callSetUserMenuVisibility: value => dispatch(setUserMenuVisibility(value))
 });
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+//export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+
+const C = connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+export default props => <Route render={routeProps => <C {...routeProps} {...props} />}/>;
