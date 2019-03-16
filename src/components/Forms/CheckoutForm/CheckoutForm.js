@@ -93,7 +93,7 @@ const CheckoutForm = ({
   submitSucceeded,
   products,
   total,
-  count
+  count,
 }) => {
   let messageType = '';
   let message = '';

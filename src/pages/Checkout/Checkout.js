@@ -12,11 +12,14 @@ import './Checkout.scss';
  * General component description in JSDoc format. Markdown is *supported*.
  */
 function Checkout(props) {
-  const { cartCount } = props;
+  const { cartCount, isPurchaseExecuted } = props;
   if (!cartCount) {
     return <Redirect to="/cart" />;
   }
-
+  if (isPurchaseExecuted) {
+    return <Redirect to="/thank-you" />;
+  }
+  
   return (
     <>
       <Header />
@@ -30,6 +33,7 @@ function Checkout(props) {
 
 Checkout.propTypes = {
   cartCount: PropTypes.number.isRequired,
+  isPurchaseExecuted: PropTypes.bool.isRequired,
 };
 
 Checkout.defaultProps = {
@@ -37,6 +41,7 @@ Checkout.defaultProps = {
 
 const mapStateToProps = state => ({
   cartCount: state.cart.count,
+  isPurchaseExecuted: state.customers.isPurchaseComplited,
 });
 
 // const mapDispatchToProps = dispatch => ({
