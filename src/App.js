@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import { fetchDepartments } from './actions/app';
+import { fetchDepartments, fetchInitialData } from './actions/app';
 import Layout from './components/Layout/Layout';
 
 import './App.scss';
@@ -18,7 +18,8 @@ const propTypes = {
       position: PropTypes.number,
       filters: PropTypes.shape,
     })),
-  callFetchDepartments: PropTypes.func.isRequired
+  callFetchDepartments: PropTypes.func.isRequired,
+  callFetchInitialData: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -29,9 +30,10 @@ const defaultProps = {
 class App extends Component {
 
   componentDidMount(){
-    const { isFetching, departments, callFetchDepartments } = this.props;
+    const { isFetching, departments, callFetchDepartments, callFetchInitialData } = this.props;
     if (!isFetching && departments.length === 0) {
-      callFetchDepartments();
+      //callFetchDepartments();
+      callFetchInitialData();
     }
   }
 
@@ -50,7 +52,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  callFetchDepartments: () => dispatch(fetchDepartments())
+  callFetchDepartments: () => dispatch(fetchDepartments()),
+  callFetchInitialData: () => dispatch(fetchInitialData()),
 });
 
 const C = connect(mapStateToProps, mapDispatchToProps)(App);

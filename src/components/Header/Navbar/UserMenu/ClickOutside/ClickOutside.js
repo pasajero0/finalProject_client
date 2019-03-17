@@ -14,17 +14,30 @@ class ClickOutside extends Component {
   constructor(props) {
     super(props);
     this.ref = createRef();
+    this.isBlocked = false;
   }
 
   componentDidMount() {
     const {onClick} = this.props;
     window.addEventListener('click', onClick);
-    this.ref.current.addEventListener('click', e => e.stopPropagation() );
+    this.ref.current.addEventListener( 'click', this.blockClick.bind(this));
   }
 
   componentWillUnmount() {
     const {onClick} = this.props;
     window.removeEventListener('click', onClick);
+    this.ref.current.removeEventListener( 'click', this.blockClick.bind(this));
+  }
+
+  onClick(){
+    const {onClick} = this.props;
+    if(!this.isBlocked){
+      onClick();
+    }
+    this.isBlocked = false;
+  }
+  blockClick(){
+    this.isBlocked = true;
   }
 
   render() {
