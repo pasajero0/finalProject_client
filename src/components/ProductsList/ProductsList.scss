@@ -1,18 +1,24 @@
 .productsList {
-    //padding-top: 50px;
-    //box-sizing: border-box;
 
-    &__content{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-    &__loader {
-        text-transform: uppercase;
-        font-size: 20px;
-    }
+  &__loader {
+    text-transform: uppercase;
+    font-size: 20px;
+  }
 }
+
+@media (max-width: 480px) {
+
+  .productsList {
+    padding-top: 88px;
+  }
+}
+
 
 

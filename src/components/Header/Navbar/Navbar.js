@@ -5,7 +5,7 @@ import NavbarIcons from './NavbarIcons/NavbarIcons'
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 import UserMenu from "./UserMenu/UserMenu";
-import Search from './Search/Search';
+//import Search from './Search/Search';
 
 const leftPosHide = { left: '-3000px' };
 const leftPosShow = { left: '0' };
@@ -49,48 +49,51 @@ class Navbar extends Component {
     return (
 
       <div className="navbar">
-        <div className="navbar__top">
-          <div className="navbar__menuSwitch">
-            <div className={this.state.menuOpened ? 'navBurger open' : 'navBurger'}
-                 onClick={this.toogleMenu.bind(this)}>
-              <span className="navBurger__line"></span>
-              <span className="navBurger__line"></span>
-              <span className="navBurger__line"></span>
-              <span className="navBurger__line"></span>
+        <div className="container navbar__top">
+          <div className="navbar__content">
+            <div className="navbar__menuSwitch">
+              <div className={this.state.menuOpened ? 'navBurger open' : 'navBurger'}
+                   onClick={this.toogleMenu.bind(this)}>
+                <span className="navBurger__line"></span>
+                <span className="navBurger__line"></span>
+                <span className="navBurger__line"></span>
+                <span className="navBurger__line"></span>
+              </div>
             </div>
+
+            <div className="navbar__logo">
+              <NavLink to="/" className="navbar__logoLink">
+                <div className="mainLogo">Uno</div>
+              </NavLink>
+            </div>
+
+            <ul className="navbar__rootMenu">
+              {
+                rootDepartments.map((department) => {
+                  return (
+                    <li className="navbar__rootMenuEntry" key={department.slug}>
+                      <NavLink
+                        to={`/${department.slug}`}
+                        className="navbar__rootMenuLink"
+                        activeClassName={currentDepartment === department.slug
+                          ? 'navbar__rootMenuLink_active'
+                          : ''}
+                      >{department.name}</NavLink>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+
           </div>
 
-          <div className="navbar__logo">
-            <NavLink to="/" className="navbar__logoLink">
-              <div className="mainLogo">Uno</div>
-            </NavLink>
-          </div>
-
-          <ul className="navbar__rootMenu">
-            {
-              rootDepartments.map((department) => {
-                return (
-                  <li className="navbar__rootMenuEntry" key={department.slug}>
-                    <NavLink
-                      to={`/${department.slug}`}
-                      className="navbar__rootMenuLink"
-                      activeClassName={currentDepartment === department.slug
-                        ? 'navbar__rootMenuLink_active'
-                        : ''}
-                    >{department.name}</NavLink>
-                  </li>
-                );
-              })
-            }
-          </ul>
-
-          <div className="navbar__search">
-            <Search/>
-          </div>
-          <div className="navbar__tools">
-            <NavbarIcons/>
-          </div>
-          <UserMenu/>
+            {/*<div className="navbar__search">*/}
+              {/*<Search/>*/}
+            {/*</div>*/}
+            <div className="navbar__tools">
+              <NavbarIcons/>
+            </div>
+            <UserMenu/>
         </div>
 
 
