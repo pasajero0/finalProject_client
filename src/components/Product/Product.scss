@@ -1,157 +1,160 @@
 @import '../../vars';
 
 .product {
-	padding-bottom: 20px;
+  padding-bottom: 20px;
 
-	&__content {
-		display: flex;
-		justify-content: center;
-	}
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
 
-	.imageSlider__container {
-		margin-right: 20px;
-		width: 50%;
-	}
+  .imageSlider__container {
+    margin-right: 20px;
+    width: 50%;
+  }
 
-	&__info {
-		display: flex;
-		flex-direction: column;
-		width: 50%;
-	}
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
 
-	&__name {
-		font-family: $poppins;
-		color: $primary_dark;
-		font-size: 30px;
-		margin-bottom: 20px;
-	}
+  &__name {
+    font-family: $poppins;
+    color: $primary_dark;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
 
-	.starRating {
-		margin-bottom: 30px;
-	}
+  .starRating {
+    margin-bottom: 30px;
+  }
 
-	&__price {
-		font-family: $primary_dark;
-		color: $secondary;
-		font-size: 25px;
-		margin-bottom: 30px;
-	}
+  &__price {
+    font-family: $primary_dark;
+    color: $secondary;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
 
-	&__buy {
-		display: flex;
-		align-items: center;
-		margin-bottom: 20px;
-	}
+  &__buy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 
-	&__btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 2px solid $secondary;
-		box-sizing: border-box;
-		background-color: $primary_light;
-		padding: 10px 20px;
-		cursor: pointer;
-		text-transform: uppercase;
-		color: $secondary;
-		font-family: $oswald;
-		font-weight: bold;
-		margin-right: 20px;
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $secondary;
+    box-sizing: border-box;
+    background-color: $primary_light;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: $secondary;
+    font-family: $oswald;
+    font-weight: bold;
+    margin-right: 20px;
 
 
-		&:hover {
-			background-color: $secondary;
-			border: 2px solid transparent;
-			color: $primary_light;
-		}
+    &:hover {
+      background-color: $secondary;
+      border: 2px solid transparent;
+      color: $primary_light;
+    }
 
-		&:hover .addProductToCartIcon {
-			color: $primary_light;
-		}
-	}
+    &:hover .addProductToCartIcon {
+      color: $primary_light;
+    }
+  }
 
-	.addProductToCartIcon {
-		color: $secondary;
-		font-size: 25px;
-		margin-right: 20px;
-	}
+  .addProductToCartIcon {
+    color: $secondary;
+    font-size: 25px;
+    margin-right: 20px;
+  }
 
-	.saveProductForLaterIcon {
-		position: inherit;
-	}
+  .saveProductForLaterIcon {
+    position: inherit;
+  }
 
-	&__description {
-		font-family: $poppins;
-		color: $primary;
-		font-size: 14px;
-		line-height: 24px;
-		width: 400px;
-	}
+  &__description {
+    font-family: $poppins;
+    color: $primary;
+    font-size: 14px;
+    line-height: 24px;
+    width: 400px;
+  }
 }
 
 @media (max-width: 980px) {
 
-	.product {
+  .product {
 
-		&__content {
-			flex-wrap: wrap;
-		}
+    &__content {
+      flex-wrap: wrap;
+    }
 
-		.imageSlider__container {
-			margin-right: 0px;
-			margin-bottom: 20px;
-			width: 100%;
-			flex-wrap: wrap;
-		}
+    .imageSlider__container {
+      margin-right: 0px;
+      margin-bottom: 20px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
 
-		&__info {
-			align-items: center;
-			width: 100%;
-		}
+    &__info {
+      align-items: center;
+      width: 100%;
+    }
 
-		&__name {
-			text-align: center;
-			font-size: 30px;
-		}
+    &__name {
+      text-align: center;
+    }
 
-		&__price {
-			font-size: 25px;
-		}
+    &__price {
+      font-size: 25px;
+    }
 
-		&__btn {
-			padding: 10px 20px;
-		}
+    &__btn {
+      padding: 10px 20px;
+    }
 
-		.addProductToCartIcon {
-			font-size: 25px;
-		}
+    .addProductToCartIcon {
+      font-size: 25px;
+    }
 
-		.saveProductForLaterIcon {
-			font-size: 30px;
-		}
+    .saveProductForLaterIcon {
+      font-size: 30px;
+    }
 
-		&__description {
-			font-size: 16px;
-			line-height: 24px;
-			width: 60%;
-		}
-	}
+    &__description {
+      font-size: 16px;
+      line-height: 24px;
+      width: 60%;
+    }
+  }
 }
 
 
 
 @media (max-width: 480px) {
 
-	.product {
-		padding-top: 108px;
+  .product {
+    padding-top: 108px;
 
-		.saveProductForLaterIcon {
-			font-size: 25px;
-		}
+    .saveProductForLaterIcon {
+      font-size: 25px;
+    }
 
-		.product__name {
-			font-size: 25px;
-			line-height: 35px;
-		}
-	}
+    &__name {
+      font-size: 25px;
+      line-height: 35px;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+  }
 }
