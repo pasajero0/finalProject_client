@@ -36,10 +36,7 @@ const defaultProps = {
  */
 class ThankYou extends Component {
   componentWillMount() {
-    const { isPurchaseExecuted, callClearCart } = this.props;
-    if (!isPurchaseExecuted) {
-      return <Redirect to="/cart" />;
-    }
+    const { callClearCart } = this.props;
     callClearCart();
   }
 
@@ -49,7 +46,11 @@ class ThankYou extends Component {
   }
 
   render () {
-    const { purchaseInfo } = this.props;
+    const { isPurchaseExecuted, purchaseInfo } = this.props;
+    if (!isPurchaseExecuted) {
+      alert('Your cart is empty!');
+      return <Redirect to="/" />;
+    }
     return (
       <>
         <Header />
