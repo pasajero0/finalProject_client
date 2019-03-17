@@ -24,7 +24,6 @@
     color: $primary_dark;
     font-size: 30px;
     margin-bottom: 20px;
-    text-align: center;
   }
 
   .starRating {
@@ -58,7 +57,7 @@
     color: $secondary;
     font-family: $oswald;
     font-weight: bold;
-    margin-right: 10px;
+    //margin-right: 10px;
 
 
     &:hover {
@@ -121,6 +120,10 @@
     &__info {
       align-items: center;
       width: 100%;
+    }
+
+    &__name {
+      text-align: center;
     }
 
     .addProductToCartIcon {
