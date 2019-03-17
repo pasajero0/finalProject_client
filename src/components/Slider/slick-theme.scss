@@ -116,6 +116,7 @@
 
 .slick-dots li {
   position: relative;
+<<<<<<< HEAD
 
   display: inline-block;
 
@@ -124,12 +125,23 @@
   margin: 0 5px;
   padding: 0;
 
+=======
+
+  display: inline-block;
+
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  padding: 0;
+
+>>>>>>> slider
   cursor: pointer;
 }
 
 .slick-dots li button {
   font-size: 0;
   line-height: 0;
+<<<<<<< HEAD
 
   display: block;
 
@@ -139,6 +151,17 @@
 
   cursor: pointer;
 
+=======
+
+  display: block;
+
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+
+  cursor: pointer;
+
+>>>>>>> slider
   color: transparent;
   border: 0;
   outline: none;
@@ -181,5 +204,9 @@
 {
   opacity: .75;
   color: white;
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> slider
