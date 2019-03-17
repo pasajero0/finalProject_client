@@ -3,7 +3,7 @@
  * Placeholder fot the description
  * @module ThankYou
  */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -18,53 +18,65 @@ import { clearPurchaseData } from '../../actions/customers';
  * @type {object}
  */
 const propTypes = {
+  isPurchaseExecuted: PropTypes.bool,
+  callClearCart: PropTypes.func.isRequired,
+  callClearPurchaseData: PropTypes.func.isRequired,
+  // purchaseInfo: PropTypes.object.isRequired
 };
 /**
  * Default props of the component
  * @type {object}
  */
 const defaultProps = {
+  isPurchaseExecuted: false,
 };
 
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-const ThankYou = ({ ...props }) => {
-	const { isPurchaseExecuted, purchaseInfo, callClearCart, callClearPurchaseData } = props;
-	if (!isPurchaseExecuted) {
-		return <Redirect to="/cart" />;
-	}
-	setTimeout(function() { 
-		callClearCart();
-		callClearPurchaseData();
-	}, 5000);
+class ThankYou extends Component {
+  componentWillMount() {
+    const { isPurchaseExecuted, callClearCart } = this.props;
+    if (!isPurchaseExecuted) {
+      return <Redirect to="/cart" />;
+    }
+    callClearCart();
+  }
 
-	return (
-		<>
-			<Header />
-			<section className="thankYou">
-				<h1 className="thankYou__title"> Thank you! </h1>
-				<div className="thankYou__info">
-					<p>{purchaseInfo.message}</p>
-					<p> Order number: {purchaseInfo.data.number} </p>
-				</div>
-			</section>
-			<Footer />
-		</>
-	);
-};
+  componentWillUnmount() {
+    const { callClearPurchaseData } = this.props;
+    callClearPurchaseData();
+  }
+
+  render () {
+    const { purchaseInfo } = this.props;
+    return (
+      <>
+        <Header />
+        <section className="thankYou">
+          <h1 className="thankYou__title"> Thank you! </h1>
+          <div className="thankYou__info">
+            <p>{purchaseInfo.message}</p>
+            <p> Order number: {purchaseInfo.data.number} </p>
+          </div>
+        </section>
+        <Footer />
+      </>
+    );
+  }
+}
 
 ThankYou.propTypes = propTypes;
 ThankYou.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
-	isPurchaseExecuted: state.customers.isPurchaseComplited,
-	purchaseInfo: state.customers.purchaseData,
+  isPurchaseExecuted: state.customers.isPurchaseComplited,
+  purchaseInfo: state.customers.purchaseData,
 });
 
 const mapDispatchToProps = dispatch => ({
-	callClearCart: () => dispatch(clearCart()),
-	callClearPurchaseData: () => dispatch(clearPurchaseData()),
+  callClearCart: () => dispatch(clearCart()),
+  callClearPurchaseData: () => dispatch(clearPurchaseData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ThankYou);
