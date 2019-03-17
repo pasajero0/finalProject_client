@@ -17,12 +17,9 @@ const defaultProps = {
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-<<<<<<< HEAD
-=======
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true
->>>>>>> slider
   }
 };
 

@@ -1,0 +1,27 @@
+.pagination {
+	display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+item__pagination {
+	cursor: pointer;
+	padding: 5px 15px;    
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+    font-weight: 700;
+    margin: 5px 15px;
+}
+.page__current {
+	cursor: pointer;
+    padding: 5px 15px;    
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+    font-weight: 700;
+    margin: 5px 15px;
+	background: gray;
+	color: white;
+}
