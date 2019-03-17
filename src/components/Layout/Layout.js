@@ -6,6 +6,7 @@ import Product from '../../pages/ProductSingle/ProductSingle';
 import Account from '../../pages/Account/Account';
 import Profile from '../../pages/Profile/Profile';
 import MyCart from '../../pages/MyCart/MyCart';
+import OrdersHistory from '../../pages/OrdersHistory/OrdersHistory';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 
 import './Layout.scss';
@@ -24,7 +25,8 @@ const Layout = () => (
     <Route exact path="/reset-password" component={ResetPassword} />
     <Route exact path="/reset-password/:token" component={ResetPassword} />
     <Route exact path="/checkout" component={Checkout} />
-
+    <Route exact path="/orders-history" component={OrdersHistory} />
+    
     <Route exact path="/:department" component={Department}/>
 
 

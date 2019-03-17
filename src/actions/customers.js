@@ -8,10 +8,15 @@ import {
   URL_API_UPDATE_PROFILE,
   URL_API_GET_RESET_PASSWORD_TOKEN,
   URL_API_SAVE_PASSWORD,
-  URL_API_ADD_ORDERS
+  URL_API_ADD_ORDERS,
+  URL_API_FETCH_ORDER_HISTORY
 } from '../config/app';
 
 axios.defaults.withCredentials = true;
+
+export const FETCH_ORDER_HISTORY_FULFILLED = 'FETCH_ORDER_HISTORY_FULFILLED';
+export const FETCH_ORDER_HISTORY_REJECTED = 'FETCH_ORDER_HISTORY_REJECTED';
+export const FETCH_ORDER_HISTORY_PENDING = 'FETCH_ORDER_HISTORY_PENDING';
 
 export const FETCH_PROFILE_FULFILLED = 'FETCH_PROFILE_FULFILLED';
 export const FETCH_PROFILE_REJECTED = 'FETCH_PROFILE_REJECTED';
@@ -23,6 +28,31 @@ export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
 export const GET_TOKEN = 'GET_TOKEN';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 export const ADD_ORDERS = 'ADD_ORDERS';
+
+
+
+/**
+ * Load profile data
+ * @returns {function(*, *)}
+ */
+export function fetchOrdersHistoryData() {
+  return (dispatch) => {
+    dispatch({ type: FETCH_ORDER_HISTORY_PENDING, payload: {} });
+    return axios.get(URL_API_FETCH_ORDER_HISTORY)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({
+            type: FETCH_ORDER_HISTORY_FULFILLED,
+            payload: { ...res.data }
+          });
+        } else {
+          throw new Error('Unable to fetch orders history');
+        }
+      })
+      .catch(err => dispatch({ type: FETCH_ORDER_HISTORY_REJECTED, payload: err }));
+  };
+}
 
 
 /**
