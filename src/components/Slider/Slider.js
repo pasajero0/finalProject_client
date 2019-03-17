@@ -16,6 +16,7 @@ const defaultProps = {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true
@@ -25,7 +26,10 @@ const defaultProps = {
 const Slider = ({ images, settings }) => (
   <div className="slider">
     <SlickSlider {...settings} className="slider">
-      {images.map(image => <div key={image.id}><img className="slider__img" src={image.src} alt={image.alt}/></div>)}
+      {images.map(image =>
+        <div key={image.id}>
+          <img className="slider__img" src={image.src} alt={image.alt} />
+        </div>)}
     </SlickSlider>
   </div>
 );
