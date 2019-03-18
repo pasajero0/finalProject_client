@@ -8,7 +8,8 @@ import {
   SET_IS_AUTHENTICATED,
   GET_TOKEN,
   RESET_PASSWORD,
-  ADD_ORDERS
+  ADD_ORDERS,
+  SET_PURCHASE_STATUS
 } from '../actions/customers';
 
 const initialState = {
@@ -17,7 +18,9 @@ const initialState = {
   profile: {},
   isAuthenticated: false,
   isSentResetPasswordToken: false,
-  isPasswordReseted: false
+  isPasswordReseted: false,
+  isPurchaseComplited: false,
+  purchaseData: {}
 };
 
 function customers(state = initialState, action) {
@@ -70,6 +73,12 @@ function customers(state = initialState, action) {
     case ADD_ORDERS:
       return {
         ...state
+      };
+    case SET_PURCHASE_STATUS:
+      return {
+        ...state,
+        isPurchaseComplited: action.payload.isPurchaseComplited,
+        purchaseData: action.payload.purchaseData
       };
     default:
       return { ...state };

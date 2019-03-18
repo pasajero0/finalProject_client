@@ -54,3 +54,12 @@ export function updateProductInCart(slug, quantity = 0) {
     }
   };
 }
+
+export function clearCart() {
+  return dispatch => {
+    dispatch({
+      type: UPDATE_PRODUCTS_IN_CART,
+      payload: []
+    });
+  };
+}

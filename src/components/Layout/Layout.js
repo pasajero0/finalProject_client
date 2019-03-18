@@ -7,9 +7,10 @@ import Account from '../../pages/Account/Account';
 import Profile from '../../pages/Profile/Profile';
 import MyCart from '../../pages/MyCart/MyCart';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
+import Checkout from '../../pages/Checkout/Checkout';
+import ThankYou from '../../pages/ThankYou/ThankYou';
 
 import './Layout.scss';
-import Checkout from '../../pages/Checkout/Checkout';
 
 /**
  * General component description in JSDoc format. Markdown is *supported*.
@@ -24,7 +25,7 @@ const Layout = () => (
     <Route exact path="/reset-password" component={ResetPassword} />
     <Route exact path="/reset-password/:token" component={ResetPassword} />
     <Route exact path="/checkout" component={Checkout} />
-
+    <Route exact path="/thank-you" component={ThankYou} />
     <Route exact path="/:department" component={Department}/>
 
 

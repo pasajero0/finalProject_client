@@ -23,6 +23,7 @@ export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
 export const GET_TOKEN = 'GET_TOKEN';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 export const ADD_ORDERS = 'ADD_ORDERS';
+export const SET_PURCHASE_STATUS = 'SET_PURCHASE_STATUS';
 
 
 /**
@@ -250,6 +251,13 @@ export function submitChekout(data) {
             type: ADD_ORDERS,
             payload: { ...res.data }
           });
+          dispatch({
+            type: SET_PURCHASE_STATUS,
+            payload: {
+              isPurchaseComplited: true,
+              purchaseData: { ...res },
+            }
+          });
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
         }
@@ -260,3 +268,15 @@ export function submitChekout(data) {
       });
   };
 }
+
+export function clearPurchaseData() {
+  return dispatch => {
+    dispatch({
+      type: SET_PURCHASE_STATUS,
+      payload: {
+        isPurchaseComplited: false,
+        purchaseData: {},
+      }
+    });
+  };
+};
