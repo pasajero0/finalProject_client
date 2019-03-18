@@ -55,8 +55,8 @@ class ThankYou extends Component {
       <>
         <Header />
         <section className="thankYou">
-          <h1 className="thankYou__title"> Thank you! </h1>
-          <div className="thankYou__info">
+          <div className="thankYou__info container">
+            <h1 className="thankYou__title"> Thank you! </h1>
             <p>{purchaseInfo.message}</p>
             <p> Order number: {purchaseInfo.data.number} </p>
           </div>

@@ -1,3 +1,17 @@
-.thankYou{
-
+.thankYou {
+  height: 90vh;
+  padding: 30px 0;
+  box-sizing: border-box;
+  &__info {
+    text-align: center;
+    p{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  } 
+  &__title {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 36px;
+  }
 }
