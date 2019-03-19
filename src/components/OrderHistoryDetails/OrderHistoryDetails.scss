@@ -13,6 +13,21 @@
         box-shadow: 0px 3px 17px 0px rgba(0, 0, 0, 0.54);
         z-index: 999;
     }
+    &__button   {
+        width: 100px;
+        padding: 5px;
+        color: #fff;
+        background: #000;
+        // text-transform: uppercase;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    &__redButton {
+        background: #e95252;
+    }
     &__salesReceipt_isVisible {
         display: block; 
     }
@@ -30,5 +45,21 @@
         box-sizing: border-box;
         padding: 5px;
         text-align: center;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .orderHistoryDetails__salesReceipt {
+        width: 270px;
+        left: -275px;
+    }
+    @media only screen and (max-width: 447px) {
+        .orderHistoryDetails__salesReceipt {
+            left: 0;
+            top: 40px;
+        }
+        .orderHistoryDetails__button{
+            margin: 10px 0;
+        }
     }
 }

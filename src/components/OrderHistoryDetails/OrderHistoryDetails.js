@@ -40,7 +40,11 @@ class OrderHistoryDetails extends Component {
     const { products } = this.props;
     return (
       <div className="orderHistoryDetails">
-        <button type="button" onClick={this.openDetails}>Details...</button>
+        <button 
+          className={this.state.open ? "orderHistoryDetails__button orderHistoryDetails__redButton" : "orderHistoryDetails__button" } 
+          type="button" 
+          onClick={this.openDetails}
+        >Details...</button>
         <div className={this.state.open ? "orderHistoryDetails__salesReceipt orderHistoryDetails__salesReceipt_isVisible" : "orderHistoryDetails__salesReceipt"}>
           <table className="orderHistoryDetails__table">
             <thead>
