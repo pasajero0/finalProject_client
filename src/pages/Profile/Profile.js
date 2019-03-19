@@ -69,7 +69,14 @@ const Profile = ({
           <div className="profile__info">
             <p className="profile__text">email: { profile.email }</p>
             <ProfileForm />
+<<<<<<< HEAD
             <NavLink to="/reset-password">Reset password</NavLink>
+=======
+
+{/*            <NavLink to="/reset-password" className="profile__button">RESET PASSWORD</NavLink>
+            <button type="button" className="profile__button" onClick={() => callLogoutCustomer()}>LOG OUT</button>
+          */}
+>>>>>>> 79dc5078adf421a10b4e06fd1eaad54db3ce5d43
           </div>
         </div>
       </section>
