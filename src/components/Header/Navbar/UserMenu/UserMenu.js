@@ -25,6 +25,7 @@ const UserMenu = ({ callLogoutCustomer, isAuthenticated, isVisible, callSetUserM
   const entries = [
     { name: 'Personal data', route: '/profile' },
     { name: 'Orders history', route: '/orders-history' },
+    { name: 'Reset Password', route: '/reset-password' },
   ];
   if (!isAuthenticated) {
     return null;
