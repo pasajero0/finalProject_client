@@ -1,4 +1,10 @@
 @import '../../vars';
 
-.Checkout{
+.checkout{
+}
+
+@media (max-width: 480px) {
+    .checkout {
+        margin-top: 88px;
+    }
 }

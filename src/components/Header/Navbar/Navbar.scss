@@ -246,6 +246,7 @@
   display: flex;
   justify-content: center;
   padding: 17px 0px;
+  height: 16px;
   background-color: #eeeeee;
 }
 
@@ -343,7 +344,7 @@
       width: 30%;
       height: 100%;
       padding: 0px;
-      z-index: 2;
+      z-index: 999;
       overflow: hidden;
     }
 
