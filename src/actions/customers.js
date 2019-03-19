@@ -1,30 +1,50 @@
 import axios from 'axios';
 import { SubmissionError, reset } from 'redux-form';
+import {
+  URL_API_ADD_CUSTOMER,
+  URL_API_LOGIN_CUSTOMER,
+  URL_API_LOGOUT_CUSTOMER,
+  URL_API_FETCH_PROFILE,
+  URL_API_UPDATE_PROFILE,
+  URL_API_GET_RESET_PASSWORD_TOKEN,
+  URL_API_SAVE_PASSWORD,
+  URL_API_ADD_ORDERS
+} from '../config/app';
+
+axios.defaults.withCredentials = true;
 
 export const FETCH_PROFILE_FULFILLED = 'FETCH_PROFILE_FULFILLED';
 export const FETCH_PROFILE_REJECTED = 'FETCH_PROFILE_REJECTED';
 export const FETCH_PROFILE_PENDING = 'FETCH_PROFILE_PENDING';
-export const UPD_PROFILE_PENDING = 'UPD_PROFILE_PENDING';
-export const UPD_PROFILE_FULFILLED = 'UPD_PROFILE_FULFILLED';
-export const UPD_PROFILE_REJECTED = 'UPD_PROFILE_REJECTED';
+export const UPDATE_PROFILE_PENDING = 'UPDATE_PROFILE_PENDING';
+export const UPDATE_PROFILE_FULFILLED = 'UPDATE_PROFILE_FULFILLED';
+export const UPDATE_PROFILE_REJECTED = 'UPDATE_PROFILE_REJECTED';
+export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED';
+export const GET_TOKEN = 'GET_TOKEN';
+export const RESET_PASSWORD = 'RESET_PASSWORD';
+export const ADD_ORDERS = 'ADD_ORDERS';
 
-const urlFetchProfile = 'https://next.json-generator.com/api/json/get/NkO3JQZQ8';
-const urlUpdProfile = 'https://next.json-generator.com/api/json/get/NkO3JQZQ8';
-const urlAddCustomer = '/customers';
-const urlLoginCustomer = '/customers/login';
 
 /**
- * Fetching customer profile data from the server
+ * Load profile data
  * @returns {function(*, *)}
  */
 export function fetchProfile() {
-  return (dispatch, getState) => {
-    dispatch(
-      { type: FETCH_PROFILE_PENDING, payload: { } }
-    );
-    axios.get(urlFetchProfile)
+  return (dispatch) => {
+    dispatch({ type: FETCH_PROFILE_PENDING, payload: {} });
+    axios.get(URL_API_FETCH_PROFILE)
       .then((result) => {
-        dispatch({ type: FETCH_PROFILE_FULFILLED, payload: { profile: result.data } });
+        const res = result.data;
+        if (res.success) {
+          dispatch({
+            type: FETCH_PROFILE_FULFILLED,
+            payload: {
+              profile: { ...res.data }
+            }
+          });
+        } else {
+          throw new Error('Unable to fetch profile');
+        }
       })
       .catch(err => dispatch({ type: FETCH_PROFILE_REJECTED, payload: err }));
   };
@@ -35,75 +55,207 @@ export function fetchProfile() {
  * @param data {object}
  * @returns {function(*, *)}
  */
-export function updProfile(data) {
-  return (dispatch, getState) => {
-    dispatch(
-      { type: UPD_PROFILE_PENDING, payload: { } }
-    );
-    axios.get(urlUpdProfile)
-      .then((result) => {
-        if (result.success){
-          dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
-        } else {
-          throw new SubmissionError({
-            //email: 'Sad email',
-            //body: 'Stupid body',
-            //subject: 'Crazy subject',
-            //_error: 'No letter has been sent'
-          });
-        }
-      })
-      .catch(err => dispatch({ type: UPD_PROFILE_REJECTED, payload: err }));
-  };
-}
-/**
- * Update customer profile data
- * @param data {object}
- * @returns {function(*, *)}
- */
 export function addCustomer(data) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(
-      { type: UPD_PROFILE_PENDING, payload: { } }
+      { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
-    return axios.post(urlAddCustomer, data)
+    return axios.post(URL_API_ADD_CUSTOMER, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
+          dispatch({
+            type: UPDATE_PROFILE_FULFILLED,
+            payload: {
+              profile: { ...res.data },
+              isAuthenticated: true,
+            }
+          });
           dispatch(reset('RegisterForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
         }
       })
       .catch((err) => {
-        dispatch({ type: UPD_PROFILE_REJECTED, payload: err });
+        dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
         throw err;
       });
   };
-} 
+}
+
 /**
  * Update customer profile data
  * @param data {object}
  * @returns {function(*, *)}
  */
 export function loginCustomer(data) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(
-      { type: UPD_PROFILE_PENDING, payload: { } }
+      { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
-    return axios.post(urlLoginCustomer, data)
+    return axios.post(URL_API_LOGIN_CUSTOMER, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          dispatch({ type: UPD_PROFILE_FULFILLED, payload: { profile: result.data } });
+          dispatch({
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: true,
+              profile: { ...res.data }
+            }
+          });
           dispatch(reset('LoginForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
         }
       })
       .catch((err) => {
-        dispatch({ type: UPD_PROFILE_REJECTED, payload: err });
+        dispatch({
+          type: SET_IS_AUTHENTICATED,
+          payload: {
+            isAuthenticated: false,
+            profile: {}
+          }
+        });
+        throw err;
+      });
+  };
+}
+
+export function logoutCustomer() {
+  return (dispatch) => {
+    axios.get(URL_API_LOGOUT_CUSTOMER)
+      .then(({ data }) => {
+        if (data.success) {
+          dispatch({
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: false,
+              profile: {}
+            }
+          });
+        } else {
+          throw new SubmissionError({ ...data.data, _error: data.message });
+        }
+      })
+      .catch((err) => {
+        dispatch(
+          {
+            type: SET_IS_AUTHENTICATED,
+            payload: {
+              isAuthenticated: true
+            }
+          }
+        );
+        throw err;
+      });
+  };
+}
+
+export function getToken(data) {
+  return (dispatch) => {
+    axios.post(URL_API_GET_RESET_PASSWORD_TOKEN, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({
+            type: GET_TOKEN,
+            payload: true
+          });
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch(
+          {
+            type: GET_TOKEN,
+            payload: false
+          }
+        );
+        throw err;
+      });
+  };
+}
+
+export function resetPassword(data) {
+  return (dispatch) => {
+    axios.post(URL_API_SAVE_PASSWORD, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({
+            type: RESET_PASSWORD,
+            payload: true
+          });
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch(
+          {
+            type: RESET_PASSWORD,
+            payload: false
+          }
+        );
+        throw err;
+      });
+  };
+}
+
+export function setPasswordReseted(data) {
+  return (dispatch) => {
+    dispatch({
+      type: RESET_PASSWORD,
+      payload: data
+    });
+  };
+}
+
+export function updateProfileData(data) {
+  return (dispatch) => {
+    dispatch(
+      { type: UPDATE_PROFILE_PENDING, payload: {} }
+    );
+    axios.put(URL_API_UPDATE_PROFILE, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({
+            type: UPDATE_PROFILE_FULFILLED,
+            payload: { ...res.data }
+          });
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
+        throw err;
+      });
+  };
+}
+
+export function submitChekout(data) {
+  console.log('submitChekout ==================> ', data);
+  return (dispatch) => {
+    axios.post(URL_API_ADD_ORDERS, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          alert(res.message);
+          console.log('submitChekout <><><><><><><><><><><><>', res.message, { ...res.data });
+          dispatch({
+            type: ADD_ORDERS,
+            payload: { ...res.data }
+          });
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch({ type: ADD_ORDERS, payload: err });
         throw err;
       });
   };

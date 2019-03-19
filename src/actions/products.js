@@ -1,29 +1,61 @@
 import axios from 'axios';
+import { replaceInRoute } from '../utils/helpers';
+import { URL_API_FETCH_PRODUCTS, URL_API_FETCH_PRODUCT } from '../config/app';
 
-export const FETCH_PRODUCTS_REQUEST = 'FETCH_PRODUCTS_REQUEST';
-export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
+axios.defaults.withCredentials = true;
 
-export function fetchAllProducts() {
-    return dispatch => {
-        dispatch({
-            type: FETCH_PRODUCTS_REQUEST,
-        });
-        setTimeout(() => {
-            axios.get('../api/products.json')
-                .then(res => res.data)
-                .then(data => {
-                    let productsList = {
-                        productsList: data
-                    };
+export const SET_CURRENT_DEPARTMENT = 'SET_CURRENT_DEPARTMENT';
+export const FETCH_PRODUCT_PENDING = 'FETCH_PRODUCT_PENDING';
+export const FETCH_PRODUCT_FULFILLED = 'FETCH_PRODUCT_FULFILLED';
+export const FETCH_PRODUCT_REJECTED = 'FETCH_PRODUCT_REJECTED';
 
-                    dispatch({
-                        type: FETCH_PRODUCTS_SUCCESS,
-                        payload: productsList
-                    })
+export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
+export const FETCH_PRODUCTS_FULFILLED = 'FETCH_PRODUCTS_FULFILLED';
+export const FETCH_PRODUCTS_REJECTED = 'FETCH_PRODUCTS_REJECTED';
 
-                })
-                .catch(err => console.log(err))
-        }, 3000);
-    }
+export function setCurrentDepartment(value) {
+  return { type: SET_CURRENT_DEPARTMENT, payload: value };
 }
 
+export function fetchProduct(slug) {
+  return (dispatch) => {
+    dispatch({
+      type: FETCH_PRODUCT_PENDING,
+    });
+    axios.get(replaceInRoute(URL_API_FETCH_PRODUCT, { slug }))
+      .then(res => res.data)
+      .then((data) => {
+        if (data.success) {
+          dispatch({
+            type: FETCH_PRODUCT_FULFILLED,
+            payload: data.data
+          });
+        } else {
+          throw new Error('Fetching product data error');
+        }
+      })
+      .catch(err => dispatch({ type: FETCH_PRODUCT_REJECTED, payload: err }));
+  };
+}
+
+
+export function fetchProducts(requestData) {
+  return (dispatch) => {
+    dispatch({
+      type: FETCH_PRODUCTS_PENDING,
+    });
+    axios.get(URL_API_FETCH_PRODUCTS, { params: requestData })
+      .then(res => res.data)
+      .then((data) => {
+        if (data.success) {
+          dispatch({
+            type: FETCH_PRODUCTS_FULFILLED,
+            payload: data.data
+          });
+        } else {
+          throw new Error('Fetching product data error');
+        }
+      })
+      .catch(err => dispatch({ type: FETCH_PRODUCTS_REJECTED, payload: err }));
+  };
+}

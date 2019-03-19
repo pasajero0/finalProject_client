@@ -1,29 +1,57 @@
-import React, {Component} from 'react';
-import {NavLink, Route, Switch} from 'react-router-dom';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
-import Homepage from './pages/Homepage/Homepage.js'
-import HomepageWomen from './pages/HomepageWomen/HomepageWomen.js';
-import HomepageMen from './pages/HomepageMen/HomepageMen.js';
-import Account from './pages/Account/Account.js';
-import MyCart from './pages/MyCart/MyCart'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import { fetchDepartments } from './actions/app';
+import Layout from './components/Layout/Layout';
 
 import './App.scss';
 
+const propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  departments: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string,
+      name: PropTypes.string,
+      slug: PropTypes.string,
+      parent: PropTypes.string,
+      position: PropTypes.number,
+      filters: PropTypes.shape,
+    })),
+  callFetchDepartments: PropTypes.func.isRequired
+};
+
+const defaultProps = {
+  departments: []
+};
+
+
 class App extends Component {
 
-    render() {
-        return (
-            <>
-                <Switch>
-                    <Route exact path="/" component={Homepage}/>
-                    <Route exact path="/women" component={HomepageWomen}/>
-                    <Route exact path="/men" component={HomepageMen}/>
-                    <Route exact path="/login" component={Account}/>
-                    <Route exact path="/cart" component={MyCart}/>
-                </Switch>
-            </>
-        );
+  componentDidMount(){
+    const { isFetching, departments, callFetchDepartments } = this.props;
+    if (!isFetching && departments.length === 0) {
+      callFetchDepartments();
     }
+  }
+
+  render() {
+    const { isFetching } = this.props;
+    return isFetching ? <div>LOADING...</div> : <Layout />;
+  }
 }
 
-export default App;
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
+
+const mapStateToProps = state => ({
+  departments: state.app.departments,
+  isFetching: state.app.isFetching
+});
+
+const mapDispatchToProps = dispatch => ({
+  callFetchDepartments: () => dispatch(fetchDepartments())
+});
+
+const C = connect(mapStateToProps, mapDispatchToProps)(App);
+export default props => <Route render={routeProps => <C {...routeProps} {...props} />}/>;

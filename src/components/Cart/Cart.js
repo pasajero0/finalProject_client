@@ -1,79 +1,105 @@
-import React, {Component} from 'react';
+/**
+ * Cart Component.
+ * It responses on rendering cart view.
+ * @module Cart
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import CartItem from './CartItem/CartItem';
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { updateProductInCart } from '../../actions/cart';
 
 import './Cart.scss';
 
-class Cart extends Component {
- 
-      state = {
-        deleteCartItem: false,
-        products: [{
-              id: 1,
-              img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-              title: 'Dress',
-              price: '$89'
-            },
-            {
-              id: 2,
-              img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-              title: 'Dress',
-              price: '$89'
-            },
-            {
-              id: 3,
-              img: 'https://cooperst-media.global.ssl.fastly.net/media/wysiwyg/Category_Block_-_Dress.jpg',
-              title: 'Dress',
-              price: '$89'
-            }]
-      }
-
-  removeItem = () => {
-    this.setState({
-      deleteCartItem: !this.state.deleteCartItem
+const propTypes = {
+  /** Array of products. */
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      /** Preview picture src. */
+      picture: PropTypes.string.isRequired,
+      /** Product name. */
+      name: PropTypes.string.isRequired,
+      /** In cart quantity. */
+      quantity: PropTypes.string.isRequired,
+      /** Product price. */
+      price: PropTypes.number.isRequired,
     })
+  ),
+  /** Base dir for the images. */
+  imagesDir: PropTypes.string.isRequired,
+  /** Handler to change quantity. */
+  callUpdateProductInCart: PropTypes.func.isRequired,
+  /** Total cart price. */
+  total: PropTypes.number.isRequired,
+};
+const defaultProps = {
+  products: []
+};
+
+
+const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
+  if(products.length === 0){
+    return (
+      <div>
+        <div className="cart">
+          <h1 className="cart__header">Cart</h1>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+    );
   }
+  return (
+    <div>
+      <div className="cart">
+        <h1 className="cart__header">Cart</h1>
+        <div className="cartTableHeader">
+          <div className="cartTableHeader__product">Product</div>
+          <div className="cartTableHeader__quantity">Quantity</div>
+          <div className="cartTableHeader__price">Price</div>
+        </div>
 
-// getNumberInput = (e) => {
-//     let count= e.target.value;
-//     return count;
+        {products.map(({
+          slug, price, quantity, picture
+        }) => (
+          <CartItem
+            key={slug}
+            price={price}
+            quantity={quantity}
+            picture={`${imagesDir}/sm-${picture}`}
+            onChangeQuantity={q => callUpdateProductInCart(slug, q)}
+          />
+        ))}
+        <div className="cart__total">
+          <span>Total</span>
+          <span>
+            ${total}
+          </span>
+        </div>
+        <NavLink to="/checkout" className="cart__btnCheckout">
+          Proceed to checkout
+          <FaLongArrowAltRight />
+        </NavLink>
+      </div>
+    </div>
+  );
+};
 
-// }
+Cart.propTypes = propTypes;
+Cart.defaultProps = defaultProps;
 
-    render() {
- 
-        let totalAmount = 0;
-        this.state.products.map(item => {
-          let price = Number(item.price.slice(1));
-          totalAmount += price;
-          return totalAmount;
-        })
+const mapStateToProps = state => ({
+  total: state.cart.total,
+  products: state.cart.products,
+  imagesDir: state.products.imagesDir
+});
 
-      
-        return (
-         <div>
-                <div className="cart">
-                <h1 className="cart__header">Cart</h1>
-                    <div className="cartTableHeader">
-                        <div className="cartTableHeader__product">Product</div>
-                        <div className="cartTableHeader__quantity">Quantity</div>
-                        <div className="cartTableHeader__price">Price</div>
-                    </div>
+const mapDispatchToProps = dispatch => ({
+  callUpdateProductInCart: (slug, quantity) => dispatch(updateProductInCart(slug, quantity))
+});
 
-                     {this.state.products.map(item => {
-                          return <CartItem key={item.id} imgSrc={item.img} title={item.title} price={item.price} count={this.props.count}/>
-                      })}
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
 
-                    <div className="cart__total">
-                      <span>Total</span>
-                      <span>${totalAmount}</span>
-                    </div>
-                    <button className="cart__btnCheckout">Proceed to checkout <FaLongArrowAltRight/></button>
-                </div>
-                
-          </div>
-        )     
-    }
-}
 
-export default Cart;
+

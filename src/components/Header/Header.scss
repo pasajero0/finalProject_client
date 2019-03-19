@@ -1,11 +1,15 @@
 .header {
-    margin-bottom: 20px;
+	padding: 20px 0px 20px;
 }
 
-@media screen and (max-width: 980px) {
+@media (max-width: 480px) {
 
+	.header {
+		position: fixed;
+		top: 0px;
+		background-color: #ffffff;
+		width: 100%;
+		z-index: 3;
+	}
 }
 
-@media screen and (max-width: 480px) {
-
-}

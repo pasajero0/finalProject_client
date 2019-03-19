@@ -1,20 +1,18 @@
-.productsListContent{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
+.productsList {
+    //padding-top: 50px;
+    //box-sizing: border-box;
+
+    &__content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__loader {
+        text-transform: uppercase;
+        font-size: 20px;
+    }
 }
 
-.productsList__loader {
-    text-transform: uppercase;
-    font-size: 20px;
-}
-
-@media (max-width: 992px) {
-
-/*    .productsListContent {
-        justify-content: center;
-    }*/
-}
 

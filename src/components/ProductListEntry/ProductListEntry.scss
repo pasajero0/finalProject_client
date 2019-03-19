@@ -1,125 +1,148 @@
-.productItemContent {
-    display: flex;
-    justify-content: center;
-    width: 19%;
-    margin-bottom: 67px;
+@import '../../vars';
+
+.productListEntry {
+	display: flex;
+	justify-content: center;
+	margin-right: 1%;
+	width: 19%;
+	margin-bottom: 40px;
+
+	&:nth-child(5n) {
+		margin-right: 0%;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		width: 100%;
+		position: relative;
+	}
+
+	&__imgLink {
+		display: flex;
+		align-items: center;
+		margin-bottom: 25px;
+		//overflow: hidden;
+	}
+
+	&__img {
+		//display: inline-block;
+		max-width: 100%;
+		//transition: all .5s ease-out;
+
+		//&:hover,
+		//&:focus,
+		//&:active {
+		//	transform: scale(1.5);
+		//}
+	}
+
+	&__nameLink {
+		margin-bottom: 15px;
+		color: $primary_dark;
+		font-size: 14px;
+		line-height: 20px;
+		font-family: $poppins;
+		height: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+
+
+		//position: relative;
+		//
+		//&:after {
+		//	content: "";
+		//	text-align: right;
+		//	position: absolute;
+		//	bottom: 0;
+		//	right: 0;
+		//	width: 70%;
+		//	height: 1.2em;
+		//	background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+		//}
+	}
+
+	&__price {
+		font-family: $poppins;
+		color: $primary;
+		font-size: 14px;
+	}
+
+	.saveProductForLaterIcon {
+		position: absolute;
+		bottom: 103px;
+		right: 10px;
+		padding: 5px;
+		background-color: $primary_light;
+	}
 }
-
-.productItem {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-    position: relative;
-}
-
-.productItemImg__link {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-    overflow: hidden;
-}
-
-.productItemImg__img {
-    display: inline-block;
-    max-width: 100%;
-    transition: all .5s ease-out;
-
-    &:hover,
-    &:focus,
-    &:active {
-        transform: scale(1.5);
-    }
-}
-
-.productItemName__link {
-    margin-bottom: 9px;
-    color: #000000;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.productItemPrice {
-    font-family: 'Poppins', sans-serif;
-    color: #979797;
-    font-size: 14px;
-}
-
-.addProductItemToCartBtn {
-    position: absolute;
-    bottom: 72px;
-    left: 10px;
-    background-color: #ffffff;
-    border: none;
-    padding: 0px;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:focus,
-    &:active {
-        outline-style: none;
-    }
-
-    &__icon {
-        font-size: 17px;
-        color: #737373;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-    }
-}
-
 
 @media (max-width: 980px) {
 
-    .productItemContent {
-        width: 47%;
-        margin-right: 3%;
+	.productListEntry {
+		width: 47%;
+		margin-right: 3%;
 
-        &:nth-child(2n) {
-            margin-right: 0%;
-        }
-    }
+		&:nth-child(2n) {
+			margin-right: 0%;
+		}
 
-    .addProductItemToCartBtn {
-        bottom: 82px;
-        left: 20px;
-        height: 50px;
-        width: 50px;
+		&__nameLink {
+			font-size: 20px;
+			line-height: 24px;
+			//height: 50px;
+		}
 
-        &__icon {
-            font-size: 28px;
-        }
-    }
+		&__price {
+			font-size: 20px;
+		}
+
+		.saveProductForLaterIcon {
+			bottom: 130px;
+			right: 20px;
+			font-size: 40px;
+		}
+	}
 }
 
-@media (max-width: 650px) {
+@media (max-width: 560px) {
 
-    .addProductItemToCartBtn {
-        bottom: 82px;
-        left: 20px;
-        height: 40px;
-        width: 40px;
+	.productListEntry {
 
-        &__icon {
-            font-size: 20px;
-        }
-    }
+		&__nameLink {
+			//height: 45px;
+		}
+
+		.saveProductForLaterIcon {
+			bottom: 113px;
+			right: 10px;
+		}
+	}
 }
 
 @media (max-width: 480px) {
 
-    .addProductItemToCartBtn {
-        bottom: 72px;
-        left: 10px;
-        height: 30px;
-        width: 30px;
+	.productListEntry {
+		&__nameLink {
+			font-size: 14px;
+		}
 
-        &__icon {
-            font-size: 17px;
-        }
-    }
+		&__price {
+			font-size: 14px;
+		}
+
+		.saveProductForLaterIcon {
+			bottom: 108px;
+			right: 10px;
+			font-size: 25px;
+		}
+	}
 }
+
+
+
+

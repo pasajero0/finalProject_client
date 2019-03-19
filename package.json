@@ -20,6 +20,7 @@
     "react-transition-group": "^2.5.3",
     "redux": "^4.0.1",
     "redux-form": "^8.1.0",
+    "redux-form-input-masks": "^2.0.1",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
@@ -68,6 +69,5 @@
       ],
       "extensions": "scss"
     }
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
