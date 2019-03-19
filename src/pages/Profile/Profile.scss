@@ -1,13 +1,33 @@
 @import '../../vars';
 
 .profile{
+    box-sizing: border-box;
+    padding: 20px 0;
+    &__titleWrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
     &__title {
+        font-family: ﻿PlayfairDisplay-Regular, ﻿AdobeInvisFont, ﻿MyriadPro-Regular;
         text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
+        font-size: 80px;
+    }
+    &__longLine, &__shortLine {
+        display: inline-block;
+        height: 1px;
+        background: #dbdbdb;
+        margin: 0 auto;
+    }
+    &__longLine {
+        width: 225px;
+        margin-bottom: 5px;
+    }
+    &__shortLine {
+        width: 82px;
     }
     &__info {
-        height: 75vh;
-
         display: flex;
         flex-direction: column;
         justify-content: center;

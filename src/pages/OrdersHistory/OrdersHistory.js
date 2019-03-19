@@ -62,7 +62,11 @@ class OrdersHistory extends Component {
         <Header />
         <section className="ordersHistory">
           <div className="ordersHistory__info container">
-            <h2 className="ordersHistory__title">Orders History</h2>
+            <div className="ordersHistory__titleWrapper">
+              <h1 className="ordersHistory__title">Orders History</h1>
+              <span className="ordersHistory__longLine" />
+              <span className="ordersHistory__shortLine" />
+            </div>
             <div className="ordersHistory__wrapper">
               {isFetching
                 ? <div>Loading...</div>
