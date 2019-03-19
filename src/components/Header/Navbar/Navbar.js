@@ -87,9 +87,9 @@ class Navbar extends Component {
 
           </div>
 
-            {/*<div className="navbar__search">*/}
+            <div className="navbar__search">
               {/*<Search/>*/}
-            {/*</div>*/}
+            </div>
             <div className="navbar__tools">
               <NavbarIcons/>
             </div>
