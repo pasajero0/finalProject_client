@@ -1,0 +1,33 @@
+.ordersHistory {
+    padding: 30px 0;
+    box-sizing: border-box;
+    &__title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 50px;
+    }
+    &__wrapper {
+        max-width: 600px;
+        min-height: 70vh;
+        margin: 0 auto;
+    }
+    &__cardInfo {
+        min-width: 260px;
+        margin-right: 10px;
+    }
+    &__card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background: #eee;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box
+    }
+    &__cardInfoField {
+        margin-bottom: 5px;
+    }
+    &__cardInfoFieldStrong {
+        color: #e95252;
+    }
+}
