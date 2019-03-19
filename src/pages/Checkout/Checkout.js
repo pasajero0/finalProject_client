@@ -24,6 +24,11 @@ function Checkout(props) {
     <>
       <Header />
       <section className="checkout">
+        <div className="checkout__titleWrapper">
+          <h1 className="checkout__title">Checkout</h1>
+          <span className="checkout__longLine" />
+          <span className="checkout__shortLine" />
+        </div>
         <CheckoutForm />
       </section>
       <Footer />

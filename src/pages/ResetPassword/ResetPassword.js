@@ -73,6 +73,11 @@ const ResetPassword = (props) => {
     <>
       <Header />
       <section className="resetPassword">
+        <div className="resetPassword__titleWrapper">
+          <h1 className="resetPassword__title">Reset password</h1>
+          <span className="resetPassword__longLine" />
+          <span className="resetPassword__shortLine" />
+        </div>
         { form }
       </section>
       <Footer />
