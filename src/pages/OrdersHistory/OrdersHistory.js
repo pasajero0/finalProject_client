@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header/Header';
+import OrderHistoryDetails from '../../components/OrderHistoryDetails/OrderHistoryDetails';
 import Footer from '../../components/Footer/Footer';
 import Product from '../../components/Product/Product';
 import { fetchOrdersHistoryData } from '../../actions/customers';
 
+import './OrdersHistory.scss';
 
 const propTypes = {
   match: PropTypes.shape({
@@ -47,17 +50,40 @@ class OrdersHistory extends Component {
     callFetchOrdersHistoryData();
   }
 
-
   render() {
-    const { match, ordersList: { records }, isFetching } = this.props;
+    const { match, ordersList: { records }, isFetching, isAuthenticated } = this.props;
+    console.log('----------------------> match: ', match);
+    if (!isAuthenticated) {
+      return <Redirect to="/login" />;
+    }
+
     return (
       <>
-      <Header/>
-      {isFetching
-        ? <div>Loading...</div>
-        : records.map(order => <div>{order.number}</div>)
-      }
-      <Footer/>
+        <Header />
+        <section className="ordersHistory">
+          <div className="ordersHistory__info container">
+            <h2 className="ordersHistory__title">Orders History</h2>
+            <div className="ordersHistory__wrapper">
+              {isFetching
+                ? <div>Loading...</div>
+                : records.map((order) => {
+                  console.log('/////////////////////////////////', order);
+                  return (
+                    <div key={order.id} className="ordersHistory__card">
+                      <div className="ordersHistory__cardInfo">
+                        <p className="ordersHistory__cardInfoField">Order number: <span className="ordersHistory__cardInfoFieldStrong">{order.number}</span></p>
+                        <p className="ordersHistory__cardInfoField">Order date: <span className="ordersHistory__cardInfoFieldStrong">{order.creation_date}</span></p>
+                        <p className="ordersHistory__cardInfoField">Total price: <span className="ordersHistory__cardInfoFieldStrong">${order.total}</span></p>
+                      </div>
+                      <OrderHistoryDetails products={order.products}/>
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </div>
+        </section>
+        <Footer />
       </>
     )
   };
@@ -69,7 +95,8 @@ OrdersHistory.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
   ordersList: state.customers.ordersList,
-  isFetching: state.products.isFetching
+  isFetching: state.products.isFetching,
+  isAuthenticated: state.customers.isAuthenticated,
 });
 
 const mapDispatchToProps = dispatch => ({

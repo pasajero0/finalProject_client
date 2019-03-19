@@ -1,0 +1,34 @@
+.orderHistoryDetails{
+    position: relative;
+   
+    &__salesReceipt {
+        position: absolute;
+        display: none;
+        left: -405px;
+        width: 400px;
+        top: 0;
+        background: #fff;
+        padding: 5px;
+        box-sizing: border-box;
+        box-shadow: 0px 3px 17px 0px rgba(0, 0, 0, 0.54);
+        z-index: 999;
+    }
+    &__salesReceipt_isVisible {
+        display: block; 
+    }
+    &__table {
+        width: 100%;
+    }
+    &__tableTitle {
+        background: #EEE;
+    }
+    &__tableDataName, &__dataTitleName {
+        box-sizing: border-box;
+        padding: 5px;
+    }
+    &__tableData, &__dataTitle {
+        box-sizing: border-box;
+        padding: 5px;
+        text-align: center;
+    }
+}
