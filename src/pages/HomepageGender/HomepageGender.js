@@ -30,7 +30,7 @@ const HomepageGender = ({ match }) => {
     <Header department={department} />
     <ProductsList
       routeData={match}
-      key={department}
+      key={match.url}
       department={department}
       page={page}
     />

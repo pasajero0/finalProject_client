@@ -6,6 +6,7 @@ import { fetchProducts, setCurrentDepartment } from '../../actions/products';
 import { replaceInRoute } from '../../utils/helpers';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
 import ProductListLoader from '../ProductListLoader/ProductListLoader';
+import Pagination from '../Pagination/Pagination';
 
 import './ProductsList.scss';
 
@@ -65,6 +66,14 @@ class ProductsList extends Component {
             ? <ProductListLoader />
             : (
               <div className="productsList__content">
+                <Pagination
+                  current={productsList.page}
+                  pagesTotal={productsList.pagesTotal}
+                  urlTemplate={replaceInRoute(
+                    '/:department/page/:page',
+                    {...routeData.params, page: ':page'}
+                  )}
+                />
                 {productsList.records.map(item => (
                   <ProductListEntry
                     key={item.slug}
@@ -78,6 +87,14 @@ class ProductsList extends Component {
                     )}
                   />
                 ))}
+                <Pagination
+                  current={productsList.page}
+                  pagesTotal={productsList.pagesTotal}
+                  urlTemplate={replaceInRoute(
+                    '/:department/page/:page',
+                    {...routeData.params, page: ':page'}
+                  )}
+                />
               </div>
             )}
         </div>
