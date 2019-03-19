@@ -8,7 +8,7 @@ import ImageSlider from '../ImageSlider/ImageSlider';
 import { fetchProduct } from '../../actions/products';
 import { addProductToCart } from '../../actions/cart';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
-
+import ProductListLoader from '../ProductListLoader/ProductListLoader';
 
 import './Product.scss';
 
@@ -68,13 +68,13 @@ class Product extends Component {
     duplicate.style.transformOrigin = 'top-left';
 
     parent.append(duplicate);
-    setTimeout(()=>{
+    setTimeout(() => {
       duplicate.style.left = `${window.innerWidth}px`;
       duplicate.style.top = `${0 - rect.width}px`;
       duplicate.style.transform = 'scale(0.2) rotate(45deg)';
       duplicate.style.opacity = '0';
     }, 10);
-    setTimeout(()=>{
+    setTimeout(() => {
       duplicate.remove();
     }, 700);
   }
@@ -85,13 +85,12 @@ class Product extends Component {
     return (
       <section className="product" key={slug}>
         <div className="container">
-          <div className="product__content">
-            {isFetching
-              ? <span className="productsList__loader">Loading...</span>
-              : (
-                <>
+          {isFetching
+            ? <ProductListLoader />
+            : (
+              <div className="product__content">
                 <div ref={this.mainPicture} className="imageSlider__container">
-                 <ImageSlider images={pictures} />
+                  <ImageSlider images={pictures}/>
                 </div>
                 <div className="product__info">
                   <p className="product__name">{name}</p>
@@ -100,27 +99,28 @@ class Product extends Component {
                   <div className="product__buy">
                     <button
                       className="product__btn"
-                      onClick={() => {callAddProductToCart({
-                        slug,
-                        picture: pictures[0],
-                        price: prices.retail,
-                        name
-                      });
-                      this.onAddToCartStartAnimation();
-                    }}
+                      onClick={() => {
+                        callAddProductToCart({
+                          slug,
+                          picture: pictures[0],
+                          price: prices.retail,
+                          name
+                        });
+                        this.onAddToCartStartAnimation();
+                      }}
                     >
                       <AddProductToCartIcon className="addProductToCartIcon"/>
                       Add to cart
                     </button>
-                      {/*<button className="product__save">*/}
-                        {/*<SaveProductForLaterIcon className="saveProductForLaterIcon"/>*/}
-                      {/*</button>*/}
+                    {/*<button className="product__save">*/}
+                    {/*<SaveProductForLaterIcon className="saveProductForLaterIcon"/>*/}
+                    {/*</button>*/}
                   </div>
-                    <p className="product__description">{description}</p>
+                  <p className="product__description">{description}</p>
                 </div>
-                </>
-              )}
-          </div>
+              </div>
+            )}
+
         </div>
       </section>
     );

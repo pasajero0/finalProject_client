@@ -5,6 +5,7 @@ import ProductListEntry from '../ProductListEntry/ProductListEntry';
 import { fetchProducts, setCurrentDepartment } from '../../actions/products';
 import { replaceInRoute } from '../../utils/helpers';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
+import ProductListLoader from '../ProductListLoader/ProductListLoader';
 
 import './ProductsList.scss';
 
@@ -60,11 +61,11 @@ class ProductsList extends Component {
     return (
       <section className="productsList">
         <div className="container">
-          <div className="productsList__content">
-            {isFetching
-              ? <span className="productsList__loader">Loading...</span>
-              : (
-                productsList.records.map(item => (
+          {isFetching
+            ? <ProductListLoader />
+            : (
+              <div className="productsList__content">
+                {productsList.records.map(item => (
                   <ProductListEntry
                     key={item.slug}
                     slug={item.slug}
@@ -76,9 +77,9 @@ class ProductsList extends Component {
                       { ...routeData.params, product: item.slug }
                     )}
                   />
-                ))
-              )}
-          </div>
+                ))}
+              </div>
+            )}
         </div>
       </section>
     );
