@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-//import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
+import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 
 import './ProductListEntry.scss';
 
@@ -25,9 +25,9 @@ const ProductListEntry = ({ link, picture, name, slug, prices }) => (
           alt={name}
           className="productListEntry__img"
         />
-        {/*<a className="productListEntry__btn">*/}
-          {/*<SaveProductForLaterIcon className="saveProductForLaterIcon" />*/}
-        {/*</a>*/}
+        <button className="productListEntry__btn" type="button">
+          <SaveProductForLaterIcon className="saveProductForLaterIcon" />
+        </button>
       </NavLink>
       <NavLink to={link} className="productListEntry__nameLink">
         {name}

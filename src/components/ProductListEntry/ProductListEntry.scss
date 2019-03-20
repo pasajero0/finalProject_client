@@ -23,19 +23,19 @@
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-    //overflow: hidden;
+    overflow: hidden;
   }
 
   &__img {
-    //display: inline-block;
+    display: inline-block;
     max-width: 100%;
-    //transition: all .5s ease-out;
+    transition: all .5s ease-out;
 
-    //&:hover,
-    //&:focus,
-    //&:active {
-    //	transform: scale(1.5);
-    //}
+    &:hover,
+    &:focus,
+    &:active {
+    	transform: scale(1.2);
+    }
   }
 
   &__nameLink {
@@ -57,11 +57,37 @@
 
   &__btn {
     position: absolute;
-    padding: 5px;
-    background-color: $primary_light;
     bottom: 84px;
     right: 10px;
+    display: flex;
+    padding: 6px;
+    border-radius: 50%;
+    //background-color: $primary_200;
+    background-color: #bdbdbd;
+    //opacity: 0.3;
+    border: none;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16);
+    outline: none;
+
+    &:hover .saveProductForLaterIcon {
+      color: $secondary;
+      fill: $secondary;
+      //opacity: 1;
+    }
   }
+
+  .saveProductForLaterIcon {
+    color: $primary_light;
+  }
+
+  //.saveProductForLaterIcon {
+  //  color: $primary_light;
+  //
+  //  &:hover {
+  //    color: $secondary;
+  //    opacity: 0;
+  //  }
+  //}
 }
 
 @media (max-width: 980px) {

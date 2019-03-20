@@ -1,8 +1,8 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-//import StarRating from '../StarRating/StarRating';
-//import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
+import StarRating from '../StarRating/StarRating';
+import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import ImageSlider from '../ImageSlider/ImageSlider';
 import { fetchProduct } from '../../actions/products';
@@ -94,7 +94,7 @@ class Product extends Component {
                 </div>
                 <div className="product__info">
                   <p className="product__name">{name}</p>
-                  {/*<StarRating className="product__rating"/>*/}
+                  <StarRating className="product__rating"/>
                   <p className="product__price">${prices.retail}</p>
                   <div className="product__buy">
                     <button
@@ -113,7 +113,7 @@ class Product extends Component {
                       Add to cart
                     </button>
                     {/*<button className="product__save">*/}
-                    {/*<SaveProductForLaterIcon className="saveProductForLaterIcon"/>*/}
+                      <SaveProductForLaterIcon className="saveProductForLaterIcon"/>
                     {/*</button>*/}
                   </div>
                   <p className="product__description">{description}</p>

@@ -57,7 +57,8 @@
     color: $secondary;
     font-family: $oswald;
     font-weight: bold;
-    //margin-right: 10px;
+    margin-right: 30px;
+    outline: none;
 
 
     &:hover {
@@ -72,16 +73,27 @@
   }
 
 
-  &__save {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid $primary;
-    box-sizing: border-box;
-    width: 50px;
-    height: 50px;
-    background-color: $primary_light;
-  }
+  //&__save {
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: center;
+  //  border: 2px solid $primary;
+  //  box-sizing: border-box;
+  //  width: 50px;
+  //  height: 50px;
+  //  background-color: $primary_light;
+  //  outline: none;
+  //
+  //  &:hover {
+  //    background-color: $primary;
+  //    border: 2px solid transparent;
+  //  }
+  //
+  //  &:hover .saveProductForLaterIcon {
+  //    color: $primary_light;
+  //    fill: $primary_light;
+  //  }
+  //}
 
   .addProductToCartIcon {
     color: $secondary;
@@ -91,6 +103,7 @@
 
   .saveProductForLaterIcon {
     position: inherit;
+
   }
 
   &__description {
@@ -99,6 +112,7 @@
     font-size: 14px;
     line-height: 24px;
     width: 400px;
+    text-align: justify;
   }
 }
 
