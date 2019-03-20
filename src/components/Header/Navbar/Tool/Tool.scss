@@ -12,25 +12,27 @@
     height: 26px;
     margin: 11px;
     transition: color .4s;
-    color: #737373;
+    color: $primary;
   }
 
-  &:hover {
-    & .tool__icon {
-      color: $secondary;
-    }
-    & .tool__quantity {
-      background-color: $secondary;
-    }
-  }
+  //&:hover {
+  //  & .tool__icon {
+  //    color: $secondary;
+  //  }
+  //  & .tool__quantity {
+  //    background-color: $secondary;
+  //  }
+  //}
+
   &_disabled {
     opacity: .3;
     & .tool__icon {
-      color: #737373;
+      color: $primary;
     }
+
     &:hover {
       & .tool_icon {
-        color: #737373;
+        color: $primary;
       }
     }
   }

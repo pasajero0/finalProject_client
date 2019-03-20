@@ -8,10 +8,12 @@
 	&:hover,
 	&:active,
 	&:focus {
-		fill: $primary;
+      color: $secondary;
+      fill: $secondary;
 	}
 
 	& .saved {
-		fill: $primary;
+      color: $secondary;
+      fill: $secondary;
 	}
 }

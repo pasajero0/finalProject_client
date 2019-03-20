@@ -247,7 +247,7 @@
   justify-content: center;
   padding: 17px 0px;
   height: 16px;
-  background-color: #eeeeee;
+  background-color: $primary;
 }
 
 .switchNav {
@@ -266,7 +266,7 @@
   }
 
   &__link {
-    color: $primary_dark;
+    color: $primary_light;
     text-transform: uppercase;
     position: relative;
     font-size: 14px;
@@ -274,7 +274,7 @@
 
     &:after {
       content: "";
-      background-color: $primary_dark;
+      background-color: $primary_light;
       width: 100%;
       height: 2px;
       position: absolute;
@@ -283,19 +283,22 @@
       visibility: hidden;
     }
 
-    &:hover {
-      color: $primary;
-    }
+    //&:hover {
+    //  color: $primary_light;
+    //}
 
     &_active{
       cursor: default;
+
       &:after {
         visibility: visible;
       }
+
       &:hover{
-        color: $primary_dark;
+        //color: $primary_200;
+
         &:after {
-          background-color: $primary_dark;
+          background-color: $primary_light;
         }
       }
     }
