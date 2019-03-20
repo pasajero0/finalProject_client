@@ -1,4 +1,58 @@
 @import '../../vars';
 
-.SystemMessage{
+
+.systemMessage {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 400ms ease-in;
+  background: rgba(0, 0, 0, .8);
+  font-family: $poppins;
+  z-index: 99999;
+
+  &_visible {
+    display: block;
+  }
 }
+
+.modal {
+  position: relative;
+  max-width: 200px;
+  min-height: 50px;
+  margin: 20% auto;
+  padding: 5px 20px 13px;
+  border-radius: 10px;
+  background: $primary_light;
+  text-align: center;
+
+  & h2 {
+    font-size: 50px;
+  }
+
+  &_success {
+    background: linear-gradient($primary_light, $primary);
+  }
+
+  &_err {
+    background: linear-gradient($secondary, $primary);
+  }
+}
+
+.close {
+  position: absolute;
+  top: -10px;
+  right: -12px;
+  border-radius: 20px;
+  background: #606061;
+  color: $primary_light;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
