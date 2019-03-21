@@ -47,7 +47,7 @@ class Product extends Component {
     super(props);
     this.mainPicture = createRef();
     this.state = {
-      saved: false
+      isProductSaved: false
     }
   }
 
@@ -83,7 +83,7 @@ class Product extends Component {
   }
 
   onSaveProductForLater() {
-    this.setState({ saved: !this.state.saved })
+    this.setState({ isProductSaved: !this.state.isProductSaved })
   }
 
   render() {
@@ -120,11 +120,10 @@ class Product extends Component {
                       Add to cart
                     </button>
                     <button className="product__save" onClick={this.onSaveProductForLater}>
-                      <SaveProductForLaterIcon className={this.state.saved
+                      <SaveProductForLaterIcon className={this.state.isProductSaved
                           ? 'saveProductForLaterIcon saveProductForLaterIcon_saved'
                           : 'saveProductForLaterIcon'
-                      }
-                      />
+                      } />
                     </button>
                   </div>
                   <p className="product__description">{description}</p>

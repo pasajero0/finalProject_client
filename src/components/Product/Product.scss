@@ -89,6 +89,12 @@
     position: inherit;
     color: $secondary;
 
+    &:hover,
+    &:active,
+    &:focus {
+      fill: $secondary;
+    }
+
     &_saved {
       color: $secondary;
       fill: $secondary;
@@ -124,7 +130,6 @@
         }
       }
     }
-
 
   &__description {
     font-family: $poppins;
@@ -180,7 +185,7 @@
 @media (max-width: 480px) {
 
   .product {
-    padding-top: 88px;
+    padding-top: 108px;
 
     .saveProductForLaterIcon {
       font-size: 25px;
