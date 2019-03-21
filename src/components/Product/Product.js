@@ -46,6 +46,9 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.mainPicture = createRef();
+    this.state = {
+      isProductSaved: false
+    }
   }
 
   componentDidMount() {
@@ -77,6 +80,10 @@ class Product extends Component {
     setTimeout(() => {
       duplicate.remove();
     }, 700);
+  }
+
+  onSaveProductForLater() {
+    this.setState({ isProductSaved: !this.state.isProductSaved })
   }
 
   render() {
@@ -112,8 +119,11 @@ class Product extends Component {
                       <AddProductToCartIcon className="addProductToCartIcon"/>
                       Add to cart
                     </button>
-                    <button className="product__save">
-                      <SaveProductForLaterIcon className="saveProductForLaterIcon"/>
+                    <button className="product__save" onClick={this.onSaveProductForLater}>
+                      <SaveProductForLaterIcon className={this.state.isProductSaved
+                          ? 'saveProductForLaterIcon saveProductForLaterIcon_saved'
+                          : 'saveProductForLaterIcon'
+                      } />
                     </button>
                   </div>
                   <p className="product__description">{description}</p>

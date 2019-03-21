@@ -4,14 +4,4 @@
 	color: $primary;
 	cursor: pointer;
 	font-size: 25px;
-
-	&:hover,
-	&:active,
-	&:focus {
-      fill: $secondary;
-	}
-
-	& .saved {
-      fill: $secondary;
-	}
 }

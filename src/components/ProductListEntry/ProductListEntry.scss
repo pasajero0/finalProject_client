@@ -24,18 +24,16 @@
     align-items: center;
     margin-bottom: 25px;
     overflow: hidden;
+
+    &:hover .productListEntry__img {
+      transform: scale(1.2);
+      transition: all .5s ease-out;
+    }
   }
 
   &__img {
     display: inline-block;
     max-width: 100%;
-    transition: all .5s ease-out;
-
-    &:hover,
-    &:focus,
-    &:active {
-    	transform: scale(1.2);
-    }
   }
 
   &__nameLink {
@@ -64,6 +62,7 @@
     padding: 5px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 
     &:hover .saveProductForLaterIcon {
       color: $secondary;
