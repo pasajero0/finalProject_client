@@ -1,5 +1,6 @@
 .promoProductsList {
 
+  overflow: hidden;
   padding: 20px 0px;
 
   &__content{
@@ -7,6 +8,8 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: auto;
   }
 
   &__loader {
@@ -15,12 +18,12 @@
   }
 
   .productListEntry {
-    flex: 0 1 266px;
+    flex: 0 0 266px;
     margin-bottom: 0px;
   }
 
   &__imgLink {
-    flex: 0 1 266px;
+    flex: 0 0 266px;
   }
 }
 
@@ -57,6 +60,7 @@
     }
   }
 }
+
 
 
 
