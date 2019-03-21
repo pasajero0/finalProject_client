@@ -48,7 +48,7 @@ class Product extends Component {
     this.mainPicture = createRef();
     this.state = {
       isProductSaved: false
-    }
+    };
   }
 
   componentDidMount() {
@@ -83,12 +83,12 @@ class Product extends Component {
   }
 
   onSaveProductForLater() {
-    this.setState({ isProductSaved: !this.state.isProductSaved })
+    this.setState({ ...this.state, isProductSaved: !this.state.isProductSaved });
   }
 
   render() {
     const { productData: { description, slug, pictures, name, prices }, isFetching, callAddProductToCart } = this.props;
-
+    const { isProductSaved } = this.state;
     return (
       <section className="product" key={slug}>
         <div className="container">
@@ -105,6 +105,7 @@ class Product extends Component {
                   <p className="product__price">${prices.retail}</p>
                   <div className="product__buy">
                     <button
+                      type="button"
                       className="product__btn"
                       onClick={() => {
                         callAddProductToCart({
@@ -119,10 +120,10 @@ class Product extends Component {
                       <AddProductToCartIcon className="addProductToCartIcon"/>
                       Add to cart
                     </button>
-                    <button className="product__save" onClick={this.onSaveProductForLater}>
-                      <SaveProductForLaterIcon className={this.state.isProductSaved
-                          ? 'saveProductForLaterIcon saveProductForLaterIcon_saved'
-                          : 'saveProductForLaterIcon'
+                    <button type="button" className="product__save" onClick={this.onSaveProductForLater.bind(this)}>
+                      <SaveProductForLaterIcon customClass={isProductSaved
+                        ? 'saveProductForLaterIcon saveProductForLaterIcon_saved'
+                        : 'saveProductForLaterIcon'
                       } />
                     </button>
                   </div>
