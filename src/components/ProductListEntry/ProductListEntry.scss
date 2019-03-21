@@ -23,19 +23,19 @@
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-    //overflow: hidden;
+    overflow: hidden;
   }
 
   &__img {
-    //display: inline-block;
+    display: inline-block;
     max-width: 100%;
-    //transition: all .5s ease-out;
+    transition: all .5s ease-out;
 
-    //&:hover,
-    //&:focus,
-    //&:active {
-    //	transform: scale(1.5);
-    //}
+    &:hover,
+    &:focus,
+    &:active {
+    	transform: scale(1.2);
+    }
   }
 
   &__nameLink {

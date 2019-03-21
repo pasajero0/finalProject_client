@@ -62,16 +62,16 @@ class PromoProductsList extends Component {
     const { department } = this.props;
     const { isBusy, productsList } = this.state;
     return (
-      <section className="PromoProductsList">
+      <section className="promoProductsList">
         <div className="container">
           {productsList.records &&
           (
-            <div className="PromoProductsList__content">
+            <div className="promoProductsList__content">
               {productsList.records.map(item => (
                 <ProductListEntry
                   key={item.slug}
                   slug={item.slug}
-                  picture={`${URL_PRODUCT_IMAGES}/sm-${item.pictures[0]}`}
+                  picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
                   name={item.name}
                   prices={item.prices}
                   link={replaceInRoute(
