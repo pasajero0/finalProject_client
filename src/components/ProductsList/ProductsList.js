@@ -62,7 +62,8 @@ class ProductsList extends Component {
     return (
       <section className="productsList">
         <div className="container">
-          <Filter />
+          <Filter routeDepartment={routeData.params.department} />
+         
           {isFetching
             ? <ProductListLoader />
             : (
