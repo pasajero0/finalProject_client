@@ -112,9 +112,9 @@ class Product extends Component {
                       <AddProductToCartIcon className="addProductToCartIcon"/>
                       Add to cart
                     </button>
-                    {/*<button className="product__save">*/}
+                    <button className="product__save">
                       <SaveProductForLaterIcon className="saveProductForLaterIcon"/>
-                    {/*</button>*/}
+                    </button>
                   </div>
                   <p className="product__description">{description}</p>
                 </div>
