@@ -60,34 +60,50 @@
     bottom: 84px;
     right: 10px;
     display: flex;
-    padding: 6px;
-    border-radius: 50%;
-    //background-color: $primary_200;
-    background-color: #bdbdbd;
-    //opacity: 0.3;
-    border: none;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16);
     outline: none;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
 
     &:hover .saveProductForLaterIcon {
       color: $secondary;
       fill: $secondary;
-      //opacity: 1;
+      animation-name: heartBeat;
+      animation-duration: 1.3s;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes heartBeat {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      14% {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+      }
+
+      28% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      42% {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+      }
+
+      70% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
     }
   }
 
   .saveProductForLaterIcon {
-    color: $primary_light;
+    color: $secondary;
   }
-
-  //.saveProductForLaterIcon {
-  //  color: $primary_light;
-  //
-  //  &:hover {
-  //    color: $secondary;
-  //    opacity: 0;
-  //  }
-  //}
 }
 
 @media (max-width: 980px) {
