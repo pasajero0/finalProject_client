@@ -1,6 +1,7 @@
 export const URL_PRODUCT_IMAGES = `${process.env.REACT_APP_SERVER_URL}/product-images`;
 export const URL_API_FETCH_DEPARTMENTS = `${process.env.REACT_APP_SERVER_URL}/departments`;
 export const URL_API_FETCH_PRODUCTS = `${process.env.REACT_APP_SERVER_URL}/products`;
+export const URL_API_FETCH_PROMO_PRODUCTS = `${process.env.REACT_APP_SERVER_URL}/products/:type`;
 export const URL_API_FETCH_PRODUCT = `${process.env.REACT_APP_SERVER_URL}/products/:slug`;
 export const URL_API_FETCH_INITIAL_DATA = `${process.env.REACT_APP_SERVER_URL}/app/initial-data`;
 export const URL_API_FETCH_ORDER_HISTORY = `${process.env.REACT_APP_SERVER_URL}/orders/history`;

@@ -1,0 +1,24 @@
+.promoProductsList {
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  &__loader {
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .promoProductsList {
+    padding-top: 88px;
+  }
+}
+
+
+

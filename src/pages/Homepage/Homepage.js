@@ -3,6 +3,8 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import GenderBanners from '../../components/GenderBanners/GenderBanners';
 import Slider from '../../components/Slider/Slider';
+import PromoProductsList from '../../components/PromoProductsList/PromoProductsList';
+
 
 const ImagesDir = process.env.PUBLIC_URL;
 
@@ -28,6 +30,8 @@ const Homepage = () => (
         pauseOnHover: true
       }}
     />
+    <PromoProductsList department="men" type="sale"/>
+
     <GenderBanners />
     <Footer />
   </>

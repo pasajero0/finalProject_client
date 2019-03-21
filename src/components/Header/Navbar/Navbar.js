@@ -5,7 +5,7 @@ import NavbarIcons from './NavbarIcons/NavbarIcons'
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 import UserMenu from "./UserMenu/UserMenu";
-//import Search from './Search/Search';
+import Search from './Search/Search';
 
 const leftPosHide = { left: '-3000px' };
 const leftPosShow = { left: '0' };
@@ -88,7 +88,7 @@ class Navbar extends Component {
           </div>
 
             <div className="navbar__search">
-              {/*<Search/>*/}
+              <Search />
             </div>
             <div className="navbar__tools">
               <NavbarIcons/>
