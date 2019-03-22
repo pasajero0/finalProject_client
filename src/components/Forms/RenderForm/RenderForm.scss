@@ -31,6 +31,7 @@
 	    text-transform: uppercase;
 		font-weight: bold;
 		font-family: $oswald;
+		letter-spacing: 3px;
 	    outline: none;
 	    border: none;
 	    cursor: pointer;
@@ -38,7 +39,7 @@
 	}
 	&__message {
 		text-align: center;
-		height: 20px;
-		margin: 10px 0;
+		height: 15px;
+		margin-bottom: 20px;
 	}
 }

@@ -61,15 +61,16 @@ const Profile = ({
       <Header />
       <section className="profile">
         <div className="container">
-          <div className="profile__titleWrapper">
+          <div className="profile__content">
             <h1 className="profile__title">Your profile</h1>
             <span className="profile__longLine" />
             <span className="profile__shortLine" />
-          </div>
-          <div className="profile__info">
-            <p className="profile__text">email: { profile.email }</p>
-            <ProfileForm />
-            <NavLink to="/reset-password">Reset password</NavLink>
+
+            <div className="profile__info">
+              <p className="profile__text">email: { profile.email }</p>
+              <ProfileForm />
+              <NavLink to="/reset-password">Reset password</NavLink>
+            </div>
           </div>
         </div>
       </section>

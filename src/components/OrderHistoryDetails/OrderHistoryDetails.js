@@ -32,7 +32,7 @@ class OrderHistoryDetails extends Component {
 
   openDetails = () => {
     this.setState((prevState) => {
-      console.log(prevState)
+      console.log(prevState);
      return { open: !prevState.open };
     });
   };
@@ -70,7 +70,7 @@ class OrderHistoryDetails extends Component {
       </div>
     );
   };
-};
+}
 
 OrderHistoryDetails.propTypes = propTypes;
 OrderHistoryDetails.defaultProps = defaultProps;

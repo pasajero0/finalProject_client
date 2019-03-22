@@ -1,8 +1,9 @@
 @import '../../vars';
 
 .account {
-	padding: 20px 0;
-	min-height: 440px;
+	height: 90vh;
+	padding: 20px 0 40px;
+	//min-height: 440px;
 
 	&__content {
 		display: flex;
@@ -13,7 +14,7 @@
 
 	&__title {
 		font-family: $playfair;
-		font-size: 50px;
+		font-size: 45px;
 		text-align: center;
 		margin-bottom: 20px;
 	}
@@ -64,7 +65,7 @@
 		line-height: 20px;
 
 		& a {
-			color: $secondary_dark;
+			color: $secondary;
 		}
 	}
 
@@ -102,7 +103,20 @@
 }
 
 @media (max-width: 480px) {
+
 	.account {
 		margin-top: 88px;
+
+		&__title {
+			font-size: 35px;
+		}
+
+		&__switchButtons {
+			font-size: 20px;
+		}
+
+		&__loginButton, &__registerButton {
+			font-size: 20px;
+		}
 	}
 }
