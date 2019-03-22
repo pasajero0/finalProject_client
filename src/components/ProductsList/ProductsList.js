@@ -6,7 +6,7 @@ import { fetchProducts, setCurrentDepartment } from '../../actions/products';
 import { replaceInRoute } from '../../utils/helpers';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
 import ProductListLoader from '../ProductListLoader/ProductListLoader';
-import Filter from '../Filter/Filter';
+import FilterWrapper from '../FilterWrapper/FilterWrapper';
 
 import './ProductsList.scss';
 
@@ -62,8 +62,8 @@ class ProductsList extends Component {
     return (
       <section className="productsList">
         <div className="container">
-          <Filter routeDepartment={routeData.params.department} />
-         
+          <FilterWrapper routeDepartment={routeData.params.department} />
+        
           {isFetching
             ? <ProductListLoader />
             : (
