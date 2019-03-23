@@ -1,10 +1,17 @@
 @import '../../vars';
 
 .footer {
+    position: relative;
     background-color: $primary_200;
     padding: 40px 0px;
 
     .footer__content {
+        background-color: white;
+        width: 50%;
+        position: absolute;
+        top: 60px;
+        right: 45px;
+        z-index: 10;
         text-align: center;
     }
 
@@ -28,6 +35,10 @@
             color: $primary_dark;
         }
     }
+}
+
+.mapMarkerStyle {
+    font-size: 35px;
 }
 
 //@media (max-width: 480px) {

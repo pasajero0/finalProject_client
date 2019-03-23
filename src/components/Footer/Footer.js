@@ -1,12 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SocMedia from '../SocMedia/SocMedia';
+import Map from './FooterMap';
 import './Footer.scss';
+
 
 const Footer = () => {
   return (
+
     <footer className="footer">
       <div className="container">
+        <Map/>
         <div className="footer__content">
           <NavLink to="/" className="mainLogo__link">
             <span className="mainLogo">Uno</span>
@@ -19,8 +23,13 @@ const Footer = () => {
           </p>
           <SocMedia />
         </div>
+     
       </div>
+        
+
     </footer>
+
+
   );
 };
 
