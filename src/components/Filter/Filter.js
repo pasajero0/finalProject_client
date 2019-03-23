@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, NavLink } from 'react-router-dom';
-
+import Checkbox from '../Checkbox/Checkbox'
 import './Filter.scss';
 
 const propTypes = {
@@ -72,6 +72,7 @@ class Filter extends Component {
   }
   render () {
     const { match:{params:{department}} } = this.props;
+    const {filters} = this.state;
     const navLinkRoute = () => {
       let route;
       if (this.filtersToString()){
@@ -81,29 +82,27 @@ class Filter extends Component {
       );
       return route;
     };
+
     return (
       <div className="filter">
         <h2 className="filter__title">/{department}</h2>
         <NavLink to={navLinkRoute()} className="filter__button"> filter </NavLink>
         { 
-          Object.keys(this.state.filters).map((key, index) => {
+          Object.keys(filters).map((key, index) => {
             return (
               <div key={key+(index+1)} className="filter__subtitleBlock">
                 <h2 className="filter__subtitle">{key}</h2>
-  
                   <ul>
                     { 
-                      Object.keys(this.state.filters[key]).map((item, index) => {
+                      Object.keys(filters[key]).map((item, index) => {
                         return (
-                          <li key={item+(index+1)}> 
-                            <input 
-                              type="checkbox" 
-                              id={item} 
-                              name={item} 
-                              checked={this.state.filters[key][item]} 
-                              onChange={e => this.changeCheckboxStatus(key, item, e.currentTarget.checked)}
+                          <li key={item+(index+1)}>
+                            <Checkbox 
+                              id={item}
+                              label={item} 
+                              value={filters[key][item]} 
+                              onClick={() => this.changeCheckboxStatus(key, item, !filters[key][item])}
                             />
-                            <label htmlFor={item}>{item}</label>
                           </li>
                         );
                       })

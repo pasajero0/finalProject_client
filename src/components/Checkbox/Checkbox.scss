@@ -1,86 +1,40 @@
 .Checkbox__wrapper {
-  display: inline-block;
-  margin: 30px 0px;
-  margin-left: -50px;
-}
-
-.Checkbox__wrapper:hover {
+  display: inline-flex;
   cursor: pointer;
 }
 
 .Checkbox {
-    width: 30px;
-    height: 30px;
-    border-radius: 20%;
-    display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 20%;
+  display: inline-block;
+  box-shadow: inset 0 0 0 2px #e0e6ed;
+  transition: -webkit-box-shadow 0.1s ease-in-out;
     
-    -webkit-box-shadow: inset 0 0 0 2px #e0e6ed;
-    -moz-box-shadow: inset 0 0 0 2px #e0e6ed;
-    -ms-box-shadow: inset 0 0 0 2px #e0e6ed;
-    box-shadow: inset 0 0 0 2px #e0e6ed;
-    
-    -webkit-transition: -webkit-box-shadow 0.1s ease-in-out;
-    -moz-transition: -webkit-box-shadow 0.1s ease-in-out;
-    -ms-transition: -webkit-box-shadow 0.1s ease-in-out;
-    transition: -webkit-box-shadow 0.1s ease-in-out;
-    
-    }   
-
-    & .Checkbox:after {
-        -webkit-transform: scale(0);
-        -moz-transform: scale(0);
-        -ms-transform: scale(0);
-        transform: scale(0);
-    
+  &:after {
+    transform: scale(0);
     background-size: 100%;
     content: '';
-    
-    -webkit-transition-delay: 150ms;
-    -moz-transition-delay: 150ms;
-    -ms-transition-delay: 150ms;
     transition-delay: 150ms;
-        
-    background: url('../img/tick.svg') center center no-repeat;
+    background: url('./img/tick.svg') center center no-repeat;
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    
-    -webkit-transition-timing-function: cubic-bezier(0, 0.89, 0.44, 1);
-    -moz-transition-timing-function: cubic-bezier(0, 0.89, 0.44, 1);
-    -ms-transition-timing-function: cubic-bezier(0, 0.89, 0.44, 1);
+    width: 20px;
+    height: 20px;
     transition-timing-function: cubic-bezier(0, 0.89, 0.44, 1);
-    
-    -webkit-transition-duration: 300ms;
-    -moz-transition-duration: 300ms;
-    -ms-transition-duration: 300ms;
     transition-duration: 300ms;
-    
-    -webkit-transition-property: all;
-    -moz-transition-property: all;
-    -ms-transition-property: all;
     transition-property: all;
-    }
+  }
 
-.Checkbox.selected {
-    -webkit-box-shadow: inset 0 0 0 20px #000000;
-    -moz-box-shadow: inset 0 0 0 20px #000000;
-    -ms-box-shadow: inset 0 0 0 20px #000000;
-    box-shadow: inset 0 0 0 20px #000000;
-    
+  &.selected {
+    box-shadow: inset 0 0 0 20px #000;
     opacity: 1;
-    }
+  }
 
-.Checkbox.selected:after {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -ms-transform: scale(1);
-}
+  &.selected:after {
+    transform: scale(.75);
+  }
+}   
 
 .label {
-  line-height: 30px;
-  vertical-align: top;
-  padding-left: 20px;
-  width: 50px;
-  position: absolute;
+  padding-left: 10px;
 }
