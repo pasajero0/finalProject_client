@@ -1,47 +1,32 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { MdCheckBox } from "react-icons/md";
-import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
 import './Checkbox.scss';
 
 const propTypes = {
-  /* Text message of the toast. */
-  //prop: PropTypes.string,
-};
+    label: PropTypes.string,
+    value: PropTypes.bool,
+    onClick: PropTypes.func,
+}
 
-/**
- * Default props of the component
- * @type {object}
- */
 const defaultProps = {
-  //prop: '',
-};
-
-/**
- * General component description in JSDoc format. Markdown is *supported*.
- */
-class Checkbox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
-  componentDidMount() {
-
-  }
-
-  render() {
+    label: null,
+    value: false,
+    onClick: console.log// ()=>{}
+}
+    
+const Checkbox = ({ label, value, onClick }) => {
+    
+const active = value ? 'Checkbox selected' : 'Checkbox';
 
     return (
-      <div className="Checkbox">
-        {/* here is going to be body of the component*/}
-      </div>
+        <div className="Checkbox__wrapper" onClick={ (e) => onClick(e) }>
+            <span className={active}/>
+            <span className="label">{label}</span>
+        </div>
     );
-  }
 }
+
 
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;
