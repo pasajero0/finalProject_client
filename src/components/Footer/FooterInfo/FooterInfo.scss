@@ -1,0 +1,33 @@
+@import '../../../vars';
+
+
+.footerInfo {
+    background-color: $primary_light;
+    display: flex;
+   
+    &__section {
+        padding: 20px 0;
+        font-weight: bold;
+    }
+
+
+    &__block {
+        flex-basis: 33%;
+        padding: 20px 0;
+        text-align: center;
+
+    }
+    li {
+         margin: 20px 0;
+          cursor: pointer;
+    }
+}
+
+.footerInfo__link {
+    color: $primary_dark;
+    &:hover {
+        color: $secondary_dark;
+        border-bottom: 1px solid $secondary_dark;
+       
+    }
+}

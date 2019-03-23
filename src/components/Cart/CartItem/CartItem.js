@@ -46,7 +46,7 @@ const CartItem = ({
       />
     </div>
     <div className="cartItem__price">
-      {price}
+      ${price}
     </div>
   </div>
 );

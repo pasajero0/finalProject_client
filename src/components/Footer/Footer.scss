@@ -1,33 +1,95 @@
 @import '../../vars';
 
 .footer {
-  background-color: $primary_200;
+  color: $primary_light;
+  background-color: $primary_dark;
   padding: 20px 0px;
-  height: 170px;
+  height: 350px;
 
   .footer__content {
-    text-align: center;
+    display: flex;
   }
 
-  .mainLogo__link {
+  .footer__contacts {
+    width: 35%;
+    margin-left: 5%;
+  }
+
+  .mainLogo {
+    color: $primary_light;
     display: inline-flex;
     margin-bottom: 30px;
+    font-size: 34px;
   }
 
   .phone {
-    margin-bottom: 30px;
+    margin: 20px 0;
 
     &__link {
-      color: $primary_dark;
+      color: $primary_light;
+      cursor: pointer;
     }
+  }
+
+  .address {
+    font-size: 18px;
+    padding: 10px 0;
   }
 
   .email {
     margin-bottom: 30px;
 
     &__link {
-      color: $primary_dark;
+      color: $primary_light;
+      cursor: pointer;
     }
   }
 }
 
+.map {
+  width: 60%;
+}
+
+.mapMarkerStyle {
+  font-size: 40px;
+  color: $primary_light;
+}
+
+.mapLabelStyle {
+  font-size: 22px;
+  text-align: center;
+  padding-top: 10px;
+  color: $primary_light;
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    height: 570px;
+
+
+    .footer__content {
+      flex-direction: column;
+    }
+
+    .footer__contacts {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .mainLogo {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .address {
+      font-size: 16px;
+      padding: 5px 0;
+    }
+
+    .email {
+      margin-bottom: 15px;
+    }
+  }
+}
