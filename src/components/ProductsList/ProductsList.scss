@@ -4,7 +4,7 @@
 
   &__content{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -18,7 +18,7 @@
 @media (max-width: 480px) {
 
   .productsList {
-    padding-top: 108px;
+    margin-top: 108px;
   }
 }
 

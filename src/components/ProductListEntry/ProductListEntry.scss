@@ -4,11 +4,11 @@
   display: flex;
   justify-content: center;
   margin-right: 1%;
-  width: 19%;
-  margin-bottom: 40px;
+  width: 24%;
+  margin-bottom: 30px;
 
-  &:nth-child(5n) {
-    margin-right: 0%;
+  &:nth-child(4n) {
+    margin-right: 0;
   }
 
   &__content {
@@ -22,7 +22,7 @@
   &__imgLink {
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     overflow: hidden;
 
     &:hover .productListEntry__img {
@@ -39,7 +39,7 @@
   &__nameLink {
     margin-bottom: 15px;
     color: $primary_dark;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     font-family: $poppins;
     white-space: nowrap;
@@ -49,8 +49,9 @@
 
   &__price {
     font-family: $poppins;
-    color: $primary;
-    font-size: 14px;
+    color: $primary_dark;
+    letter-spacing: 1px;
+    font-size: 18px;
   }
 
   &__btn {
@@ -108,11 +109,15 @@
 @media (max-width: 980px) {
 
   .productListEntry {
-    width: 47%;
+    width: 31%;
     margin-right: 3%;
 
-    &:nth-child(2n) {
+    &:nth-child(3n) {
       margin-right: 0%;
+    }
+
+    &:nth-child(4n) {
+      margin-right: 3%;
     }
 
     &__nameLink {
@@ -121,7 +126,7 @@
     }
 
     &__price {
-      font-size: 20px;
+      font-size: 22px;
     }
 
     &__btn {
@@ -139,6 +144,26 @@
 
   .productListEntry {
 
+    width: 48%;
+    margin-right: 2%;
+
+    &:nth-child(2n) {
+      margin-right: 0%;
+    }
+
+    &:nth-child(4n),
+    &:nth-child(3n) {
+      margin-right: 2%;
+    }
+
+    &__nameLink {
+      font-size: 16px;
+    }
+
+    &__price {
+      font-size: 18px;
+    }
+
     &__btn {
       bottom: 94px;
       right: 10px;
@@ -146,6 +171,48 @@
 
     .saveProductForLaterIcon {
       font-size: 25px;
+      color: $secondary;
+
+      &:hover,
+      &:active,
+      &:focus {
+        fill: $secondary;
+      }
+    }
+
+    &_saved {
+      color: $secondary;
+      fill: $secondary;
+      animation-name: heartBeat;
+      animation-duration: 1.3s;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes heartBeat {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      14% {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+      }
+
+      28% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      42% {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+      }
+
+      70% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
     }
   }
 }
@@ -153,12 +220,21 @@
 @media (max-width: 480px) {
 
   .productListEntry {
+
+    width: 100%;
+    margin-right: 0%;
+
+    &:nth-child(4n),
+    &:nth-child(3n) {
+      margin-right: 0%;
+    }
+
     &__nameLink {
-      font-size: 14px;
+      font-size: 18px;
     }
 
     &__price {
-      font-size: 14px;
+      font-size: 20px;
     }
 
     &__btn {

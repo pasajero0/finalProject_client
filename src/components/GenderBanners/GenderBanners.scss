@@ -11,8 +11,7 @@
 	}
 
 	.genderBanner {
-		width: 49%;
-		margin-right: 30px;
+		width: 50%;
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -60,8 +59,7 @@
 		}
 
 		.genderBanner {
-			margin-right: 0px;
-			margin-bottom: 20px;
+			//margin-bottom: 20px;
 			width: 100%;
 
 			&:last-child {
