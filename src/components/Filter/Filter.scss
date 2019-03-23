@@ -1,4 +1,29 @@
 .filter {
-	box-sizing: border-box;
-	padding: 10px;
+	width: 20%;
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+
+  &__title {
+    margin-bottom: 5px;
+    color: black;
+    font-size: 20px;
+  }
+
+	&__button {
+		display: inline-block;
+		padding: 5px 10px;
+		margin: 5px 0;
+		border: 1px solid black;
+		color: black;
+  }
+  &__subtitleBlock {
+  }
+  &__subtitle {
+    color: firebrick;
+    padding: 5px;
+    padding-left: 0;
+  }
 }

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Filter from '../Filter/Filter';
 
 const propTypes = {
-
+  routeDepartment: PropTypes.string.isRequired
 };
 
 const defaultProps = {
@@ -18,7 +18,7 @@ const FilterWrapper = (props) => {
   const { departments, routeDepartment } = props;
   const findDepartment = departments.find(data => data.slug === routeDepartment);
   if (
-    findDepartment === undefined || 
+    findDepartment === undefined ||
     findDepartment.slug === 'men' ||
     findDepartment.slug === 'women'
   ) {
@@ -39,7 +39,7 @@ const FilterWrapper = (props) => {
 
   return (
     <div className="filterWrapper">
-      <Filter filtersData={filtersData()} routeDepartment={routeDepartment} />
+      <Filter filtersData={filtersData()}/>
     </div>
   );
 };

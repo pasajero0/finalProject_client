@@ -23,14 +23,14 @@ const defaultProps = {
   },
 };
 
-const HomepageGender = ({ match }) => {
+const HomepageGender = ({ location:{pathname, search}, match }) => {
   const { department, page = 1 } = match.params;
   return (
   <>
     <Header department={department} />
     <ProductsList
       routeData={match}
-      key={department}
+      key={`${pathname}${search}`}
       department={department}
       page={page}
     />
