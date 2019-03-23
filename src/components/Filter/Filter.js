@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import './Filter.scss';
 
@@ -19,29 +20,45 @@ class Filter extends Component {
     filters: this.props.filtersData
   }
 
-  changeCheckboxStatus(filter, filterName, isCheked) {
+  filtersToString (){
+    const { filters } = this.state;
+    const obj = {};
+    Object.keys(filters).map(key => {
+      obj[key] = Object.keys(filters[key]).filter(item => filters[key][item]);
+      if (!obj[key].length) {
+        delete obj[key]
+      }
+    });
+    const objToString = Object.keys(obj).map(key => {
+      return `${key}-${obj[key].join('-')}`;
+    })
+    return objToString.join(';');
+  }
+
+  changeCheckboxStatus(filter, filter2, isCheked) {
     let newState = {...this.state};
-    console.log(newState.filters, filter, filterName, isCheked);
-    newState.filters[filter][filterName] = isCheked;
+    // console.log(filter, filter2, isCheked);
+    newState.filters[filter][filter2] = isCheked;
+    // console.log(newState.filters);
     this.setState(newState);
   }
 
-  filtersToString(){}
   stringToFilters(){}
-
+  
   render () {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>', this.props, this.props.match);
     const { routeDepartment } = this.props;
-    
     console.log("state ======================>", this.state, routeDepartment);
-
+    const NavLinkRoute = `/${routeDepartment}/filter/${this.filtersToString()}`
     return (
       <div className="filter">
-        <h1>filter / {routeDepartment}</h1>
+        <h1 style={{marginBottom:'5px', color: '#009688', fontSize: '20px'}}>/{routeDepartment}</h1>
         <form onSubmit={(e) => {
           e.preventDefault();
-          console.log('onSubmit ========> ', e.currentTarget);
+          console.log('onSubmit ========> ', this.filtersToString());
         }}
         >
+          <NavLink to={NavLinkRoute}> | filter | </NavLink>
           <button type="submit">filter</button>
           { 
             Object.keys(this.state.filters).map((key, index) => {

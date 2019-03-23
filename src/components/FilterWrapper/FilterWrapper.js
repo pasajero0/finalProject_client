@@ -25,19 +25,6 @@ const FilterWrapper = (props) => {
     return null;
   }
   const getFilters = findDepartment.filters;
-  // const filtersData = () => {
-  //   return Object.keys(getFilters).map(key => {
-  //       return {
-  //         name: key,
-  //         data: getFilters[key].map(item => {
-  //           return {
-  //             name: item,
-  //             data: false
-  //           };
-  //         })  
-  //       };
-  //   });
-  // };
   const filtersData = () => {
     const filtersObj = {};
     Object.keys(getFilters).map((key) => {
