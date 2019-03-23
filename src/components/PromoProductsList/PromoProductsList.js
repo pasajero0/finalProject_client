@@ -8,6 +8,7 @@ import { replaceInRoute } from '../../utils/helpers';
 import { URL_PRODUCT_IMAGES, URL_API_FETCH_PROMO_PRODUCTS } from '../../config/app';
 import ProductListLoader from '../ProductListLoader/ProductListLoader';
 import Pagination from '../Pagination/Pagination';
+import ProductCarousel from '../ProductCarousel/ProductCarousel'
 
 import './PromoProductsList.scss';
 
@@ -61,26 +62,43 @@ class PromoProductsList extends Component {
   render() {
     const { department } = this.props;
     const { isBusy, productsList } = this.state;
+    const products = productsList.records.map(item => (
+      <ProductListEntry
+    key={item.slug}
+    slug={item.slug}
+    picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
+    name={item.name}
+    prices={item.prices}
+    link={replaceInRoute(
+      `/:department/product/:product`,
+      { department, product: item.slug }
+  )}
+  />
+  ));
+
+      console.log(products);
+
     return (
       <section className="promoProductsList">
+
+
         <div className="container">
           {productsList.records &&
           (
-            <div className="promoProductsList__content">
-              {productsList.records.map(item => (
-                <ProductListEntry
-                  key={item.slug}
-                  slug={item.slug}
-                  picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
-                  name={item.name}
-                  prices={item.prices}
-                  link={replaceInRoute(
-                    `/:department/product/:product`,
-                    { department, product: item.slug }
-                  )}
-                />
-              ))}
-            </div>
+
+        <ProductCarousel
+         images={products}
+    settings={{
+      infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+
+    }}
+  />
+
+
+
           )}
           {isBusy && <ProductListLoader/>}
         </div>
