@@ -1,23 +1,25 @@
 /* Slider */
+
+@import '../../vars';
+
 .productCarousel {
 
 	width: 100%;
-	margin: 20px auto;
+	padding: 20px 0px;
 	display: block;
 	overflow: hidden;
 	position: relative;
 	box-sizing: border-box;
-	background-color: #ffffff;
+	background-color: $primary_light;
 	text-align: center;
 
 	@import 'slick-theme.scss';
 
 	& .productCarousel__name {
-		padding-top: 30px;
 		text-align: center;
 		text-transform: uppercase;
 		font-size: 30px;
-		font-family: "Poppins", sans-serif;
+		font-family: $poppins;
 	}
 
 	& .productCarousel__img {
@@ -272,11 +274,6 @@
 	}
 }
 
-
-//.slider .slick-prev::before, .slider .slick-next::before {
-//	background-color: #ffffff;
-//	opacity: 1;
-//}
 
 
 

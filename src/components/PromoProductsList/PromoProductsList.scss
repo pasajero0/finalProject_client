@@ -20,6 +20,10 @@
   .productListEntry {
     flex: 0 0 266px;
     margin-bottom: 0px;
+
+    &__content {
+      width: 90%;
+    }
   }
 
   &__imgLink {
