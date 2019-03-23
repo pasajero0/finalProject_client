@@ -20,3 +20,6 @@ body {
     text-transform: uppercase;
 }
 
+*::selection {
+    background-color: $primary_400;
+}

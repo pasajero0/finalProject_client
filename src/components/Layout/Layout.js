@@ -10,6 +10,10 @@ import OrdersHistory from '../../pages/OrdersHistory/OrdersHistory';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Checkout from '../../pages/Checkout/Checkout';
 import ThankYou from '../../pages/ThankYou/ThankYou';
+import AboutUs from '../../pages/AboutUs/AboutUs';
+import Careers from '../../pages/Careers/Careers';
+import Returns from '../../pages/Returns/Returns';
+import Delivery from '../../pages/Delivery/Delivery';
 
 import './Layout.scss';
 
@@ -28,6 +32,10 @@ const Layout = () => (
     <Route exact path="/checkout" component={Checkout} />
     <Route exact path="/thank-you" component={ThankYou} />
     <Route exact path="/orders-history" component={OrdersHistory} />
+    <Route exact path="/about-us" component={AboutUs} />
+    <Route exact path="/careers" component={Careers} />
+    <Route exact path="/returns" component={Returns} />
+    <Route exact path="/delivery" component={Delivery}/>
     
     <Route exact path="/:department" component={Department}/>
 

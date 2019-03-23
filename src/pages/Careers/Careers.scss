@@ -1,0 +1,63 @@
+@import '../../vars';
+
+.careers {
+    font-family: $poppins;
+    margin: 50px 10px 60px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__header {
+        font-size: 40px;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        border-bottom: 2px solid $primary_dark;
+        text-align: center;
+        text-transform: uppercase;
+
+        &_small {
+            font-size: 24px;
+            text-align: left;
+            padding: 0 0 15px 0;
+        }
+    }
+    &__imgBlock {
+        position: relative;
+        
+        span {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            font-size: 50px;
+            color: $primary_dark;
+            background-color: $primary_light;
+            font-weight: bold;
+        }
+    }
+    &__img {
+        width: 100%;
+        height: auto;
+        padding-bottom: 20px;
+        display: inline-block;
+    }
+
+    &__cv {
+       span {
+           text-decoration: underline;
+           display: block;
+           padding: 10px 0;
+       }
+       ul {
+           list-style-type: disc;
+           margin-left: 40px;
+       }
+    }
+
+    &__content {
+        text-align: justify;
+        line-height: normal;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}

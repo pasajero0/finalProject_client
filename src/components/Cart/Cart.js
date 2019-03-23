@@ -10,6 +10,7 @@ import CartItem from './CartItem/CartItem';
 import { connect } from 'react-redux';
 import { updateProductInCart } from '../../actions/cart';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
+import { FiShoppingCart } from "react-icons/fi";
 
 import './Cart.scss';
 
@@ -48,7 +49,8 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
               <h1 className="cart__title">Cart</h1>
               <span className="cart__longLine" />
               <span className="cart__shortLine" />
-              <p className="cart__message">Your cart is empty</p>
+              <p className="cart__message">Your cart is empty :(</p>
+              <FiShoppingCart className="cart__emptyImg"/>
           </div>
         </div>
       </section>
@@ -62,25 +64,28 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
           <span className="cart__longLine" />
           <span className="cart__shortLine" />
           <div className="cartTableHeader">
+            <div className="cartTableHeader__close"></div>
             <div className="cartTableHeader__product">Product</div>
             <div className="cartTableHeader__quantity">Quantity</div>
             <div className="cartTableHeader__price">Price</div>
           </div>
 
           {products.map(({
-            slug, price, quantity, picture
+            slug, price, quantity, picture, name
           }) => (
             <CartItem
               key={slug}
               price={price}
               quantity={quantity}
+              name={name}
               picture={`${URL_PRODUCT_IMAGES}/sm-${picture}`}
               onChangeQuantity={q => callUpdateProductInCart(slug, q)}
             />
           ))}
           <div className="cart__total">
-            <span>Total</span>
-            <span>
+            <span className="cart__totalSpace"></span>
+            <span className="cart__totalTitle">Total</span>
+            <span className="cart__totalPrice">
               ${total}
             </span>
           </div>
