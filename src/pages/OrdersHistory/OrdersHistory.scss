@@ -2,7 +2,7 @@
 
 .ordersHistory {
 
-    height: 90vh;
+    min-height: calc(100vh - 170px);
     padding: 20px 0 40px;
 
     &__content {
@@ -35,33 +35,37 @@
     }
 
     &__wrapper {
-        max-width: 600px;
-        min-height: 70vh;
-        margin: 0 auto;
+        margin-top: 60px;
+        //max-width: 600px;
+        //min-height: 70vh;
+        //margin: 0 auto;
     }
 
     &__cardInfo {
         min-width: 260px;
-        margin-right: 10px;
+        margin-right: 20px;
     }
 
     &__card {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        background: #eee;
+        align-items: center;
+        background: $primary_200;
         margin-bottom: 10px;
-        padding: 10px;
+        padding: 20px;
         box-sizing: border-box
     }
 
     &__cardInfoField {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     &__cardInfoFieldStrong {
-        color: #e95252;
+        color: $secondary;
     }
+
+
 }
 
 @media (max-width: 480px) {
@@ -71,6 +75,10 @@
 
         &__title {
             font-size: 35px;
+        }
+
+        &__cardInfo {
+          margin-right: 0px;
         }
     }
 }

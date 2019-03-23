@@ -1,8 +1,7 @@
 @import '../../vars';
 
 .profile {
-
-    height: 90vh;
+    min-height: calc(100vh - 170px);
     padding: 20px 0 40px;
 
     &__content {

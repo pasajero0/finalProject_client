@@ -1,52 +1,33 @@
 @import '../../vars';
 
 .footer {
-    background-color: $primary_200;
-    padding: 40px 0px;
+  background-color: $primary_200;
+  padding: 20px 0px;
+  height: 170px;
 
-    .footer__content {
-        text-align: center;
+  .footer__content {
+    text-align: center;
+  }
+
+  .mainLogo__link {
+    display: inline-flex;
+    margin-bottom: 30px;
+  }
+
+  .phone {
+    margin-bottom: 30px;
+
+    &__link {
+      color: $primary_dark;
     }
+  }
 
-    .mainLogo__link {
-        display: inline-flex;
-        margin-bottom: 30px;
+  .email {
+    margin-bottom: 30px;
+
+    &__link {
+      color: $primary_dark;
     }
-
-    .phone {
-        margin-bottom: 30px;
-
-        &__link {
-            color: $primary_dark;
-        }
-    }
-
-    .email {
-        margin-bottom: 30px;
-
-        &__link {
-            color: $primary_dark;
-        }
-    }
+  }
 }
 
-//@media (max-width: 480px) {
-//    .footerMenu {
-//        flex-direction: column;
-//        text-align: center;
-//        align-items: center;
-//
-//        &__item {
-//            margin-bottom: 25px;
-//            margin-right: 0px;
-//
-//            &:last-child {
-//                margin-bottom: 0px;
-//            }
-//        }
-//    }
-//
-//    .footer .footerMenu__item {
-//        margin-right: 0px;
-//    }
-//}

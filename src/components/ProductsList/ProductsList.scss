@@ -1,5 +1,7 @@
 .productsList {
 
+  min-height: calc(100vh - 170px);
+
   &__content{
     display: flex;
     justify-content: space-between;

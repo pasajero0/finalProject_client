@@ -1,65 +1,82 @@
-.orderHistoryDetails{
-    position: relative;
+@import '../../vars';
+
+.orderHistoryDetails {
+
+  position: relative;
    
-    &__salesReceipt {
-        position: absolute;
-        display: none;
-        left: -405px;
-        width: 400px;
-        top: 0;
-        background: #fff;
-        padding: 5px;
-        box-sizing: border-box;
-        box-shadow: 0px 3px 17px 0px rgba(0, 0, 0, 0.54);
-        z-index: 2;
-    }
-    &__button   {
-        width: 100px;
-        padding: 5px;
-        color: #fff;
-        background: #000;
-        // text-transform: uppercase;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        box-sizing: border-box;
-        text-align: center;
-    }
-    &__redButton {
-        background: #e95252;
-    }
-    &__salesReceipt_isVisible {
-        display: block; 
-    }
-    &__table {
-        width: 100%;
-    }
-    &__tableTitle {
-        background: #EEE;
-    }
-    &__tableDataName, &__dataTitleName {
-        box-sizing: border-box;
-        padding: 5px;
-    }
-    &__tableData, &__dataTitle {
-        box-sizing: border-box;
-        padding: 5px;
-        text-align: center;
-    }
+  &__salesReceipt {
+    position: absolute;
+    display: none;
+    left: -350px;
+    width: 400px;
+    top: 32px;
+    background: $primary_light;
+    padding: 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 17px 0px rgba(0, 0, 0, 0.54);
+    z-index: 2;
+  }
+
+  &__button {
+    width: 100px;
+    padding: 10px;
+    color: $primary_light;
+    background: $primary_dark;
+    text-transform: uppercase;
+    font-family: $oswald;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  &__redButton {
+    background: $secondary;
+  }
+
+  &__salesReceipt_isVisible {
+    display: block;
+  }
+
+  &__table {
+    width: 100%;
+  }
+
+  &__tableTitle {
+    background: $primary_200;
+  }
+
+  &__tableDataName, &__dataTitleName {
+    box-sizing: border-box;
+    padding: 5px;
+    line-height: 20px;
+  }
+
+  &__tableData, &__dataTitle {
+    box-sizing: border-box;
+    padding: 5px;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 575px) {
+
+  .orderHistoryDetails__salesReceipt {
+    width: 270px;
+    left: -275px;
+  }
+
+  @media only screen and (max-width: 447px) {
+
     .orderHistoryDetails__salesReceipt {
-        width: 270px;
-        left: -275px;
+      left: 0;
+      top: 40px;
     }
-    @media only screen and (max-width: 447px) {
-        .orderHistoryDetails__salesReceipt {
-            left: 0;
-            top: 40px;
-        }
-        .orderHistoryDetails__button{
-            margin: 10px 0;
-        }
+
+    .orderHistoryDetails__button{
+      margin: 10px 0;
     }
+  }
 }

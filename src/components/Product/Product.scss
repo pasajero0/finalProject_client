@@ -1,6 +1,7 @@
 @import '../../vars';
 
 .product {
+  min-height: calc(100vh - 170px);
   padding-bottom: 20px;
 
   &__content {
