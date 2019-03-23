@@ -1,58 +1,84 @@
+@import '../../vars';
+
 .ordersHistory {
-    padding: 30px 0;
-    box-sizing: border-box;
-    &__titleWrapper {
+
+    min-height: calc(100vh - 170px);
+    padding: 20px 0 40px;
+
+    &__content {
         display: flex;
         flex-direction: column;
-        margin-bottom: 30px;
+        align-items: center;
+        justify-content: center;
     }
+
     &__title {
-        font-family: ﻿PlayfairDisplay-Regular, ﻿AdobeInvisFont, ﻿MyriadPro-Regular;
+        font-family: $playfair;
+        font-size: 45px;
         text-align: center;
-        margin-bottom: 30px;
-        font-size: 80px;
+        margin-bottom: 20px;
     }
+
     &__longLine, &__shortLine {
         display: inline-block;
-        height: 1px;
-        background: #dbdbdb;
-        margin: 0 auto;
+        height: 2px;
+        background-color: $primary_dark;
     }
+
     &__longLine {
         width: 225px;
         margin-bottom: 5px;
     }
+
     &__shortLine {
         width: 82px;
     }
+
     &__wrapper {
-        max-width: 600px;
-        min-height: 70vh;
-        margin: 0 auto;
+        margin-top: 60px;
+        //max-width: 600px;
+        //min-height: 70vh;
+        //margin: 0 auto;
     }
+
     &__cardInfo {
         min-width: 260px;
-        margin-right: 10px;
+        margin-right: 20px;
     }
+
     &__card {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        background: #eee;
+        align-items: center;
+        background: $primary_200;
         margin-bottom: 10px;
-        padding: 10px;
+        padding: 20px;
         box-sizing: border-box
     }
+
     &__cardInfoField {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
+
     &__cardInfoFieldStrong {
-        color: #e95252;
+        color: $secondary;
     }
+
+
 }
 
 @media (max-width: 480px) {
+
     .ordersHistory {
         margin-top: 88px;
+
+        &__title {
+            font-size: 35px;
+        }
+
+        &__cardInfo {
+          margin-right: 0px;
+        }
     }
 }

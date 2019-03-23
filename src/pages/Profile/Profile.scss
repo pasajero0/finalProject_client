@@ -1,59 +1,74 @@
 @import '../../vars';
 
-.profile{
-    box-sizing: border-box;
-    padding: 20px 0;
-    &__titleWrapper {
+.profile {
+    min-height: calc(100vh - 170px);
+    padding: 20px 0 40px;
+
+    &__content {
         display: flex;
         flex-direction: column;
-        margin-bottom: 30px;
+        align-items: center;
+        justify-content: center;
     }
+
     &__title {
-        font-family: ﻿PlayfairDisplay-Regular, ﻿AdobeInvisFont, ﻿MyriadPro-Regular;
+        font-family: $playfair;
+        font-size: 45px;
         text-align: center;
-        margin-bottom: 30px;
-        font-size: 80px;
+        margin-bottom: 20px;
     }
+
     &__longLine, &__shortLine {
         display: inline-block;
-        height: 1px;
-        background: #dbdbdb;
-        margin: 0 auto;
+        height: 2px;
+        background-color: $primary_dark;
     }
+
     &__longLine {
         width: 225px;
         margin-bottom: 5px;
     }
+
     &__shortLine {
         width: 82px;
     }
+
     &__info {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 10px 0 ;
+        margin-top: 60px;
+
+        & a {
+            color: $secondary;
+            font-size: 13px;
+        }
     }
-    &__text {
-        margin: 5px 0
-    }
-    &__button{
+
+    &__button {
         width: 160px;
-	    padding: 15px;
-	    color: #fff;
-	    background: #000;
-	    text-transform: uppercase;
-	    outline: none;
-	    border: none;
-	    cursor: pointer;
-	    margin: 10px 0;
-        box-sizing: border-box;
-        text-align: center;
+        padding: 12px 0px;
+        font-size: 15px;
+        color: $primary_light;
+        background: $primary_dark;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: $oswald;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin: 0 10px;
     }
 }
 
 @media (max-width: 480px) {
+
     .profile {
         margin-top: 88px;
+
+        &__title {
+            font-size: 35px;
+        }
     }
 }

@@ -10,6 +10,38 @@ import { showSystemMessage } from '../../../actions/app';
 import RenderField from '../RenderField/RenderField';
 import RenderForm from '../RenderForm/RenderForm';
 
+const propTypes = {
+  /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
+  handleSubmit: PropTypes.func.isRequired,
+  /** Action connected to the form submission */
+  onSubmitAction: PropTypes.func.isRequired,
+  /** A generic error for the entire form given by the _error key */
+  error: PropTypes.string,
+  /** true if the form data is the same as its initialized values. Opposite of dirty. */
+  pristine: PropTypes.bool,
+  /** Resets all the values in the form to the initialized state, making it pristine again. */
+  reset: PropTypes.func.isRequired,
+  /** Whether or not your form is currently submitting */
+  submitting: PropTypes.bool,
+  /** true if the form has validation errors. Opposite of valid. */
+  invalid: PropTypes.bool,
+  /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
+  submitSucceeded: PropTypes.bool,
+  setSystemMessage: PropTypes.func.isRequired,
+  token: PropTypes.string,
+  email: PropTypes.string
+};
+
+const defaultProps = {
+  error: '',
+  pristine: true,
+  submitting: false,
+  invalid: false,
+  submitSucceeded: false,
+  token: '',
+  email: ''
+};
+
 /**
  * Validate all form fields and return object with invalid entries error messages
  * @param values {object} - form values
@@ -88,7 +120,7 @@ const ResetPasswordForm = (
       isInvalid={invalid}
       onSubmit={handleSubmit(changeData)}
       onReset={reset}
-      title="Reset Password"
+      title=""
       message={message}
       messageType={messageType}
       submitLabel="Submit"
@@ -100,40 +132,8 @@ const ResetPasswordForm = (
   );
 };
 
-ResetPasswordForm.propTypes = {
-  /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
-  handleSubmit: PropTypes.func.isRequired,
-  /** Action connected to the form submission */
-  onSubmitAction: PropTypes.func.isRequired,
-  /** A generic error for the entire form given by the _error key */
-  error: PropTypes.string,
-  /** true if the form data is the same as its initialized values. Opposite of dirty. */
-  pristine: PropTypes.bool,
-  /** Resets all the values in the form to the initialized state, making it pristine again. */
-  reset: PropTypes.func.isRequired,
-  /** Whether or not your form is currently submitting */
-  submitting: PropTypes.bool,
-  /** true if the form has validation errors. Opposite of valid. */
-  invalid: PropTypes.bool,
-  /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
-  submitSucceeded: PropTypes.bool,
-
-  setSystemMessage: PropTypes.func.isRequired,
-
-  token: PropTypes.string,
-
-  email: PropTypes.string
-};
-
-ResetPasswordForm.defaultProps = {
-  error: '',
-  pristine: true,
-  submitting: false,
-  invalid: false,
-  submitSucceeded: false,
-  token: '',
-  email: ''
-};
+ResetPasswordForm.propTypes = propTypes;
+ResetPasswordForm.defaultProps = defaultProps;
 
 const mapDispatchToProps = dispatch => (
   {

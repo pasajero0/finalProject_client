@@ -61,18 +61,17 @@ class OrdersHistory extends Component {
       <>
         <Header />
         <section className="ordersHistory">
-          <div className="ordersHistory__info container">
-            <div className="ordersHistory__titleWrapper">
+          <div className="container">
+            <div className="ordersHistory__content">
               <h1 className="ordersHistory__title">Orders History</h1>
               <span className="ordersHistory__longLine" />
               <span className="ordersHistory__shortLine" />
-            </div>
-            <div className="ordersHistory__wrapper">
-              {isFetching
-                ? <div>Loading...</div>
-                : records.map((order) => {
-                  console.log('/////////////////////////////////', order);
-                  return (
+              <div className="ordersHistory__wrapper">
+                {isFetching
+                  ? <div>Loading...</div>
+                  : records.map((order) => {
+                    console.log('/////////////////////////////////', order);
+                    return (
                     <div key={order.id} className="ordersHistory__card">
                       <div className="ordersHistory__cardInfo">
                         <p className="ordersHistory__cardInfoField">Order number: <span className="ordersHistory__cardInfoFieldStrong">{order.number}</span></p>
@@ -81,16 +80,17 @@ class OrdersHistory extends Component {
                       </div>
                       <OrderHistoryDetails products={order.products}/>
                     </div>
-                  );
-                })
-              }
+                    );
+                  })
+                }
+              </div>
             </div>
           </div>
         </section>
         <Footer />
       </>
-    )
-  };
+    );
+  }
 }
 
 

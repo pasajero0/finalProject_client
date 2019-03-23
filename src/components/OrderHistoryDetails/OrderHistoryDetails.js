@@ -32,7 +32,7 @@ class OrderHistoryDetails extends Component {
 
   openDetails = () => {
     this.setState((prevState) => {
-      console.log(prevState)
+      console.log(prevState);
      return { open: !prevState.open };
     });
   };
@@ -49,9 +49,9 @@ class OrderHistoryDetails extends Component {
           <table className="orderHistoryDetails__table">
             <thead>
               <tr className="orderHistoryDetails__tableTitle">
-                <td className="orderHistoryDetails__dataTitleName">name</td>
-                <td className="orderHistoryDetails__dataTitle">quantity</td>
-                <td className="orderHistoryDetails__dataTitle">price</td>
+                <td className="orderHistoryDetails__dataTitleName">Name</td>
+                <td className="orderHistoryDetails__dataTitle">Quantity</td>
+                <td className="orderHistoryDetails__dataTitle">Price</td>
               </tr>
             </thead>
             <tbody>
@@ -70,7 +70,7 @@ class OrderHistoryDetails extends Component {
       </div>
     );
   };
-};
+}
 
 OrderHistoryDetails.propTypes = propTypes;
 OrderHistoryDetails.defaultProps = defaultProps;

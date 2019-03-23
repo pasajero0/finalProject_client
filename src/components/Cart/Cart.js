@@ -7,7 +7,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import CartItem from './CartItem/CartItem';
-import { FaLongArrowAltRight } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { updateProductInCart } from '../../actions/cart';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
@@ -43,57 +42,54 @@ const defaultProps = {
 const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
   if(products.length === 0){
     return (
-      <div>
-        <div className="cart">
-          {/*<h1 className="cart__header">Cart</h1>*/}
-            <div className="cart__titleWrapper">
-                <h1 className="cart__title">Cart</h1>
-                <span className="cart__longLine" />
-                <span className="cart__shortLine" />
-            </div>
-          <p>Your cart is empty</p>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div>
-      <div className="cart">
-        {/*<h1 className="cart__header">Cart</h1>*/}
-          <div className="cart__titleWrapper">
+      <section className="cart">
+        <div className="container">
+          <div className="account__content">
               <h1 className="cart__title">Cart</h1>
               <span className="cart__longLine" />
               <span className="cart__shortLine" />
+              <p className="cart__message">Your cart is empty</p>
           </div>
-        <div className="cartTableHeader">
-          <div className="cartTableHeader__product">Product</div>
-          <div className="cartTableHeader__quantity">Quantity</div>
-          <div className="cartTableHeader__price">Price</div>
         </div>
+      </section>
+    );
+  }
+  return (
+    <section className="cart">
+      <div className="container">
+        <div className="account__content">
+          <h1 className="cart__title">Cart</h1>
+          <span className="cart__longLine" />
+          <span className="cart__shortLine" />
+          <div className="cartTableHeader">
+            <div className="cartTableHeader__product">Product</div>
+            <div className="cartTableHeader__quantity">Quantity</div>
+            <div className="cartTableHeader__price">Price</div>
+          </div>
 
-        {products.map(({
-          slug, price, quantity, picture
-        }) => (
-          <CartItem
-            key={slug}
-            price={price}
-            quantity={quantity}
-            picture={`${URL_PRODUCT_IMAGES}/sm-${picture}`}
-            onChangeQuantity={q => callUpdateProductInCart(slug, q)}
-          />
-        ))}
-        <div className="cart__total">
-          <span>Total</span>
-          <span>
-            ${total}
-          </span>
+          {products.map(({
+            slug, price, quantity, picture
+          }) => (
+            <CartItem
+              key={slug}
+              price={price}
+              quantity={quantity}
+              picture={`${URL_PRODUCT_IMAGES}/sm-${picture}`}
+              onChangeQuantity={q => callUpdateProductInCart(slug, q)}
+            />
+          ))}
+          <div className="cart__total">
+            <span>Total</span>
+            <span>
+              ${total}
+            </span>
+          </div>
+          <NavLink to="/checkout" className="cart__btnCheckout">
+            Proceed to checkout
+          </NavLink>
         </div>
-        <NavLink to="/checkout" className="cart__btnCheckout">
-          Proceed to checkout
-          <FaLongArrowAltRight />
-        </NavLink>
       </div>
-    </div>
+    </section>
   );
 };
 

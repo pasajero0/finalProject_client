@@ -40,7 +40,7 @@ const NavbarIcons = ({ cartCount, isAuthenticated, callSetUserMenuVisibility }) 
                 callSetUserMenuVisibility(true);
               }}
             >
-              <Tool icon={FaUserCircle} />
+              <Tool className="userIcon" icon={FaRegUser} />
             </button>
 
           )

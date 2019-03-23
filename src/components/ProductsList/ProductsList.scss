@@ -1,5 +1,7 @@
 .productsList {
 
+  min-height: calc(100vh - 170px);
+
   &__content{
     display: flex;
     justify-content: space-between;
@@ -16,7 +18,7 @@
 @media (max-width: 480px) {
 
   .productsList {
-    padding-top: 88px;
+    padding-top: 108px;
   }
 }
 

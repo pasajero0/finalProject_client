@@ -1,6 +1,7 @@
 @import '../../vars';
 
 .product {
+  min-height: calc(100vh - 170px);
   padding-bottom: 20px;
 
   &__content {
@@ -49,21 +50,21 @@
     justify-content: center;
     border: 2px solid $secondary;
     box-sizing: border-box;
-    background-color: $primary_light;
+    background-color: $secondary;
     width: 160px;
     height: 50px;
     cursor: pointer;
     text-transform: uppercase;
-    color: $secondary;
+    color: $primary_light;
     font-family: $oswald;
     font-weight: bold;
-    //margin-right: 10px;
+    margin-right: 30px;
+    outline: none;
 
 
     &:hover {
-      background-color: $secondary;
+      background-color: $secondary_dark;
       border: 2px solid transparent;
-      color: $primary_light;
     }
 
     &:hover .addProductToCartIcon {
@@ -71,27 +72,65 @@
     }
   }
 
-
   &__save {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid $primary;
-    box-sizing: border-box;
-    width: 50px;
-    height: 50px;
-    background-color: $primary_light;
+    outline: none;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
   }
 
   .addProductToCartIcon {
-    color: $secondary;
+    color: $primary_light;
     font-size: 25px;
     margin-right: 20px;
   }
 
   .saveProductForLaterIcon {
     position: inherit;
-  }
+    color: $secondary;
+
+    &:hover,
+    &:active,
+    &:focus {
+      fill: $secondary;
+    }
+
+    &_saved {
+      color: $secondary;
+      fill: $secondary;
+      animation-name: heartBeat;
+      animation-duration: 1.3s;
+      animation-timing-function: ease-in-out;
+    }
+
+      @keyframes heartBeat {
+        0% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+
+        14% {
+          -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+        }
+
+        28% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+
+        42% {
+          -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+        }
+
+        70% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+    }
 
   &__description {
     font-family: $poppins;
@@ -99,6 +138,7 @@
     font-size: 14px;
     line-height: 24px;
     width: 400px;
+    text-align: justify;
   }
 }
 
@@ -146,7 +186,7 @@
 @media (max-width: 480px) {
 
   .product {
-    padding-top: 88px;
+    padding-top: 108px;
 
     .saveProductForLaterIcon {
       font-size: 25px;

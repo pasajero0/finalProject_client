@@ -1,15 +1,18 @@
 @import '../../../../vars';
 
 .navbarIcons {
+
   display: flex;
   align-items: flex-end;
-  &__button{
+
+  &__button {
     background: transparent;
     outline: none;
     border: 0;
     padding: 0;
     cursor:pointer;
   }
+
   &__item {
     flex: 0 0 48px;
     margin-left: 0;
@@ -24,14 +27,18 @@
     height: 22px;
     border-radius: 11px;
     font-size: 12px;
-    color: white;
+    color: $primary_light;
     line-height: 20px;
-    background-color: #737373;
+    background-color: $secondary;
+    font-weight: bold;
     text-align: center;
     align-items: center;
     justify-content: center;
   }
 
+  .userIcon {
+    pill: $primary_dark;
+  }
 }
 
 

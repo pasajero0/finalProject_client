@@ -6,6 +6,26 @@ import './RenderForm.scss';
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
+
+const propTypes = {
+	title: PropTypes.string,
+	submitLabel: PropTypes.string,
+	resetLabel: PropTypes.string,
+	isVisibleReset: PropTypes.bool,
+	onSubmit: PropTypes.func.isRequired,
+	onReset: PropTypes.func.isRequired,
+	message: PropTypes.string,
+	// messageType: PropTypes.oneOf(['error', 'info']),
+	status: PropTypes.oneOf(['loading'])
+};
+
+const defaultProps = {
+	title: '',
+	submitLabel: 'submit',
+	resetLabel: 'reset',
+	isVisibleReset: false,
+};
+
 const RenderForm = (
 	{ 
 	title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset, message 
@@ -33,25 +53,9 @@ const RenderForm = (
 				</form>
 			</div>
     );
-}
-
-RenderForm.propTypes = {
-	title: PropTypes.string,
-	submitLabel: PropTypes.string,
-	resetLabel: PropTypes.string,
-	isVisibleReset: PropTypes.bool,
-	onSubmit: PropTypes.func.isRequired,
-	onReset: PropTypes.func.isRequired,
-	message: PropTypes.string,
-	// messageType: PropTypes.oneOf(['error', 'info']),
-	status: PropTypes.oneOf(['loading'])
 };
 
-RenderForm.defaultProps = {
-	title: '',
-	submitLabel: 'submit',
-	resetLabel: 'reset',
-	isVisibleReset: false,
-};
+RenderForm.propTypes = propTypes;
+RenderForm.defaultProps = defaultProps;
 
 export default RenderForm;

@@ -1,24 +1,55 @@
+@import '../../vars';
 
 .thankYou {
-  height: 90vh;
-  padding: 30px 0;
-  box-sizing: border-box;
-  &__info {
-    text-align: center;
-    p{
-      font-size: 20px;
-      margin-bottom: 10px;
+    min-height: calc(100vh - 170px);
+    padding: 20px 0 40px;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-  } 
-  &__title {
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 36px;
-  }
+
+    &__title {
+        font-family: $playfair;
+        font-size: 45px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__longLine, &__shortLine {
+        display: inline-block;
+        height: 2px;
+        background-color: $primary_dark;
+    }
+
+    &__longLine {
+        width: 225px;
+        margin-bottom: 5px;
+    }
+
+    &__shortLine {
+        width: 82px;
+    }
+
+    &__message {
+        margin-top: 60px;
+    }
+
+    p {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 480px) {
+
     .thankYou {
         margin-top: 88px;
+
+        &__title {
+            font-size: 35px;
+        }
     }
 }

@@ -1,8 +1,8 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-//import StarRating from '../StarRating/StarRating';
-//import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
+import StarRating from '../StarRating/StarRating';
+import SaveProductForLaterIcon from '../SaveProductForLaterIcon/SaveProductForLaterIcon';
 import AddProductToCartIcon from '../AddProductToCartIcon/AddProductToCartIcon';
 import ImageSlider from '../ImageSlider/ImageSlider';
 import { fetchProduct } from '../../actions/products';
@@ -46,6 +46,9 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.mainPicture = createRef();
+    this.state = {
+      isProductSaved: false
+    };
   }
 
   componentDidMount() {
@@ -79,9 +82,13 @@ class Product extends Component {
     }, 700);
   }
 
+  onSaveProductForLater() {
+    this.setState({ ...this.state, isProductSaved: !this.state.isProductSaved });
+  }
+
   render() {
     const { productData: { description, slug, pictures, name, prices }, isFetching, callAddProductToCart } = this.props;
-
+    const { isProductSaved } = this.state;
     return (
       <section className="product" key={slug}>
         <div className="container">
@@ -94,10 +101,11 @@ class Product extends Component {
                 </div>
                 <div className="product__info">
                   <p className="product__name">{name}</p>
-                  {/*<StarRating className="product__rating"/>*/}
+                  <StarRating className="product__rating"/>
                   <p className="product__price">${prices.retail}</p>
                   <div className="product__buy">
                     <button
+                      type="button"
                       className="product__btn"
                       onClick={() => {
                         callAddProductToCart({
@@ -112,9 +120,12 @@ class Product extends Component {
                       <AddProductToCartIcon className="addProductToCartIcon"/>
                       Add to cart
                     </button>
-                    {/*<button className="product__save">*/}
-                    {/*<SaveProductForLaterIcon className="saveProductForLaterIcon"/>*/}
-                    {/*</button>*/}
+                    <button type="button" className="product__save" onClick={this.onSaveProductForLater.bind(this)}>
+                      <SaveProductForLaterIcon customClass={isProductSaved
+                        ? 'saveProductForLaterIcon saveProductForLaterIcon_saved'
+                        : 'saveProductForLaterIcon'
+                      } />
+                    </button>
                   </div>
                   <p className="product__description">{description}</p>
                 </div>
