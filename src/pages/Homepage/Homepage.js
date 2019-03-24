@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Layout from '../../components/Layout/Layout';
 import GenderBanners from '../../components/GenderBanners/GenderBanners';
 import Slider from '../../components/Slider/Slider';
 import PromoProductsList from '../../components/PromoProductsList/PromoProductsList';
@@ -9,8 +8,7 @@ import PromoProductsList from '../../components/PromoProductsList/PromoProductsL
 const ImagesDir = process.env.PUBLIC_URL;
 
 const Homepage = () => (
-  <>
-    <Header />
+  <Layout>
     <Slider
       images={[
         { id: 1, src: `${ImagesDir}/slider-images/1.jpg`, alt: '' },
@@ -33,8 +31,7 @@ const Homepage = () => (
     <PromoProductsList department="men" type="sale"/>
 
     <GenderBanners />
-    <Footer />
-  </>
+  </Layout>
 );
 
 export default Homepage;

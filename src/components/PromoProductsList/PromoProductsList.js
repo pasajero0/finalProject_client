@@ -3,11 +3,9 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductListEntry from '../ProductListEntry/ProductListEntry';
-import { setCurrentDepartment } from '../../actions/products';
-import { replaceInRoute } from '../../utils/helpers';
 import { URL_PRODUCT_IMAGES, URL_API_FETCH_PROMO_PRODUCTS } from '../../config/app';
 import ProductListLoader from '../ProductListLoader/ProductListLoader';
-import Pagination from '../Pagination/Pagination';
+import { replaceInRoute } from '../../utils/helpers';
 
 import './PromoProductsList.scss';
 
@@ -74,10 +72,7 @@ class PromoProductsList extends Component {
                   picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
                   name={item.name}
                   prices={item.prices}
-                  link={replaceInRoute(
-                    `/:department/product/:product`,
-                    { department, product: item.slug }
-                  )}
+                  link={replaceInRoute(`/product/:product`, {  product: item.slug })}
                 />
               ))}
             </div>
@@ -97,8 +92,5 @@ const mapStateToProps = state => ({
   isFetching: state.products.isFetching
 });
 
-const mapDispatchToProps = dispatch => ({
-  callSetCurrentDepartment: name => dispatch(setCurrentDepartment(name))
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(PromoProductsList);
+export default connect(mapStateToProps, null)(PromoProductsList);

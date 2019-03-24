@@ -1,39 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import ProductListEntry from '../ProductListEntry/ProductListEntry';
-import { setCurrentDepartment } from '../../actions/products';
-import { replaceInRoute } from '../../utils/helpers';
 import { URL_PRODUCT_IMAGES, URL_API_FETCH_PRODUCTS } from '../../config/app';
 import ProductListLoader from '../ProductListLoader/ProductListLoader';
 import Pagination from '../Pagination/Pagination';
+import ProductListHeader from '../ProductListHeader/ProductListHeader';
 
 import './ProductsList.scss';
 
 axios.defaults.withCredentials = true;
 
 const propTypes = {
-  callSetCurrentDepartment: PropTypes.func.isRequired,
-  routeData: PropTypes.shape({
-    path: PropTypes.string,
-    url: PropTypes.string,
-    params: PropTypes.shape({
-      department: PropTypes.string,
-      page: PropTypes.string
-    })
-  })
-};
-
-const defaultProps = {
-  routeData: {
-    path: '',
-    url: '',
-    params: {
-      department: '',
-      page: '1'
-    }
-  }
+  /** Parameters for products fetching. */
+  fetchProductsParams: PropTypes.shape({}).isRequired,
+  /** URL template for pagination. */
+  urlTemplatePagination: PropTypes.string.isRequired,
+  /** URL template for product. */
+  urlTemplateProduct: PropTypes.string.isRequired,
+  /** Title of the list. */
+  title: PropTypes.string.isRequired,
+  /** Subtitle of the list. */
+  subTitle: PropTypes.string.isRequired,
 };
 
 class ProductsList extends Component {
@@ -49,38 +37,65 @@ class ProductsList extends Component {
         count: 0,
         pagesTotal: 0
       },
-      loadedPages: []
-    }
+      loadedPages: [],
+      stat: ''
+    };
+    this.isComponentMounted = false;
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    const { routeData: { params }, callSetCurrentDepartment } = this.props;
-    this.fetchProducts(params, (data) => {
+    this.isComponentMounted = true;
+    const { fetchProductsParams } = this.props;
+    this.fetchProducts(fetchProductsParams, (data) => {
       this.setState(prevState => ({
         ...prevState,
         productsList: data,
         isBusy: false,
         loadedPages: [parseInt(data.page, 10)]
       }));
+      this.setStatistic();
     });
-    callSetCurrentDepartment(params.department);
-    window.addEventListener('scroll', this.handleScroll.bind(this));
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    //window.removeEventListener('scroll', this.handleScroll.bind(this));
+    window.removeEventListener('scroll', this.handleScroll);
+    this.isComponentMounted = false;
   }
+
+  setStatistic() {
+    const { count, records, page, perPage } = this.state.productsList;
+    const from = (page - 1) * perPage;
+    let stat = '';
+    switch (count) {
+      case 0:
+        stat = 'Nothing has been found...';
+        break;
+      case 1:
+        stat = 'Found one record!';
+        break;
+      default:
+        stat = `Found ${count} records, the records from ${from + 1} to ${from + records.length}`;
+    }
+
+    this.setState(prevState => ({ ...prevState, stat }));
+  }
+
 
   fetchProducts(params, callback) {
     this.setState(prevState => ({
       ...prevState,
       isBusy: true
     }));
+
     axios.get(URL_API_FETCH_PRODUCTS, { params })
       .then(res => res.data)
       .then((data) => {
         if (data.success) {
-          callback(data.data);
+          if (this.isComponentMounted) {
+            callback(data.data);
+          }
         } else {
           throw new Error('Fetching product data error');
         }
@@ -88,16 +103,15 @@ class ProductsList extends Component {
   }
 
   handleScroll(e) {
-    const { isBusy, productsList: { page, pagesTotal }, loadedPages } = this.state;
-    if (!isBusy && loadedPages[loadedPages.length - 1] <= pagesTotal) {
-
+    const { isBusy, productsList: { pagesTotal }, loadedPages } = this.state;
+    if (!isBusy && loadedPages[loadedPages.length - 1] < pagesTotal && loadedPages.length > 0) {
       const doc = document.documentElement;
       const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
       const rate = (window.innerHeight + top) / e.target.body.scrollHeight;
       if (rate > 0.7) {
-        const { routeData: { params } } = this.props;
+        const { fetchProductsParams } = this.props;
         this.fetchProducts(
-          { ...params, page: loadedPages[loadedPages.length -1] + 1 },
+          { ...fetchProductsParams, page: loadedPages[loadedPages.length - 1] + 1 },
           (data) => {
             this.setState(prevState => ({
               ...prevState,
@@ -114,6 +128,7 @@ class ProductsList extends Component {
                 parseInt(data.page, 10)
               ]
             }));
+            this.setStatistic();
           }
         );
       }
@@ -121,23 +136,24 @@ class ProductsList extends Component {
   }
 
   render() {
-    const { routeData } = this.props;
-    const { isBusy, productsList, loadedPages } = this.state;
+    const { title, subTitle, urlTemplatePagination, urlTemplateProduct } = this.props;
+    const { isBusy, productsList, loadedPages, stat } = this.state;
+
     return (
       <section className="productsList">
+        <ProductListHeader
+          title={title}
+          subTitle={subTitle}
+          stat={stat}
+        />
         <div className="container">
-
-
           {productsList.records &&
           (
             <div className="productsList__content">
               <Pagination
                 current={loadedPages}
                 pagesTotal={productsList.pagesTotal}
-                urlTemplate={replaceInRoute(
-                  '/:department/page/:page',
-                  { ...routeData.params, page: ':page' }
-                )}
+                urlTemplate={urlTemplatePagination}
               />
               {productsList.records.map(item => (
                 <ProductListEntry
@@ -146,19 +162,13 @@ class ProductsList extends Component {
                   picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
                   name={item.name}
                   prices={item.prices}
-                  link={replaceInRoute(
-                    `${routeData.path}/product/:product`,
-                    { ...routeData.params, product: item.slug }
-                  )}
+                  link={urlTemplateProduct.replace(/:product/, item.slug)}
                 />
               ))}
               <Pagination
                 current={loadedPages}
                 pagesTotal={productsList.pagesTotal}
-                urlTemplate={replaceInRoute(
-                  '/:department/page/:page',
-                  { ...routeData.params, page: ':page' }
-                )}
+                urlTemplate={urlTemplatePagination}
               />
             </div>
           )}
@@ -170,15 +180,5 @@ class ProductsList extends Component {
 }
 
 ProductsList.propTypes = propTypes;
-ProductsList.defaultProps = defaultProps;
 
-const mapStateToProps = state => ({
-  productsList: state.products.productsList,
-  isFetching: state.products.isFetching
-});
-
-const mapDispatchToProps = dispatch => ({
-  callSetCurrentDepartment: name => dispatch(setCurrentDepartment(name))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);
+export default ProductsList;

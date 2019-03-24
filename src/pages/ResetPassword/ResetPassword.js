@@ -2,8 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Layout from '../../components/Layout/Layout';
 import GetTokenForm from '../../components/Forms/GetTokenForm/GetTokenForm';
 import ResetPasswordForm from '../../components/Forms/ResetPasswordForm/ResetPasswordForm';
 import { setPasswordReseted } from '../../actions/customers';
@@ -70,13 +69,11 @@ const ResetPassword = (props) => {
   }
 
   return (
-    <>
-      <Header />
+    <Layout>
       <section className="resetPassword">
         { form }
       </section>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

@@ -1,52 +1,42 @@
+/**
+ * Layout Component.
+ * Placeholder fot the description
+ * @module Layout
+ */
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Homepage from '../../pages/Homepage/Homepage';
-import Department from '../../pages/HomepageGender/HomepageGender';
-import Product from '../../pages/ProductSingle/ProductSingle';
-import Account from '../../pages/Account/Account';
-import Profile from '../../pages/Profile/Profile';
-import MyCart from '../../pages/MyCart/MyCart';
-import OrdersHistory from '../../pages/OrdersHistory/OrdersHistory';
-import ResetPassword from '../../pages/ResetPassword/ResetPassword';
-import Checkout from '../../pages/Checkout/Checkout';
-import ThankYou from '../../pages/ThankYou/ThankYou';
-
+import PropTypes from 'prop-types';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './Layout.scss';
+
+/**
+ * PropTypes of the component
+ * @type {object}
+ */
+const propTypes = {
+  /** Text message of the toast. */
+  children: PropTypes.node.isRequired,
+};
 
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-const Layout = () => (
-  <Switch>
+const Layout = ({ children }) => {
+  return (
+    <div className="layout">
+      <div className="layout__header">
+        <Header/>
+      </div>
+      <div className="layout__content">
+        {children}
+      </div>
+      <div className="layout__footer">
+        <Footer/>
+      </div>
+    </div>
+  );
+};
 
-    <Route exact path="/" component={Homepage} />
-    <Route exact path="/login" component={Account} />
-    <Route exact path="/profile" component={Profile} />
-    <Route exact path="/cart" component={MyCart} />
-    <Route exact path="/reset-password" component={ResetPassword} />
-    <Route exact path="/reset-password/:token" component={ResetPassword} />
-    <Route exact path="/checkout" component={Checkout} />
-    <Route exact path="/thank-you" component={ThankYou} />
-    <Route exact path="/orders-history" component={OrdersHistory} />
-    
-    <Route exact path="/:department" component={Department}/>
-
-
-    <Route exact path="/:department/page/:page" component={Department}/>
-    <Route exact path="/:department/filter/:filter" component={Department}/>
-    <Route exact path="/:department/filter/:filter/page/:page" component={Department}/>
-    <Route exact path="/:department/search/:search" component={Department}/>
-    <Route exact path="/:department/search/:search/page/:page" component={Department}/>
-
-    <Route exact path="/:department/product/:product" component={Product}/>
-    <Route exact path="/:department/page/:page/product/:product" component={Product}/>
-    <Route exact path="/:department/filter/:filter/product/:product" component={Product}/>
-    <Route exact path="/:department/filter/:filter/page/:page/product/:product" component={Product}/>
-    <Route exact path="/:department/search/:search/product/:product" component={Product}/>
-    <Route exact path="/:department/search/:search/page/:page/product/:product" component={Product}/>
-
-  </Switch>
-);
-
+Layout.propTypes = propTypes;
 
 export default Layout;

@@ -3,7 +3,7 @@ import { replaceInRoute } from '../utils/helpers';
 import { URL_API_FETCH_PRODUCTS, URL_API_FETCH_PRODUCT } from '../config/app';
 
 axios.defaults.withCredentials = true;
-
+export const SET_CURRENT_DEPARTMENT_DATA = 'SET_CURRENT_DEPARTMENT_DATA';
 export const SET_CURRENT_DEPARTMENT = 'SET_CURRENT_DEPARTMENT';
 export const FETCH_PRODUCT_PENDING = 'FETCH_PRODUCT_PENDING';
 export const FETCH_PRODUCT_FULFILLED = 'FETCH_PRODUCT_FULFILLED';
@@ -15,6 +15,10 @@ export const FETCH_PRODUCTS_REJECTED = 'FETCH_PRODUCTS_REJECTED';
 
 export function setCurrentDepartment(value) {
   return { type: SET_CURRENT_DEPARTMENT, payload: value };
+}
+
+export function setCurrentDepartmentData(value) {
+  return { type: SET_CURRENT_DEPARTMENT_DATA, payload: value };
 }
 
 export function fetchProduct(slug) {

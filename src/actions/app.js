@@ -37,13 +37,15 @@ export function fetchInitialData() {
             type: FETCH_DEPARTMENTS_FULFILLED,
             payload: data.data.departments
           });
-          dispatch({
-            type: SET_IS_AUTHENTICATED,
-            payload: {
-              isAuthenticated: !!data.data.customer.email,
-              profile: { ...data.data.customer }
-            }
-          });
+          if(data.data.customer){
+            dispatch({
+              type: SET_IS_AUTHENTICATED,
+              payload: {
+                isAuthenticated: !!data.data.customer.email,
+                profile: { ...data.data.customer }
+              }
+            });
+          }
           dispatch({
             type: FETCH_INITIAL_DATA_FULFILLED,
             payload: true

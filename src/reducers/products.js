@@ -6,6 +6,7 @@ import {
   FETCH_PRODUCT_FULFILLED,
   FETCH_PRODUCT_REJECTED,
   SET_CURRENT_DEPARTMENT,
+  SET_CURRENT_DEPARTMENT_DATA
 } from '../actions/products';
 
 
@@ -29,7 +30,8 @@ const initialState = {
   },
   isFetching: false,
   imagesDir: '/product-images',
-  currentDepartment: ''
+  currentDepartment: '',
+  currentDepartmentData: {}
 };
 
 function products(state = initialState, action) {
@@ -38,6 +40,11 @@ function products(state = initialState, action) {
       return {
         ...state,
         currentDepartment: action.payload
+      };
+    case SET_CURRENT_DEPARTMENT_DATA:
+      return {
+        ...state,
+        currentDepartmentData: action.payload
       };
     case FETCH_PRODUCT_PENDING:
     case FETCH_PRODUCTS_PENDING:

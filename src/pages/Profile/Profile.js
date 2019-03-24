@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from '../../components/Header/Header';
+import Layout from '../../components/Layout/Layout';
 import ProfileForm from '../../components/Forms/ProfileForm/ProfileForm';
-import Footer from '../../components/Footer/Footer';
 import { logoutCustomer, fetchProfile } from '../../actions/customers';
 import './Profile.scss';
 
@@ -59,8 +58,7 @@ const Profile = ({
 
 
   return (
-    <>
-      <Header />
+    <Layout>
       <section className="profile">
         <div className="container">
           <h1 className="profile__title">YOUR PROFILE</h1>
@@ -74,8 +72,7 @@ const Profile = ({
           </div>
         </div>
       </section>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
