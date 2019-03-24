@@ -5,11 +5,7 @@ import Checkbox from '../Checkbox/Checkbox'
 import './Filter.scss';
 
 const propTypes = {
-
-};
-
-const defaultProps = {
-  
+  filtersData: PropTypes.object.isRequired
 };
 
 /**
@@ -119,6 +115,5 @@ class Filter extends Component {
 }
 
 Filter.propTypes = propTypes;
-Filter.defaultProps = defaultProps;
 
 export default props => <Route render={routeProps => <Filter {...routeProps} {...props} />} />;

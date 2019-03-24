@@ -50,7 +50,6 @@ const defaultProps = {
 };
 
 class ProductsList extends Component {
-
   componentDidMount() {
     const { routeData: { params }, callFetchProducts, callSetCurrentDepartment } = this.props;
     callFetchProducts(params);

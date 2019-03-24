@@ -18,9 +18,9 @@ const FilterWrapper = (props) => {
   const { departments, routeDepartment } = props;
   const findDepartment = departments.find(data => data.slug === routeDepartment);
   if (
-    findDepartment === undefined ||
-    findDepartment.slug === 'men' ||
-    findDepartment.slug === 'women'
+    findDepartment === undefined
+    || findDepartment.slug === 'men'
+    || findDepartment.slug === 'women'
   ) {
     return null;
   }
@@ -39,7 +39,7 @@ const FilterWrapper = (props) => {
 
   return (
     <div className="filterWrapper">
-      <Filter filtersData={filtersData()}/>
+      <Filter filtersData={filtersData()} />
     </div>
   );
 };
