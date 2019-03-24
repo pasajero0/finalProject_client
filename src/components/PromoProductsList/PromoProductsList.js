@@ -64,12 +64,12 @@ class PromoProductsList extends Component {
     const { isBusy, productsList } = this.state;
     const products = productsList.records.map(item => (
       <ProductListEntry
-    key={item.slug}
-    slug={item.slug}
-    picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
-    name={item.name}
-    prices={item.prices}
-    link={replaceInRoute(
+        key={item.slug}
+        slug={item.slug}
+        picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
+        name={item.name}
+        prices={item.prices}
+        link={replaceInRoute(
       `/:department/product/:product`,
       { department, product: item.slug }
   )}
@@ -88,16 +88,14 @@ class PromoProductsList extends Component {
 
         <ProductCarousel
          images={products}
-    settings={{
-      infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
+          settings={{
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
 
     }}
   />
-
-
 
           )}
           {isBusy && <ProductListLoader/>}
