@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header/Header';
+import Layout from '../../components/Layout/Layout';
 import OrderHistoryDetails from '../../components/OrderHistoryDetails/OrderHistoryDetails';
-import Footer from '../../components/Footer/Footer';
-import Product from '../../components/Product/Product';
 import { fetchOrdersHistoryData } from '../../actions/customers';
 
 import './OrdersHistory.scss';
@@ -58,8 +56,7 @@ class OrdersHistory extends Component {
     }
 
     return (
-      <>
-        <Header />
+      <Layout>
         <section className="ordersHistory">
           <div className="container">
             <div className="ordersHistory__content">
@@ -87,10 +84,10 @@ class OrdersHistory extends Component {
             </div>
           </div>
         </section>
-        <Footer />
-      </>
-    );
-  }
+      </Layout>
+    )
+  };
+
 }
 
 

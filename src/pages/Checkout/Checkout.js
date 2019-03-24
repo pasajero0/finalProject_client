@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from '../../components/Header/Header';
+import Layout from '../../components/Layout/Layout';
 import CheckoutForm from '../../components/Forms/CheckoutForm/CheckoutForm';
-import Footer from '../../components/Footer/Footer';
 
 import './Checkout.scss';
 
@@ -21,8 +20,7 @@ function Checkout(props) {
   }
   
   return (
-    <>
-      <Header />
+    <Layout>
       <section className="checkout">
         <div className="container">
           <div className="checkout__content">
@@ -33,8 +31,7 @@ function Checkout(props) {
           </div>
         </div>
       </section>
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

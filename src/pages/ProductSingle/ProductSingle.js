@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Layout from '../../components/Layout/Layout';
 import Product from '../../components/Product/Product';
 
 const propTypes = {
@@ -25,11 +24,9 @@ const defaultProps = {
 
 const ProductSingle = ({ match }) => {
   return (
-    <>
-      <Header />
+    <Layout>
       <Product routeData={match} />
-      <Footer />
-    </>
+    </Layout>
   )};
 
 ProductSingle.propTypes = propTypes;

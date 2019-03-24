@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import { connect } from 'react-redux';
+import Layout from '../../components/Layout/Layout';
 // import { FaFacebookF } from "react-icons/fa";
 // import { FaGoogle } from "react-icons/fa";
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
@@ -20,8 +19,8 @@ const defaultProps = {};
 const Account = (props) => {
   const {setLoginFormActiveStatusInAcc, isLoginFormActive} = props;
   return (
-    <div>
-      <Header/>
+    <Layout>
+
       <section className="account">
         <div className="container">
           <div className="account__content">
@@ -63,8 +62,7 @@ const Account = (props) => {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

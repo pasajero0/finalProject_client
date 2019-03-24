@@ -7,8 +7,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Layout from '../../components/Layout/Layout';
 import './ThankYou.scss';
 import { clearCart } from '../../actions/cart';
 import { clearPurchaseData } from '../../actions/customers';
@@ -45,15 +44,14 @@ class ThankYou extends Component {
     callClearPurchaseData();
   }
 
-  render () {
+  render() {
     const { isPurchaseExecuted, purchaseInfo } = this.props;
     if (!isPurchaseExecuted) {
       alert('Your cart is empty!');
-      return <Redirect to="/" />;
+      return <Redirect to="/"/>;
     }
     return (
-      <>
-        <Header />
+      <Layout>
         <section className="thankYou">
           <div className="container">
             <div className="thankYou__content">
@@ -67,8 +65,7 @@ class ThankYou extends Component {
             </div>
           </div>
         </section>
-        <Footer />
-      </>
+      </Layout>
     );
   }
 }

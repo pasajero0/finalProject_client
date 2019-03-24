@@ -19,6 +19,9 @@
 
   &__search {
     flex: 1 1;
+    display: flex;
+    padding-right:0.5rem;
+    justify-content: flex-end;
   }
 
   &__logoLink {

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavbarIcons from './NavbarIcons/NavbarIcons'
-import { NavLink } from 'react-router-dom';
+import queryString from 'query-string'
+import { NavLink, Route } from 'react-router-dom';
 import './Navbar.scss';
 import UserMenu from "./UserMenu/UserMenu";
-//import Search from './Search/Search';
+import Search from './Search/Search';
 
 const leftPosHide = { left: '-3000px' };
 const leftPosShow = { left: '0' };
@@ -34,15 +35,15 @@ class Navbar extends Component {
   }
 
   render() {
-    const { departments, department: currentDepartment } = this.props;
+    const { currentDepartment, currentDepartmentData,  departments } = this.props;
+
     // filter root level's departments for top menu
     const rootDepartments = departments.filter((department) => department.parent === "0");
     // collect data of root department
-    const current = departments.filter((department) => department.slug === currentDepartment);
     let childrenDepartments = [];
-    if (current.length) {
+    if (currentDepartmentData.slug) {
       // collect data for children departments
-      const parentId = current[0].parent === "0" ? current[0].id : current[0].parent;
+      const parentId = currentDepartmentData.parent === "0" ? currentDepartmentData.id : currentDepartmentData.parent;
       childrenDepartments = departments.filter((department) => department.parent === parentId);
     }
 
@@ -88,7 +89,7 @@ class Navbar extends Component {
           </div>
 
             <div className="navbar__search">
-              {/*<Search/>*/}
+              <Search />
             </div>
             <div className="navbar__tools">
               <NavbarIcons/>
@@ -153,6 +154,10 @@ Navbar.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   departments: state.app.departments,
+  currentDepartment: state.products.currentDepartment,
+  currentDepartmentData:  state.products.currentDepartmentData,
 });
 
-export default connect(mapStateToProps, null)(Navbar);
+
+const C =  connect(mapStateToProps, null)(Navbar);
+export default props => <Route render={routeProps => <C {...routeProps} {...props} />}/>;

@@ -1,5 +1,13 @@
 @import '../../vars';
 
+@mixin image-box-absolute(){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .imageSlider {
 
   &__content {
@@ -20,19 +28,26 @@
   }
 
   &__mainImg {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    @include image-box-absolute();
     opacity: 0;
     display: block;
-    width: 100%;
-    height: 100%;
     transition: .3s linear;
-
+    z-index: 1;
     &_current {
       opacity: 1;
+      z-index: 2;
     }
+
   }
+  &__mainImg_sm{
+    @include image-box-absolute();
+    display:none;
+  }
+  &__mainImg_lg{
+    @include image-box-absolute();
+    display:block;
+  }
+
 
   &__smImg {
     flex: 0 0 100px;
@@ -82,8 +97,14 @@
 }
 
 @media (max-width: 980px) {
-
   .imageSlider {
+    &__mainImg_sm{
+      display:block;
+    }
+    &__mainImg_lg{
+      display:none;
+    }
+
 
     &__content {
       flex-direction: column;
@@ -111,8 +132,6 @@
     }
   }
 }
-
-
 
 @media (max-width: 670px) {
 

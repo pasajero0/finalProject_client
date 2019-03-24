@@ -54,7 +54,7 @@ const NavbarIcons = ({ cartCount, isAuthenticated, callSetUserMenuVisibility }) 
 
       <li className="navbarIcons__item">
         {cartCount > 0 && (
-          <NavLink to="/cart" className="navbarIcons__link" id="shoppingCartIcon">
+          <NavLink to="/cart" className="navbarIcons__link">
             <Tool icon={FiShoppingCart}>
               <div className="navbarIcons__quantity">
                 {cartCount}

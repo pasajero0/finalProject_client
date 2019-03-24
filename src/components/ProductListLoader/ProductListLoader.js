@@ -29,22 +29,16 @@ const defaultProps = {
 const ProductListLoader = ({ ...props }) =>{
   return (
     <div
-      style={{ minHeight: '80vh', position: 'relative' }}
-    >
-    <span
       style={{
-        top: '50%',
-        left: '50%',
-        position: 'absolute',
-        transform: 'translate(-50%, -50%)'
+        margin: '1rem auto',
+        textAlign: 'center'
       }}
     >
       <RenderLoader
         size={50}
         color="lightgrey"
       />
-     </span>
-    </div>
+     </div>
   );
 };
 
