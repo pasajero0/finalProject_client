@@ -3,13 +3,9 @@
 .productListEntry {
   display: flex;
   justify-content: center;
-  margin-right: 1%;
-  width: 24%;
-  margin-bottom: 30px;
-
-  &:nth-child(4n) {
-    margin-right: 0;
-  }
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
 
   &__content {
     display: flex;
@@ -109,16 +105,7 @@
 @media (max-width: 980px) {
 
   .productListEntry {
-    width: 31%;
-    margin-right: 3%;
-
-    &:nth-child(3n) {
-      margin-right: 0%;
-    }
-
-    &:nth-child(4n) {
-      margin-right: 3%;
-    }
+    width: 33%;
 
     &__nameLink {
       font-size: 20px;
@@ -144,17 +131,7 @@
 
   .productListEntry {
 
-    width: 48%;
-    margin-right: 2%;
-
-    &:nth-child(2n) {
-      margin-right: 0%;
-    }
-
-    &:nth-child(4n),
-    &:nth-child(3n) {
-      margin-right: 2%;
-    }
+    width: 50%;
 
     &__nameLink {
       font-size: 16px;
@@ -222,12 +199,6 @@
   .productListEntry {
 
     width: 100%;
-    margin-right: 0%;
-
-    &:nth-child(4n),
-    &:nth-child(3n) {
-      margin-right: 0%;
-    }
 
     &__nameLink {
       font-size: 18px;
