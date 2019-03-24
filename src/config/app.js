@@ -14,3 +14,4 @@ export const URL_API_GET_RESET_PASSWORD_TOKEN = `${process.env.REACT_APP_SERVER_
 export const URL_API_SAVE_PASSWORD = `${process.env.REACT_APP_SERVER_URL}/password/save`;
 export const URL_API_ADD_ORDERS = `${process.env.REACT_APP_SERVER_URL}/orders/add`;
 export const URL_API_FETCH_SEARCH_HINTS = `${process.env.REACT_APP_SERVER_URL}/products/search-hints`;
+

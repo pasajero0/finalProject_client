@@ -1,3 +1,4 @@
+
 .promoProductsList {
 
   overflow: hidden;
@@ -18,12 +19,15 @@
   }
 
   .productListEntry {
-    flex: 0 0 266px;
-    margin-bottom: 0px;
-  }
+    width: 100%;
 
-  &__imgLink {
-    flex: 0 0 266px;
+    //&__imgLink {
+    //  flex: 0 0 266px;
+    //
+    //  &__img {
+    //    width: 100%;
+    //  }
+    //}
   }
 }
 
@@ -32,16 +36,14 @@
   .promoProductsList {
 
     .productListEntry {
-      width: 19%;
-      margin-right: 1%;
-    }
 
-    .productListEntry__nameLink {
-      font-size: 16px;
-    }
+      &__nameLink {
+        font-size: 16px;
+      }
 
-    &__price {
-      font-size: 16px;
+      &__price {
+        font-size: 16px;
+      }
     }
   }
 }
@@ -51,17 +53,18 @@
 
   .promoProductsList {
 
-    .productListEntry__nameLink {
-      font-size: 14px;
-    }
+    .productListEntry {
 
-    &__price {
-      font-size: 14px;
+      &__nameLink {
+        font-size: 14px;
+      }
+
+      &__price {
+        font-size: 14px;
+      }
     }
   }
 }
-
-
 
 
 
