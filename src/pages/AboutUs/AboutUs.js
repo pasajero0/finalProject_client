@@ -4,8 +4,10 @@ import Footer from '../../components/Footer/Footer';
 import './AboutUs.scss'
 
 
+
 const AboutUs = () => (
   <>
+    <Helmet />
     <Header />
     <div className="container">
       <div className="aboutUs">
