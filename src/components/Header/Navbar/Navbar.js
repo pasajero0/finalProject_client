@@ -89,7 +89,7 @@ class Navbar extends Component {
           </div>
 
             <div className="navbar__search">
-              <Search />
+              <Search key={currentDepartment}/>
             </div>
             <div className="navbar__tools">
               <NavbarIcons/>

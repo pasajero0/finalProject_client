@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import queryString from 'query-string';
 import { FiSearch } from 'react-icons/fi';
@@ -52,7 +53,7 @@ class Search extends Component {
     }));
   }
   onChange(value) {
-    const { match: { params: { department } } } = this.props;
+    const { currentDepartment:department } = this.props;
     this.setState((prevState) => ({
       ...prevState,
       hints: [],
@@ -155,8 +156,8 @@ class Search extends Component {
         >
           <Tool icon={FiSearch}/>
         </button>
-        {isFocused && hints.length > 0 && (
-          <div className="search__hintsBox">
+        {hints.length > 0 && (
+          <div className="search__hintsBox" style={{display: isFocused ? 'block' : 'none'}}>
             <ul className="search__hints">
               {hints.map(h => (
                 <li
@@ -168,33 +169,14 @@ class Search extends Component {
             </ul>
           </div>
         )}
-
-
-        {/*
-        <div className="search__form">
-          <form action="#" method="get"
-                className={this.state.isOpenForm ? "searchForm open" : "searchForm"}>
-            <input className="searchForm__searchInput" type="search" name="search" placeholder="Search"/>
-            <span className="searchForm__clean"></span>
-            <button type="submit" className="searchForm__btn">
-              <FiSearch className="searchForm__icon"/>
-            </button>
-          </form>
-
-
-          <div className="searchResult">
-            <ul className="search__list">
-              <li className="searchFormResult__item">
-                <a href="#" className="searchFormResult__link"></a>
-              </li>
-            </ul>
-          </div>
-        </div>*/}
-
-
       </div>
     )
   }
 }
 
-export default props => <Route render={routeProps => <Search {...routeProps} {...props} />}/>;
+const mapStateToProps = state => ({
+  currentDepartment: state.products.currentDepartment,
+});
+
+const C =  connect(mapStateToProps, null)(Search);
+export default props => <Route render={routeProps => <C {...routeProps} {...props} />}/>;
