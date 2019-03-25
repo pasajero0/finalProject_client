@@ -3,8 +3,8 @@ import { FiHeart } from "react-icons/fi";
 import './SaveProdutForLaterIcon.scss';
 
 const SaveProductForLaterIcon = (props) => {
-  const { customClass } = props;
-  return <FiHeart className={customClass} />
+  const { className } = props;
+  return <FiHeart className={className} />
 };
 
 export default SaveProductForLaterIcon;

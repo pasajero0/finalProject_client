@@ -12,7 +12,7 @@
   }
 
   &__title {
-    font-family: $playfair;
+    font-family: $title;
     font-size: 45px;
     text-align: center;
     margin-bottom: 20px;
@@ -40,7 +40,7 @@
   }
 
   &__loginButton, &__registerButton {
-    font-family: $oswald;
+    font-family: $navigation;
     font-size: 25px;
     padding: 0;
     outline: none;
@@ -60,7 +60,7 @@
     font-size: 13px;
     color: $primary;
     text-align: center;
-    font-family: $oswald;
+    font-family: $navigation;
     line-height: 20px;
 
     & a {

@@ -61,8 +61,8 @@ class OrdersHistory extends Component {
           <div className="container">
             <div className="ordersHistory__content">
               <h1 className="ordersHistory__title">Orders History</h1>
-              <span className="ordersHistory__longLine" />
-              <span className="ordersHistory__shortLine" />
+              {/*<span className="ordersHistory__longLine" />*/}
+              {/*<span className="ordersHistory__shortLine" />*/}
               <div className="ordersHistory__wrapper">
                 {isFetching
                   ? <div>Loading...</div>

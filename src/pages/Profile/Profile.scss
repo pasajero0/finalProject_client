@@ -2,7 +2,7 @@
 
 .profile {
     min-height: calc(100vh - 170px);
-    padding: 20px 0 40px;
+    padding-bottom: 40px;
 
     &__content {
         display: flex;
@@ -12,10 +12,7 @@
     }
 
     &__title {
-        font-family: $playfair;
-        font-size: 45px;
-        text-align: center;
-        margin-bottom: 20px;
+        @include title;
     }
 
     &__longLine, &__shortLine {
@@ -41,9 +38,14 @@
         margin-top: 60px;
 
         & a {
-            color: $secondary;
-            font-size: 13px;
+          color: $secondary;
+          font-size: 13px;
+          font-family: $text;
         }
+    }
+
+    &__text {
+        font-family: $text;
     }
 
     &__button {
@@ -54,7 +56,7 @@
         background: $primary_dark;
         text-transform: uppercase;
         font-weight: bold;
-        font-family: $oswald;
+        font-family: $navigation;
         outline: none;
         border: none;
         cursor: pointer;
@@ -65,10 +67,6 @@
 @media (max-width: 480px) {
 
     .profile {
-        margin-top: 88px;
-
-        &__title {
-            font-size: 35px;
-        }
+        margin-top: 108px;
     }
 }

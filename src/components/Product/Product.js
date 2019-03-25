@@ -83,7 +83,7 @@ class Product extends Component {
   }
 
   onSaveProductForLater() {
-    this.setState({ ...this.state, isProductSaved: !this.state.isProductSaved });
+    this.setState({ isProductSaved: !this.state.isProductSaved });
   }
 
   render() {
@@ -121,7 +121,7 @@ class Product extends Component {
                       Add to cart
                     </button>
                     <button type="button" className="product__save" onClick={this.onSaveProductForLater.bind(this)}>
-                      <SaveProductForLaterIcon customClass={isProductSaved
+                      <SaveProductForLaterIcon className={isProductSaved
                         ? 'saveProductForLaterIcon saveProductForLaterIcon_saved'
                         : 'saveProductForLaterIcon'
                       } />

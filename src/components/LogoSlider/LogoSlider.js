@@ -18,20 +18,40 @@ const defaultProps = {
         adaptiveHeight: true,
         autoplay: true,
         autoplaySpeed: 2000,
-        pauseOnHover: true
+        pauseOnHover: true,
+        responsive: [
+            {
+                breakpoint: 980,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 330,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     }
 };
 
 const LogoSlider = ({ images, settings }) => (
-    <div className="logoSlider">
-        <div className="logoSlider__name">Brands</div>
-        <SlickSlider {...settings} className="logoSlider">
-            {images.map(image =>
-                <div key={image.id}>
-                    <img className="logoSlider__img" src={image.src} alt={image.alt} />
-                </div>)}
-        </SlickSlider>
-    </div>
+    <section className="logoSlider">
+        <div className="container">
+            <div className="logoSlider__content">
+                <div className="logoSlider__name">Brands</div>
+                <SlickSlider {...settings} className="logoSlider">
+                    {images.map(image =>
+                        <div key={image.id}>
+                            <img className="logoSlider__img" src={image.src} alt={image.alt} />
+                        </div>)}
+                </SlickSlider>
+            </div>
+        </div>
+    </section>
 );
 
 LogoSlider.propTypes = propTypes;

@@ -45,10 +45,10 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
     return (
       <section className="cart">
         <div className="container">
-          <div className="account__content">
+          <div className="cart__content">
               <h1 className="cart__title">Cart</h1>
-              <span className="cart__longLine" />
-              <span className="cart__shortLine" />
+              {/*<span className="cart__longLine" />*/}
+              {/*<span className="cart__shortLine" />*/}
               <p className="cart__message">Your cart is empty :(</p>
               <FiShoppingCart className="cart__emptyImg"/>
           </div>
@@ -61,8 +61,8 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
       <div className="container">
         <div className="account__content">
           <h1 className="cart__title">Cart</h1>
-          <span className="cart__longLine" />
-          <span className="cart__shortLine" />
+          {/*<span className="cart__longLine" />*/}
+          {/*<span className="cart__shortLine" />*/}
           <div className="cartTableHeader">
             <div className="cartTableHeader__close"></div>
             <div className="cartTableHeader__product">Product</div>

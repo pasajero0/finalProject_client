@@ -62,8 +62,8 @@ const Profile = ({
         <div className="container">
           <div className="profile__content">
             <h1 className="profile__title">Your profile</h1>
-            <span className="profile__longLine" />
-            <span className="profile__shortLine" />
+            {/*<span className="profile__longLine" />*/}
+            {/*<span className="profile__shortLine" />*/}
 
             <div className="profile__info">
               <p className="profile__text">email: { profile.email }</p>

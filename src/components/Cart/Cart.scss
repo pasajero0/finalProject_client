@@ -2,7 +2,7 @@
 
 .cart {
   min-height: calc(100vh - 170px);
-  padding: 20px 0 40px;
+  padding-bottom: 40px;
 
   &__content {
     display: flex;
@@ -12,10 +12,7 @@
   }
 
   &__title {
-    font-family: $playfair;
-    font-size: 45px;
-    text-align: center;
-    margin-bottom: 20px;
+    @include title;
   }
 
   &__longLine,
@@ -35,7 +32,14 @@
   }
 
   &__message {
+    font-family: $text;
     margin-top: 60px;
+    font-size: 30px;
+  }
+
+  &__emptyImg {
+    padding-top: 30px;
+    font-size: 60px;
   }
 
   &__total {
@@ -43,15 +47,12 @@
     align-items: center;
     width: 80%;
     height: 70px;
-    // background-color: $primary_200;
     flex-direction: row;
     justify-content: center;
     border-top: 1px solid black;
 
 
     span {
-      // padding-right: 40px;
-      // padding-left: 60px;
       font-size: 18px;
       font-weight: bold;
     }
@@ -59,14 +60,11 @@
 
   &__totalSpace {
     flex-basis: 10%;
-
-
   }
 
   &__totalTitle {
     flex-basis: 70%;
     text-align: left;
-
   }
 
   &__totalPrice {
@@ -93,6 +91,7 @@
   width: 80%;
   padding-bottom: 20px;
   margin-top: 60px;
+  font-family: $text;
   border-bottom: 2px solid $primary_dark;
   text-align: center;
   font-size: 20px;
@@ -100,7 +99,6 @@
   &__product {
     flex-basis: 50%;
     text-align: left;
-
   }
 
   &__quantity {
@@ -115,28 +113,18 @@
     flex-basis: 10%;
   }
 }
-.cart__message {
-  padding-top: 30px;
-  font-size: 30px;
-}
-.cart__emptyImg {
-  padding-top: 30px;
-  font-size: 80px;
-}
+
 
 @media (max-width: 480px) {
 
   .cart {
-    margin-top: 88px;
-
-    &__title {
-      font-size: 35px;
-    }
+    margin-top: 108px;
 
     &__total {
       width: 100%;
     }
   }
+
   .cartTableHeader {
     width: 100%;
   }

@@ -1,24 +1,27 @@
 @import '../../vars';
 
-.productListHeader{
-  margin-bottom:2rem;
-  &__title{
-    font-family: $playfair;
-    font-size:3.5rem;
-    text-align:center;
-    line-height:1.25em;
+.productListHeader {
+    margin-bottom: 2rem;
+
+  &__title {
+    font-family: $title;
+    font-size: 3.5rem;
+    text-align: center;
+    line-height: 1.25em;
   }
-  &__subTitle{
-    font-family: $poppins;
-    font-size:1rem;
-    line-height:1.345em;
-    text-align:center;
-    margin-bottom:0.25em;
+
+  &__subTitle {
+    font-family: $text;
+    font-size: 1rem;
+    line-height: 1.345em;
+    text-align: center;
+    margin-bottom: 0.25em;
   }
-  &__stat{
-    font-family: $poppins;
-    font-size:0.75rem;
-    line-height:1.345em;
-    text-align:center;
+
+  &__stat {
+    font-family: $text;
+    font-size: 0.75rem;
+    line-height: 1.345em;
+    text-align: center;
   }
 }

@@ -6,7 +6,7 @@ html, body, div#root {
 }
 
 body {
-  font-family: $oswald;
+  font-family: $navigation;
   box-sizing: border-box;
 }
 
@@ -16,7 +16,7 @@ body {
   flex-direction: column;
 
   &__header {
-    flex: 0 0 160px;
+    //flex: 0 0 160px;
   }
 
   &__content {
