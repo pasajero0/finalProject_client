@@ -1,4 +1,8 @@
 /* Slider */
+
+@import '../../vars';
+
+
 .logoSlider {
 
   width: 100%;
@@ -24,7 +28,7 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 30px;
-    font-family: "Poppins", sans-serif;
+    font-family: $text;
   }
 
   & .logoSlider__img {

@@ -6,11 +6,11 @@
   padding: 20px 0px;
   height: 350px;
 
-  .footer__content {
+  &__content {
     display: flex;
   }
 
-  .footer__contacts {
+  &__contacts {
     width: 35%;
     margin-left: 5%;
   }
@@ -63,15 +63,15 @@
 }
 
 @media screen and (max-width: 480px) {
+
   .footer {
     height: 570px;
 
-
-    .footer__content {
+    &__content {
       flex-direction: column;
     }
 
-    .footer__contacts {
+    &__contacts {
       width: 100%;
       margin-left: 0;
       margin-top: 15px;

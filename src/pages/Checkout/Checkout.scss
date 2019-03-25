@@ -1,7 +1,7 @@
 @import '../../vars';
 
 .checkout{
-    padding: 20px 0 40px;
+    padding-bottom: 40px;
 
     &__content {
         display: flex;
@@ -11,10 +11,7 @@
     }
 
     &__title {
-        font-family: $playfair;
-        font-size: 45px;
-        text-align: center;
-        margin-bottom: 20px;
+        @include title;
     }
 
     &__longLine, &__shortLine {
@@ -36,10 +33,6 @@
 @media (max-width: 480px) {
 
     .checkout {
-        margin-top: 88px;
-
-        &__title {
-            font-size: 35px;
-        }
+        margin-top: 108px;
     }
 }

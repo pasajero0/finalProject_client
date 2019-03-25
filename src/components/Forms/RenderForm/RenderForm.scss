@@ -12,17 +12,20 @@
 	}
 
 	&__inputs {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		max-width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+      //flex-direction: column;
+      justify-content: space-around;
+		//max-width: 500px;
 	}
+
 	&__buttons{
 		display: flex;
 		justify-content: space-around;
 	    margin-top: 40px;
 	}
-	&__btn{
+
+	&__btn {
 		width: 160px;
 	    padding: 12px 0px;
 		font-size: 15px;
@@ -30,13 +33,14 @@
 	    background: $primary_dark;
 	    text-transform: uppercase;
 		font-weight: bold;
-		font-family: $oswald;
+		font-family: $navigation;
 		letter-spacing: 3px;
 	    outline: none;
 	    border: none;
 	    cursor: pointer;
 	    margin: 0 10px;
 	}
+
 	&__message {
 		text-align: center;
 		height: 15px;

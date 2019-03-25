@@ -3,7 +3,7 @@
 .ordersHistory {
 
     min-height: calc(100vh - 170px);
-    padding: 20px 0 40px;
+    padding-bottom: 40px;
 
     &__content {
         display: flex;
@@ -13,10 +13,7 @@
     }
 
     &__title {
-        font-family: $playfair;
-        font-size: 45px;
-        text-align: center;
-        margin-bottom: 20px;
+        @include title;
     }
 
     &__longLine, &__shortLine {
@@ -36,9 +33,6 @@
 
     &__wrapper {
         margin-top: 60px;
-        //max-width: 600px;
-        //min-height: 70vh;
-        //margin: 0 auto;
     }
 
     &__cardInfo {
@@ -58,24 +52,19 @@
     }
 
     &__cardInfoField {
+        font-family: $text;
         margin-bottom: 10px;
     }
 
     &__cardInfoFieldStrong {
         color: $secondary;
     }
-
-
 }
 
 @media (max-width: 480px) {
 
     .ordersHistory {
-        margin-top: 88px;
-
-        &__title {
-            font-size: 35px;
-        }
+        margin-top: 108px;
 
         &__cardInfo {
           margin-right: 0px;

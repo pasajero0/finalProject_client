@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import SocMedia from '../SocMedia/SocMedia';
 import { FaEnvelope } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";

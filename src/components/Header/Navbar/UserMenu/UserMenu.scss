@@ -1,3 +1,6 @@
+@import '../../../../vars';
+
+
 .userMenu {
   position: absolute;
   top: 50px;
@@ -30,7 +33,7 @@
 
   &__link {
     box-sizing: border-box;
-    font-family: "Oswald";
+    font-family: $navigation;
     display: block;
     position: relative;
     min-width: 200px;

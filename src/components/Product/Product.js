@@ -83,7 +83,7 @@ class Product extends Component {
   }
 
   onSaveProductForLater() {
-    this.setState({ ...this.state, isProductSaved: !this.state.isProductSaved });
+    this.setState({ isProductSaved: !this.state.isProductSaved });
   }
 
   render() {

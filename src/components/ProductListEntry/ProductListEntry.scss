@@ -38,14 +38,14 @@
     color: $primary_dark;
     font-size: 16px;
     line-height: 20px;
-    font-family: $poppins;
+    font-family: $text;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
   &__price {
-    font-family: $poppins;
+    font-family: $text;
     color: $primary_dark;
     letter-spacing: 1px;
     font-size: 18px;

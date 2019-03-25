@@ -49,7 +49,7 @@ const Homepage = () => (
                 { id: 11, src: `${ImagesDir}/logo_images/Puma.jpg`, alt: 'Puma' },
                 { id: 12, src: `${ImagesDir}/logo_images/Zara.jpg`, alt: 'Zara' },
             ]}
-            settings={{
+            settings= {{
                 infinite: true,
                 speed: 500,
                 slidesToShow: 6,
@@ -57,7 +57,23 @@ const Homepage = () => (
                 adaptiveHeight: true,
                 autoplay: true,
                 autoplaySpeed: 2000,
-                pauseOnHover: true
+                pauseOnHover: true,
+                responsive: [
+            {
+                breakpoint: 980,
+                settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            }
+            },
+            {
+                breakpoint: 330,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+            }
+                ]
             }}
         />
 

@@ -1,7 +1,7 @@
 @import '../../../vars';
 
 .cartItem {
-    font-family: $poppins;
+    font-family: $text;
     display: flex;
     width: 80%;
     flex-direction: row;
@@ -31,6 +31,7 @@
         text-align: left;
         align-items: center;
         padding: 10px 0;
+        font-family: $text;
     }
 
     &__counter {
@@ -47,7 +48,7 @@
     }
 
     &__price {
-        flex-basis: 20%;
+      flex-basis: 20%;
     }
 
     &__img {
@@ -56,15 +57,17 @@
     }
 
     &__title {
-        color: $primary;
-        padding-left: 15px;
+      color: $primary;
+      padding-left: 15px;
     }
 
 }
 
 @media (max-width: 480px) {
-    .cartItem {
+
+  .cartItem {
         width: 100%;
+
         &__title {
             font-size: 14px;
         }
