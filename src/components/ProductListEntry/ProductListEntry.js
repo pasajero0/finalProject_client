@@ -25,14 +25,14 @@ const ProductListEntry = ({ link, picture, name, slug, prices }) => (
           alt={name}
           className="productListEntry__img"
         />
-        <button className="productListEntry__btn" type="button">
-          <SaveProductForLaterIcon className="saveProductForLaterIcon" />
-        </button>
       </NavLink>
       <NavLink to={link} className="productListEntry__nameLink">
         {name}
       </NavLink>
       <span className="productListEntry__price">${prices.retail}</span>
+      <button className="productListEntry__btn" type="button">
+          <SaveProductForLaterIcon className="saveProductForLaterIcon" />
+      </button>
     </div>
   </div>
 );

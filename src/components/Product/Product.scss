@@ -100,35 +100,40 @@
       color: $secondary;
       fill: $secondary;
       animation-name: heartBeat;
-      animation-duration: 1.3s;
+      animation-duration: .8s;
       animation-timing-function: ease-in-out;
     }
 
       @keyframes heartBeat {
-        0% {
+        0%, 100% {
           -webkit-transform: scale(1);
           transform: scale(1);
         }
 
-        14% {
+        50% {
           -webkit-transform: scale(1.3);
           transform: scale(1.3);
         }
 
-        28% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
-
-        42% {
-          -webkit-transform: scale(1.3);
-          transform: scale(1.3);
-        }
-
-        70% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
+        //14% {
+        //  -webkit-transform: scale(1.3);
+        //  transform: scale(1.3);
+        //}
+        //
+        //28% {
+        //  -webkit-transform: scale(1);
+        //  transform: scale(1);
+        //}
+        //
+        //42% {
+        //  -webkit-transform: scale(1.3);
+        //  transform: scale(1.3);
+        //}
+        //
+        //70% {
+        //  -webkit-transform: scale(1);
+        //  transform: scale(1);
+        //}
       }
     }
 

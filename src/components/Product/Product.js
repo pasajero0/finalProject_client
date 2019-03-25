@@ -121,7 +121,7 @@ class Product extends Component {
                       Add to cart
                     </button>
                     <button type="button" className="product__save" onClick={this.onSaveProductForLater.bind(this)}>
-                      <SaveProductForLaterIcon customClass={isProductSaved
+                      <SaveProductForLaterIcon className={isProductSaved
                         ? 'saveProductForLaterIcon saveProductForLaterIcon_saved'
                         : 'saveProductForLaterIcon'
                       } />

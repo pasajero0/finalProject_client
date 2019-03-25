@@ -23,15 +23,19 @@ const defaultProps = {
 };
 
 const LogoSlider = ({ images, settings }) => (
-    <div className="logoSlider">
-        <div className="logoSlider__name">Brands</div>
-        <SlickSlider {...settings} className="logoSlider">
-            {images.map(image =>
-                <div key={image.id}>
-                    <img className="logoSlider__img" src={image.src} alt={image.alt} />
-                </div>)}
-        </SlickSlider>
-    </div>
+    <section className="logoSlider">
+        <div className="container">
+            <div className="logoSlider__content">
+                <div className="logoSlider__name">Brands</div>
+                <SlickSlider {...settings} className="logoSlider">
+                    {images.map(image =>
+                        <div key={image.id}>
+                            <img className="logoSlider__img" src={image.src} alt={image.alt} />
+                        </div>)}
+                </SlickSlider>
+            </div>
+        </div>
+    </section>
 );
 
 LogoSlider.propTypes = propTypes;

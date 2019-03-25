@@ -22,14 +22,15 @@
     overflow: hidden;
 
     &:hover .productListEntry__img {
-      transform: scale(1.2);
-      transition: all .5s ease-out;
+      transform: scale(1.1);
     }
   }
 
   &__img {
     display: inline-block;
     max-width: 100%;
+    transition: all .5s ease-out;
+
   }
 
   &__nameLink {
@@ -52,7 +53,7 @@
 
   &__btn {
     position: absolute;
-    bottom: 84px;
+    bottom: 74px;
     right: 10px;
     display: flex;
     outline: none;
@@ -65,40 +66,46 @@
       color: $secondary;
       fill: $secondary;
       animation-name: heartBeat;
-      animation-duration: 1.3s;
+      animation-duration: .8s;
       animation-timing-function: ease-in-out;
     }
 
     @keyframes heartBeat {
-      0% {
+      0%, 100%  {
         -webkit-transform: scale(1);
         transform: scale(1);
       }
 
-      14% {
+      50% {
         -webkit-transform: scale(1.3);
         transform: scale(1.3);
       }
 
-      28% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
-
-      42% {
-        -webkit-transform: scale(1.3);
-        transform: scale(1.3);
-      }
-
-      70% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
+      //14% {
+      //  -webkit-transform: scale(1.3);
+      //  transform: scale(1.3);
+      //}
+      //
+      //28% {
+      //  -webkit-transform: scale(1);
+      //  transform: scale(1);
+      //}
+      //
+      //42% {
+      //  -webkit-transform: scale(1.3);
+      //  transform: scale(1.3);
+      //}
+      //
+      //70% {
+      //  -webkit-transform: scale(1);
+      //  transform: scale(1);
+      //}
     }
   }
 
   .saveProductForLaterIcon {
-    color: $secondary;
+    color: $primary_dark;
+    font-size: 20px;
   }
 }
 
@@ -108,21 +115,17 @@
     width: 33%;
 
     &__nameLink {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 24px;
     }
 
     &__price {
-      font-size: 22px;
+      font-size: 20px;
     }
 
     &__btn {
-      bottom: 104px;
-      right: 20px;
-    }
-
-    .saveProductForLaterIcon {
-      font-size: 40px;
+      bottom: 84px;
+      right: 10px;
     }
   }
 }
@@ -142,54 +145,8 @@
     }
 
     &__btn {
-      bottom: 94px;
+      bottom: 84px;
       right: 10px;
-    }
-
-    .saveProductForLaterIcon {
-      font-size: 25px;
-      color: $secondary;
-
-      &:hover,
-      &:active,
-      &:focus {
-        fill: $secondary;
-      }
-    }
-
-    &_saved {
-      color: $secondary;
-      fill: $secondary;
-      animation-name: heartBeat;
-      animation-duration: 1.3s;
-      animation-timing-function: ease-in-out;
-    }
-
-    @keyframes heartBeat {
-      0% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
-
-      14% {
-        -webkit-transform: scale(1.3);
-        transform: scale(1.3);
-      }
-
-      28% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
-
-      42% {
-        -webkit-transform: scale(1.3);
-        transform: scale(1.3);
-      }
-
-      70% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
     }
   }
 }
@@ -211,10 +168,6 @@
     &__btn {
       bottom: 84px;
       right: 10px;
-    }
-
-    .saveProductForLaterIcon {
-      font-size: 25px;
     }
   }
 }
