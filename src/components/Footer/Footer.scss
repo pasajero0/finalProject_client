@@ -6,8 +6,15 @@
   padding: 20px 0px;
   height: 350px;
 
+
+  &__logo {
+    margin-bottom:1rem;
+  }
+
   .footer__content {
     display: flex;
+justify-content: center;
+    justify-items: center;
   }
 
   .footer__contacts {
@@ -22,27 +29,32 @@
     font-size: 34px;
   }
 
-  .phone {
+  &__phone {
     margin: 20px 0;
-
-    &__link {
-      color: $primary_light;
-      cursor: pointer;
+    font-family: $poppins;
+    font-size: 1rem;
+    line-height:1.5em;
+    & a{
+      color:$primary_light;
     }
   }
 
-  .address {
-    font-size: 18px;
+  &__address {
+    font-family: $poppins;
+    font-size: 1rem;
+    line-height:1.5em;
     padding: 10px 0;
   }
 
-  .email {
-    margin-bottom: 30px;
+  &__email {
+    font-family: $poppins;
+    margin-bottom: 1.5rem;
+white-space: nowrap;
 
-    &__link {
-      color: $primary_light;
-      cursor: pointer;
+    & a{
+      color:$primary_light;
     }
+
   }
 }
 
