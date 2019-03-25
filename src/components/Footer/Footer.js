@@ -14,10 +14,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">  
         <div className="footer__content">
-          <Map/>
+        <div className="footer__map"><Map/></div>
          <div className="footer__contacts">
            <p className="footer__logo">
-
             <NavLink to="/">
                 <CompanyLogo fill="#ffff" width="60" height="40"/>
             </NavLink>

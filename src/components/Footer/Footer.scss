@@ -8,18 +8,22 @@
 
 
   &__logo {
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
   }
 
   .footer__content {
     display: flex;
-justify-content: center;
-    justify-items: center;
+    justify-content: space-between;
   }
 
   .footer__contacts {
     width: 35%;
-    margin-left: 5%;
+    padding-left: 5%;
+
+  }
+
+  .footer__map {
+    width: 65%;
   }
 
   .mainLogo {
@@ -33,33 +37,34 @@ justify-content: center;
     margin: 20px 0;
     font-family: $poppins;
     font-size: 1rem;
-    line-height:1.5em;
-    & a{
-      color:$primary_light;
+    line-height: 1.5em;
+
+    & a {
+      color: $primary_light;
     }
   }
 
   &__address {
     font-family: $poppins;
     font-size: 1rem;
-    line-height:1.5em;
+    line-height: 1.5em;
     padding: 10px 0;
   }
 
   &__email {
     font-family: $poppins;
     margin-bottom: 1.5rem;
-white-space: nowrap;
+    white-space: nowrap;
 
-    & a{
-      color:$primary_light;
+    & a {
+      color: $primary_light;
     }
 
   }
 }
 
 .map {
-  width: 60%;
+  width: 50%;
 }
 
 .mapMarkerStyle {
@@ -74,13 +79,21 @@ white-space: nowrap;
   color: $primary_light;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .footer {
-    height: 570px;
+    height: 600px;
 
 
     .footer__content {
       flex-direction: column;
+    }
+
+    .footer__map {
+      width: 100%;
+    }
+
+    &__phone {
+      margin: 5px 0;
     }
 
     .footer__contacts {
@@ -92,7 +105,7 @@ white-space: nowrap;
 
     .mainLogo {
       font-size: 22px;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .address {

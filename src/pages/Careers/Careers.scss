@@ -61,3 +61,20 @@
         padding-bottom: 10px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .careers__imgBlock {
+        span {
+            font-size: 30px;;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .careers__imgBlock {
+        span {
+            font-size: 20px;
+            ;
+        }
+    }
+}
