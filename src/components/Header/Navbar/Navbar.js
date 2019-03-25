@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import NavbarIcons from './NavbarIcons/NavbarIcons'
-import queryString from 'query-string'
 import { NavLink, Route } from 'react-router-dom';
 import './Navbar.scss';
 import UserMenu from "./UserMenu/UserMenu";
 import Search from './Search/Search';
+import CompanyLogo from '../../CompanyLogo/CompanyLogo';
 
 const leftPosHide = { left: '-3000px' };
 const leftPosShow = { left: '0' };
@@ -64,7 +64,7 @@ class Navbar extends Component {
 
             <div className="navbar__logo">
               <NavLink to="/" className="navbar__logoLink">
-                <div className="mainLogo">Uno</div>
+                 <CompanyLogo fill="#000000" width="64" height="40"/>
               </NavLink>
             </div>
 

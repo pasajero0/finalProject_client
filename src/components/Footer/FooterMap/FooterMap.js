@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MapGL, {Marker } from 'react-map-gl';
-import { GoLocation } from "react-icons/go";
+import { GoLocation } from 'react-icons/go';
+import CompanyLogo from '../../CompanyLogo/CompanyLogo';
 import '../Footer.scss';
 
 const TOKEN = 'pk.eyJ1IjoidmFsZW50aW5hNTMyIiwiYSI6ImNqb3cxaHVmdTFia2gza3M1MzNpcGowcTUifQ.aF2_XmuIhvKLDm4gPZGcUw';
@@ -27,7 +28,7 @@ class Map extends Component {
       >
         <Marker latitude={40.720820} longitude={-73.9950622} >
          <GoLocation className="mapMarkerStyle"/>
-         <p className="mapLabelStyle">UNO</p>
+         <p className="mapLabelStyle"><CompanyLogo fill="#ffff" width="40" height="31"/></p>
         </Marker>
       </MapGL>
     );
