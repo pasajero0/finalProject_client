@@ -3,12 +3,20 @@ import Layout from '../../components/Layout/Layout';
 import GenderBanners from '../../components/GenderBanners/GenderBanners';
 import Slider from '../../components/Slider/Slider';
 import PromoProductsList from '../../components/PromoProductsList/PromoProductsList';
+import { Helmet } from "react-helmet";
 
 
 const ImagesDir = process.env.PUBLIC_URL;
 
 const Homepage = () => (
   <Layout>
+       <Helmet>
+        <title>Boutique store for latest in Men’s and Women’s fashion.</title>
+          <meta name="keywords" content="uno, men's clothing, women's clothing" />
+          <meta name="description" content="Luxury Men's and Women's Clothing, Made in Italy since 1934.
+           UNO is a paradigm of Italian craftsmanship: discover how timeless style and contemporary elegance
+            come together in our new Clothing collection." />
+    </Helmet>
     <Slider
       images={[
         { id: 1, src: `${ImagesDir}/slider-images/1.jpg`, alt: '' },
