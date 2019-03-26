@@ -1,9 +1,10 @@
+@import '../../vars';
+
 .pagination {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 0 0 1rem 0;
-  padding: 0;
+  padding: 20px 0px;
   flex-wrap: nowrap;
 
   &__item {
@@ -11,18 +12,18 @@
     padding: 5px 15px;
     border: 1px solid transparent;
     font-weight: 700;
-    color: grey;
+    color: $primary_dark;
 
     &:hover {
-      color: black;
+      color: $primary_dark;
     }
   }
   &__item_disabled {
-    color: lightgrey;
+    color: $primary_400;
     cursor: default;
 
     &:hover {
-      color: lightgrey;
+      color: $primary_400;
       cursor: default;
     }
   }
@@ -38,7 +39,7 @@
 
   &__page_current {
     cursor: default;
-    background: lightgray;
-    color: white;
+    background: $primary_dark;
+    color: $primary_light;
   }
 }

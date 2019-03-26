@@ -87,31 +87,31 @@ export function fetchProfile() {
  * @returns {function(*, *)}
  */
 export function addCustomer(data) {
-  return (dispatch) => {
-    dispatch(
-      { type: UPDATE_PROFILE_PENDING, payload: {} }
-    );
-    return axios.post(URL_API_ADD_CUSTOMER, data)
-      .then((result) => {
-        const res = result.data;
-        if (res.success) {
-          dispatch({
-            type: UPDATE_PROFILE_FULFILLED,
-            payload: {
-              profile: { ...res.data },
-              isAuthenticated: true,
-            }
-          });
-          dispatch(reset('RegisterForm'));
-        } else {
-          throw new SubmissionError({ ...res.data, _error: res.message });
-        }
-      })
-      .catch((err) => {
-        dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
-        throw err;
-      });
-  };
+    return (dispatch) => {
+        dispatch(
+            { type: UPDATE_PROFILE_PENDING, payload: {} }
+        );
+        return axios.post(URL_API_ADD_CUSTOMER, data)
+            .then((result) => {
+                const res = result.data;
+                if (res.success) {
+                    dispatch({
+                        type: UPDATE_PROFILE_FULFILLED,
+                        payload: {
+                            profile: { ...res.data },
+                            isAuthenticated: true,
+                        }
+                    });
+                    dispatch(reset('RegisterForm'));
+                } else {
+                    throw new SubmissionError({ ...res.data, _error: res.message });
+                }
+            })
+            .catch((err) => {
+                dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
+                throw err;
+            });
+    };
 }
 
 /**
@@ -275,7 +275,7 @@ export function submitChekout(data) {
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          alert(res.message);
+          // alert(res.message);
           console.log('submitChekout <><><><><><><><><><><><>', res.message, { ...res.data });
           dispatch({
             type: ADD_ORDERS,

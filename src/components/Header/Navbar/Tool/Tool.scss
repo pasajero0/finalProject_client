@@ -25,12 +25,14 @@
   //}
 
   &_disabled {
-    opacity: .3;
+    //opacity: .3;
+
     & .tool__icon {
       color: $primary;
     }
 
     &:hover {
+
       & .tool_icon {
         color: $primary;
       }
