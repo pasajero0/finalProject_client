@@ -36,7 +36,8 @@ const links = [
 
 const Slider = ({ imagesBig, imagesSmall, settings }) => (
   <div className="slider">
-    <SlickSlider {...settings} className="slider slider_big">
+    <div className="slider_big">
+    <SlickSlider {...settings} className="slider">
 
       {imagesBig.map((image, i) =>
         <div key={image.id}>
@@ -46,8 +47,9 @@ const Slider = ({ imagesBig, imagesSmall, settings }) => (
         </div>)}
 
     </SlickSlider>
-
-    <SlickSlider {...settings} className="slider slider_small">
+    </div>
+    <div className="slider_small">
+    <SlickSlider {...settings} className="slider">
       {imagesSmall.map((image, i) =>
         <div key={image.id}>
           <NavLink to={links[i]}>
@@ -56,7 +58,7 @@ const Slider = ({ imagesBig, imagesSmall, settings }) => (
         </div>)}
 
     </SlickSlider>
-
+    </div>
   </div>
 );
 
