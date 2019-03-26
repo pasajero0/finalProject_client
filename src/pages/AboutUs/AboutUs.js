@@ -17,7 +17,7 @@ const AboutUs = () => (
     <Header />
     <div className="container">
       <div className="aboutUs">
-        <h1 className="aboutUs__header">About UNO Store</h1>
+        <h1 className="aboutUs__title">About UNO Store</h1>
         <img className="aboutUs__img" src={process.env.PUBLIC_URL + '/footer-images/shop.jpg'} /> 
         <p className = "aboutUs__content" >
           UNO is an Italian born active - inspired brand which designs, sources and markets cool and distinctive products. The brand originated in the late 80 s as a niche t - shirt brand.

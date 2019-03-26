@@ -1,16 +1,16 @@
 @import '../../vars';
 
 .returns {
-    font-family: $title;
-    margin: 50px 10px 60px 10px;
+    font-family: $text;
+    padding-bottom: 40px;
 
-    &__header {
-        font-size: 40px;
-        padding-bottom: 25px;
-        margin-bottom: 25px;
-        border-bottom: 2px solid $primary_dark;
-        text-align: center;
-        text-transform: uppercase;
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        @include title;
 
         &_small {
             font-size: 24px;
@@ -19,13 +19,21 @@
         }
     }
 
-    &__content {
-        text-align: justify;
-        line-height: normal;
-        padding-top: 10px;
+    &__text {
+      font-family: $text;
+      text-align: justify;
+      line-height: normal;
+      padding-top: 10px;
+
         span {
             font-weight: bold;
-            // text-decoration: underline;
         }
+    }
+}
+
+@media (max-width: 480px) {
+
+    .returns {
+        margin-top: 108px;
     }
 }

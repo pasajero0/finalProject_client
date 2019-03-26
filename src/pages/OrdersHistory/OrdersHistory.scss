@@ -16,21 +16,6 @@
         @include title;
     }
 
-    &__longLine, &__shortLine {
-        display: inline-block;
-        height: 2px;
-        background-color: $primary_dark;
-    }
-
-    &__longLine {
-        width: 225px;
-        margin-bottom: 5px;
-    }
-
-    &__shortLine {
-        width: 82px;
-    }
-
     &__wrapper {
         margin-top: 60px;
     }
@@ -46,7 +31,7 @@
         justify-content: space-between;
         align-items: center;
         background: $primary_200;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         padding: 20px;
         box-sizing: border-box
     }

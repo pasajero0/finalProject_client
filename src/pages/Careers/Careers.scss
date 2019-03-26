@@ -1,80 +1,88 @@
 @import '../../vars';
 
 .careers {
-    font-family: $title;
-    margin: 50px 10px 60px 10px;
+  font-family: $text;
+  padding-bottom: 40px;
+
+  &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+  }
 
-    &__header {
-        font-size: 40px;
-        padding-bottom: 25px;
-        margin-bottom: 25px;
-        border-bottom: 2px solid $primary_dark;
-        text-align: center;
-        text-transform: uppercase;
+  &__title {
+      @include title;
 
-        &_small {
-            font-size: 24px;
-            text-align: left;
-            padding: 0 0 15px 0;
-        }
+      &_small {
+      font-size: 24px;
+      text-align: left;
+      padding: 0 0 15px 0;
+      }
     }
+
     &__imgBlock {
-        position: relative;
+      position: relative;
+      margin-top: 60px;
         
-        span {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-            font-size: 50px;
-            color: $primary_dark;
-            background-color: $primary_light;
-            font-weight: bold;
-        }
+      span {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+        font-size: 50px;
+        color: $primary_dark;
+        background-color: $primary_light;
+        font-weight: bold;
+        font-family: $text;
+      }
     }
     &__img {
-        width: 100%;
-        height: auto;
-        padding-bottom: 20px;
-        display: inline-block;
+      width: 100%;
+      height: auto;
+      padding-bottom: 20px;
+      display: inline-block;
     }
 
     &__cv {
-       span {
-           text-decoration: underline;
-           display: block;
-           padding: 10px 0;
-       }
-       ul {
-           list-style-type: disc;
-           margin-left: 40px;
-       }
+     span {
+       text-decoration: underline;
+       display: block;
+       padding: 10px 0;
+     }
+     ul {
+       list-style-type: disc;
+       margin-left: 40px;
+     }
     }
 
     &__content {
-        text-align: justify;
-        line-height: normal;
-        padding-top: 10px;
-        padding-bottom: 10px;
+      text-align: justify;
+      line-height: normal;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .careers__imgBlock {
-        span {
-            font-size: 30px;;
-        }
+@media (max-width: 768px) {
+
+  .careers__imgBlock {
+
+    span {
+        font-size: 30px;;
     }
+  }
 }
 
-@media screen and (max-width: 480px) {
-    .careers__imgBlock {
-        span {
-            font-size: 20px;
-            ;
-        }
+@media (max-width: 480px) {
+
+  .careers {
+    margin-top: 108px;
+
+    &__imgBlock {
+
+      span {
+        font-size: 20px;
+
+      }
     }
+  }
 }

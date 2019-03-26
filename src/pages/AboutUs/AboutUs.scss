@@ -1,25 +1,30 @@
 @import '../../vars';
 
 .aboutUs {
-    font-family: $title;
-    margin: 50px 10px 60px 10px;
+  font-family: $title;
+  padding-bottom: 40px;
 
+  &__title {
+    @include title;
+  }
 
-    &__header {
-        font-size: 40px;
-        padding-bottom: 25px;
-        margin-bottom: 25px;
-        border-bottom: 2px solid $primary_dark;
-        text-align: center;
-        text-transform: uppercase;
-    }
     &__img {
-        width: 100%;
-        height: auto;
+      width: 100%;
+      height: auto;
+      margin-top: 60px;
     }
+
     &__content {
-        text-align: justify;
-        line-height: normal;
-        padding-top: 10px;
+      text-align: justify;
+      line-height: normal;
+      padding-top: 10px;
+      font-family: $text;
     }
+}
+
+@media (max-width: 480px) {
+
+  .aboutUs {
+    margin-top: 108px;
+  }
 }

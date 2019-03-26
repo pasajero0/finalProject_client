@@ -42,12 +42,16 @@
   &__mainImg_sm{
     @include image-box-absolute();
     display:none;
+
+    & img {
+      width: 100%;
+    }
   }
+
   &__mainImg_lg{
     @include image-box-absolute();
     display:block;
   }
-
 
   &__smImg {
     flex: 0 0 100px;

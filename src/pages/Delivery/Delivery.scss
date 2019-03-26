@@ -1,22 +1,16 @@
 @import '../../vars';
 
 .delivery {
-    font-family: $title;
-    margin: 50px 10px 60px 10px;
+    padding-bottom: 40px;
 
-    &__header {
-        font-size: 40px;
-        padding-bottom: 25px;
-        margin-bottom: 25px;
-        border-bottom: 2px solid $primary_dark;
-        text-align: center;
-        text-transform: uppercase;
+  &__title {
+    @include title;
 
-        &_small {
-            font-size: 24px;
-            text-align: center;
-            padding: 25px 0;
-        }
+      &_small {
+          font-size: 24px;
+          text-align: center;
+          padding: 25px 0;
+      }
     }
 
 
@@ -50,4 +44,11 @@
         background-color: $primary_200;
         text-align: center;
     }
+}
+
+@media (max-width: 480px) {
+
+  .delivery {
+    margin-top: 108px;
+  }
 }
