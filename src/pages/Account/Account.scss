@@ -46,7 +46,10 @@
     line-height: 20px;
 
     & a {
-        color: $secondary;
+      color: $secondary;
+      font-size: 15px;
+      font-family: $text;
+      font-weight: bold;
     }
   }
 

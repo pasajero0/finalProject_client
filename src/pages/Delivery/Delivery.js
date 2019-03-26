@@ -39,8 +39,8 @@ const Delivery = () => (
                     <td>4-7 Business Days</td>
                 </tr>
                 </table>
-            <h2 className="delivery__header_small">DELIVERY TERMS & CONDITIONS</h2>
-            <p className = "delivery__content" >
+            <h2 className="delivery__title_small">DELIVERY TERMS & CONDITIONS</h2>
+            <p className="delivery__text">
               The Company will ship the Product(s) ordered by you according to the delivery method you have chosen and to the address indicated in the Order Confirmation.
               If you have ordered several products, we may deliver your order in separate shipments as each item becomes available, at no extra cost to you.To ensure prompt delivery we must have proper and complete address details and make one delivery charge per delivery address.
               Our customers also have the option of requesting delivery to their day - time locations, such as a work address.
@@ -48,7 +48,7 @@ const Delivery = () => (
               case we or our delivery agents need to contact you. Delivery times provided by the Company are estimates only.The Company shall not be responsible
               for any damages or costs resulting from any delays in delivery.
             </p>
-            <p className = "delivery__content" >
+            <p className="delivery__text">
              In order to avoid lost packages, it is standard policy to request a signature
              for the packages we deliver. If no one is at the designated address at the time of delivery, the carrier will attempt to contact you to make alternative arrangements.Please note that
              if a
@@ -58,8 +58,6 @@ const Delivery = () => (
              service,
              for which a small service charge may apply. At this time, such requests must be sent by e - mail at the time of purchase.
             </p>
-
-
         </div>
       </div>
     </section>

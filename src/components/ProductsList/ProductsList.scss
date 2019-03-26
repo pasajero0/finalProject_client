@@ -20,6 +20,18 @@
 
   .productsList {
     margin-top: 108px;
+
+    .productListHeader {
+      margin-bottom: 2rem;
+
+      &__title {
+        margin-bottom: 20px;
+      }
+
+      &__subTitle {
+        margin-bottom: 1.25em;
+      }
+    }
   }
 }
 

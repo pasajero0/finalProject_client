@@ -4,46 +4,47 @@
     padding-bottom: 40px;
 
   &__title {
+
     @include title;
 
-      &_small {
-          font-size: 24px;
-          text-align: center;
-          padding: 25px 0;
-      }
+    &_small {
+      font-size: 24px;
+      text-align: center;
+      padding: 25px 0;
     }
+  }
 
+  &__text {
+    text-align: justify;
+    line-height: normal;
+    padding-top: 10px;
+    font-family: $text;
+  }
 
-    &__content {
-        text-align: justify;
-        line-height: normal;
-        padding-top: 10px;
-    }
+  &__table {
+    font-family: $text;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    border-collapse: collapse;
+    width: 70%;
+  }
 
-    &__table {
-        margin: 0 auto;
-        margin-bottom: 25px;
-        border-collapse: collapse;
-        width: 70%;
+  td,
+  th {
+    border: 2px solid $primary_200;
+    text-align: left;
+    padding: 10px;
+  }
 
-    }
+  th {
+    font-size: 1.25em;
+    padding: 15px;
+  }
 
-    td,
-    th {
-        border: 2px solid $primary_200;
-        text-align: left;
-        padding: 10px;
-    }
-
-    th {
-        font-size: 1.25em;
-        padding: 15px;
-    }
-
-    tr:nth-child(even) {
-        background-color: $primary_200;
-        text-align: center;
-    }
+  tr:nth-child(even) {
+    background-color: $primary_200;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
