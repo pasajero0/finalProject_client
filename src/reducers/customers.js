@@ -33,6 +33,7 @@ const initialState = {
   },
 };
 
+
 function customers(state = initialState, action) {
   switch (action.type) {
     case FETCH_ORDER_HISTORY_FULFILLED:
@@ -73,10 +74,7 @@ function customers(state = initialState, action) {
     case UPDATE_PROFILE_FULFILLED:
       return {
         ...state,
-        profile: {
-          ...state.profile,
-          ...action.payload
-        }
+        ...action.payload
       };
     case GET_TOKEN:
       return {

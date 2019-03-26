@@ -86,6 +86,7 @@ export function fetchProfile() {
  * @param data {object}
  * @returns {function(*, *)}
  */
+ 
 export function addCustomer(data) {
   return (dispatch) => {
     dispatch(
