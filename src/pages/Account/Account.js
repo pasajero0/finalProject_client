@@ -25,8 +25,6 @@ const Account = (props) => {
         <div className="container">
           <div className="account__content">
             <h2 className="account__title">Account</h2>
-            <span className="account__longLine"/>
-            <span className="account__shortLine"/>
             <div className="account__switchButtons">
               <button
                 onClick={() => setLoginFormActiveStatusInAcc(true)}

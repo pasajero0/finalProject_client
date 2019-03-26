@@ -25,8 +25,8 @@ function Checkout(props) {
         <div className="container">
           <div className="checkout__content">
             <h1 className="checkout__title">Checkout</h1>
-            <span className="checkout__longLine" />
-            <span className="checkout__shortLine" />
+            {/*<span className="checkout__longLine" />*/}
+            {/*<span className="checkout__shortLine" />*/}
             <CheckoutForm />
           </div>
         </div>

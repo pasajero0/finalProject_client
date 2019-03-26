@@ -1,5 +1,5 @@
 .pagination {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 0 0 1rem 0;
@@ -12,35 +12,35 @@
     border: 1px solid transparent;
     font-weight: 700;
     margin: 5px 15px;
-    color:grey;
-    &:hover{
-      color:black;
+    color: grey;
+
+    &:hover {
+      color: black;
     }
   }
-  &__item_disabled{
-    color:lightgrey;
+  &__item_disabled {
+    color: lightgrey;
     cursor: default;
-    &:hover{
-      color:lightgrey;
+
+    &:hover {
+      color: lightgrey;
       cursor: default;
     }
   }
 
+  &__page {
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+    font-weight: 700;
+    margin: 5px 15px;
+    color: black;
+  }
 
-}
-
-
-
-.pagination__page {
-  cursor: pointer;
-  padding: 5px 15px;
-  border-radius: 5px;
-  border: 1px solid #f0f0f0;
-  font-weight: 700;
-  margin: 5px 15px;
-}
-.pagination__page_current {
-  cursor: default;
-  background: lightgray;
-  color: white;
+  &__page_current {
+    cursor: default;
+    background: lightgray;
+    color: white;
+  }
 }

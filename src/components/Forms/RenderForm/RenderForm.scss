@@ -1,42 +1,45 @@
 @import '../../../vars';
 
-.renderForm{
+.renderForm {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 20px 0;
 	
-	&__title{
+	&__title {
 		text-align: center;
 	}
 
 	&__inputs {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		max-width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+	  max-width: 700px;
 	}
-	&__buttons{
+
+	&__buttons {
 		display: flex;
 		justify-content: space-around;
-	    margin-top: 40px;
+	    margin-top: 20px;
 	}
-	&__btn{
+
+	&__btn {
 		width: 160px;
-	    padding: 12px 0px;
+	    padding: 12px 0;
 		font-size: 15px;
 	    color: $primary_light;
 	    background: $primary_dark;
 	    text-transform: uppercase;
 		font-weight: bold;
-		font-family: $oswald;
+		font-family: $navigation;
 		letter-spacing: 3px;
 	    outline: none;
 	    border: none;
 	    cursor: pointer;
 	    margin: 0 10px;
 	}
+
 	&__message {
 		text-align: center;
 		height: 15px;

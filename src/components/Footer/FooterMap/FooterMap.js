@@ -33,13 +33,15 @@ class Map extends Component {
         className = "map"
         mapStyle = "mapbox://styles/valentina532/cjpo45o1p2qgk2spgiqjggnic"
         mapboxApiAccessToken={TOKEN}
-        onViewportChange={(viewport) => this.setState({viewport})}
-        scrollZoom ={false}
-        doubleClickZoom = {true}
+        onViewportChange={(viewport) => this.setState({ viewport })}
+        scrollZoom = { false }
+        doubleClickZoom = { true }
       >
         <Marker latitude={40.720820} longitude={-73.9950622} >
          <GoLocation className="mapMarkerStyle"/>
-         <p className="mapLabelStyle"><CompanyLogo fill="#ffff" width="40" height="31"/></p>
+         <p className="mapLabelStyle">
+           <CompanyLogo fill="#ffff" width="40" height="31" />
+         </p>
         </Marker>
         <div className="nav" style={navStyle}>
            <NavigationControl onViewportChange={(viewport) => this.setState({ viewport })} />
@@ -48,5 +50,5 @@ class Map extends Component {
     );
   }
 }
-export default Map
+export default Map;
 

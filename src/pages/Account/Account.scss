@@ -2,7 +2,7 @@
 
 .account {
   min-height: calc(100vh - 170px);
-  padding: 20px 0 40px;
+  padding-bottom: 40px;
 
   &__content {
     display: flex;
@@ -12,25 +12,7 @@
   }
 
   &__title {
-    font-family: $playfair;
-    font-size: 45px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  &__longLine, &__shortLine {
-    display: inline-block;
-    height: 2px;
-    background-color: $primary_dark;
-  }
-
-  &__longLine {
-    width: 225px;
-    margin-bottom: 5px;
-  }
-
-  &__shortLine {
-    width: 82px;
+    @include title;
   }
 
   &__switchButtons {
@@ -40,7 +22,7 @@
   }
 
   &__loginButton, &__registerButton {
-    font-family: $oswald;
+    font-family: $navigation;
     font-size: 25px;
     padding: 0;
     outline: none;
@@ -60,7 +42,7 @@
     font-size: 13px;
     color: $primary;
     text-align: center;
-    font-family: $oswald;
+    font-family: $navigation;
     line-height: 20px;
 
     & a {
@@ -104,11 +86,7 @@
 @media (max-width: 480px) {
 
   .account {
-    margin-top: 88px;
-
-    &__title {
-      font-size: 35px;
-    }
+    margin-top: 108px;
 
     &__switchButtons {
       font-size: 20px;

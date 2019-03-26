@@ -1,8 +1,8 @@
 // fonts
 
-$oswald: 'Oswald', sans-serif;
-$poppins: 'Poppins', sans-serif;
-$playfair: 'Playfair Display', serif;
+$navigation: 'Oswald', sans-serif;
+$text: 'Poppins', sans-serif;
+$title: 'Playfair Display', serif;
 
 // сolors
 
@@ -15,4 +15,18 @@ $secondary: #e95252;
 $secondary_dark: #ce4848;
 
 
+@mixin title {
+  font-family: $title;
+  font-size: 3.5rem;
+  text-align: center;
+  line-height: 1.25em;
+  text-transform: lowercase;
+}
 
+@mixin subTitle {
+  font-family: $text;
+  font-size: 1rem;
+  line-height: 1.345em;
+  text-align: center;
+  margin-bottom: 0.25em;
+}

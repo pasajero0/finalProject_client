@@ -56,8 +56,6 @@ class ThankYou extends Component {
           <div className="container">
             <div className="thankYou__content">
               <h1 className="thankYou__title">Thank you!</h1>
-              <span className="thankYou__longLine" />
-              <span className="thankYou__shortLine" />
               <div className="thankYou__message">
                 <p>{purchaseInfo.message}</p>
                 <p>Order number: { purchaseInfo.data.number} </p>

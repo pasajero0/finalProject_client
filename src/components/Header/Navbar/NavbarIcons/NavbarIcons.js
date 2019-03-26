@@ -7,9 +7,6 @@ import { NavLink } from 'react-router-dom';
 import Tool from '../Tool/Tool';
 import { setUserMenuVisibility } from '../../../../actions/app';
 
-
-
-
 import './NavbarIcons.scss';
 
 
@@ -40,12 +37,11 @@ const NavbarIcons = ({ cartCount, isAuthenticated, callSetUserMenuVisibility }) 
                 callSetUserMenuVisibility(true);
               }}
             >
-              <Tool className="userIcon" icon={FaRegUser} />
+              <Tool className="userIcon" icon={FaUserCircle} />
             </button>
-
           )
           : (
-            <NavLink to="/login" >
+            <NavLink to="/login">
               <Tool icon={FaRegUser} />
             </NavLink>
           )
@@ -67,11 +63,10 @@ const NavbarIcons = ({ cartCount, isAuthenticated, callSetUserMenuVisibility }) 
             <Tool icon={FiShoppingCart} disabled />
           </div>
         )}
-
       </li>
     </ul>
     </>
-  )
+  );
 };
 
 NavbarIcons.propTypes = propTypes;

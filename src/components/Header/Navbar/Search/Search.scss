@@ -33,7 +33,7 @@
     padding: 0 0 0 1rem;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-family: $poppins;
+    font-family: $text;
     &::placeholder {
       font-size: 0.875rem;
       font-style: italic;
@@ -62,7 +62,7 @@
     z-index: 2;
     border-radius: 0 0 24px 24px;
     overflow: hidden;
-    font-family: $poppins;
+    font-family: $text;
   }
   &__hints {
     overflow: auto;
@@ -153,7 +153,7 @@
       color: #737373;
       width: 26px;
       height: 26px;
-      font-family: $poppins;
+      font-family: $text;
     }
   }*/
 }

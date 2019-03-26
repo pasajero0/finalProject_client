@@ -11,18 +11,17 @@
     margin-bottom: 1rem;
   }
 
-  .footer__content {
+  &__content {
     display: flex;
     justify-content: space-between;
   }
 
-  .footer__contacts {
+  &__contacts {
     width: 35%;
     padding-left: 5%;
-
   }
 
-  .footer__map {
+  &__map {
     width: 65%;
   }
 
@@ -35,7 +34,7 @@
 
   &__phone {
     margin: 20px 0;
-    font-family: $poppins;
+    font-family: $text;
     font-size: 1rem;
     line-height: 1.5em;
 
@@ -45,27 +44,26 @@
   }
 
   &__address {
-    font-family: $poppins;
+    font-family: $text;
     font-size: 1rem;
     line-height: 1.5em;
     padding: 10px 0;
   }
 
   &__email {
-    font-family: $poppins;
+    font-family: $text;
     margin-bottom: 1.5rem;
     white-space: nowrap;
 
     & a {
       color: $primary_light;
     }
-
   }
 }
 
-.map {
-  width: 50%;
-}
+//.map {
+//  width: 50%;
+//}
 
 .mapMarkerStyle {
   font-size: 40px;
@@ -83,12 +81,11 @@
   .footer {
     height: 600px;
 
-
-    .footer__content {
+    &__content {
       flex-direction: column;
     }
 
-    .footer__map {
+    &__map {
       width: 100%;
     }
 
@@ -96,7 +93,7 @@
       margin: 5px 0;
     }
 
-    .footer__contacts {
+    &__contacts {
       width: 100%;
       margin-left: 0;
       margin-top: 15px;
