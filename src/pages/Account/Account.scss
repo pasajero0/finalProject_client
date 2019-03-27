@@ -16,39 +16,40 @@
   }
 
   &__switchButtons {
-    font-size: 25px;
-    margin-top: 60px;
     margin-bottom: 20px;
+    font-size: 25px;
   }
 
-  &__loginButton, &__registerButton {
-    font-family: $navigation;
-    font-size: 25px;
+  &__loginButton,
+  &__registerButton {
     padding: 0;
+    border: none;
     outline: none;
     background: none;
-    border: none;
     color: $primary_400;
-    cursor: pointer;
+    font-family: $navigation;
+    font-size: 25px;
     text-transform: uppercase;
+    cursor: pointer;
   }
 
   &__switchButtons_active {
-    color: $primary_dark;
     border-bottom: 2px solid $primary_dark;
+    color: $primary_dark;
   }
 
   &__info {
-    font-size: 13px;
+    margin-top: 20px;
     color: $primary;
-    text-align: center;
-    font-family: $navigation;
+    font-family: $text;
+    font-size: 15px;
     line-height: 20px;
+    text-align: center;
 
     & a {
       color: $secondary;
-      font-size: 15px;
       font-family: $text;
+      font-size: 15px;
       font-weight: bold;
     }
   }
@@ -59,26 +60,26 @@
 
   &__socialButtons {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     margin-top: 50px;
   }
 
   &__socialButton {
     width: 165px;
-    padding: 15px 0px 15px 5px;
-    border-radius: 30px;
-    color: #fff;
-    border: none;
-    outline: none;
-    text-transform: uppercase;
     margin-bottom: 10px;
+    padding: 15px 0 15px 5px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    color: $primary_light;
+    text-transform: uppercase;
     cursor: pointer;
   }
 
   &__socialButton_facebook {
-    background-color: #325c94;
     margin-right: 10px;
+    background-color: #325c94;
   }
 
   &__socialButton_google {
@@ -92,7 +93,6 @@
 
 
 @media (max-width: 480px) {
-
   .account {
     margin-top: 108px;
 
@@ -100,7 +100,8 @@
       font-size: 20px;
     }
 
-    &__loginButton, &__registerButton {
+    &__loginButton,
+    &__registerButton {
       font-size: 20px;
     }
   }

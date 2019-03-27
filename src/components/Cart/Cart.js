@@ -6,11 +6,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import CartItem from './CartItem/CartItem';
+import { FiShoppingCart } from 'react-icons/fi';
 import { connect } from 'react-redux';
+import CartItem from './CartItem/CartItem';
 import { updateProductInCart } from '../../actions/cart';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
-import { FiShoppingCart } from "react-icons/fi";
 
 import './Cart.scss';
 
@@ -39,18 +39,15 @@ const defaultProps = {
   products: []
 };
 
-
 const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
-  if(products.length === 0){
+  if (products.length === 0){
     return (
       <section className="cart">
         <div className="container">
           <div className="cart__content">
-              <h1 className="cart__title">Cart</h1>
-              {/*<span className="cart__longLine" />*/}
-              {/*<span className="cart__shortLine" />*/}
-              <p className="cart__message">Your cart is empty :(</p>
-              <FiShoppingCart className="cart__emptyImg"/>
+            <h1 className="cart__title">Cart</h1>
+            <p className="cart__message">Your cart is empty :(</p>
+            <FiShoppingCart className="cart__emptyImg" />
           </div>
         </div>
       </section>
@@ -59,16 +56,15 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
   return (
     <section className="cart">
       <div className="container">
-        <div className="account__content">
+        <div className="cart__content">
           <h1 className="cart__title">Cart</h1>
-          {/*<span className="cart__longLine" />*/}
-          {/*<span className="cart__shortLine" />*/}
           <div className="cartTableHeader">
-            <div className="cartTableHeader__close"></div>
+            <div className="cartTableHeader__close" />
             <div className="cartTableHeader__product">Product</div>
             <div className="cartTableHeader__quantity">Quantity</div>
             <div className="cartTableHeader__price">Price</div>
           </div>
+          <div className="cart__line" />
 
           {products.map(({
             slug, price, quantity, picture, name
@@ -83,10 +79,10 @@ const Cart = ({ total, products, imagesDir, callUpdateProductInCart }) => {
             />
           ))}
           <div className="cart__total">
-            <span className="cart__totalSpace"></span>
+            <span className="cart__totalSpace" />
             <span className="cart__totalTitle">Total</span>
             <span className="cart__totalPrice">
-              ${total}
+              ${ total }
             </span>
           </div>
           <NavLink to="/checkout" className="cart__btnCheckout">
@@ -112,6 +108,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
-
-
-

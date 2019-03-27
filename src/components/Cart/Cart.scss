@@ -1,7 +1,7 @@
 @import '../../vars';
 
 .cart {
-  min-height: calc(100vh - 170px);
+  min-height: calc(100vh - 160px);
   padding-bottom: 40px;
 
   &__content {
@@ -9,48 +9,31 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   &__title {
     @include title;
   }
 
-  &__longLine,
-  &__shortLine {
-    display: inline-block;
-    height: 2px;
-    background-color: $primary_dark;
-  }
-
-  &__longLine {
-    width: 225px;
-    margin-bottom: 5px;
-  }
-
-  &__shortLine {
-    width: 82px;
-  }
-
   &__message {
+    margin-bottom: 60px;
     font-family: $text;
-    margin-top: 60px;
     font-size: 30px;
+    line-height: 50px;
   }
 
   &__emptyImg {
-    padding-top: 30px;
-    font-size: 60px;
+    font-size: 50px;
   }
 
   &__total {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 80%;
     height: 70px;
-    flex-direction: row;
-    justify-content: center;
-    border-top: 1px solid black;
-
 
     span {
       font-size: 18px;
@@ -73,59 +56,74 @@
   }
 
   &__btnCheckout {
-    padding: 20px;
     margin: 50px 0;
-    color: $primary_light;
-    background-color: $secondary;
-    text-transform: uppercase;
-    outline: none;
+    padding: 20px;
     border: none;
-    cursor: pointer;
+    outline: none;
+    background-color: $secondary;
+    color: $primary_light;
     font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .cartTableHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+    font-family: $text;
+    font-size: 20px;
+    text-align: center;
+
+    &__product {
+      flex-basis: 50%;
+      text-align: left;
+    }
+
+    &__quantity {
+      flex-basis: 20%;
+    }
+
+    &__price {
+      flex-basis: 20%;
+    }
+
+    &__close {
+      flex-basis: 10%;
+    }
+  }
+
+  &__line {
+    width: 80%;
+    height: 2px;
+    background-color: $primary_dark;
   }
 }
-
-.cartTableHeader {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  padding-bottom: 20px;
-  margin-top: 60px;
-  font-family: $text;
-  border-bottom: 2px solid $primary_dark;
-  text-align: center;
-  font-size: 20px;
-
-  &__product {
-    flex-basis: 50%;
-    text-align: left;
-  }
-
-  &__quantity {
-    flex-basis: 20%;
-  }
-
-  &__price {
-    flex-basis: 20%;
-  }
-
-  &__close {
-    flex-basis: 10%;
-  }
-}
-
 
 @media (max-width: 480px) {
-
   .cart {
     margin-top: 108px;
+
+    &__message {
+      font-size: 25px;
+    }
+
+    &__emptyImg {
+      font-size: 45px;
+    }
+
+    .cartTableHeader {
+      width: 100%;
+      font-size: 15px;
+    }
 
     &__total {
       width: 100%;
     }
-  }
 
-  .cartTableHeader {
-    width: 100%;
+    &__line {
+      width: 100%;
+    }
   }
 }

@@ -7,26 +7,27 @@ $title: 'Playfair Display', serif;
 // сolors
 
 $primary: #757575;
-$primary_200: #eeeeee;
+$primary_200: #eee;
 $primary_400: #bdbdbd;
-$primary_light: #ffffff;
-$primary_dark: #000000;
+$primary_light: #fff;
+$primary_dark: #000;
 $secondary: #e95252;
 $secondary_dark: #ce4848;
-
 
 @mixin title {
   font-family: $title;
   font-size: 3.5rem;
-  text-align: center;
   line-height: 1.25em;
+  text-align: center;
   text-transform: lowercase;
+  margin-bottom: 60px;
+
 }
 
 @mixin subTitle {
+  margin-bottom: .25em;
   font-family: $text;
   font-size: 1rem;
   line-height: 1.345em;
   text-align: center;
-  margin-bottom: 0.25em;
 }
