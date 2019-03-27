@@ -19,6 +19,34 @@ import RenderField from '../RenderField/RenderField.js';
  * @param values {object} - form values
  * @returns {{}}
  */
+
+const propTypes = {
+	/** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
+	handleSubmit: PropTypes.func.isRequired,
+	/** Action connected to the form submission */
+	onSubmitAction: PropTypes.func.isRequired,
+	/** A generic error for the entire form given by the _error key */
+	error: PropTypes.string,
+	/** true if the form data is the same as its initialized values. Opposite of dirty. */
+	pristine: PropTypes.bool,
+	/** Resets all the values in the form to the initialized state, making it pristine again. */
+	reset: PropTypes.func.isRequired,
+	/** Whether or not your form is currently submitting */
+	submitting: PropTypes.bool,
+	/** true if the form has validation errors. Opposite of valid. */
+	invalid: PropTypes.bool,
+	/** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
+	submitSucceeded: PropTypes.bool,
+};
+
+const defaultProps = {
+	error: '',
+	pristine: true,
+	submitting: false,
+	invalid: false,
+	submitSucceeded: false
+};
+
 const validate = (values) => {
   const errors = {};
 
@@ -46,18 +74,14 @@ const validate = (values) => {
  * ReduxForm container
  */
 const RegisterForm = (
-  {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage
-  }
-) => {
-  
+  { error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage }) => {
   let messageType = '';
   let message = '';
 
   if (submitSucceeded) {
-    setSystemMessage ( 'You have been registered', 'info')
+    setSystemMessage('You have been registered', 'info');
   }
-  if(isAuthenticated) {
+  if (isAuthenticated) {
     return <Redirect to="/profile" />
   }
 
@@ -79,7 +103,7 @@ const RegisterForm = (
       resetLabel="Reset"
       isVisibleReset={false}
       onSubmit={handleSubmit(onSubmitAction)}
-      onReset={reset}  
+      onReset={reset}
       error={error}
       isSubmitting={submitting}
       isPristine={pristine}
@@ -88,48 +112,22 @@ const RegisterForm = (
       message={message}
       messageType={messageType}
     >
-    
-      {/*<Field name="name" type="text" component={RenderField} label="Name" />*/}
+      {/* <Field name="name" type="text" component={RenderField} label="Name" /> */}
       <Field name="email" type="email" component={RenderField} label="Email" />
       <Field name="password" type="password" component={RenderField} label="Password" />
-      {/*<Field name="password" type="password" component={RenderField} label="Repeat password" />*/}
+      {/* <Field name="password" type="password" component={RenderField} label="Repeat password" /> */}
     </RenderForm>
   );
 };
 
-RegisterForm.propTypes = {
-  /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
-  handleSubmit: PropTypes.func.isRequired,
-  /** Action connected to the form submission */
-  onSubmitAction: PropTypes.func.isRequired,
-  /** A generic error for the entire form given by the _error key */
-  error: PropTypes.string,
-  /** true if the form data is the same as its initialized values. Opposite of dirty. */
-  pristine: PropTypes.bool,
-  /** Resets all the values in the form to the initialized state, making it pristine again. */
-  reset: PropTypes.func.isRequired,
-  /** Whether or not your form is currently submitting */
-  submitting: PropTypes.bool,
-  /** true if the form has validation errors. Opposite of valid. */
-  invalid: PropTypes.bool,
-  /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
-  submitSucceeded: PropTypes.bool,
-};
+RegisterForm.propTypes = propTypes;
+RegisterForm.defaultProps = defaultProps;
 
-RegisterForm.defaultProps = {
-  error: '',
-  pristine: true,
-  submitting: false,
-  invalid: false,
-  submitSucceeded: false
-};
-
-const mapStateToProps = (state) => { 
-  // console.log(state);
+const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.customers.isAuthenticated,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => (
   {

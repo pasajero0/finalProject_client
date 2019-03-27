@@ -1,47 +1,46 @@
 @import '../../../vars';
 
 .renderForm {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	//padding: 20px 0;
-	
-	&__title {
-		text-align: center;
-	}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-	&__inputs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-	  max-width: 700px;
-	}
+  &__title {
+    text-align: center;
+  }
 
-	&__buttons {
-		display: flex;
-		justify-content: space-around;
-	}
+  &__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 700px;
+  }
 
-	&__btn {
-		width: 160px;
-	    padding: 12px 0;
-		font-size: 15px;
-	    color: $primary_light;
-	    background: $primary_dark;
-	    text-transform: uppercase;
-		font-weight: bold;
-		font-family: $navigation;
-		letter-spacing: 3px;
-	    outline: none;
-	    border: none;
-	    cursor: pointer;
-	    margin: 0 10px;
-	}
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+  }
 
-	&__message {
-		text-align: center;
-		height: 15px;
-		margin-bottom: 20px;
-	}
+  &__btn {
+    width: 160px;
+    margin: 0 10px;
+    padding: 12px 0;
+    border: none;
+    outline: none;
+    background: $primary_dark;
+    color: $primary_light;
+    font-family: $navigation;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__message {
+    height: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }

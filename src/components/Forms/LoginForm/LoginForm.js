@@ -20,6 +20,38 @@ import RenderField from '../RenderField/RenderField';
  * @returns {{}}
  */
 
+const propTypes = {
+	/** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
+	handleSubmit: PropTypes.func.isRequired,
+	/** Action connected to the form submission */
+	callLoginCustomer: PropTypes.func.isRequired,
+	/** A generic error for the entire form given by the _error key */
+	error: PropTypes.string,
+	/** true if the form data is the same as its initialized values. Opposite of dirty. */
+	pristine: PropTypes.bool,
+	/** Resets all the values in the form to the initialized state, making it pristine again. */
+	reset: PropTypes.func.isRequired,
+	/** Whether or not your form is currently submitting */
+	submitting: PropTypes.bool,
+	/** true if the form has validation errors. Opposite of valid. */
+	invalid: PropTypes.bool,
+	/** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
+	submitSucceeded: PropTypes.bool,
+
+	isAuthenticated: PropTypes.bool,
+	/** Handler to show system message. */
+	callShowSystemMessage: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+	error: '',
+	pristine: true,
+	submitting: false,
+	invalid: false,
+	submitSucceeded: false,
+	isAuthenticated: false,
+};
+
 const validate = (values) => {
   const errors = {};
 
@@ -37,38 +69,6 @@ const validate = (values) => {
     errors.body = 'Body is required';
   }
   return errors;
-};
-
-const propTypes = {
-  /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
-  handleSubmit: PropTypes.func.isRequired,
-  /** Action connected to the form submission */
-  callLoginCustomer: PropTypes.func.isRequired,
-  /** A generic error for the entire form given by the _error key */
-  error: PropTypes.string,
-  /** true if the form data is the same as its initialized values. Opposite of dirty. */
-  pristine: PropTypes.bool,
-  /** Resets all the values in the form to the initialized state, making it pristine again. */
-  reset: PropTypes.func.isRequired,
-  /** Whether or not your form is currently submitting */
-  submitting: PropTypes.bool,
-  /** true if the form has validation errors. Opposite of valid. */
-  invalid: PropTypes.bool,
-  /** If onSubmit is called, and succeed to submit , submitSucceeded will be set to true. */
-  submitSucceeded: PropTypes.bool,
-
-  isAuthenticated: PropTypes.bool,
-  /** Handler to show system message. */
-  callShowSystemMessage: PropTypes.func.isRequired,
-};
-
-const defaultProps = {
-  error: '',
-  pristine: true,
-  submitting: false,
-  invalid: false,
-  submitSucceeded: false,
-  isAuthenticated: false,
 };
 
 

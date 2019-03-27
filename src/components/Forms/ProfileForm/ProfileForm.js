@@ -10,7 +10,6 @@ import { updateProfileData } from '../../../actions/customers';
 import RenderField from '../RenderField/RenderField';
 import RenderForm from '../RenderForm/RenderForm';
 
-import './ProfileForm.scss';
 
 const propTypes = {
   /** A function meant to be passed to onSubmit={handleSubmit} or to onClick={handleSubmit} */
@@ -38,11 +37,12 @@ const defaultProps = {
   invalid: false,
   submitSucceeded: false
 };
+
 const validate = (values) => {
   const errors = {};
   if (!stringValidation(values.first_name)) {
     errors.first_name = 'Letters, space or "-" only';
-  } 
+  }
   if (!stringValidation(values.last_name)) {
     errors.last_name = 'Letters, space or "-" only';
   }

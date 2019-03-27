@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import './RenderForm.scss';
 
 /**
@@ -45,8 +44,8 @@ const RenderForm = (
 					</div>
 					<div className="renderForm__buttons">
 						<button className="renderForm__btn" type="submit">{submitLabel}</button>
-						<button className="renderForm__btn" 
-								type="reset" 
+						<button className="renderForm__btn"
+								type="reset"
 								style={isVisibleReset ? {display: 'block'} : {display: 'none'}}
 						>{resetLabel}</button>
 					</div>
