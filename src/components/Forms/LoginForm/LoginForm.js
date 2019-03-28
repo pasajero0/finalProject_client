@@ -13,7 +13,6 @@ import { loginCustomer } from '../../../actions/customers';
 import { showSystemMessage } from '../../../actions/app';
 import RenderForm from '../RenderForm/RenderForm';
 import RenderField from '../RenderField/RenderField';
-
 /**
  * Validate all form fields and return object with invalid entries error messages
  * @param values {object} - form values
@@ -86,26 +85,29 @@ const LoginForm = (
     invalid,
     submitSucceeded,
     isAuthenticated,
-    callShowSystemMessage
+    callShowSystemMessage,
   }
 ) => {
   let messageType = '';
   let message = '';
-  if (submitSucceeded) {
-    callShowSystemMessage('You have been logged in', 'info');
-  }
-  if (isAuthenticated) {
-    return <Redirect to="/profile" />;
-  }
+
   if (error) {
     messageType = 'error';
     message = error;
-  } else if (submitSucceeded) {
+  }
+  if (submitSucceeded && isAuthenticated) {
     messageType = 'success';
-    message = 'Success!';
-  } else if (submitting) {
+    message = 'You have been logged in!';
+    callShowSystemMessage('You have been logged in!', 'success');
+    reset();
+  }
+  if (submitting) {
     messageType = 'info';
     message = 'Submitting...';
+  }
+
+  if (isAuthenticated) {
+    return <Redirect to="/profile" />;
   }
 
   return (
@@ -140,11 +142,12 @@ LoginForm.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({
   isAuthenticated: state.customers.isAuthenticated,
+
 });
 const mapDispatchToProps = dispatch => (
   {
     callLoginCustomer: data => dispatch(loginCustomer(data)),
-    callShowSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
+    callShowSystemMessage: (text, type) => dispatch(showSystemMessage(text, type)),
   }
 );
 

@@ -5,36 +5,35 @@ import './SystemMessage.scss';
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
+
+
 function SystemMessage({
-  body, title, type, onHide, isVisible
-}) {
+  text, type, onHide, isVisible
+}) { 
   const className = isVisible
     ? 'systemMessage systemMessage_visible'
     : 'systemMessage';
 
-  const modal = `modal modal_${type}`;
+  const modal = `systemMessage__modal systemMessage__modal_${type}`;
   return (
     <div className={className}>
       <div className={modal}>
-        <button id="closeButton" type="button" className="close" onClick={() => onHide()}>X</button>
-        <h2>{title}</h2>
-        <p>{body}</p>
+        <button id="closeButton" type="button" className="systemMessage__close" onClick={() => onHide()}>&#10006;</button>
+        <p>{text}</p>
       </div>
     </div>
   );
 }
 
 SystemMessage.propTypes = {
-  body: PropTypes.node,
-  title: PropTypes.string,
+  text: PropTypes.string,
   type: PropTypes.string,
   onHide: PropTypes.func,
   isVisible: PropTypes.bool
 };
 
 SystemMessage.defaultProps = {
-  body: '',
-  title: '',
+  text: '',
   type: '',
   onHide: console.log,
   isVisible: false
