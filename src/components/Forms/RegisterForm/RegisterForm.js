@@ -10,9 +10,9 @@ import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
 import { addCustomer } from '../../../actions/customers';
-import {showSystemMessage} from '../../../actions/app';
-import RenderForm from '../RenderForm/RenderForm.js';
-import RenderField from '../RenderField/RenderField.js';
+import { showSystemMessage } from '../../../actions/app';
+import RenderForm from '../RenderForm/RenderForm';
+import RenderField from '../RenderField/RenderField';
 
 /**
  * Validate all form fields and return object with invalid entries error messages
@@ -47,29 +47,33 @@ const validate = (values) => {
  */
 const RegisterForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, setSystemMessage
+    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, callShowSystemMessage
   }
 ) => {
-  
+
   let messageType = '';
   let message = '';
 
-  if (submitSucceeded) {
-    setSystemMessage ( 'You have been registered', 'info')
-  }
-  if(isAuthenticated) {
-    return <Redirect to="/profile" />
-  }
+  // if (isAuthenticated) {
+  //   return <Redirect to="/profile" />
+  // }
 
   if (error) {
     messageType = 'error';
     message = error;
-  } else if (submitSucceeded) {
+  } 
+  if (submitSucceeded && isAuthenticated) {
     messageType = 'success';
-    message = 'Saved!!';
-  } else if (submitting) {
+    message = 'You have been registered!';
+    callShowSystemMessage('You have been registered!', 'success');
+    reset();
+  } 
+  if (submitting) {
     messageType = 'info';
     message = 'Submitting...';
+  }
+  if (isAuthenticated) {
+    return <Redirect to="/profile" />;
   }
 
   return (
@@ -134,7 +138,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => (
   {
     onSubmitAction: data => dispatch(addCustomer(data)),
-    setSystemMessage: (text, type) => dispatch(showSystemMessage(text,type))
+    callShowSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
   }
 );
 

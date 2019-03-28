@@ -84,7 +84,7 @@ export function setLoginFormActiveStatus(value) {
   return {
     type: SET_LOGIN_FORM_ACTIVE_STATUS,
     payload: value
-  }
+  };
 }
 
 export function showSystemMessage(text, type) {
@@ -94,12 +94,15 @@ export function showSystemMessage(text, type) {
       text,
       type
     }
-  }
+  };
 }
 
 export function hideSystemMessage() {
   return {
     type: HIDE_SYSTEM_MESSAGE,
-    payload: {}
-  }
+    payload: {
+      text: '',
+      type: ''
+    }
+  };
 }

@@ -28,7 +28,7 @@ const defaultProps = {
 
 const RenderForm = (
 	{ 
-	title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset, message 
+	title, children, onSubmit, onReset, submitLabel, resetLabel, isVisibleReset, message
 	}
 ) => {
     return (

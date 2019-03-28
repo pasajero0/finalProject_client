@@ -5,6 +5,7 @@ import GenderBanners from '../../components/GenderBanners/GenderBanners';
 import Slider from '../../components/Slider/Slider';
 import PromoProductsList from '../../components/PromoProductsList/PromoProductsList';
 import LogoSlider from '../../components/LogoSlider/LogoSlider';
+import SystemMessage from '../../components/SystemMessage/SystemMessage';
 
 const ImagesDir = process.env.PUBLIC_URL;
 
@@ -19,6 +20,7 @@ const Homepage = () => (
        UNO is a paradigm of Italian craftsmanship: discover how timeless style and contemporary elegance
         come together in our new Clothing collection." />
     </Helmet>
+    <SystemMessage />
     <Slider
       imagesBig={[
         { id: 1, src: `${ImagesDir}/slider-images/1.jpg`, alt: '' },
