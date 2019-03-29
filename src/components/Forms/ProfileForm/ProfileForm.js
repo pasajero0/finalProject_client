@@ -65,7 +65,7 @@ function ProfileForm({
   reset,
   submitting,
   invalid,
-  submitSucceeded
+  submitSucceeded,
 }) {
   let messageType = '';
   let message = '';
@@ -75,7 +75,7 @@ function ProfileForm({
     message = error;
   } else if (submitSucceeded) {
     messageType = 'success';
-    message = 'Success';
+    message = 'Updated!';
   } else if (submitting) {
     messageType = 'info';
     message = 'Submitting...';

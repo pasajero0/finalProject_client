@@ -10,7 +10,6 @@ import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
 import { addCustomer } from '../../../actions/customers';
-import { showSystemMessage } from '../../../actions/app';
 import RenderForm from '../RenderForm/RenderForm';
 import RenderField from '../RenderField/RenderField';
 
@@ -47,7 +46,7 @@ const validate = (values) => {
  */
 const RegisterForm = (
   {
-    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated, callShowSystemMessage
+    error, onSubmitAction, handleSubmit, pristine, reset, submitting, invalid, submitSucceeded, isAuthenticated
   }
 ) => {
 
@@ -65,15 +64,13 @@ const RegisterForm = (
   if (submitSucceeded && isAuthenticated) {
     messageType = 'success';
     message = 'You have been registered!';
-    callShowSystemMessage('You have been registered!', 'success');
-    reset();
   } 
   if (submitting) {
     messageType = 'info';
     message = 'Submitting...';
   }
   if (isAuthenticated) {
-    return <Redirect to="/profile" />;
+    return <Redirect to="/" />;
   }
 
   return (
@@ -138,7 +135,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => (
   {
     onSubmitAction: data => dispatch(addCustomer(data)),
-    callShowSystemMessage: (text, type) => dispatch(showSystemMessage(text, type))
   }
 );
 

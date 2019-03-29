@@ -10,7 +10,6 @@ import {
   email, required, maxLength, minLength
 } from '../../../validation/validations';
 import { loginCustomer } from '../../../actions/customers';
-import { showSystemMessage } from '../../../actions/app';
 import RenderForm from '../RenderForm/RenderForm';
 import RenderField from '../RenderField/RenderField';
 /**
@@ -57,8 +56,6 @@ const propTypes = {
   submitSucceeded: PropTypes.bool,
 
   isAuthenticated: PropTypes.bool,
-  /** Handler to show system message. */
-  callShowSystemMessage: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -69,7 +66,6 @@ const defaultProps = {
   submitSucceeded: false,
   isAuthenticated: false,
 };
-
 
 /**
  * ReduxForm container
@@ -85,7 +81,6 @@ const LoginForm = (
     invalid,
     submitSucceeded,
     isAuthenticated,
-    callShowSystemMessage,
   }
 ) => {
   let messageType = '';
@@ -98,8 +93,6 @@ const LoginForm = (
   if (submitSucceeded && isAuthenticated) {
     messageType = 'success';
     message = 'You have been logged in!';
-    callShowSystemMessage('You have been logged in!', 'success');
-    reset();
   }
   if (submitting) {
     messageType = 'info';
@@ -107,7 +100,7 @@ const LoginForm = (
   }
 
   if (isAuthenticated) {
-    return <Redirect to="/profile" />;
+    return <Redirect to="/" />;
   }
 
   return (
@@ -147,7 +140,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (
   {
     callLoginCustomer: data => dispatch(loginCustomer(data)),
-    callShowSystemMessage: (text, type) => dispatch(showSystemMessage(text, type)),
   }
 );
 

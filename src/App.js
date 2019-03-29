@@ -6,8 +6,6 @@ import Routes from './Routes';
 import { fetchInitialData, hideSystemMessage } from './actions/app';
 import SystemMessage from './components/SystemMessage/SystemMessage';
 
-import './App.scss';
-
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
   departments: PropTypes.arrayOf(
