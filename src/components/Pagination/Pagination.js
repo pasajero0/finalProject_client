@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Pagination.scss';
-import NavLink from "react-router-dom/es/NavLink";
+import NavLink from 'react-router-dom/es/NavLink';
 
 const propTypes = {
   current: PropTypes.array,
@@ -47,8 +47,8 @@ const Pagination = ({ pagesTotal, current, urlTemplate }) => {
           );
         })
       }
-      {!current.includes(pagesTotal )
-        ? <NavLink to={to(urlTemplate, current[current.length-1] + 1)} className="pagination__item">{'>'}</NavLink>
+      {!current.includes(pagesTotal)
+        ? <NavLink to={to(urlTemplate, current[current.length - 1] + 1)} className="pagination__item">{'>'}</NavLink>
         : <span className="pagination__item pagination__item_disabled">{'>'}</span>
       }
       {!current.includes(pagesTotal)
@@ -56,10 +56,10 @@ const Pagination = ({ pagesTotal, current, urlTemplate }) => {
         : <span className="pagination__item pagination__item_disabled">Last</span>
       }
     </div>
-  )
+  );
 };
 
 Pagination.propTypes = propTypes;
 Pagination.defaultProps = defaultProps;
 
-export default Pagination
+export default Pagination;
