@@ -1,7 +1,10 @@
 @import '../../vars';
 
 .delivery {
-    padding-bottom: 40px;
+  padding-bottom: 60px;
+  font-family: $text;
+  max-width: 800px;
+  margin: 0 auto;
 
   &__title {
 
@@ -26,7 +29,7 @@
     margin: 0 auto;
     margin-bottom: 25px;
     border-collapse: collapse;
-    width: 70%;
+    width: 80%;
   }
 
   td,
@@ -34,6 +37,7 @@
     border: 2px solid $primary_200;
     text-align: left;
     padding: 10px;
+    line-height: normal;
   }
 
   th {
@@ -47,8 +51,18 @@
   }
 }
 
-@media (max-width: 480px) {
 
+@media (max-width: 780px) {
+  .delivery {
+    margin-top: 50px;
+
+    &__table {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
   .delivery {
     margin-top: 108px;
   }

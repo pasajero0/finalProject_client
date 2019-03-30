@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import FooterNavMenu from '../../components/FooterNavMenu/FooterNavMenu';
+import FooterContacts from '../../components/FooterContacts/FooterContacts';
 import './AboutUs.scss'
 import { Helmet } from "react-helmet";
 
@@ -18,7 +19,7 @@ const AboutUs = () => (
     <div className="container">
       <div className="aboutUs">
         <h1 className="aboutUs__title">About UNO Store</h1>
-        <img className="aboutUs__img" src={process.env.PUBLIC_URL + '/footer-images/shop.jpg'} /> 
+        <img className="aboutUs__img" src={process.env.PUBLIC_URL + '/footer-images/shop.jpg'} alt="uno_store"/> 
         <p className = "aboutUs__content" >
           UNO is an Italian born active - inspired brand which designs, sources and markets cool and distinctive products. The brand originated in the late 80 s as a niche t - shirt brand.
         </p>
@@ -35,9 +36,9 @@ const AboutUs = () => (
          for added comfort and protection, device pockets to keep possessions secure and underarm eyelets to expel excess heat and aide temperature control.ne deseruisse, cum ea minim copiosae. Sed impetus veritus ne, usu odio nisl lobortis in , an graeco fastidii ius.Quando expetenda id mea, cu movet phaedrum liberavisse sea, te tation lobortis vel.Sit ad quot dolorum instructior, aliquid phaedrum consectetuer per no.
         </p>
     </div>
-      </div>
-    
-    <Footer />
+      </div>   
+    <FooterContacts />
+    <FooterNavMenu />
   </>
 );
 

@@ -1,15 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
 import SocMedia from '../SocMedia/SocMedia';
-import CompanyLogo from '../CompanyLogo/CompanyLogo';
 import Map from './FooterMap/FooterMap';
-import FooterInfo from './FooterInfo/FooterInfo';
+import './FooterContacts.scss';
 
-import './Footer.scss';
-
-
-const Footer = () => {
+const FooterContacts = () => {
   return (
     <>
       <footer className="footer">
@@ -18,10 +13,6 @@ const Footer = () => {
             <div className="footer__map"><Map/></div>
             <div className="footer__contacts">
               <p className="footer__logo">
-                <NavLink to="/">
-                  <CompanyLogo fill="#ffff" width="60" height="40"/>
-                </NavLink>
-
               </p>
               <p className="footer__address">
                 69-25 Harrison Str<br />
@@ -31,14 +22,14 @@ const Footer = () => {
               <p className="footer__phone">
                 <a className="phone__link" href="tel:1(212)1234567">
                   <FaPhone />
-                  1 (212) 123 45 67
+                  <span>1 (212) 123 45 67</span>
                 </a>
               </p>
 
               <p className="footer__email">
                 <a className="email__link" href="mailto:welcome@unostore.com">
                   <FaEnvelope />
-                  welcome@unostore.com
+                  <span>welcome@unostore.com</span>
                 </a>
               </p>
               <SocMedia />
@@ -46,9 +37,8 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <FooterInfo />
     </>
   );
 };
 
-export default Footer;
+export default FooterContacts;

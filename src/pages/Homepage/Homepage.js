@@ -5,6 +5,7 @@ import GenderBanners from '../../components/GenderBanners/GenderBanners';
 import Slider from '../../components/Slider/Slider';
 import PromoProductsList from '../../components/PromoProductsList/PromoProductsList';
 import LogoSlider from '../../components/LogoSlider/LogoSlider';
+import FooterContacts from '../../components/FooterContacts/FooterContacts';
 
 const ImagesDir = process.env.PUBLIC_URL;
 
@@ -88,6 +89,7 @@ const Homepage = () => (
         ]
       }}
     />
+    <FooterContacts />
   </Layout>
 );
 
