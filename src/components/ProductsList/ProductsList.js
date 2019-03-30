@@ -155,16 +155,18 @@ class ProductsList extends Component {
                 pagesTotal={productsList.pagesTotal}
                 urlTemplate={urlTemplatePagination}
               />
-              {productsList.records.map(item => (
-                <ProductListEntry
-                  key={item.slug}
-                  slug={item.slug}
-                  picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
-                  name={item.name}
-                  prices={item.prices}
-                  link={urlTemplateProduct.replace(/:product/, item.slug)}
-                />
-              ))}
+              <div className="productListEntry__container">
+                {productsList.records.map(item => (
+                  <ProductListEntry
+                    key={item.slug}
+                    slug={item.slug}
+                    picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
+                    name={item.name}
+                    prices={item.prices}
+                    link={urlTemplateProduct.replace(/:product/, item.slug)}
+                  />
+                ))}
+                </div>
               <Pagination
                 current={loadedPages}
                 pagesTotal={productsList.pagesTotal}

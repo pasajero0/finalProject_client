@@ -29,10 +29,10 @@ const Pagination = ({ pagesTotal, current, urlTemplate }) => {
   }
   return (
     <div className="pagination">
-      {!current.includes(1)
-        ? <NavLink to={to(urlTemplate, 1)} className="pagination__item">First</NavLink>
-        : <span className="pagination__item pagination__item_disabled">First</span>
-      }
+      {/*{!current.includes(1)*/}
+        {/*? <NavLink to={to(urlTemplate, 1)} className="pagination__item">First</NavLink>*/}
+        {/*: <span className="pagination__item pagination__item_disabled">First</span>*/}
+      {/*}*/}
       {!current.includes(1)
         ? <NavLink to={to(urlTemplate, current[0] - 1)} className="pagination__item">{'<'}</NavLink>
         : <span className="pagination__item pagination__item_disabled">{'<'}</span>
@@ -51,10 +51,10 @@ const Pagination = ({ pagesTotal, current, urlTemplate }) => {
         ? <NavLink to={to(urlTemplate, current[current.length - 1] + 1)} className="pagination__item">{'>'}</NavLink>
         : <span className="pagination__item pagination__item_disabled">{'>'}</span>
       }
-      {!current.includes(pagesTotal)
-        ? <NavLink to={to(urlTemplate, pagesTotal)} className="pagination__item">Last</NavLink>
-        : <span className="pagination__item pagination__item_disabled">Last</span>
-      }
+      {/*{!current.includes(pagesTotal)*/}
+        {/*? <NavLink to={to(urlTemplate, pagesTotal)} className="pagination__item">Last</NavLink>*/}
+        {/*: <span className="pagination__item pagination__item_disabled">Last</span>*/}
+      {/*}*/}
     </div>
   );
 };

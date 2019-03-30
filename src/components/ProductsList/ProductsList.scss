@@ -5,6 +5,13 @@
 
   &__content{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .productListEntry__container {
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;

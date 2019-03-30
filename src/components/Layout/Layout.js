@@ -4,7 +4,6 @@
  * @module Layout
  */
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -28,13 +27,13 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <div className="layout__header">
-        <Header/>
+        <Header />
       </div>
       <div className="layout__content">
         {children}
       </div>
       <div className="layout__footer">
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );
