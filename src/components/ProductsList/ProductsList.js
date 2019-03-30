@@ -141,40 +141,42 @@ class ProductsList extends Component {
 
     return (
       <section className="productsList">
-        <ProductListHeader
-          title={title}
-          subTitle={subTitle}
-          stat={stat}
-        />
         <div className="container">
-          {productsList.records &&
-          (
-            <div className="productsList__content">
-              <Pagination
-                current={loadedPages}
-                pagesTotal={productsList.pagesTotal}
-                urlTemplate={urlTemplatePagination}
-              />
-              <div className="productListEntry__container">
-                {productsList.records.map(item => (
-                  <ProductListEntry
-                    key={item.slug}
-                    slug={item.slug}
-                    picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
-                    name={item.name}
-                    prices={item.prices}
-                    link={urlTemplateProduct.replace(/:product/, item.slug)}
-                  />
-                ))}
+          <div className="productsList__content">
+            <ProductListHeader
+              title={title}
+              subTitle={subTitle}
+              stat={stat}
+            />
+            {productsList.records
+            && (
+              <div className="productsList__container">
+                <Pagination
+                  current={loadedPages}
+                  pagesTotal={productsList.pagesTotal}
+                  urlTemplate={urlTemplatePagination}
+                />
+                <div className="productListEntry__container">
+                  {productsList.records.map(item => (
+                    <ProductListEntry
+                      key={item.slug}
+                      slug={item.slug}
+                      picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
+                      name={item.name}
+                      prices={item.prices}
+                      link={urlTemplateProduct.replace(/:product/, item.slug)}
+                    />
+                  ))}
                 </div>
-              <Pagination
-                current={loadedPages}
-                pagesTotal={productsList.pagesTotal}
-                urlTemplate={urlTemplatePagination}
-              />
-            </div>
-          )}
-          {isBusy && <ProductListLoader/>}
+                <Pagination
+                  current={loadedPages}
+                  pagesTotal={productsList.pagesTotal}
+                  urlTemplate={urlTemplatePagination}
+                />
+              </div>
+            )}
+            { isBusy && <ProductListLoader /> }
+          </div>
         </div>
       </section>
     );
