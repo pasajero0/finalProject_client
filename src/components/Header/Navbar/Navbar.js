@@ -100,7 +100,6 @@ class Navbar extends Component {
 
 
           <div className="navbarContainer">
-
             <div id='navbarMenuContent' className="navbarMenuContent"
                  style={this.state.menuOpened ? leftPosShow : leftPosHide}>
 
