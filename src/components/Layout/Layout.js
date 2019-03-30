@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
         {children}
       </div>
       <div className="layout__footer">
-        {/*<Footer />*/}
+        <Footer />
       </div>
     </div>
   );

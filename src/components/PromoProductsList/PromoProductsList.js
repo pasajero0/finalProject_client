@@ -97,8 +97,6 @@ class PromoProductsList extends Component {
                             }}
                         />
 
-
-
                     )}
                     {isBusy && <ProductListLoader/>}
                 </div>

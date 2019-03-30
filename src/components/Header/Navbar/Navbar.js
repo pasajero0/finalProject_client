@@ -39,10 +39,11 @@ class Navbar extends Component {
 
     // filter root level's departments for top menu
     const rootDepartments = departments.filter((department) => department.parent === "0");
-    // collect data of root department
+		// collect data for children departments
+		console.log('<><><><><><><><><><><><><><><><><><><><><><><><>', this.props.match.url);
+		// collect data of root department
     let childrenDepartments = [];
-    if (currentDepartmentData.slug) {
-      // collect data for children departments
+		if (currentDepartmentData.slug) {
       const parentId = currentDepartmentData.parent === "0" ? currentDepartmentData.id : currentDepartmentData.parent;
       childrenDepartments = departments.filter((department) => department.parent === parentId);
     }
@@ -99,9 +100,11 @@ class Navbar extends Component {
 
 
 
-          <div className="navbarContainer">
+          <div className="navbarContainer" style={this.props.match.url === "/" ? {display: 'none'} : {display: 'block'}}>
             <div id='navbarMenuContent' className="navbarMenuContent"
-                 style={this.state.menuOpened ? leftPosShow : leftPosHide}>
+                 style={this.state.menuOpened ? leftPosShow : leftPosHide}
+
+            >
 
               <ul className="switchNav">
                 {
@@ -143,6 +146,7 @@ class Navbar extends Component {
               }
             </div>
           </div>
+
         </div>
 
     )

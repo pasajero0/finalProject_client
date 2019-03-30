@@ -6,8 +6,8 @@
 .logoSlider {
 
   width: 100%;
-  padding: 20px 0px;
-  margin: 0px auto;
+  padding: 20px 40px;
+  margin: 0 auto;
   display: block;
   overflow: hidden;
   position: relative;
@@ -31,6 +31,11 @@
     font-family: $text;
   }
 
+  //& .logoSlider__imgContent {
+  //  padding-left: 10px;
+  //  padding-right: 10px;
+  //}
+
   & .logoSlider__img {
     width: 80%;
     height: 100%;
@@ -50,6 +55,7 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
+
   }
 
   & .slick-track:before,
@@ -78,26 +84,26 @@
     display: flex;
     position: absolute;
     bottom: 50%;
-    height: 50px;
-    width: 35px;
+    height: 110px;
+    width: 30px;
     z-index: 4;
+    background-color: #ffffff;
 
     &::before {
       font-size: 30px;
-      background-color: #eeeeee;
-      color: #eeeeee;
+
 
       &:hover,
       &:active,
       &:focus {
-        background-color: #eeeeee;
+        background-color: #fff;
       }
     }
 
   }
 
   & .slick-prev {
-    left: 1px;
+    left: 0;
 
     &::before,
     &::after {
@@ -108,13 +114,14 @@
       color: #000;
       display: inline-block;
       position: absolute;
-      left: 8px;
+      left: 9px;
+
     }
 
     &::before {
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
-      top: 0;
+      top: 30px;
       background-color: #000;
       opacity: 1;
     }
@@ -123,12 +130,12 @@
       -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg);
       background-color: #000;
-      top: 16px;
+      top: 46px;
     }
   }
 
   & .slick-next {
-    right: -15px;
+    right: 0;
 
     &::before,
     &::after {
@@ -140,12 +147,13 @@
       display: inline-block;
       position: absolute;
       left: 8px;
+      background-color: white;
     }
 
     &::before {
       -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg);
-      top: 0;
+      top: 30px;
       background-color: #000;
       opacity: 1;
     }
@@ -154,7 +162,7 @@
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
       background-color: #000;
-      top: 16px;
+      top: 46px;
     }
   }
 }

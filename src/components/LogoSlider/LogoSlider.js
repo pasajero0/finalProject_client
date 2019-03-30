@@ -23,14 +23,14 @@ const defaultProps = {
             {
                 breakpoint: 980,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                 }
             },
             {
-                breakpoint: 330,
+                breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
@@ -43,12 +43,14 @@ const LogoSlider = ({ images, settings }) => (
         <div className="container">
             <div className="logoSlider__content">
                 <div className="logoSlider__name">Brands</div>
-                <SlickSlider {...settings} className="logoSlider">
-                    {images.map(image =>
-                        <div key={image.id}>
-                            <img className="logoSlider__img" src={image.src} alt={image.alt} />
-                        </div>)}
-                </SlickSlider>
+                    <SlickSlider {...settings} className="logoSlider">
+                        {images.map(image =>
+                            <div key={image.id}>
+                                <div className="logoSlider__imgContent">
+                                    <img className="logoSlider__img" src={image.src} alt={image.alt} />
+                                </div>
+                            </div>)}
+                    </SlickSlider>
             </div>
         </div>
     </section>
