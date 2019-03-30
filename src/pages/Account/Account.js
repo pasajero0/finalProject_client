@@ -32,7 +32,7 @@ const Account = (props) => {
                 type="button"
               >Login
               </button>
-              /&nbsp;
+              &nbsp;/&nbsp;
               <button
                 onClick={() => setLoginFormActiveStatusInAcc(false)}
                 className={isLoginFormActive ? 'account__registerButton' : 'account__registerButton account__switchButtons_active'}

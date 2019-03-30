@@ -4,7 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import {
   stringValidation,
-  phone
+  phone,
+  minLength
 } from '../../../validation/validations';
 import { updateProfileData } from '../../../actions/customers';
 import RenderField from '../RenderField/RenderField';
@@ -42,15 +43,23 @@ const validate = (values) => {
   const errors = {};
   if (!stringValidation(values.first_name)) {
     errors.first_name = 'Letters, space or "-" only';
-  } 
+  } else if (!minLength(3)(values.first_name)) {
+    errors.first_name = 'First name is to short';
+  }
   if (!stringValidation(values.last_name)) {
     errors.last_name = 'Letters, space or "-" only';
+  } else if (!minLength(3)(values.last_name)) {
+    errors.last_name = 'Last name is to short';
   }
   if (!stringValidation(values.city)) {
     errors.city = 'Letters only';
+  } else if (!minLength(3)(values.city)) {
+    errors.city = 'City is to short';
   }
   if (!phone(values.phone)) {
     errors.phone = 'Phone has to be valid';
+  } else if (!minLength(10)(values.phone)) {
+    errors.phone = 'Phone must be at least 10 numbers';
   }
   return errors;
 };

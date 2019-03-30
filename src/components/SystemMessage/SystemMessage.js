@@ -15,8 +15,17 @@ function SystemMessage({
     : 'systemMessage';
 
   const modal = `systemMessage__modal systemMessage__modal_${type}`;
+  const fadeIn = {
+    from: {
+      opacity: 0
+    },
+    to: {
+      opacity: 1
+    }
+  };
+
   return (
-    <div className={className}>
+    <div className={className} style={fadeIn}>
       <div className={modal}>
         <button id="closeButton" type="button" className="systemMessage__close" onClick={() => onHide()}>&#10006;</button>
         <p>{text}</p>

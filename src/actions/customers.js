@@ -245,6 +245,7 @@ export function setPasswordReseted(data) {
       type: RESET_PASSWORD,
       payload: data
     });
+    dispatch(showSystemMessage('You have been change your password', 'info'));
   };
 }
 
@@ -274,14 +275,12 @@ export function updateProfileData(data) {
 }
 
 export function submitChekout(data) {
-  console.log('submitChekout ==================> ', data);
   return (dispatch) => {
     axios.post(URL_API_ADD_ORDERS, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          // alert(res.message);
-          console.log('submitChekout <><><><><><><><><><><><>', res.message, { ...res.data });
+          dispatch(showSystemMessage(res.message, 'success'));
           dispatch({
             type: ADD_ORDERS,
             payload: { ...res.data }
