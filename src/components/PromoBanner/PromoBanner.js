@@ -46,11 +46,11 @@ const PromoBanner = ({ settings }) => (
             <NavLink to="/women-accessories">
               <div className="promoBanner_text">luxury women accessories</div>
             </NavLink>
-            <NavLink to="/delivery">
-              <div className="promoBanner_text">SHIPPING COSTS & DELIVERY OPTIONS</div>
+            <NavLink to="/men-shoes">
+              <div className="promoBanner_text">luxury men shoes</div>
             </NavLink>
-            <NavLink to="/About us">
-              <div className="promoBanner_text">About us</div>
+            <NavLink to="/men-sport">
+              <div className="promoBanner_text">men sport collection</div>
             </NavLink>
           </SlickSlider>
       </div>

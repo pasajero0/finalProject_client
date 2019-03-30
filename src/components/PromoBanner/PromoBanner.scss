@@ -26,20 +26,20 @@
 	}
 
 
-	//& .slick-slider {
-	//	position: relative;
-	//	box-sizing: border-box;
-	//	user-select: none;
-	//	touch-action: pan-y;
-	//}
+	& .slick-slider {
+		position: relative;
+		box-sizing: border-box;
+		user-select: none;
+		touch-action: pan-y;
+	}
 
-	//& .slick-list {
-	//	position: relative;
-	//	overflow: hidden;
-	//	margin: 0;
-	//	padding: 0;
-    //
-	//}
+	& .slick-list {
+		position: relative;
+		overflow: hidden;
+		margin: 0 20%;
+		padding: 0;
+
+	}
 
 	& .slick-track:before,
 	& .slick-track:after {
@@ -68,7 +68,7 @@
 		position: absolute;
 		bottom: 50%;
 		height: 50px;
-		width: 275px;
+		width: 15%;
 		z-index: 4;
 
 		&::before {
@@ -96,7 +96,7 @@
 			color: gray;
 			display: inline-block;
 			position: absolute;
-			left: 250px;
+			left: 90%;
 		}
 
 		&::before {
