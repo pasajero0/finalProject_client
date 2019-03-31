@@ -14,7 +14,7 @@ const propTypes = {
   /** Product name. */
   name: PropTypes.string.isRequired,
   /** In cart quantity. */
-  quantity: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
   /** Product price. */
   price: PropTypes.number.isRequired,
   /** Handler to change quantity. */

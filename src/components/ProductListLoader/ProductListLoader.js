@@ -12,21 +12,22 @@ import RenderLoader from '../RenderLoader/RenderLoader';
  * @type {object}
  */
 const propTypes = {
-  /** Text message of the toast. */
-  //prop: PropTypes.string,
+  size: PropTypes.number,
+  color: PropTypes.string,
 };
 /**
  * Default props of the component
  * @type {object}
  */
 const defaultProps = {
-  //prop: '',
+  size: 50,
+  color: 'lightgrey',
 };
 
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-const ProductListLoader = ({ ...props }) =>{
+const ProductListLoader = ({size,  color}) =>{
   return (
     <div
       style={{
@@ -35,8 +36,8 @@ const ProductListLoader = ({ ...props }) =>{
       }}
     >
       <RenderLoader
-        size={50}
-        color="lightgrey"
+        size={size}
+        color={color}
       />
      </div>
   );

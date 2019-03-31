@@ -4,9 +4,9 @@ import ReactImageMagnify from 'react-image-magnify';
 import './ImageSlider.scss';
 import { URL_PRODUCT_IMAGES } from '../../config/app';
 
-const propTypes = {};
-
-const defaultProps = {};
+const propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 /**
  * General component description in JSDoc format. Markdown is *supported*.
@@ -16,7 +16,7 @@ const defaultProps = {};
 class ImageSlider extends Component {
   constructor(props) {
     super(props);
-    this.slidesBox = React.createRef();
+    this.slidesBox = createRef();
     this.state = {
       current: 0
     };
@@ -108,6 +108,5 @@ class ImageSlider extends Component {
 }
 
 ImageSlider.propTypes = propTypes;
-ImageSlider.defaultProps = defaultProps;
 
 export default ImageSlider;
