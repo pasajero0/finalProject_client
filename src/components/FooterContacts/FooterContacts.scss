@@ -1,0 +1,123 @@
+@import '../../vars';
+
+.footerContacts {
+    color: $primary_light;
+    background-color: $primary_dark;
+    padding: 20px 0;
+    height: 350px;
+
+    &__logo {
+        margin-bottom: 1rem;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__contacts {
+        width: 35%;
+        padding-left: 5%;
+    }
+
+    &__map {
+        width: 65%;
+        overflow: hidden;
+    }
+
+    .mainLogo {
+        color: $primary_light;
+        display: inline-flex;
+        margin-bottom: 30px;
+        font-size: 34px;
+    }
+
+    &__phone {
+        margin: 20px 0;
+        font-family: $text;
+        font-size: 1rem;
+        line-height: 1.5em;
+
+        & a {
+            color: $primary_light;
+        }
+
+        span {
+            padding-left: 15px;
+        }
+    }
+
+    &__address {
+        font-family: $text;
+        font-size: 1rem;
+        line-height: 1.5em;
+        padding: 10px 0;
+    }
+
+    &__email {
+        font-family: $text;
+        margin-bottom: 1.5rem;
+        white-space: nowrap;
+
+        & a {
+            color: $primary_light;
+        }
+
+        span {
+            padding-left: 15px;
+        }
+    }
+}
+
+.mapMarkerStyle {
+    font-size: 40px;
+    color: $primary_light;
+}
+
+.mapLabelStyle {
+    font-size: 22px;
+    text-align: center;
+    padding-top: 10px;
+    color: $primary_light;
+}
+
+@media screen and (max-width: 768px) {
+    .footerContacts {
+        height: 600px;
+        padding: 20px 0;
+
+        &__content {
+            flex-direction: column;
+        }
+
+        &__map {
+            width: 100%;
+        }
+
+        &__phone {
+            margin: 5px 0;
+        }
+
+        &__contacts {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 15px;
+            text-align: center;
+            padding-left: 0;
+        }
+
+        .mainLogo {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .address {
+            font-size: 16px;
+            padding: 5px 0;
+        }
+
+        .email {
+            margin-bottom: 15px;
+        }
+    }
+}

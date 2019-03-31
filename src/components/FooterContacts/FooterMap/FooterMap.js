@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import MapGL, { Marker, NavigationControl } from 'react-map-gl';
 import { GoLocation } from 'react-icons/go';
 import CompanyLogo from '../../CompanyLogo/CompanyLogo';
-import '../Footer.scss';
+import '../FooterContacts.scss';
 
 const TOKEN = 'pk.eyJ1IjoidmFsZW50aW5hNTMyIiwiYSI6ImNqb3cxaHVmdTFia2gza3M1MzNpcGowcTUifQ.aF2_XmuIhvKLDm4gPZGcUw';
 const navStyle = {

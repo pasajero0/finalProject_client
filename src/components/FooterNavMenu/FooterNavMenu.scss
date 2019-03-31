@@ -1,0 +1,65 @@
+@import '../../vars';
+
+.footerInfo__wrapper {
+  background-color: $primary_200;
+}
+.footerInfo {
+  
+    display: flex;
+
+    &__section {
+        padding: 10px 0;
+        font-weight: bold;
+    }
+
+    &__block {
+        flex-basis: 25%;
+        padding: 15px 0;
+        text-align: left;
+
+        &_logo {
+            display: flex;
+            align-items: center;
+
+            .companyLogo {
+                width: 64px;
+                height: 40px;
+            }
+        }
+    }
+    li {
+        margin: 20px 0;
+        cursor: pointer;
+    }
+
+    &__link {
+        color: $primary_dark;
+
+        &:hover {
+            border-bottom: 1px solid $primary_dark;
+        }
+    }
+}
+
+
+.footer__copyright {
+    border-top: 2px solid $primary_light;
+    color: $primary_dark;
+    text-align: center;
+    padding: 20px 0;
+    background-color: $primary_200;
+}
+
+
+
+@media (max-width: 480px) {
+    .footerInfo {
+        font-size: 0.9em;
+        &__block_logo {
+            .companyLogo {
+                width: 50px;
+                height: 35px;
+            }
+        }
+    }
+}
