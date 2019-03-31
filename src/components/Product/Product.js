@@ -129,7 +129,7 @@ class Product extends Component {
                         callAddProductToCart({
                           slug,
                           picture: pictures[0],
-                          price: prices.retail,
+                          price: isOnSale ? prices.sale : prices.retail,
                           name
                         });
                         this.onAddToCartStartAnimation();
