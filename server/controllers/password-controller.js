@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const uniqid = require('uniqid');
 const { response } = require('../lib/response');
 const Customer = require('../models/customer-model');
-const { mail } = require('../services/mail');
-
+const { sendOnRestorePasswordLetter } = require('../letters/postman');
 /**
  * Send email to the customer with restore password link
  * @param req {object}
@@ -12,21 +11,21 @@ const { mail } = require('../services/mail');
  */
 exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMail(req, res, next) {
   const token = uniqid();
+  const time = (new Date()).getTime() + (60 * 60 * 24 * 1000);
+
   Customer.updateOne({ email: req.body.email },
     {
       $set: {
         reset_password_token: token,
-        reset_password_token_time: (new Date()).getTime() + (60 * 60 * 24 * 1000)
+        reset_password_token_time: time
       }
     })
     .then((result) => {
       if (result.nModified > 0) {
-        mail(
-          process.env.MAIL_FROM,
+        sendOnRestorePasswordLetter(
           req.body.email,
-          'Reset password link',
           `/restore-password/${token}`,
-          `<p>/restore-password/${token}</p>`
+          (new Date().setTime(time)).toUTCString()
         )
           .then(() => {
             res.status(200).json(response({}, 'Reset password link has been sent', 0));

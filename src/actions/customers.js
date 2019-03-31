@@ -31,7 +31,6 @@ export const ADD_ORDERS = 'ADD_ORDERS';
 export const SET_PURCHASE_STATUS = 'SET_PURCHASE_STATUS';
 
 
-
 /**
  * Load profile data
  * @returns {function(*, *)}
@@ -87,31 +86,31 @@ export function fetchProfile() {
  * @returns {function(*, *)}
  */
 export function addCustomer(data) {
-    return (dispatch) => {
-        dispatch(
-            { type: UPDATE_PROFILE_PENDING, payload: {} }
-        );
-        return axios.post(URL_API_ADD_CUSTOMER, data)
-            .then((result) => {
-                const res = result.data;
-                if (res.success) {
-                    dispatch({
-                        type: UPDATE_PROFILE_FULFILLED,
-                        payload: {
-                            profile: { ...res.data },
-                            isAuthenticated: true,
-                        }
-                    });
-                    dispatch(reset('RegisterForm'));
-                } else {
-                    throw new SubmissionError({ ...res.data, _error: res.message });
-                }
-            })
-            .catch((err) => {
-                dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
-                throw err;
-            });
-    };
+  return (dispatch) => {
+    dispatch(
+      { type: UPDATE_PROFILE_PENDING, payload: {} }
+    );
+    return axios.post(URL_API_ADD_CUSTOMER, data)
+      .then((result) => {
+        const res = result.data;
+        if (res.success) {
+          dispatch({
+            type: UPDATE_PROFILE_FULFILLED,
+            payload: {
+              profile: { ...res.data },
+              isAuthenticated: true,
+            }
+          });
+          dispatch(reset('RegisterForm'));
+        } else {
+          throw new SubmissionError({ ...res.data, _error: res.message });
+        }
+      })
+      .catch((err) => {
+        dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
+        throw err;
+      });
+  };
 }
 
 /**
@@ -186,6 +185,7 @@ export function logoutCustomer() {
 export function getToken(data) {
   return (dispatch) => {
     axios.post(URL_API_GET_RESET_PASSWORD_TOKEN, data)
+      .then((result) => result.data)
       .then((result) => {
         const res = result.data;
         if (res.success) {

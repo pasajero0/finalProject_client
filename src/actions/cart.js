@@ -13,7 +13,6 @@ export const INIT_CART = 'INIT_CART';
  */
 export function sendToServer() {
   return (dispatch, getState) => {
-    console.log(getState().cart);
     return axios.post(URL_API_STORE_CART, getState().cart)
       .catch(console.log);
   }

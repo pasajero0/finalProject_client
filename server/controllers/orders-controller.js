@@ -3,7 +3,7 @@ const { response } = require('../lib/response');
 const { mongooseErrorToResponse } = require('../lib/mongoose-error-to-response');
 const Order = require('../models/order-model');
 const Product = require('../models/product-model');
-const { mail } = require('../services/mail');
+const { sendOnNewOrderLetter } = require('../letters/postman');
 
 /**
  * Get all orders
@@ -90,15 +90,11 @@ exports.add = function addNewOrder(req, res, next) {
       return next();
     })
     .then((result) => {
-      mail(
-        process.env.MAIL_FROM,
-        req.body.email,
-        'Your order has been placed',
-        `Your order number is ${result.number}`,
-        `<p>Your order number is ${result.number}</p>`
-      );
-      res.status(200).json(response(result, 'The order has been placed', 0));
-      return next();
+      sendOnNewOrderLetter(req.body.email, result.number)
+        .then(()=>{
+          res.status(200).json(response(result, 'The order has been placed', 0));
+          return next();
+        });
     })
     .catch((err) => {
       res.status(200).json(mongooseErrorToResponse(err));
