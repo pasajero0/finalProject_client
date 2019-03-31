@@ -6,8 +6,8 @@ import Slider from '../../components/Slider/Slider';
 import PromoProductsList from '../../components/PromoProductsList/PromoProductsList';
 import LogoSlider from '../../components/LogoSlider/LogoSlider';
 import PromoBanner from '../../components/PromoBanner/PromoBanner';
-
 import SystemMessage from '../../components/SystemMessage/SystemMessage';
+import FooterContacts from '../../components/FooterContacts/FooterContacts';
 
 const ImagesDir = process.env.PUBLIC_URL;
 
@@ -30,7 +30,7 @@ const Homepage = () => (
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 2000,
         pauseOnHover: true
       }}
 />
@@ -105,6 +105,7 @@ const Homepage = () => (
         ]
       }}
     />
+    <FooterContacts />
   </Layout>
 );
 

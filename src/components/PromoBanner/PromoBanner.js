@@ -18,7 +18,7 @@ const defaultProps = {
     slidesToScroll: 1,
     adaptiveHeight: true,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 2000,
     pauseOnHover: true
 
   }

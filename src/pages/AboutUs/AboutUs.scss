@@ -2,7 +2,9 @@
 
 .aboutUs {
   font-family: $title;
-  padding-bottom: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 60px;
 
   &__title {
     @include title;
@@ -11,7 +13,7 @@
     &__img {
       width: 100%;
       height: auto;
-      margin-top: 60px;
+      margin-bottom: 30px;
     }
 
     &__content {
