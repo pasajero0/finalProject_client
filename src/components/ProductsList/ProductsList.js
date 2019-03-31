@@ -163,6 +163,8 @@ class ProductsList extends Component {
                   name={item.name}
                   prices={item.prices}
                   link={urlTemplateProduct.replace(/:product/, item.slug)}
+                  brand={item.brand}
+                  country={item.country}
                 />
               ))}
               <Pagination

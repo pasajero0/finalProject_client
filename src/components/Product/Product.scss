@@ -23,10 +23,14 @@
   &__name {
     font-family: $text;
     color: $primary_dark;
-    font-size: 30px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
-
+  &__brand{
+    font-family: $text;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
   .starRating {
     margin-bottom: 30px;
   }
@@ -36,6 +40,27 @@
     color: $secondary;
     font-size: 25px;
     margin-bottom: 30px;
+
+    &_sale{
+      color: $secondary_dark;
+      margin:0 3px;
+    }
+    &_old{
+      color: $primary_400;
+      margin:0 3px;
+      position:relative;
+      &:after{
+        content: '';
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        transform:translateY(-50%);
+        height:2px;
+        background: $primary_400;
+
+      }
+    }
   }
 
   &__buy {
