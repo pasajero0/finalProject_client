@@ -52,7 +52,9 @@ const authenticatedRequest = (loginDetails, done) => {
 };
 
 
-describe('API Integration Tests', () => {
+describe('customers-routes.js API Integration Tests', function(){
+
+  this.timeout(5000);
 
   before((done) => {
     Customer.deleteMany({})

@@ -14,7 +14,10 @@ mongoose.set('useCreateIndex', true);
 const { expect } = chai;
 
 
-describe('API Integration Tests', () => {
+describe('orders-routes.js API Integration Tests', function(){
+
+  this.timeout(5000);
+
   const products = [];
   const info = { total: 0, count: 0 };
   const fields = {

@@ -27,7 +27,9 @@ const newCounter = new Counter({
   count: 333
 });
 
-describe('API Integration Tests', () => {
+describe('password-routes.js API Integration Tests', function(){
+
+  this.timeout(5000);
 
   before((done) => {
     Customer.deleteMany({})

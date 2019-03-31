@@ -12,7 +12,9 @@ mongoose.set('useCreateIndex', true);
 
 const { expect } = chai;
 
-describe('API Integration Tests', () => {
+describe('products-routes.js API Integration Tests', function(){
+
+  this.timeout(5000);
 
   describe('GET /products', () => {
 
