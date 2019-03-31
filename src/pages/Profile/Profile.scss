@@ -1,32 +1,53 @@
 @import '../../vars';
 
 .profile {
-  min-height: calc(100vh - 170px);
-  padding-bottom: 40px;
+    min-height: calc(100vh - 170px);
+    padding-bottom: 40px;
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-  &__title {
-    @include title;
-  }
+    &__title {
+        @include title;
+    }
 
-  &__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 60px;
 
-    & a {
-      margin-top: 20px;
-      color: $secondary;
-      font-family: $text;
-      font-size: 15px;
-      font-weight: bold;
+        & a {
+          color: $secondary;
+          font-size: 15px;
+          font-family: $text;
+          font-weight: bold;
+        }
+    }
+
+    &__text {
+        font-family: $text;
+        font-size: 25px;
+    }
+
+    &__button {
+        width: 160px;
+        padding: 12px 0;
+        font-size: 15px;
+        color: $primary_light;
+        background: $primary_dark;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: $navigation;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin: 0 10px;
     }
   }
 

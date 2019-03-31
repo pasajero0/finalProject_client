@@ -61,7 +61,7 @@ function app(state = initialState, action) {
       return {
         ...state,
         systemMessage: {
-          ...state.systemMessage,
+          ...action.payload,
           isVisible: false
         }
       };

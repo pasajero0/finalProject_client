@@ -106,10 +106,10 @@ const validate = (values) => {
   if (!required(values.exp_date)) {
     errors.exp_date = 'Expiration date is required';
   }
-  if (!required(values.cvs)) {
-    errors.cvs = 'CVS is required';
-  } else if (!minLength(3)(values.cvs) || !maxLength(3)(values.cvs)) {
-    errors.cvs = 'CVS must contain only 3 digits';
+  if (!required(values.cvc)) {
+    errors.cvc = 'CVC is required';
+  } else if (!minLength(3)(values.cvc) || !maxLength(3)(values.cvc)) {
+    errors.cvc = 'CVC must contain only 3 digits';
   }
   return errors;
 };
@@ -146,7 +146,7 @@ const CheckoutForm = ({
     message = error;
   } else if (submitSucceeded) {
     messageType = 'success';
-    message = 'Success';
+    message = 'Success!';
   } else if (submitting) {
     messageType = 'info';
     message = 'Submitting...';
@@ -240,10 +240,10 @@ const CheckoutForm = ({
         {...expDateMask}
       />
       <Field
-        name="cvs"
+        name="cvc"
         type="password"
         component={RenderField}
-        label="CVS *"
+        label="CVV/CVC *"
       />
     </RenderForm>
   );
