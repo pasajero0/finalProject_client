@@ -49,15 +49,14 @@ const Slider = ({ imagesBig, imagesSmall, settings }) => (
     </SlickSlider>
     </div>
     <div className="slider_small">
-    <SlickSlider {...settings} className="slider">
-      {imagesSmall.map((image, i) =>
-        <div key={image.id}>
-          <NavLink to={links[i]}>
-            <img className="slider__img" src={image.src} alt={image.alt}/>
-          </NavLink>
-        </div>)}
-
-    </SlickSlider>
+      <SlickSlider {...settings} className="slider">
+        {imagesSmall.map((image, i) =>
+          <div key={image.id}>
+            <NavLink to={links[i]}>
+              <img className="slider__img" src={image.src} alt={image.alt} />
+            </NavLink>
+          </div>)}
+      </SlickSlider>
     </div>
   </div>
 );
@@ -66,4 +65,3 @@ Slider.propTypes = propTypes;
 Slider.defaultProps = defaultProps;
 
 export default Slider;
-
