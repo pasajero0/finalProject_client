@@ -16,10 +16,12 @@ axios.defaults.withCredentials = true;
 const propTypes = {
     type: PropTypes.oneOf(['sale', 'new']),
     department: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 const defaultProps = {
-    type: 'sale'
+    type: 'sale',
+   title: 'Special offers'
 };
 
 class PromoProductsList extends Component {
@@ -59,7 +61,7 @@ class PromoProductsList extends Component {
 
 
     render() {
-        const { department } = this.props;
+        const { department, title } = this.props;
         const { isBusy, productsList } = this.state;
         const products = productsList.records.map(item => (
             <ProductListEntry
@@ -69,6 +71,8 @@ class PromoProductsList extends Component {
                 name={item.name}
                 brand={item.brand}
                 country={item.country}
+                isBrandNew={item.isBrandNew}
+                isOnSale={item.isOnSale}
                 prices={item.prices}
                 link={replaceInRoute(
                     `/:department/product/:product`,
@@ -76,17 +80,11 @@ class PromoProductsList extends Component {
                 )}
             />
         ));
-
-        console.log(products);
-
         return (
             <section className="promoProductsList">
-
-
                 <div className="container">
                     {productsList.records &&
                     (
-
                         <ProductCarousel
                             images={products}
                             settings={{
@@ -96,6 +94,7 @@ class PromoProductsList extends Component {
                                 slidesToScroll: 1,
 
                             }}
+                            title={title}
                         />
 
                     )}

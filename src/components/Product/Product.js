@@ -31,6 +31,8 @@ const defaultProps = {
     pictures: [],
     imagesDir: '',
     name: '',
+    isOnSale: false,
+    isBrandNew: false,
     prices: {
       retail: 0,
       sale: 0
@@ -86,11 +88,9 @@ class Product extends Component {
   }
 
   render() {
-    const { productData: { description, slug, pictures, name, prices, brand, country }, isFetching, callAddProductToCart } = this.props;
+    const { productData: { description, slug, pictures, name, prices, brand, country, isOnSale, isBrandNew}, isFetching, callAddProductToCart } = this.props;
 
-    const sale = prices.retail && prices.sale
-      ? Math.round(prices.sale / prices.retail * 100)
-      : 0;
+    const salePercents = Math.round((prices.sale-prices.retail)/prices.retail * 100);
 
     const { isProductSaved } = this.state;
     return (
@@ -107,9 +107,8 @@ class Product extends Component {
                   <p className="product__name">{name}</p>
                   {/*<StarRating className="product__rating"/>*/}
                   <p className="product__brand">{brand}, {country}</p>
-                  {sale < 0
-                    ? <div className="product__price">${prices.retail}</div>
-                    : (
+                  {isOnSale
+                    ? (
                       <div className="product__price">
                     <span className="product__price_sale">
                     ${prices.sale}
@@ -118,7 +117,8 @@ class Product extends Component {
                     ${prices.retail}
                     </span>
                       </div>
-                    )}
+                    )
+                    : <div className="product__price">${prices.retail}</div>}
 
 
                   <div className="product__buy">

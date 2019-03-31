@@ -40,7 +40,6 @@ class Navbar extends Component {
     // filter root level's departments for top menu
     const rootDepartments = departments.filter((department) => department.parent === "0");
 		// collect data for children departments
-		console.log('<><><><><><><><><><><><><><><><><><><><><><><><>', this.props.match.url);
 		// collect data of root department
     let childrenDepartments = [];
 		if (currentDepartmentData.slug) {

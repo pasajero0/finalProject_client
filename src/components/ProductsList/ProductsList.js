@@ -167,6 +167,8 @@ class ProductsList extends Component {
                       link={urlTemplateProduct.replace(/:product/, item.slug)}
                       brand={item.brand}
                       country={item.country}
+                      isOnSale={item.isOnSale}
+                      isBrandNew={item.isBrandNew}
                     />
                   ))}
                 </div>

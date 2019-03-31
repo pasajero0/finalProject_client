@@ -1,4 +1,170 @@
-  [
+[{
+    "brand": "Massimo Dutti",
+    "country": "Italy",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Contrast Knit Skirt",
+    "description": "Knit skirt with contrast details. Featuring a slim fit, an elastic waistband and ribbed trims. The garment length for size M is 78 cm.",
+    "pictures": ["5225211704_1_1_16.jpg", "5225211704_2_1_16.jpg", "5225211704_2_2_16.jpg", "5225211704_2_3_16.jpg"],
+    "variants":[
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"beige"},
+      { "size":"40", "color":"black"},
+      { "size":"40", "color":"brown"},
+      { "size":"40", "color":"beige"},
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"beige"}
+    ]
+  },
+
+    {
+      "brand": "Massimo Dutti",
+      "country": "Spain",
+      "gender": "women",
+      "category": "clothing",
+      "name": "Check Intarsia Sweater",
+      "description": "Straight check intarsia sweater. Features a round neckline, long sleeves and ribbed trims.",
+      "pictures": ["5621616712_1_1_16.jpg", "5621616712_2_1_16.jpg", "5621616712_2_2_16.jpg", "5621616712_2_3_16.jpg"],
+      "variants":[
+        { "size":"38", "color":"black"},
+        { "size":"38", "color":"brown"},
+        { "size":"38", "color":"beige"},
+        { "size":"40", "color":"black"},
+        { "size":"40", "color":"brown"},
+        { "size":"40", "color":"beige"},
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"}
+      ]
+    },
+
+    {
+      "brand": "Massimo Dutti",
+      "country": "Spain",
+      "gender": "men",
+      "category": "clothing",
+      "name": "Slim Fit Melange Check Cotton Shirt",
+      "description": "Melange check shirt made of 100% cotton. Features a slim fit, Kent collar, button-up front and long sleeves with rounded and buttoned cuffs.",
+      "pictures": ["5621616712_1_1_16.jpg", "5621616712_2_1_16.jpg", "5621616712_2_2_16.jpg", "5621616712_2_3_16.jpg"],
+      "variants":[
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"},
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"},
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"}
+      ]
+    },
+
+    {
+      "brand": "Massimo Dutti",
+      "country": "Spain",
+      "gender": "men",
+      "category": "clothing",
+      "name": "Slim Fit Textured Weave Jeans-Style Trousers",
+      "description": "Textured weave denim-like trousers made from comfort cotton. They feature a slim fit, zip fly fastening and contrasting button, five-pocket design and belt loops.",
+      "pictures": ["0044144401_2_5_16.jpg", "0044144401_1_1_16.jpg", "0044144401_2_1_16.jpg", "0044144401_2_2_16.jpg"],
+      "variants":[
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"},
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"},
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"}
+      ]
+    },
+
+    {
+      "brand": "Massimo Dutti",
+      "country": "Spain",
+      "gender": "women",
+      "category": "shoes",
+      "name": "Braided Heeled Court Shoes",
+      "description": "Braided brown heeled court shoes. Featuring hand-painted wood-effect lined heels and leather insoles.",
+      "pictures": ["1320021700_1_1_16.jpg", "1320021700_2_1_16.jpg", "1320021700_2_2_16.jpg", "1320021700_2_4_16.jpg"],
+      "variants":[
+        { "size":"37", "color":"black"},
+        { "size":"37", "color":"brown"},
+        { "size":"37", "color":"beige"},
+        { "size":"38", "color":"black"},
+        { "size":"38", "color":"brown"},
+        { "size":"38", "color":"beige"},
+        { "size":"39", "color":"black"},
+        { "size":"39", "color":"brown"},
+        { "size":"39", "color":"beige"}
+      ]
+    },
+
+    {
+      "brand": "Massimo Dutti",
+      "country": "Italy",
+      "gender": "women",
+      "category": "shoes",
+      "name": "Block heel black suede shoes",
+      "description": "Black suede high-heel court shoes. Featuring square heels and leather lining and insoles.",
+      "pictures": ["1375021800_1_1_16.jpg", "1375021800_2_1_16.jpg", "1375021800_2_2_16.jpg", "1375021800_2_8_16.jpg"],
+      "variants":[
+        { "size":"37", "color":"black"},
+        { "size":"37", "color":"brown"},
+        { "size":"37", "color":"beige"},
+        { "size":"38", "color":"black"},
+        { "size":"38", "color":"brown"},
+        { "size":"38", "color":"beige"},
+        { "size":"39", "color":"black"},
+        { "size":"39", "color":"brown"},
+        { "size":"39", "color":"beige"}
+      ]
+    },
+
+    {
+      "brand": "Massimo Dutti",
+      "country": "Spain",
+      "gender": "men",
+      "category": "shoes",
+      "name": "Brown Napa Leather Kiowa Loafers",
+      "description": "Brown embossed nappa leather loafers with matching bow detail. Studded sole with complete cowhide leather lining.",
+      "pictures": ["4302022700_2_2_16.jpg", "4302022700_1_1_16.jpg", "4302022700_2_6_16.jpg", "4302022700_2_3_16.jpg"],
+      "variants":[
+        { "size":"41", "color":"black"},
+        { "size":"41", "color":"brown"},
+        { "size":"41", "color":"beige"},
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"beige"},
+        { "size":"43", "color":"black"},
+        { "size":"43", "color":"brown"},
+        { "size":"43", "color":"beige"}
+      ]
+    },
+
+    {
+      "brand": "Massimo Dutti",
+      "country": "Spain",
+      "gender": "men",
+      "category": "shoes",
+      "name": "Blue Nappa Leather Loafers",
+      "description": "Blue nappa leather loafers with a leather tassel detail at the front and leather lining and insoles.",
+      "pictures": ["4401022400_2_8_16.jpg", "4401022400_2_5_16.jpg", "4401022400_2_4_16.jpg", "4401022400_1_1_16.jpg"],
+      "variants":[
+        { "size":"41", "color":"black"},
+        { "size":"41", "color":"brown"},
+        { "size":"41", "color":"blue"},
+        { "size":"42", "color":"black"},
+        { "size":"42", "color":"brown"},
+        { "size":"42", "color":"blue"},
+        { "size":"43", "color":"black"},
+        { "size":"43", "color":"brown"},
+        { "size":"43", "color":"blue"}
+      ]
+    },
     {
       "brand": "Massimo Dutti",
       "country": "Spain",
@@ -439,7 +605,7 @@
     },
     
     {
-      "brand": "Massimo Duti",
+      "brand": "Massimo Dutti",
       "country": "Spain",
       "gender": "men",
       "category": "shoes",
@@ -649,7 +815,7 @@
     },
     
     {
-      "brand": "Massimo Duti",
+      "brand": "Massimo Dutti",
       "country": "Spain",
       "gender": "women",
       "category": "shoes",
@@ -954,7 +1120,7 @@
     },
 
     {
-      "brand": "Massimo Duti",
+      "brand": "Massimo Dutti",
       "country": "Spain",
       "gender": "women",
       "category": "accessories",

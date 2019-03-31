@@ -61,7 +61,7 @@ const Homepage = () => (
         pauseOnHover: true
       }}
     />
-    <PromoProductsList department="men" type="sale" />
+    <PromoProductsList department="men" type="sale" title="Special offers"/>
     <GenderBanners />
     <LogoSlider
       images={[

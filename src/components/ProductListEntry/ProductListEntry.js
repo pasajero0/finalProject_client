@@ -12,18 +12,16 @@ const propTypes = {
   slug: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
+  isBrandNew: PropTypes.bool.isRequired,
+  isOnSale: PropTypes.bool.isRequired,
   prices: PropTypes.shape({
     retail: PropTypes.number.isRequired,
     sale: PropTypes.number.isRequired,
   }).isRequired
 };
 
-const ProductListEntry = ({ link, picture, name, slug, prices, brand, country }) => {
-
-  const sale = prices.retail && prices.sale
-    ? Math.round(prices.sale / prices.retail * 100)
-    : 0;
-
+const ProductListEntry = ({ link, picture, name, slug, prices, brand, country, isBrandNew, isOnSale }) => {
+  const salePercents = Math.round((prices.sale-prices.retail)/prices.retail * 100);
   return (
     <div className="productListEntry" key={slug}>
       <div className="productListEntry__content">
@@ -33,25 +31,26 @@ const ProductListEntry = ({ link, picture, name, slug, prices, brand, country })
             alt={name}
             className="productListEntry__img"
           />
-          {sale >= 0 && <div className="productListEntry__sale">-{sale}%</div>}
+          {isOnSale && <div className="productListEntry__sale">{salePercents}%</div>}
         </NavLink>
         <NavLink to={link} className="productListEntry__nameLink">
           {name}
         </NavLink>
         <span className="productListEntry__info">{brand}, {country}</span>
 
-        {sale < 0
-          ? <div className="productListEntry__price">${prices.retail}</div>
-          : (
-            <div className="productListEntry__price">
+        {isOnSale
+          ? (
+          <div className="productListEntry__price">
         <span className="productListEntry__price_sale">
           ${prices.sale}
         </span>
-              <span className="productListEntry__price_old">
+            <span className="productListEntry__price_old">
           ${prices.retail}
         </span>
-            </div>
-          )}
+          </div>
+        )
+          : <div className="productListEntry__price">${prices.retail}</div>
+        }
 
         {/*<button className="productListEntry__btn" type="button">*/}
         {/*<SaveProductForLaterIcon className="saveProductForLaterIcon" />*/}

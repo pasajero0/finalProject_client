@@ -11,6 +11,12 @@ const toSlug = (str) => {
   return slugify(str.replace(/[^\w\d]+/gi, '-').replace(/[-]+/gi, '-').toLowerCase(), '-');
 };
 
+
+const probability = (percents) => {
+  return Math.random() * 100 < percents;
+};
+
+
 // Connect to the db
 MongoClient.connect(url, { useNewUrlParser: true })
   .then((connect) => {
@@ -29,6 +35,7 @@ MongoClient.connect(url, { useNewUrlParser: true })
     return collection.find({ subject: { $in: ['product', 'productVariant', 'department'] } }).toArray();
   })
   .then((res) => {
+
     const counters = {};
     res.forEach(v => {
       counters[v.subject] = v.count;
@@ -76,25 +83,29 @@ MongoClient.connect(url, { useNewUrlParser: true })
       addDepartmentFilter(`${p.gender}${p.category}`, 'country', p.country);
       addDepartmentFilter(`${p.gender}${p.category}`, 'brand', p.brand);
 
-      if (!newProduct.isBrandNew) {
-        newProduct.isBrandNew = Math.random() >= 0.5;
-      }
-      if (!newProduct.isAvailable) {
-        newProduct.isAvailable = Math.random() >= 0.5;
-      }
-      if (!newProduct.isOnSale) {
-        newProduct.isOnSale = Math.random() >= 0.5;
-      }
-      if (!newProduct.rate) {
-        newProduct.rate = Math.floor(Math.random() * Math.floor(5));
-      }
+
+      newProduct.isBrandNew = probability(10);
+
+      newProduct.isAvailable = Math.random() >= 0.5;
+
+
+      newProduct.rate = Math.floor(Math.random() * Math.floor(5));
+
       if (!newProduct.prices) {
-        const price = 20 + Math.floor(Math.random() * Math.floor(500));
+        const price = 200 + Math.floor(Math.random() * Math.floor(500));
+        const sale =
+          probability(20)
+            ? Math.round(price - price / 100 * ([10, 20, 30, 50][Math.min(3, Math.floor(Math.random()* 4))]))
+            : 0;
+
         newProduct.prices = {
           retail: price,
-          sale: Math.floor(price * Math.random())
+          sale
         };
       }
+
+      newProduct.isOnSale = newProduct.prices.sale > 0;
+
 
       delete newProduct.category;
       delete newProduct.gender;
@@ -119,7 +130,6 @@ MongoClient.connect(url, { useNewUrlParser: true })
           });
         });
       }
-
     });
 
     const promises = res.map((v) => {
@@ -135,7 +145,6 @@ MongoClient.connect(url, { useNewUrlParser: true })
     promises.push(database.collection('products').insertMany(products));
 
     return Promise.all(promises);
-
   })
   .then((res) => {
     console.log(`Succeed. Seeded ${res[3].insertedCount} records`);
