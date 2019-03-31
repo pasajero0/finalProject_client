@@ -43,11 +43,8 @@ const validate = (values) => {
   const errors = {};
   if (!stringValidation(values.first_name)) {
     errors.first_name = 'Letters, space or "-" only';
-<<<<<<< HEAD
-=======
   } else if (!minLength(3)(values.first_name)) {
     errors.first_name = 'First name is to short';
->>>>>>> message
   }
   if (!stringValidation(values.last_name)) {
     errors.last_name = 'Letters, space or "-" only';

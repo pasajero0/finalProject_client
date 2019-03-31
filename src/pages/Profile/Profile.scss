@@ -30,26 +30,25 @@
         }
     }
 
-    &__text {
-        font-family: $text;
-        font-size: 25px;
-    }
+    // &__text {
+    //     font-family: $text;
+    //     font-size: 25px;
+    // }
 
-    &__button {
-        width: 160px;
-        padding: 12px 0;
-        font-size: 15px;
-        color: $primary_light;
-        background: $primary_dark;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-family: $navigation;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        margin: 0 10px;
-    }
-  }
+    // &__button {
+    //     width: 160px;
+    //     padding: 12px 0;
+    //     font-size: 15px;
+    //     color: $primary_light;
+    //     background: $primary_dark;
+    //     text-transform: uppercase;
+    //     font-weight: bold;
+    //     font-family: $navigation;
+    //     outline: none;
+    //     border: none;
+    //     cursor: pointer;
+    //     margin: 0 10px;
+    // }
 
   &__text {
     font-family: $text;
@@ -70,6 +69,7 @@
     text-transform: uppercase;
     cursor: pointer;
   }
+  
 }
 
 @media (max-width: 480px) {
