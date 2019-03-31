@@ -7,7 +7,6 @@ import { setCurrentDepartment } from '../../actions/products';
 import { replaceInRoute } from '../../utils/helpers';
 import { URL_PRODUCT_IMAGES, URL_API_FETCH_PROMO_PRODUCTS } from '../../config/app';
 import ProductListLoader from '../ProductListLoader/ProductListLoader';
-import Pagination from '../Pagination/Pagination';
 import ProductCarousel from '../ProductCarousel/ProductCarousel'
 
 import './PromoProductsList.scss';
@@ -68,6 +67,8 @@ class PromoProductsList extends Component {
                 slug={item.slug}
                 picture={`${URL_PRODUCT_IMAGES}/md-${item.pictures[0]}`}
                 name={item.name}
+                brand={item.brand}
+                country={item.country}
                 prices={item.prices}
                 link={replaceInRoute(
                     `/:department/product/:product`,

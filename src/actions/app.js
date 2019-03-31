@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { URL_API_FETCH_DEPARTMENTS, URL_API_FETCH_INITIAL_DATA } from '../config/app';
+import { URL_API_FETCH_INITIAL_DATA } from '../config/app';
 import {SET_IS_AUTHENTICATED} from './customers';
+import { initCart } from './cart';
 
 axios.defaults.withCredentials = true;
 
@@ -24,6 +25,7 @@ export function setUserMenuVisibility(value) {
     payload: value
   }
 }
+
 export function fetchInitialData() {
   return (dispatch) => {
     dispatch({
@@ -50,6 +52,8 @@ export function fetchInitialData() {
             type: FETCH_INITIAL_DATA_FULFILLED,
             payload: true
           });
+
+          initCart(data.data.cart)(dispatch);
         } else {
           throw new Error('Fetching product data error');
         }
@@ -57,7 +61,7 @@ export function fetchInitialData() {
       .catch(err => dispatch({ type: FETCH_INITIAL_DATA_REJECTED, payload: err }));
   };
 }
-
+/*
 export function fetchDepartments() {
   return (dispatch) => {
     dispatch({
@@ -78,7 +82,7 @@ export function fetchDepartments() {
       .catch(err => dispatch({ type: FETCH_DEPARTMENTS_REJECTED, payload: err }));
   };
 }
-
+*/
 export function setLoginFormActiveStatus(value) {
 
   return {

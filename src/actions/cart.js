@@ -1,5 +1,48 @@
-export const UPDATE_PRODUCTS_IN_CART = 'UPDATE_PRODUCTS_IN_CART';
+import axios from 'axios';
+import { URL_API_STORE_CART } from '../config/app';
 
+axios.defaults.withCredentials = true;
+
+export const UPDATE_PRODUCTS_IN_CART = 'UPDATE_PRODUCTS_IN_CART';
+export const INIT_CART = 'INIT_CART';
+
+
+/**
+ * Send cart content to the server
+ * @returns {function(*, *)}
+ */
+export function sendToServer() {
+  return (dispatch, getState) => {
+    console.log(getState().cart);
+    return axios.post(URL_API_STORE_CART, getState().cart)
+      .catch(console.log);
+  }
+}
+/**
+ * Clear Cart
+ * @returns {function(*)}
+ */
+export function clearCart() {
+  return (dispatch, getState) => {
+    dispatch({
+      type: UPDATE_PRODUCTS_IN_CART,
+      payload: []
+    });
+    sendToServer()(dispatch, getState);
+  };
+}
+/**
+ * Init Cart
+ * @returns {function(*)}
+ */
+export function initCart(cart) {
+  return (dispatch) => {
+    dispatch({
+      type: INIT_CART,
+      payload: cart
+    });
+  };
+}
 /**
  * Add product to cart. Check if already exits increment number else add new object.
  * @param product
@@ -25,6 +68,7 @@ export function addProductToCart(product) {
         payload: [...storedProducts, { ...product, quantity: 1 }]
       });
     }
+    sendToServer()(dispatch, getState);
   };
 }
 /**
@@ -52,14 +96,8 @@ export function updateProductInCart(slug, quantity = 0) {
         payload: storedProducts.filter(p => slug !== p.slug)
       });
     }
+    sendToServer()(dispatch, getState);
   };
 }
 
-export function clearCart() {
-  return dispatch => {
-    dispatch({
-      type: UPDATE_PRODUCTS_IN_CART,
-      payload: []
-    });
-  };
-}
+

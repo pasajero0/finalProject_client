@@ -4,6 +4,7 @@ export const URL_API_FETCH_PRODUCTS = `${process.env.REACT_APP_SERVER_URL}/produ
 export const URL_API_FETCH_PROMO_PRODUCTS = `${process.env.REACT_APP_SERVER_URL}/products/:type`;
 export const URL_API_FETCH_PRODUCT = `${process.env.REACT_APP_SERVER_URL}/products/:slug`;
 export const URL_API_FETCH_INITIAL_DATA = `${process.env.REACT_APP_SERVER_URL}/app/initial-data`;
+export const URL_API_STORE_CART = `${process.env.REACT_APP_SERVER_URL}/app/store-cart`;
 export const URL_API_FETCH_ORDER_HISTORY = `${process.env.REACT_APP_SERVER_URL}/orders/history`;
 export const URL_API_ADD_CUSTOMER = `${process.env.REACT_APP_SERVER_URL}/customers`;
 export const URL_API_LOGIN_CUSTOMER = `${process.env.REACT_APP_SERVER_URL}/customers/auth`;
@@ -14,4 +15,5 @@ export const URL_API_GET_RESET_PASSWORD_TOKEN = `${process.env.REACT_APP_SERVER_
 export const URL_API_SAVE_PASSWORD = `${process.env.REACT_APP_SERVER_URL}/password/save`;
 export const URL_API_ADD_ORDERS = `${process.env.REACT_APP_SERVER_URL}/orders/add`;
 export const URL_API_FETCH_SEARCH_HINTS = `${process.env.REACT_APP_SERVER_URL}/products/search-hints`;
+
 

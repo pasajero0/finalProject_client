@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 import { connect } from 'react-redux';
@@ -29,8 +28,6 @@ class SetCurrentDepartment extends Component {
     const { callSetCurrentDepartment, departments, callSetCurrentDepartmentData } = this.props;
     const slug = this.getDepartmentSlug();
     const found = departments.filter(d => d.slug === slug);
-console.log(slug);
-    console.log(found);
     callSetCurrentDepartmentData(found.length === 1 ? found[0] : {});
     callSetCurrentDepartment(slug);
   }

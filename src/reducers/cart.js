@@ -1,5 +1,6 @@
 import {
-  UPDATE_PRODUCTS_IN_CART
+  UPDATE_PRODUCTS_IN_CART,
+  INIT_CART
 } from '../actions/cart';
 
 
@@ -40,6 +41,10 @@ const cart = (state = initialState, action) => {
         products: action.payload,
         total: getTotal(action.payload),
         count: getCount(action.payload),
+      };
+    case INIT_CART:
+      return {
+        ...action.payload,
       };
     default:
       return state;
