@@ -5,6 +5,8 @@ import { Route } from 'react-router-dom';
 import Routes from './Routes';
 import { fetchInitialData, hideSystemMessage } from './actions/app';
 import SystemMessage from './components/SystemMessage/SystemMessage';
+import RenderLoader from './components/RenderLoader/RenderLoader';
+import './components/Layout/Layout.scss'
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
@@ -25,6 +27,7 @@ const defaultProps = {
 };
 
 
+
 class App extends Component {
   componentDidMount() {
     const { isFetching, departments, callFetchInitialData } = this.props;
@@ -42,9 +45,22 @@ class App extends Component {
       systemMessageText,
       systemMessageType,
     } = this.props;
+
+    const loaderStyle = {
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50% , -50% )'
+    };
+
     return(
       !isFetching && departments.length === 0 
-      ? <div>Loading...</div> 
+      ? <div style={loaderStyle}>
+        <RenderLoader 
+        size={'100px'}
+        color = {'lightgrey'}
+        />
+      </div>
       : <>
           <SystemMessage
             text={systemMessageText}
