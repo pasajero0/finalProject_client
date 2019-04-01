@@ -92,3 +92,4 @@ const mapDispatchToProps = dispatch => ({
 
 const C = connect(mapStateToProps, mapDispatchToProps)(App);
 export default props => <Route render={routeProps => <C {...routeProps} {...props} />}/>;
+ 
