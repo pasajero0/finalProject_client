@@ -1,0 +1,52 @@
+@import '../../vars';
+
+.genderBanners {
+  padding: 20px 0;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .genderBanner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 50%;
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &__img {
+      width: 100%;
+    }
+
+  }
+}
+
+
+@media (max-width: 768px) {
+  .genderBanners {
+    &__content {
+      flex-wrap: wrap;
+    }
+
+    .genderBanner {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__text {
+        font-size: 16px;
+      }
+    }
+  }
+}

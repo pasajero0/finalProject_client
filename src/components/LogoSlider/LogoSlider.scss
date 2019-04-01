@@ -1,0 +1,238 @@
+/* Slider */
+
+@import '../../vars';
+
+.logoSlider {
+  width: 100%;
+  padding: 20px 40px;
+  margin: 0 auto;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  background-color: $primary_light;
+  text-align: center;
+
+  @import 'slick-theme.scss';
+
+  & .logoSlider__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .logoSlider__name {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $text;
+    font-size: 30px;
+  }
+
+  & .logoSlider__img {
+    width: 80%;
+    height: 100%;
+    color: $primary_light;
+    position: relative;
+  }
+
+  & .slick-slider {
+    position: relative;
+    box-sizing: border-box;
+    user-select: none;
+    touch-action: pan-y;
+  }
+
+  & .slick-list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  & .slick-track::before,
+  & .slick-track::after {
+    display: table;
+    content: '';
+  }
+
+  & .slick-slide {
+    display: none;
+    height: 100%;
+    min-height: 1px;
+    float: left;
+  }
+
+  & [dir='rtl'] .slick-slide {
+    float: right;
+  }
+
+  & .slick-initialized .slick-slide {
+    display: block;
+  }
+
+  & .slick-prev,
+  & .slick-next {
+    display: flex;
+    position: absolute;
+    bottom: 50%;
+    width: 30px;
+    height: 110px;
+    background-color: $primary_light;
+    z-index: 4;
+
+    &::before {
+      font-size: 30px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $primary_light;
+      }
+    }
+  }
+
+  & .slick-prev {
+    left: 0;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      position: absolute;
+      left: 9px;
+      width: 4px;
+      height: 26px;
+      color: $primary_dark;
+      font-size: 30px;
+      content: '';
+    }
+
+    &::before {
+      top: 30px;
+      transform: rotate(45deg);
+      background-color: $primary_dark;
+      opacity: 1;
+    }
+
+    &::after {
+      top: 46px;
+      transform: rotate(-45deg);
+      background-color: $primary_dark;
+    }
+  }
+
+  & .slick-next {
+    right: 0;
+
+    &::before,
+    &::after {
+      content: '';
+      height: 26px;
+      width: 4px;
+      font-size: 30px;
+      color: #000;
+      display: inline-block;
+      position: absolute;
+      left: 8px;
+      background-color: white;
+    }
+
+    &::before {
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      top: 30px;
+      background-color: #000;
+      opacity: 1;
+    }
+
+    &::after {
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background-color: #000;
+      top: 46px;
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .logoSliderWrapper {
+    .logoSlider {
+      padding: 20px 0;
+
+      &__img {
+        width: 50%;
+      }
+
+      .slider {
+        margin-top: 0;
+
+        .slick-prev::before,
+        .slick-prev::after {
+          height: 18px;
+          width: 2px;
+          font-size: 20px;
+        }
+
+        .slick-prev::after {
+          top: 20px;
+        }
+
+        .slick-next::after {
+          top: 20px;
+        }
+
+        .slick-next::before,
+        .slick-next::after {
+          content: '';
+          height: 18px;
+          width: 2px;
+          font-size: 20px;
+          left: 25px;
+        }
+
+        .slick-prev::before {
+          top: 8px;
+        }
+
+        .slick-next::before {
+          top: 8px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+
+  .slider .slick-prev::before, .slider .slick-prev::after {
+    height: 18px;
+    width: 2px;
+    font-size: 20px;
+  }
+
+  .slider .slick-prev::after {
+    top: 20px;
+  }
+
+  .slider .slick-next::after {
+    top: 20px;
+  }
+
+  .slider .slick-next::before, .slider .slick-next::after {
+    content: '';
+    height: 18px;
+    width: 2px;
+    font-size: 20px;
+    left: 25px;
+  }
+
+  .slider .slick-prev::before {
+    top: 8px;
+  }
+
+  .slider .slick-next::before {
+    top: 8px;
+  }
+}
+

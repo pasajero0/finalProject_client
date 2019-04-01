@@ -1,0 +1,41 @@
+@import '../../vars';
+
+.returns {
+    font-family: $text;
+    padding-bottom: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        @include title;
+
+        &_small {
+            font-size: 24px;
+            text-align: center;
+            padding: 25px 0;
+        }
+    }
+
+    &__text {
+        font-family: $text;
+        text-align: justify;
+        line-height: normal;
+        padding-top: 10px;
+
+        span {
+            font-weight: bold;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+
+    .returns {
+        margin-top: 108px;
+    }
+}

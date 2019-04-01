@@ -1,0 +1,50 @@
+// fonts
+
+$navigation: 'Oswald', sans-serif;
+$text: 'Poppins', sans-serif;
+$title: 'Playfair Display', serif;
+
+// сolors
+
+$primary: #757575;
+$primary_200: #eee;
+$primary_400: #bdbdbd;
+$primary_light: #fff;
+$primary_dark: #000;
+$secondary: #993e28;
+$secondary_dark: #731c0e;
+
+@mixin title {
+  font-family: $title;
+  font-size: 3.5rem;
+  line-height: 1.25em;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+@mixin subTitle {
+  margin-bottom: .25em;
+  font-family: $text;
+  font-size: 1rem;
+  line-height: 1.345em;
+  text-align: center;
+}
+
+@mixin btn {
+  width: 250px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  background-color: $secondary;
+  color: $primary_light;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: $navigation;
+  letter-spacing: 3px;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $secondary_dark;
+  }
+}

@@ -1,0 +1,67 @@
+@import '../../vars';
+
+.delivery {
+  padding-bottom: 60px;
+  font-family: $text;
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__title {
+
+    @include title;
+
+    &_small {
+      font-size: 24px;
+      text-align: center;
+      padding: 25px 0;
+    }
+  }
+
+  &__text {
+    text-align: justify;
+    line-height: normal;
+    padding-top: 10px;
+    font-family: $text;
+  }
+
+  &__table {
+    font-family: $text;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    border-collapse: collapse;
+    width: 80%;
+  }
+
+  td,
+  th {
+    border: 2px solid $primary_200;
+    text-align: left;
+    padding: 10px;
+    line-height: normal;
+  }
+
+  th {
+    font-size: 1.25em;
+    padding: 15px;
+  }
+
+  tr:nth-child(even) {
+    background-color: $primary_200;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 780px) {
+  .delivery {
+    &__table {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .delivery {
+    margin-top: 108px;
+  }
+}

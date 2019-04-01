@@ -1,0 +1,34 @@
+@import '../../vars';
+
+.thankYou {
+    min-height: calc(100vh - 170px);
+    padding-bottom: 60px;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        @include title;
+    }
+
+    &__message {
+        margin-top: 60px;
+        font-family: $text;
+    }
+
+    p {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .thankYou {
+        margin-top: 108px;
+    }
+}

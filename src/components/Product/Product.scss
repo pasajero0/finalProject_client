@@ -1,0 +1,196 @@
+@import '../../vars';
+
+.product {
+  min-height: calc(100vh - 170px);
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .imageSlider__container {
+    width: 50%;
+    margin-right: 40px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  &__name {
+    margin-bottom: 1rem;
+    color: $primary_dark;
+    font-family: $text;
+    font-size: 2rem;
+  }
+
+  &__brand {
+    margin-bottom: 1rem;
+    font-family: $text;
+    font-size: .875rem;
+  }
+
+  .starRating {
+    margin-bottom: 30px;
+  }
+
+  &__price {
+    margin-bottom: 30px;
+    color: $secondary;
+    font-family: $text;
+    font-size: 25px;
+
+    &_sale {
+      margin: 0 3px;
+      color: $secondary;
+    }
+
+    &_old {
+      position: relative;
+      margin: 0 3px;
+      color: $primary_400;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        height: 2px;
+        transform: translateY(-50%);
+        background: $primary_400;
+        content: '';
+      }
+    }
+  }
+
+  &__buy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include btn;
+
+    &:hover .addProductToCartIcon {
+      color: $primary_light;
+    }
+  }
+
+  &__save {
+    display: flex;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .addProductToCartIcon {
+    margin-right: 20px;
+    color: $primary_light;
+    font-size: 25px;
+  }
+
+  .saveProductForLaterIcon {
+    position: inherit;
+    color: $secondary;
+
+    &:hover,
+    &:active,
+    &:focus {
+      fill: $secondary;
+    }
+
+    &_saved {
+      color: $secondary;
+      fill: $secondary;
+      animation-name: heartBeat;
+      animation-duration: .8s;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes heartBeat {
+      0%,
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      50% {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__description {
+    width: 400px;
+    color: $primary_dark;
+    font-family: $text;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 980px) {
+  .product {
+    &__content {
+      flex-wrap: wrap;
+    }
+
+    .imageSlider__container {
+      flex-wrap: wrap;
+      width: 80%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    &__info {
+      align-items: center;
+      width: 100%;
+    }
+
+    &__name {
+      text-align: center;
+    }
+
+    .addProductToCartIcon {
+      font-size: 25px;
+    }
+
+    .saveProductForLaterIcon {
+      font-size: 30px;
+    }
+
+    &__description {
+      width: 90%;
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .product {
+    padding-top: 108px;
+
+    .saveProductForLaterIcon {
+      font-size: 25px;
+    }
+
+    &__name {
+      font-size: 25px;
+      line-height: 35px;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+  }
+}

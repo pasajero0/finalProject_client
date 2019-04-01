@@ -1,0 +1,374 @@
+@import '../../../vars';
+
+.navbar {
+  &__top.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__search {
+    display: flex;
+    flex: 1 1;
+    justify-content: flex-end;
+    padding-right: .5rem;
+  }
+
+  &__logoLink {
+    font-size: 40px;
+  }
+
+  &__rootMenu {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 25px;
+    margin-left: 60px;
+  }
+
+  &__rootMenuLink {
+    position: relative;
+    transition: color .2s;
+    color: $primary_dark;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $secondary;
+
+      &::after {
+        background-color: $secondary;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -9px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $primary_dark;
+      content: "";
+      visibility: hidden;
+    }
+
+    &_active {
+      cursor: default;
+
+      &::after {
+        visibility: visible;
+      }
+
+      &:hover {
+        color: $primary_dark;
+
+        &::after {
+          background-color: $primary_dark;
+        }
+      }
+    }
+  }
+
+  &__rootMenuEntry {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__subMenu {
+    flex: 0 0 100%;
+  }
+}
+
+.navbarTopMainContent {
+  display: flex;
+  align-items: center;
+}
+
+.navBurger {
+  display: none;
+  position: relative;
+  width: 25px;
+  height: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: rotate(0deg);
+    transition: .15s ease-in-out;
+    border-radius: 9px;
+    background: #333;
+    opacity: 1;
+  }
+
+  & span:nth-child(1) {
+    top: 0;
+  }
+
+  & span:nth-child(2),
+  & span:nth-child(3) {
+    top: 8px;
+  }
+
+  & span:nth-child(4) {
+    top: 16px;
+  }
+
+  &.open span:nth-child(1) {
+    top: 18px;
+    left: 50%;
+    width: 0;
+  }
+
+  &.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  &.open span:nth-child(4) {
+    top: 18px;
+    left: 50%;
+    width: 0;
+  }
+}
+
+/*
+.genderNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 60px;
+  margin-right: 25px;
+
+  &__item {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  &__link {
+    color: $primary_dark;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: bold;
+    font-size: 18px;
+
+    &::after {
+      content: "";
+      background-color: $primary_dark;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: -9px;
+      left: 0px;
+      visibility: hidden;
+    }
+
+    &.active::after {
+      visibility: visible;
+    }
+  }
+}
+*/
+
+.navbarMenuContent {
+  display: flex;
+  justify-content: center;
+  height: 16px;
+  margin-top: 20px;
+  padding: 17px 0;
+  background-color: $primary_dark;
+}
+
+.switchNav {
+  display: none;
+}
+
+.navbarNav {
+  display: flex;
+
+  &__item {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $primary_light;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &::after {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $primary_light;
+      content: "";
+      visibility: hidden;
+    }
+
+    &_active {
+      cursor: default;
+
+      &::after {
+        visibility: visible;
+      }
+
+      &:hover {
+        &::after {
+          background-color: $primary_light;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) {
+  .navbar {
+    &__menuSwitch {
+      display: none;
+    }
+
+    &__rootMenu {
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    &__top.container {
+      margin-bottom: 0;
+    }
+
+    .navbarTop {
+      margin-bottom: 0;
+    }
+
+    .navBurger {
+      display: block;
+      margin-right: 20px;
+    }
+
+    .genderNav {
+      display: none;
+    }
+
+    .navbarMenuContent {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: fixed;
+      top: 70px;
+      left: -3000px;
+      width: 100%;
+      min-width: 320px;
+      height: 100%;
+      padding: 0;
+      transition: .4s;
+      background-color: $primary_light;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .navbarNav__link {
+      color: $primary_dark;
+    }
+
+    .switchNav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 30px;
+      padding: 20px 0;
+      background-color: $primary;
+
+      &__item {
+        margin-right: 100px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      &__link {
+        position: relative;
+        color: $primary_light;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+          color: #d9d9d9;
+        }
+      }
+    }
+
+    .navbarNav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__item {
+        margin-right: 0;
+        margin-bottom: 50px;
+      }
+
+      &__link {
+        &::after {
+          position: absolute;
+          bottom: -9px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $primary_dark;
+          content: "";
+          visibility: hidden;
+        }
+
+        &:hover::after {
+          visibility: visible;
+        }
+
+        &:hover {
+          color: $primary_dark;
+        }
+      }
+    }
+  }
+}

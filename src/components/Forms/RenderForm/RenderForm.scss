@@ -1,0 +1,37 @@
+@import '../../../vars';
+
+.renderForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 700px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__btn {
+    @include btn;
+
+    margin-top: 30px;
+  }
+
+  &__message {
+    height: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}

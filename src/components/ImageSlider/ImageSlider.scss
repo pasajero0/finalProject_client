@@ -1,0 +1,156 @@
+@import '../../vars';
+
+@mixin image-box-absolute() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.imageSlider {
+  &__content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  &__mainBox {
+    flex: 0 1 600px;
+  }
+
+  &__mainFrame {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 133%;
+  }
+
+  &__mainImg {
+    @include image-box-absolute();
+
+    display: block;
+    transition: .3s linear;
+    opacity: 0;
+    z-index: 1;
+
+    &_current {
+      opacity: 1;
+      z-index: 2;
+    }
+
+  }
+  &__mainImg_sm {
+    @include image-box-absolute();
+
+    display: none;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__mainImg_lg {
+    @include image-box-absolute();
+
+    display: block;
+  }
+
+  &__smImg {
+    display: flex;
+    flex: 0 0 100px;
+    flex-direction: column;
+    margin-right: 10px;
+  }
+
+  &__btn {
+    display: inline-flex;
+    margin-bottom: 10px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: transparent;
+      outline: none;
+    }
+
+    &_current {
+      cursor: inherit;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-image-width: 0;
+      opacity: .2;
+    }
+
+    &_current {
+      opacity: .2;
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .imageSlider {
+    &__mainImg_sm {
+      display: block;
+    }
+
+    &__mainImg_lg {
+      display: none;
+    }
+
+    &__content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__mainBox {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    &__smImg {
+      flex: 0 0 auto;
+      flex-direction: row;
+      margin-right: 0;
+    }
+
+    &__btn {
+      margin-right: 10px;
+      margin-bottom: 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .imageSlider {
+    &__mainBox {
+      flex: 0 1 400px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .imageSlider {
+    &__mainBox {
+      flex: 0 1 300px;
+    }
+  }
+}

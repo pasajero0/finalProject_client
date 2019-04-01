@@ -1,0 +1,18 @@
+.classForContainer {
+    position: fixed;
+    right: -100px;
+    bottom: 20px;
+    transition: right 0.5s;
+    cursor: pointer;
+    outline: none;
+    font-size: 38px;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+}
+
+.classForTransition {
+    right: 20px;
+    z-index: 999;
+}

@@ -1,0 +1,17 @@
+@import '../../vars';
+
+.header {
+  padding: 20px 0;
+}
+
+@media (max-width: 480px) {
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $primary_light;
+    box-shadow: 1px -5px 14px 0;
+    z-index: 3;
+  }
+}
+

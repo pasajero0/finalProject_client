@@ -1,0 +1,33 @@
+@import '../../vars';
+
+.aboutUs {
+  font-family: $title;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+
+  &__title {
+    @include title;
+  }
+
+    &__img {
+      width: 100%;
+      height: auto;
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+
+    &__content {
+      text-align: justify;
+      line-height: normal;
+      padding-top: 10px;
+      font-family: $text;
+    }
+}
+
+@media (max-width: 480px) {
+
+  .aboutUs {
+    margin-top: 108px;
+  }
+}

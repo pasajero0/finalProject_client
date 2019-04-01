@@ -1,0 +1,117 @@
+@import '../../vars';
+
+.account {
+  min-height: calc(100vh - 170px);
+  padding-bottom: 60px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__switchButtons {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+
+  &__loginButton,
+  &__registerButton {
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    color: $primary_400;
+    font-family: $navigation;
+    font-size: 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__switchButtons_active {
+    border-bottom: 2px solid $primary_dark;
+    color: $primary_dark;
+  }
+
+  &__info {
+    margin-top: 20px;
+    color: $primary_dark;
+    font-family: $text;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+
+    & a {
+      color: $secondary;
+      font-family: $text;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
+  .renderField {
+    padding: 20px;
+  }
+
+  .renderForm {
+    margin-top: 30px;
+
+    &__btn {
+      margin-top: 15px;
+    }
+  }
+
+  &__socialButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  &__socialButton {
+    width: 165px;
+    margin-bottom: 10px;
+    padding: 15px 0 15px 5px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    color: $primary_light;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__socialButton_facebook {
+    margin-right: 10px;
+    background-color: #325c94;
+  }
+
+  &__socialButton_google {
+    background-color: #ea3032;
+  }
+
+  &__socialButtonIcon {
+    margin-right: 5px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .account {
+    margin-top: 108px;
+
+    &__switchButtons {
+      font-size: 20px;
+    }
+
+    &__loginButton,
+    &__registerButton {
+      font-size: 20px;
+    }
+  }
+}

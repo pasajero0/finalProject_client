@@ -2,8 +2,7 @@
     "extends": "airbnb",
     "rules":{
         "linebreak-style": 0,
-        "jsx-filename-extension":0,
-        "comma-dangle": 0,
-        "prefer-stateless-function":0
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "comma-dangle": 0
     }
 }

@@ -1,0 +1,11 @@
+.corkBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background: lightyellow;
+
+  .corkTitle {
+    font-size: 50px;
+  }
+}

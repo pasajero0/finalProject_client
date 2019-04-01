@@ -1,0 +1,21 @@
+@import '../../vars';
+
+.productListHeader {
+    margin-bottom: 2rem;
+
+  &__title {
+    @include title;
+  }
+
+  &__subTitle {
+    @include subTitle;
+  }
+
+  &__stat {
+    font-family: $text;
+    font-size: 0.75rem;
+    line-height: 1.345em;
+    text-align: center;
+  }
+}
+

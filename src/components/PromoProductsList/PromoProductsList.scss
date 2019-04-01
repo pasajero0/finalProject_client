@@ -1,0 +1,19 @@
+
+.promoProductsList {
+  padding: 20px 0;
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+
+  &__loader {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+}

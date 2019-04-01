@@ -1,0 +1,29 @@
+@import '../../../../vars';
+
+.tool {
+  display: block;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+
+  &__icon {
+    width: 26px;
+    height: 26px;
+    margin: 11px;
+    transition: color .4s;
+    color: $primary;
+  }
+
+  &_disabled {
+    & .tool__icon {
+      color: $primary;
+    }
+
+    &:hover {
+      & .tool_icon {
+        color: $primary;
+      }
+    }
+  }
+}

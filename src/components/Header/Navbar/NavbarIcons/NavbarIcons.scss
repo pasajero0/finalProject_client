@@ -1,0 +1,41 @@
+@import '../../../../vars';
+
+.navbarIcons {
+  display: flex;
+  align-items: flex-end;
+
+  &__button {
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  &__item {
+    flex: 0 0 48px;
+    margin-left: 0;
+  }
+
+  &__quantity {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: $secondary;
+    color: $primary_light;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .userIcon {
+    fill: $primary_dark;
+  }
+}

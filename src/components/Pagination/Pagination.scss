@@ -1,0 +1,59 @@
+@import '../../vars';
+
+.pagination {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 35px 0px;
+	flex-wrap: nowrap;
+
+	&__item {
+		cursor: pointer;
+		padding: 5px 15px;
+		border: 1px solid transparent;
+		font-weight: 700;
+		color: $primary_dark;
+
+		&:hover {
+			color: $primary_dark;
+		}
+
+		&_disabled {
+			color: $primary_400;
+			cursor: default;
+
+			&:hover {
+				color: $primary_400;
+				cursor: default;
+			}
+		}
+	}
+
+	&__page {
+		cursor: pointer;
+		padding: 5px 10px;
+		border-radius: 5px;
+		font-weight: 700;
+		margin: 0 15px;
+		color: $primary_dark;
+
+		&_current {
+			cursor: default;
+			background: $primary_dark;
+			color: $primary_light;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.pagination {
+		&__item {
+			padding: 5px 10px;
+		}
+
+		&__page {
+			padding: 5px 10px;
+			margin: 0 5px;
+		}
+	}
+}

@@ -1,0 +1,41 @@
+@import '../../reset';
+@import '../../vars';
+
+html,
+body,
+div#root {
+  height: 100%;
+}
+
+body {
+  font-family: $navigation;
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+  }
+}
+
+.container {
+  width: 100%;
+  min-width: 320px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.mainLogo {
+  color: $primary_dark;
+  text-transform: uppercase;
+}

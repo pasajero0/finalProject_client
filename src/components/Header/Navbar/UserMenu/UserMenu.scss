@@ -1,0 +1,77 @@
+@import '../../../../vars';
+
+.userMenu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  max-height: 0;
+  transition: max-height .4s;
+  overflow: hidden;
+  z-index: 2;
+
+  &_isVisible {
+    max-height: 300px;
+  }
+
+  &__entries {
+    position: relative;
+    top: 100%;
+    right: 0;
+    margin: 5px;
+    background: white;
+    box-shadow: 0 0 2px #000;
+  }
+
+  &__entry {
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, .3);
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-width: 200px;
+    padding: 10px 30px;
+    transition: .4s all;
+    border: 0;
+    box-sizing: border-box;
+    outline: none;
+    background: none;
+    color: black;
+    font-family: $navigation;
+    font-size: 1rem;
+    line-height: 1.25em;
+    text-align: left;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      background: #dedede;
+    }
+
+    &.userMenu__link_active {
+      background: #dedede;
+      cursor: default;
+
+      &:hover {
+        background: #dedede;
+        cursor: default;
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 5px;
+        background-color: black;
+        content: '';
+      }
+    }
+  }
+}
