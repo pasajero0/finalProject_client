@@ -160,6 +160,10 @@
     .logoSlider {
       padding: 20px 0;
 
+      &__img {
+        width: 50%;
+      }
+
       .slider {
         margin-top: 0;
 
