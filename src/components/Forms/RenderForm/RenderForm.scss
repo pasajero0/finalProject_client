@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
 
   &__title {
     text-align: center;
@@ -24,6 +25,8 @@
 
   &__btn {
     @include btn;
+
+    margin-top: 30px;
   }
 
   &__message {
