@@ -17,7 +17,7 @@ import Delivery from './pages/Delivery/Delivery';
 import Search from './pages/Search/Search';
 import SetCurrentDepartment from './components/SetCurrentDepartment/SetCurrentDepartment';
 import InitScroll from './components/InitScroll/InitScroll';
-import NoMatch from './pages/NoMatch/NoMatch';
+import NoMatch from './pages/PageNotFound/PageNotFound';
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
