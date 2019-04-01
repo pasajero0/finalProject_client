@@ -24,24 +24,12 @@
   }
 
   &__cvButton {
-    display: inline-block;
+    @include btn;
     text-align: center;
-    width: 160px;
-    margin: 0;
-    padding: 12px 0;
-    border: none;
-    outline: none;
-    background: $primary_dark;
-    color: $primary_light;
-    font-family: $navigation;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
   }
 
   &__imgBlock {
+    margin-top: 60px;
     width: 60%;
     height: auto;
     padding: 0 20px 20px 0;
@@ -110,9 +98,6 @@
 
   }
 }
-
-
-
 
 @media (max-width: 780px) {
   .careers {

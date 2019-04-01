@@ -27,11 +27,11 @@ const defaultProps = {
 };
 
 const links = [
-  "/women/product/slim-fit-knit-herringbone-blazer-345706",
-  "/men/product/slim-fit-vintage-jeans-345692",
-  "/women-shoes/product/white-leather-plimsolls-with-black-heel-tab-345720",
-  "/women-accessories/product/two-tone-leather-wallet-345731",
-  "/women-beauty/product/evening-whispers-perfume-and-candle-pack-345760"
+  "/women/product/slim-fit-knit-herringbone-blazer-346462",
+  "/men/product/slim-fit-textured-weave-jeans-style-trousers-346438",
+  "/women/product/white-leather-plimsolls-with-black-heel-tab-346476",
+  "/women-accessories/product/two-tone-leather-wallet-346487",
+  "/women-beauty/product/evening-whispers-perfume-and-candle-pack-346516"
 ];
 
 const Slider = ({ imagesBig, imagesSmall, settings }) => (

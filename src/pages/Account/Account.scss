@@ -2,7 +2,7 @@
 
 .account {
   min-height: calc(100vh - 170px);
-  padding-bottom: 40px;
+  padding-bottom: 60px;
 
   &__content {
     display: flex;
@@ -16,6 +16,7 @@
   }
 
   &__switchButtons {
+    margin-top: 60px;
     margin-bottom: 20px;
     font-size: 25px;
   }
@@ -40,7 +41,7 @@
 
   &__info {
     margin-top: 20px;
-    color: $primary;
+    color: $primary_dark;
     font-family: $text;
     font-size: 15px;
     line-height: 20px;
@@ -56,6 +57,14 @@
 
   .renderField {
     padding: 20px;
+  }
+
+  .renderForm {
+    margin-top: 30px;
+
+    &__btn {
+      margin-top: 15px;
+    }
   }
 
   &__socialButtons {

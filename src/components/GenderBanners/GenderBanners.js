@@ -15,14 +15,12 @@ const GenderBanners = () => {
               src={`${ImagesDir}/banners/4.jpg`}
               alt="Women banner"
               className="genderBanner__img" />
-            <div className="genderBanner__text">Shop women</div>
           </NavLink>
           <NavLink to="/men" className="genderBanner men">
             <img
               src={`${ImagesDir}/banners/8.jpg`}
               alt="Men banner"
               className="genderBanner__img" />
-            <div className="genderBanner__text">Shop men</div>
           </NavLink>
         </div>
       </div>
