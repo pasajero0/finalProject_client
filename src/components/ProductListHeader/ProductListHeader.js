@@ -13,26 +13,31 @@ import './ProductListHeader.scss';
  * @type {object}
  */
 const propTypes = {
-  /** Text message of the toast. */
-  //prop: PropTypes.string,
+  /** Product list title. */
+  title: PropTypes.string.isRequired,
+  /** Product list subtitle. */
+  subTitle: PropTypes.string,
+  /** Product list statistic. */
+  stat: PropTypes.string,
 };
 /**
  * Default props of the component
  * @type {object}
  */
 const defaultProps = {
-  //prop: '',
+  subTitle: '',
+  stat: '',
 };
 
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
-const ProductListHeader = ({ title, subTitle, stat}) =>{
+const ProductListHeader = ({ title, subTitle, stat }) => {
   return (
     <div className="productListHeader">
       <h1 className="productListHeader__title">{title}</h1>
       <p className="productListHeader__subTitle">{subTitle}</p>
-    <p className="productListHeader__stat">{stat}</p>
+      <p className="productListHeader__stat">{stat}</p>
     </div>
   );
 };

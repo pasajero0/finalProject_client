@@ -3,7 +3,7 @@
  * Placeholder fot the description
  * @module InitScroll
  */
-import React, { useState, useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 

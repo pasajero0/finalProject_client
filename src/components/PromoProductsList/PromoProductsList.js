@@ -48,7 +48,6 @@ class PromoProductsList extends Component {
             productsList: data.data,
             isBusy: false
           }));
-          console.log(data.data);
         } else {
           throw new Error('Fetching product data error');
         }
