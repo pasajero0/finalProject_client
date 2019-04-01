@@ -88,11 +88,10 @@ class Product extends Component {
   }
 
   render() {
-    const { productData: { description, slug, pictures, name, prices, brand, country, isOnSale, isBrandNew}, isFetching, callAddProductToCart } = this.props;
+    const { productData: { description, slug, pictures, name, prices, brand, country, isOnSale }, isFetching, callAddProductToCart } = this.props;
 
-    const salePercents = Math.round((prices.sale-prices.retail)/prices.retail * 100);
+    //const salePercents = Math.round((prices.sale-prices.retail)/prices.retail * 100);
 
-    const { isProductSaved } = this.state;
     return (
       <section className="product" key={slug}>
         <div className="container">
