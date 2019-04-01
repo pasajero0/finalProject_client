@@ -39,7 +39,8 @@ const defaultProps = {
 };
 
 const LogoSlider = ({ images, settings }) => (
-    <section className="logoSlider">
+  <div className="logoSliderWrapper">
+    <div className="logoSlider">
         <div className="container">
             <div className="logoSlider__content">
                 <div className="logoSlider__name">Brands</div>
@@ -53,7 +54,8 @@ const LogoSlider = ({ images, settings }) => (
                     </SlickSlider>
             </div>
         </div>
-    </section>
+    </div>
+	</div>
 );
 
 LogoSlider.propTypes = propTypes;

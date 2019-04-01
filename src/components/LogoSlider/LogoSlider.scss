@@ -29,11 +29,6 @@
     font-size: 30px;
   }
 
-  //& .logoSlider__imgContent {
-  //  padding-left: 10px;
-  //  padding-right: 10px;
-  //}
-
   & .logoSlider__img {
     width: 80%;
     height: 100%;
@@ -161,43 +156,47 @@
 
 
 @media (max-width: 480px) {
+  .logoSliderWrapper {
+    .logoSlider {
+      padding: 0;
 
-  .slider {
-    margin-top: 40px;
+      .slider {
+        margin-top: 0;
+
+        .slick-prev::before,
+        .slick-prev::after {
+          height: 18px;
+          width: 2px;
+          font-size: 20px;
+        }
+
+        .slick-prev::after {
+          top: 20px;
+        }
+
+        .slick-next::after {
+          top: 20px;
+        }
+
+        .slick-next::before,
+        .slick-next::after {
+          content: '';
+          height: 18px;
+          width: 2px;
+          font-size: 20px;
+          left: 25px;
+        }
+
+        .slick-prev::before {
+          top: 8px;
+        }
+
+        .slick-next::before {
+          top: 8px;
+        }
+      }
+    }
   }
-
-
-  .slider .slick-prev::before,
-  .slider .slick-prev::after {
-    height: 18px;
-    width: 2px;
-    font-size: 20px;
-  }
-
-  .slider .slick-prev::after {
-    top: 20px;
-  }
-
-  .slider .slick-next::after {
-    top: 20px;
-  }
-
-  .slider .slick-next::before, .slider .slick-next::after {
-    content: '';
-    height: 18px;
-    width: 2px;
-    font-size: 20px;
-    left: 25px;
-  }
-
-  .slider .slick-prev::before {
-    top: 8px;
-  }
-
-  .slider .slick-next::before {
-    top: 8px;
-  }
-
 }
 
 @media (max-width: 320px) {

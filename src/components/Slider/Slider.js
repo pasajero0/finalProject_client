@@ -35,30 +35,32 @@ const links = [
 ];
 
 const Slider = ({ imagesBig, imagesSmall, settings }) => (
-  <div className="slider">
-    <div className="slider_big">
-    <SlickSlider {...settings} className="slider">
-
-      {imagesBig.map((image, i) =>
-        <div key={image.id}>
-          <NavLink to={links[i]}>
-            <img className="slider__img" src={image.src} alt={image.alt} />
-          </NavLink>
-        </div>)}
-
-    </SlickSlider>
-    </div>
-    <div className="slider_small">
+  <div className="sliderWrapper">
+    <div className="slider">
+      <div className="slider_big">
       <SlickSlider {...settings} className="slider">
-        {imagesSmall.map((image, i) =>
+
+        {imagesBig.map((image, i) =>
           <div key={image.id}>
             <NavLink to={links[i]}>
               <img className="slider__img" src={image.src} alt={image.alt} />
             </NavLink>
           </div>)}
+
       </SlickSlider>
+      </div>
+      <div className="slider_small">
+        <SlickSlider {...settings} className="slider">
+          {imagesSmall.map((image, i) =>
+            <div key={image.id}>
+              <NavLink to={links[i]}>
+                <img className="slider__img" src={image.src} alt={image.alt} />
+              </NavLink>
+            </div>)}
+        </SlickSlider>
+      </div>
     </div>
-  </div>
+	</div>
 );
 
 Slider.propTypes = propTypes;
