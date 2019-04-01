@@ -3,24 +3,25 @@
 .footerInfo__wrapper {
   background-color: $primary_200;
 }
+
 .footerInfo {
-  
-    display: flex;
+  display: flex;
 
-    &__section {
-        padding: 10px 0;
-        font-weight: bold;
-    }
+  &__section {
+    padding: 10px 0;
+    font-weight: bold;
+  }
 
-    &__block {
-        flex-basis: 25%;
-        padding: 15px 0;
-        text-align: left;
+  &__block {
+    flex-basis: 25%;
+    padding: 15px 0;
+    text-align: left;
 
-        &_logo {
-            display: flex;
-            align-items: center;
+    &_logo {
+      display: flex;
+      align-items: center;
 
+<<<<<<< HEAD
             .companyLogo {
                 width: 64px;
                 height: 40px;
@@ -30,36 +31,46 @@
     li {
         margin: 10px 0;
         cursor: pointer;
+=======
+      .companyLogo {
+        width: 64px;
+        height: 40px;
+      }
+>>>>>>> 81299a46bb773ed182eb522ef8a30ff71bb6b0da
     }
+  }
 
-    &__link {
-        color: $primary_dark;
+  li {
+    margin: 20px 0;
+    cursor: pointer;
+  }
 
-        &:hover {
-            border-bottom: 1px solid $primary_dark;
-        }
+  &__link {
+    color: $primary_dark;
+
+    &:hover {
+      border-bottom: 1px solid $primary_dark;
     }
+  }
 }
-
 
 .footer__copyright {
-    border-top: 2px solid $primary_light;
-    color: $primary_dark;
-    text-align: center;
-    padding: 20px 0;
-    background-color: $primary_200;
+  padding: 20px 0;
+  border-top: 2px solid $primary_light;
+  background-color: $primary_200;
+  color: $primary_dark;
+  text-align: center;
 }
 
-
-
 @media (max-width: 480px) {
-    .footerInfo {
-        font-size: 0.9em;
-        &__block_logo {
-            .companyLogo {
-                width: 50px;
-                height: 35px;
-            }
-        }
+  .footerInfo {
+    font-size: .9em;
+
+    &__block_logo {
+      .companyLogo {
+        width: 50px;
+        height: 35px;
+      }
     }
+  }
 }

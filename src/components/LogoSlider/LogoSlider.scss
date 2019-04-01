@@ -2,9 +2,7 @@
 
 @import '../../vars';
 
-
 .logoSlider {
-
   width: 100%;
   padding: 20px 40px;
   margin: 0 auto;
@@ -12,7 +10,7 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
-  background-color: #ffffff;
+  background-color: $primary_light;
   text-align: center;
 
   @import 'slick-theme.scss';
@@ -20,15 +18,15 @@
   & .logoSlider__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 
   & .logoSlider__name {
     text-align: center;
     text-transform: uppercase;
-    font-size: 30px;
     font-family: $text;
+    font-size: 30px;
   }
 
   //& .logoSlider__imgContent {
@@ -39,7 +37,7 @@
   & .logoSlider__img {
     width: 80%;
     height: 100%;
-    color: #ffffff;
+    color: $primary_light;
     position: relative;
   }
 
@@ -52,23 +50,22 @@
 
   & .slick-list {
     position: relative;
-    overflow: hidden;
     margin: 0;
     padding: 0;
-
+    overflow: hidden;
   }
 
-  & .slick-track:before,
-  & .slick-track:after {
+  & .slick-track::before,
+  & .slick-track::after {
     display: table;
     content: '';
   }
 
   & .slick-slide {
     display: none;
-    float: left;
     height: 100%;
     min-height: 1px;
+    float: left;
   }
 
   & [dir='rtl'] .slick-slide {
@@ -84,22 +81,20 @@
     display: flex;
     position: absolute;
     bottom: 50%;
-    height: 110px;
     width: 30px;
+    height: 110px;
+    background-color: $primary_light;
     z-index: 4;
-    background-color: #ffffff;
 
     &::before {
       font-size: 30px;
 
-
       &:hover,
       &:active,
       &:focus {
-        background-color: #fff;
+        background-color: $primary_light;
       }
     }
-
   }
 
   & .slick-prev {
@@ -107,30 +102,27 @@
 
     &::before,
     &::after {
-      content: '';
-      height: 26px;
-      width: 4px;
-      font-size: 30px;
-      color: #000;
       display: inline-block;
       position: absolute;
       left: 9px;
-
+      width: 4px;
+      height: 26px;
+      color: $primary_dark;
+      font-size: 30px;
+      content: '';
     }
 
     &::before {
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg);
       top: 30px;
-      background-color: #000;
+      transform: rotate(45deg);
+      background-color: $primary_dark;
       opacity: 1;
     }
 
     &::after {
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      background-color: #000;
       top: 46px;
+      transform: rotate(-45deg);
+      background-color: $primary_dark;
     }
   }
 

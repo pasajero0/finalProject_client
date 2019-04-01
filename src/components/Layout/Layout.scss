@@ -1,7 +1,9 @@
 @import '../../reset';
 @import '../../vars';
 
-html, body, div#root {
+html,
+body,
+div#root {
   height: 100%;
 }
 
@@ -11,35 +13,29 @@ body {
 }
 
 .layout {
-  height: 100%;
   display: flex;
   flex-direction: column;
-
-  &__header {
-    //flex: 0 0 160px;
-  }
+  height: 100%;
 
   &__content {
     flex: 1 1 auto;
-
   }
+
   &__footer {
     flex-shrink: 0;
   }
 }
 
 .container {
-  max-width: 1200px;
-  min-width: 320px;
   width: 100%;
-  padding: 0px 20px;
+  min-width: 320px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
 .mainLogo {
-  color: #000000;
+  color: $primary_dark;
   text-transform: uppercase;
 }
-
-

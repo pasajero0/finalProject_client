@@ -1,18 +1,17 @@
 @import '../../../../vars';
 
 .search {
-  flex: 1 1 0;
   display: flex;
+  flex: 1 1 0;
   flex-wrap: nowrap;
-
   position: relative;
-  max-width: 100px;
   width: 100%;
+  max-width: 100px;
+  transition: max-width .4s;
   border: 1px solid lightgrey;
+  border-radius: 24px;
   outline: none;
   box-sizing: border-box;
-  border-radius: 24px;
-  transition: max-width 0.4s;
 
   &_focused {
     max-width: 300px;
@@ -25,57 +24,63 @@
   &__input {
     flex: 1 1;
     width: 100%;
-    font-size: 1rem;
-    outline: none;
     height: 48px;
-    background: transparent;
-    border: none;
     padding: 0 0 0 1rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: $text;
+    font-size: 1rem;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-family: $text;
+
     &::placeholder {
-      font-size: 0.875rem;
+      font-size: .875rem;
       font-style: italic;
     }
   }
+
   &__button {
     flex: 0 0 48px;
+    margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
     background: transparent;
     cursor: pointer;
-    margin: 0;
   }
+
   &__hintsBox {
     position: absolute;
     top: 100%;
-    left: -1px;
     right: -1px;
-    list-style: none;
+    left: -1px;
     margin: -1px  0 0 0;
     padding: 0;
-    box-sizing: border-box;
     border: 1px solid lightgrey;
-    background: white;
-    z-index: 2;
     border-radius: 0 0 24px 24px;
-    overflow: hidden;
+    background-color: $primary_light;
     font-family: $text;
+    list-style: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 2;
   }
+
   &__hints {
-    overflow: auto;
     max-height: 100px;
+    overflow: auto;
   }
+
   &__hint {
     margin: 0;
     padding: 10px 10px 10px 1rem;
-    white-space: nowrap;
+    transition: background .2s;
     text-overflow: ellipsis;
-    overflow: hidden;
-    transition: background 0.2s;
+    white-space: nowrap;
     cursor: pointer;
+    overflow: hidden;
+
     &:hover {
       background: #ededed;
     }
@@ -170,21 +175,19 @@ input[type=search] {
 }
 
 @media (max-width: 730px) {
-
   .search {
-
     .searchForm {
-      background-color: #eee;
       position: fixed;
       top: 80px;
       left: 0;
-      height: 100vh;
       width: 100vw;
-      padding: 18px 10px;
-      box-sizing: border-box;
-      margin-right: 0px;
-      z-index: 1;
       max-width: 100%;
+      height: 100vh;
+      margin-right: 0;
+      padding: 18px 10px;
+      background-color: #eee;
+      box-sizing: border-box;
+      z-index: 1;
     }
   }
 }
@@ -211,5 +214,3 @@ input[type=search] {
 			transform: rotate(-45deg);
 		}
 	}*/
-
-

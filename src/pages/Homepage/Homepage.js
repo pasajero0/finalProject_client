@@ -8,6 +8,7 @@ import LogoSlider from '../../components/LogoSlider/LogoSlider';
 import PromoBanner from '../../components/PromoBanner/PromoBanner';
 import SystemMessage from '../../components/SystemMessage/SystemMessage';
 import FooterContacts from '../../components/FooterContacts/FooterContacts';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton';
 
 const ImagesDir = process.env.PUBLIC_URL;
 
@@ -106,6 +107,7 @@ const Homepage = () => (
       }}
     />
     <FooterContacts />
+    <ScrollUpButton />
   </Layout>
 );
 

@@ -1,75 +1,75 @@
 @import '../../../vars';
 
 .cartItem {
-    font-family: $text;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 80%;
+  padding: 20px 0;
+  border-bottom: 1px solid $primary_dark;
+  font-family: $text;
+  text-align: center;
+
+  &__close {
+    flex-basis: 10%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      color: $secondary;
+      font-size: 1.15em;
+    }
+  }
+
+  &__product {
     display: flex;
-    width: 80%;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-basis: 50%;
     align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid $primary_dark;
-    text-align: center;
-    position: relative;
+    padding: 10px 0;
+    font-family: $text;
+    text-align: left;
+  }
 
-    &__close {
-        flex-basis: 10%;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        cursor: pointer;
-        font-weight: bold;
+  &__counter {
+    flex-basis: 20%;
 
-        &:hover {
-            color: $secondary;
-            font-size: 1.15em;
-        }
+    &_box {
+      width: 40px;
+      padding: 5px;
+      border: 1px solid #e6e6e6;
+      outline: none;
+      font-size: 16px;
+      text-align: center;
     }
+  }
 
-    &__product {
-        display: flex;
-        flex-basis: 50%;
-        text-align: left;
-        align-items: center;
-        padding: 10px 0;
-        font-family: $text;
-    }
+  &__price {
+    flex-basis: 20%;
+  }
 
-    &__counter {
-        flex-basis: 20%;
+  &__img {
+    width: 15%;
+    height: auto;
+  }
 
-        &_box {
-            width: 40px;
-            padding: 5px;
-            outline: none;
-            border: 1px solid #e6e6e6;
-            font-size: 16px;
-            text-align: center;
-        }
-    }
-
-    &__price {
-      flex-basis: 20%;
-    }
-
-    &__img {
-        width: 15%;
-        height: auto;
-    }
-
-    &__title {
-      color: $primary;
-      padding-left: 15px;
-      line-height: 25px;
-    }
+  &__title {
+    padding-left: 15px;
+    color: $primary;
+    line-height: 25px;
+  }
 }
 
 @media (max-width: 480px) {
   .cartItem {
     width: 100%;
 
-      &__title {
-          font-size: 14px;
-      }
+    &__title {
+      font-size: 14px;
+    }
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './FooterNavMenu.scss';
-import CompanyLogo from '../CompanyLogo/CompanyLogo'
+import CompanyLogo from '../CompanyLogo/CompanyLogo';
 
 const FooterNavMenu = ({ departments, currentDepartment }) => {
 
@@ -11,11 +11,9 @@ const FooterNavMenu = ({ departments, currentDepartment }) => {
   rootDepartments.forEach(d => {
     subDepartments[d.slug] = departments.filter(s => s.parent === d.id);
   });
-
-
   return (
     <>
-    <div className="footer__border"></div>
+    <div className="footer__border"/>
     <div className="footerInfo__wrapper">
       <div className="container">
         <div className="footerInfo">
@@ -62,7 +60,6 @@ const FooterNavMenu = ({ departments, currentDepartment }) => {
 
     <div className="footer__copyright">@2019 Copyright</div>
     </> );
-
 };
 
 
