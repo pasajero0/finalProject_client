@@ -27,13 +27,16 @@ const { connect } = require('./config/mongoose');
 process.on('unhandledRejection', () => {
 });
 
-if (process.env.NODE_ENV === 'development') {
+
+// middlewares //
+if(process.env.CORS_ORIGIN && process.env.CORS_ORIGIN.length > 0){
   app.use(cors({
-    origin: ['http://localhost:3000'],
+    origin: [process.env.CORS_ORIGIN.split(',')],
     methods: ['POST', 'PUT'],
     credentials: true // enable set cookie
   }));
 }
+
 
 app.use(morgan('combined'));
 app.use(flash());
