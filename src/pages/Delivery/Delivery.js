@@ -12,34 +12,34 @@ const Delivery = () => (
         <div className="container">
          <div className="delivery__content">
             <h1 className="delivery__title">Shipping & Delivery</h1>
-            <h2 className="delivery__title_small">SHIPPING COSTS & DELIVERY OPTIONS</h2>
-            <table className="delivery__table">
-                <tr>
-                    <th>Shipping Method</th>
-                    <th>Cost</th>
-                    <th>Delivery</th>
-                </tr>
-                <tr>
-                    <td>Ship to a UNO Store</td>
-                    <td>Free</td>
-                    <td>4-9 Business Days</td>
-                </tr>
-                <tr>
-                    <td>Standard</td>
-                    <td>$14.95</td>
-                    <td>3-6 Business Days</td>
-                </tr>
-                <tr>
-                    <td>Express</td>
-                    <td>$24.90</td>
-                    <td>1-3 Business Days</td>
-                </tr>
-                <tr>
-                    <td>Free Standard</td>
-                    <td>$0.00</td>
-                    <td>4-7 Business Days</td>
-                </tr>
-                </table>
+            {/*<h2 className="delivery__title_small">SHIPPING COSTS & DELIVERY OPTIONS</h2>*/}
+            {/*<table className="delivery__table">*/}
+                {/*<tr>*/}
+                    {/*<th>Shipping Method</th>*/}
+                    {/*<th>Cost</th>*/}
+                    {/*<th>Delivery</th>*/}
+                {/*</tr>*/}
+                {/*<tr>*/}
+                    {/*<td>Ship to a UNO Store</td>*/}
+                    {/*<td>Free</td>*/}
+                    {/*<td>4-9 Business Days</td>*/}
+                {/*</tr>*/}
+                {/*<tr>*/}
+                    {/*<td>Standard</td>*/}
+                    {/*<td>$14.95</td>*/}
+                    {/*<td>3-6 Business Days</td>*/}
+                {/*</tr>*/}
+                {/*<tr>*/}
+                    {/*<td>Express</td>*/}
+                    {/*<td>$24.90</td>*/}
+                    {/*<td>1-3 Business Days</td>*/}
+                {/*</tr>*/}
+                {/*<tr>*/}
+                    {/*<td>Free Standard</td>*/}
+                    {/*<td>$0.00</td>*/}
+                    {/*<td>4-7 Business Days</td>*/}
+                {/*</tr>*/}
+                {/*</table>*/}
  
             <h2 className="delivery__title_small">DELIVERY TERMS & CONDITIONS</h2>
             <p className="delivery__text">
