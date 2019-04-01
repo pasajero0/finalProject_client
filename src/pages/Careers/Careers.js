@@ -17,7 +17,7 @@ class Careers extends Component {
       showText: !this.state.showText,
       clicked: !this.state.clicked
     })
-  }
+  };
 
 render() {
 return (
