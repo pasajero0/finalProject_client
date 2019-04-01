@@ -222,7 +222,7 @@
 
 }
 
-@media (max-aspect-ratio: 2/1) {
+@media (max-aspect-ratio: 2/1) and (max-width: 480px) {
 	.slider {
 		margin-top: 40px;
 
