@@ -29,7 +29,7 @@ class Map extends Component {
     return (
       <MapGL
         {...this.state.viewport}
-        container = "map"
+        // container = "map"
         className = "map"
         mapStyle = "mapbox://styles/valentina532/cjpo45o1p2qgk2spgiqjggnic"
         mapboxApiAccessToken={TOKEN}
