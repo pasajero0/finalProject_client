@@ -57,14 +57,7 @@
 
   &__btnCheckout {
     margin: 50px 0;
-    padding: 20px;
-    border: none;
-    outline: none;
-    background-color: $secondary;
-    color: $primary_light;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
+    @include btn;
   }
 
   .cartTableHeader {

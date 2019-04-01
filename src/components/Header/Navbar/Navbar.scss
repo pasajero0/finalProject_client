@@ -8,7 +8,6 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-    margin-bottom: 20px;
   }
 
   &__content {
@@ -251,6 +250,8 @@
   padding: 17px 0px;
   height: 16px;
   background-color: $primary_dark;
+  margin-top: 20px;
+
 }
 
 .switchNav {
