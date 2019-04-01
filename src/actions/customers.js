@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { SubmissionError, reset } from 'redux-form';
+import { showSystemMessage } from './app';
 import {
   URL_API_ADD_CUSTOMER,
   URL_API_LOGIN_CUSTOMER,
@@ -101,6 +102,7 @@ export function addCustomer(data) {
               isAuthenticated: true,
             }
           });
+          dispatch(showSystemMessage('You have been registered!', 'success'));
           dispatch(reset('RegisterForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
@@ -134,6 +136,7 @@ export function loginCustomer(data) {
               profile: { ...res.data }
             }
           });
+          dispatch(showSystemMessage('You have been logged in!', 'success'));
           dispatch(reset('LoginForm'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
@@ -164,6 +167,7 @@ export function logoutCustomer() {
               profile: {}
             }
           });
+          dispatch(showSystemMessage('You have been logged out!', 'success'));
         } else {
           throw new SubmissionError({ ...data.data, _error: data.message });
         }
@@ -241,6 +245,7 @@ export function setPasswordReseted(data) {
       type: RESET_PASSWORD,
       payload: data
     });
+    dispatch(showSystemMessage('You have been change your password', 'info'));
   };
 }
 
@@ -257,6 +262,7 @@ export function updateProfileData(data) {
             type: UPDATE_PROFILE_FULFILLED,
             payload: { ...res.data }
           });
+          dispatch(showSystemMessage('Your data have been updated!', 'success'));
         } else {
           throw new SubmissionError({ ...res.data, _error: res.message });
         }
@@ -269,14 +275,12 @@ export function updateProfileData(data) {
 }
 
 export function submitChekout(data) {
-  console.log('submitChekout ==================> ', data);
   return (dispatch) => {
     axios.post(URL_API_ADD_ORDERS, data)
       .then((result) => {
         const res = result.data;
         if (res.success) {
-          // alert(res.message);
-          console.log('submitChekout <><><><><><><><><><><><>', res.message, { ...res.data });
+          dispatch(showSystemMessage(res.message, 'success'));
           dispatch({
             type: ADD_ORDERS,
             payload: { ...res.data }
@@ -300,7 +304,7 @@ export function submitChekout(data) {
 }
 
 export function clearPurchaseData() {
-  return dispatch => {
+  return (dispatch) => {
     dispatch({
       type: SET_PURCHASE_STATUS,
       payload: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import './Delivery.scss'
+import FooterNavMenu from '../../components/FooterNavMenu/FooterNavMenu';
+import './Delivery.scss';
 
 
 const Delivery = () => (
@@ -39,6 +39,7 @@ const Delivery = () => (
                     <td>4-7 Business Days</td>
                 </tr>
                 </table>
+ 
             <h2 className="delivery__title_small">DELIVERY TERMS & CONDITIONS</h2>
             <p className="delivery__text">
               The Company will ship the Product(s) ordered by you according to the delivery method you have chosen and to the address indicated in the Order Confirmation.
@@ -61,7 +62,7 @@ const Delivery = () => (
         </div>
       </div>
     </section>
-    <Footer />
+    <FooterNavMenu />
   </>
 );
 

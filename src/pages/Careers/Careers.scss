@@ -1,88 +1,161 @@
 @import '../../vars';
 
-.careers {
-  font-family: $text;
-  padding-bottom: 40px;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__title {
-      @include title;
-
-      &_small {
-      font-size: 24px;
-      text-align: left;
-      padding: 0 0 15px 0;
-      }
-    }
-
-    &__imgBlock {
-      position: relative;
-      margin-top: 60px;
-        
-      span {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        z-index: 10;
-        font-size: 50px;
-        color: $primary_dark;
-        background-color: $primary_light;
-        font-weight: bold;
-        font-family: $text;
-      }
-    }
-    &__img {
-      width: 100%;
-      height: auto;
-      padding-bottom: 20px;
-      display: inline-block;
-    }
-
-    &__cv {
-     span {
-       text-decoration: underline;
-       display: block;
-       padding: 10px 0;
-     }
-     ul {
-       list-style-type: disc;
-       margin-left: 40px;
-     }
-    }
-
-    &__content {
-      text-align: justify;
-      line-height: normal;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
+.careers__wrapper {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+.careers {
+  font-family: $text;
+  display: flex;
+  flex-direction: row;
 
-  .careers__imgBlock {
+  &__title {
+    @include title;
+  }
 
-    span {
-        font-size: 30px;;
+  &__img {
+    width: 100%;
+  }
+
+  &__values {
+    font-size: 20px;
+    line-height: 2;
+  }
+
+  &__cvButton {
+    display: inline-block;
+    text-align: center;
+    width: 160px;
+    margin: 0;
+    padding: 12px 0;
+    border: none;
+    outline: none;
+    background: $primary_dark;
+    color: $primary_light;
+    font-family: $navigation;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__imgBlock {
+    width: 60%;
+    height: auto;
+    padding: 0 20px 20px 0;
+    float: left;
+  }
+
+  &__description {
+    width: 40%;
+    padding: 0 20px 20px 40px;
+    line-height: 2em;
+
+    h2 {
+      font-size: 26px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__list {
+    margin-bottom: 40px;
+
+    li {
+      margin-left: 30px;
+    }
+  }
+
+  &__vacancyTitle {
+    font-size: 24px;
+    padding-bottom: 25px;
+  }
+
+  &__vacancy {
+    width: 100%;
+    font-family: $text;
+    line-height: normal;
+    padding-top: 30px;
+    border-bottom: 1px solid $primary_400;
+    text-align: justify;
+    padding-bottom: 60px;
+
+    &:nth-last-child(1) {
+      border-bottom: none;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-bottom: 40px;
+
+      li {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+.faCheck {
+  margin-right: 15px;
+}
+
+.showText {
+  font-weight: bold;
+  padding: 5px 0;
+  margin-bottom: 15px;
+
+  &:hover {
+    cursor: pointer;
+
+  }
+}
+
+
+
+
+@media (max-width: 780px) {
+  .careers {
+    flex-direction: column;
+
+    &__imgBlock {
+      width: 100%;
+      padding: 0;
+    }
+
+    &__img {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    &__vacancy {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__description {
+      width: 100%;
+      padding: 0;
     }
   }
 }
 
 @media (max-width: 480px) {
+  .careers__title {
+    margin: 100px 0 20px 0;
+  }
 
-  .careers {
-    margin-top: 108px;
+  .careers__vacancy {
+    justify-content: center;
+    align-items: center;
+  }
 
-    &__imgBlock {
+  .careers__description {
+    width: 100%;
+  }
 
-      span {
-        font-size: 20px;
-
-      }
-    }
+  .careers__values {
+    line-height: 1.5;
+    font-size: 18px;
   }
 }

@@ -6,7 +6,8 @@ import Slider from '../../components/Slider/Slider';
 import PromoProductsList from '../../components/PromoProductsList/PromoProductsList';
 import LogoSlider from '../../components/LogoSlider/LogoSlider';
 import PromoBanner from '../../components/PromoBanner/PromoBanner';
-
+import SystemMessage from '../../components/SystemMessage/SystemMessage';
+import FooterContacts from '../../components/FooterContacts/FooterContacts';
 
 const ImagesDir = process.env.PUBLIC_URL;
 
@@ -34,6 +35,7 @@ const Homepage = () => (
       }}
 />
 
+    <SystemMessage />
     <Slider
       imagesBig={[
         { id: 1, src: `${ImagesDir}/slider-images/1.jpg`, alt: '' },
@@ -103,6 +105,7 @@ const Homepage = () => (
         ]
       }}
     />
+    <FooterContacts />
   </Layout>
 );
 

@@ -23,19 +23,7 @@
   }
 
   &__btn {
-    width: 160px;
-    margin: 0 10px;
-    padding: 12px 0;
-    border: none;
-    outline: none;
-    background: $primary_dark;
-    color: $primary_light;
-    font-family: $navigation;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
+    @include btn;
   }
 
   &__message {

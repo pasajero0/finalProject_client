@@ -2,7 +2,9 @@
 
 .returns {
     font-family: $text;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
+    max-width: 800px;
+    margin: 0 auto;
 
     &__content {
         display: flex;
@@ -20,10 +22,10 @@
     }
 
     &__text {
-      font-family: $text;
-      text-align: justify;
-      line-height: normal;
-      padding-top: 10px;
+        font-family: $text;
+        text-align: justify;
+        line-height: normal;
+        padding-top: 10px;
 
         span {
             font-weight: bold;

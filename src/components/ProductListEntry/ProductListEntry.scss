@@ -55,7 +55,7 @@
     top:1rem;
     left:0;
     color:white;
-    background:$secondary_dark;
+    background: $secondary;
     padding:5px 10px;
     z-index:2;
     width:50px;
@@ -68,7 +68,7 @@
     font-size: 18px;
 
     &_sale{
-      color: $secondary_dark;
+      color: $secondary;
       margin:0 3px;
     }
     &_old{

@@ -31,3 +31,22 @@ $secondary_dark: #731c0e;
   line-height: 1.345em;
   text-align: center;
 }
+
+@mixin btn {
+  width: 250px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  background-color: $secondary;
+  color: $primary_light;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: $navigation;
+  letter-spacing: 3px;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $secondary_dark;
+  }
+}

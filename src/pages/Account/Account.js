@@ -6,18 +6,18 @@ import Layout from '../../components/Layout/Layout';
 // import { FaGoogle } from "react-icons/fa";
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm';
-import {setLoginFormActiveStatus} from '../../actions/app';
+import { setLoginFormActiveStatus } from '../../actions/app';
 import './Account.scss';
 
 const propTypes = {
-  setLoginFormActiveStatusInAcc: PropTypes.bool.isRequired,
+  setLoginFormActiveStatusInAcc: PropTypes.func.isRequired,
   isLoginFormActive: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {};
 
 const Account = (props) => {
-  const {setLoginFormActiveStatusInAcc, isLoginFormActive} = props;
+  const {setLoginFormActiveStatusInAcc, isLoginFormActive } = props;
   return (
     <Layout>
 
@@ -32,7 +32,7 @@ const Account = (props) => {
                 type="button"
               >Login
               </button>
-              /&nbsp;
+              &nbsp;/&nbsp;
               <button
                 onClick={() => setLoginFormActiveStatusInAcc(false)}
                 className={isLoginFormActive ? 'account__registerButton' : 'account__registerButton account__switchButtons_active'}

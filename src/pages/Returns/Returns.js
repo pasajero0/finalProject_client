@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import FooterNavMenu from '../../components/FooterNavMenu/FooterNavMenu';
 import './Returns.scss'
 
 
@@ -35,7 +35,7 @@ const Returns = () => (
             </div>
           </div>
     </section>
-    <Footer />
+    <FooterNavMenu />
   </>
 );
 
