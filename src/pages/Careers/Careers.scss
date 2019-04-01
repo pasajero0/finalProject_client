@@ -9,6 +9,7 @@
   font-family: $text;
   display: flex;
   flex-direction: row;
+  margin-top: 60px;
 
   &__title {
     @include title;
@@ -25,11 +26,11 @@
 
   &__cvButton {
     @include btn;
+    display: block;
     text-align: center;
   }
 
   &__imgBlock {
-    margin-top: 60px;
     width: 60%;
     height: auto;
     padding: 0 20px 20px 0;
