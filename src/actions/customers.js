@@ -92,25 +92,25 @@ export function addCustomer(data) {
       { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
     return axios.post(URL_API_ADD_CUSTOMER, data)
+      .then(result => result.data)
       .then((result) => {
-        const res = result.data;
-        if (res.success) {
+        if (result.success) {
           dispatch({
             type: UPDATE_PROFILE_FULFILLED,
             payload: {
-              profile: { ...res.data },
+              profile: { ...result.data },
               isAuthenticated: true,
             }
           });
           dispatch(showSystemMessage('You have been registered!', 'success'));
           dispatch(reset('RegisterForm'));
         } else {
-          throw new SubmissionError({ ...res.data, _error: res.message });
+          throw new SubmissionError({ ...result.data, _error: result.message });
         }
       })
       .catch((err) => {
         dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
-        throw err;
+        dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
 }
@@ -126,20 +126,20 @@ export function loginCustomer(data) {
       { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
     return axios.post(URL_API_LOGIN_CUSTOMER, data)
+      .then(result => result.data)
       .then((result) => {
-        const res = result.data;
-        if (res.success) {
+        if (result.success) {
           dispatch({
             type: SET_IS_AUTHENTICATED,
             payload: {
               isAuthenticated: true,
-              profile: { ...res.data }
+              profile: { ...result.data }
             }
           });
           dispatch(showSystemMessage('You have been logged in!', 'success'));
           dispatch(reset('LoginForm'));
         } else {
-          throw new SubmissionError({ ...res.data, _error: res.message });
+          throw new SubmissionError({ ...result.data, _error: result.message });
         }
       })
       .catch((err) => {
@@ -150,7 +150,7 @@ export function loginCustomer(data) {
             profile: {}
           }
         });
-        throw err;
+        dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
 }
@@ -181,7 +181,7 @@ export function logoutCustomer() {
             }
           }
         );
-        throw err;
+        dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
 }
@@ -189,7 +189,7 @@ export function logoutCustomer() {
 export function getToken(data) {
   return (dispatch) => {
     axios.post(URL_API_GET_RESET_PASSWORD_TOKEN, data)
-      .then((result) => result.data)
+      .then(result => result.data)
       .then((result) => {
         if (result.success) {
           dispatch({
@@ -207,9 +207,6 @@ export function getToken(data) {
             payload: false
           }
         );
-        // throw err;
-        console.log('=================================================>', err);
-        // dispatch(showSystemMessage(err.message, 'error'));
         dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
@@ -218,15 +215,15 @@ export function getToken(data) {
 export function resetPassword(data) {
   return (dispatch) => {
     axios.post(URL_API_SAVE_PASSWORD, data)
+      .then(result => result.data)
       .then((result) => {
-        const res = result.data;
-        if (res.success) {
+        if (result.success) {
           dispatch({
             type: RESET_PASSWORD,
             payload: true
           });
         } else {
-          throw new SubmissionError({ ...res.data, _error: res.message });
+          throw new SubmissionError({ ...result.data, _error: result.message });
         }
       })
       .catch((err) => {
@@ -236,9 +233,7 @@ export function resetPassword(data) {
             payload: false
           }
         );
-        // throw err;
-        console.log('=================================================>', err);
-        dispatch(showSystemMessage('resetPassword error', 'error'));
+        dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
 }
@@ -259,21 +254,21 @@ export function updateProfileData(data) {
       { type: UPDATE_PROFILE_PENDING, payload: {} }
     );
     axios.put(URL_API_UPDATE_PROFILE, data)
+      .then(result => result.data)
       .then((result) => {
-        const res = result.data;
-        if (res.success) {
+        if (result.success) {
           dispatch({
             type: UPDATE_PROFILE_FULFILLED,
-            payload: { ...res.data }
+            payload: { ...result.data }
           });
           dispatch(showSystemMessage('Your data have been updated!', 'success'));
         } else {
-          throw new SubmissionError({ ...res.data, _error: res.message });
+          throw new SubmissionError({ ...result.data, _error: result.message });
         }
       })
       .catch((err) => {
         dispatch({ type: UPDATE_PROFILE_REJECTED, payload: err });
-        throw err;
+        dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
 }
@@ -281,28 +276,28 @@ export function updateProfileData(data) {
 export function submitChekout(data) {
   return (dispatch) => {
     axios.post(URL_API_ADD_ORDERS, data)
+      .then(result => result.data)
       .then((result) => {
-        const res = result.data;
-        if (res.success) {
-          dispatch(showSystemMessage(res.message, 'success'));
+        if (result.success) {
+          dispatch(showSystemMessage(result.message, 'success'));
           dispatch({
             type: ADD_ORDERS,
-            payload: { ...res.data }
+            payload: { ...result.data }
           });
           dispatch({
             type: SET_PURCHASE_STATUS,
             payload: {
               isPurchaseComplited: true,
-              purchaseData: { ...res },
+              purchaseData: { ...result },
             }
           });
         } else {
-          throw new SubmissionError({ ...res.data, _error: res.message });
+          throw new SubmissionError({ ...result.data, _error: result.message });
         }
       })
       .catch((err) => {
         dispatch({ type: ADD_ORDERS, payload: err });
-        throw err;
+        dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
 }

@@ -66,17 +66,17 @@ const defaultProps = {
 
 
 const validate = (values) => {
-  if (values.exp_date) {
-    // const options = { year: '2-digit', month: '2-digit' };
-    // const today = new Date();
-    // const mm = today.getMonth();
-    // const yyyy = today.getFullYear();
-    // console.log('==============================================', mm.toLocaleDateString("ru", options));
-    // console.log('==============================================', yyyy.toLocaleDateString("ru", options));
+  // if (values.exp_date) {
+  //   const options = { year: '2-digit', month: '2-digit' };
+  //   const today = new Date();
+  //   const mm = today.getMonth();
+  //   const yyyy = today.getFullYear();
+  //   console.log('==============================================', mm.toLocaleDateString("ru", options));
+  //   console.log('==============================================', yyyy.toLocaleDateString("ru", options));
 
-    console.log('<><><><><><><><><><><><><><><><><><><><><><><>', values.exp_date.slice(0, -2));
-    console.log('<><><><><><><><><><><><><><><><><><><><><><><>', values.exp_date.slice(2));
-  }
+  //   console.log('<><><><><><><><><><><><><><><><><><><><><><><>', values.exp_date.slice(0, -2));
+  //   console.log('<><><><><><><><><><><><><><><><><><><><><><><>', values.exp_date.slice(2));
+  // }
 
   const errors = {};
   if (!required(values.first_name)) {
