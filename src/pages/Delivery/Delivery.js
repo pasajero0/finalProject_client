@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import FooterNavMenu from '../../components/FooterNavMenu/FooterNavMenu';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton';
 import './Delivery.scss';
 
 
@@ -63,6 +64,7 @@ const Delivery = () => (
       </div>
     </section>
     <FooterNavMenu />
+    <ScrollUpButton />
   </>
 );
 
