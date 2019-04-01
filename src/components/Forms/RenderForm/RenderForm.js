@@ -16,7 +16,7 @@ const propTypes = {
   message: PropTypes.string,
   // messageType: PropTypes.oneOf(['error', 'info']),
   // status: PropTypes.oneOf(['loading']),
-  children: PropTypes.func.isRequired
+  children: PropTypes.node.isRequired
 };
 
 const defaultProps = {
