@@ -4,7 +4,7 @@ import { Redirect , NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout/Layout';
 import ProfileForm from '../../components/Forms/ProfileForm/ProfileForm';
-import { logoutCustomer, fetchProfile } from '../../actions/customers';
+import { fetchProfile } from '../../actions/customers';
 
 import './Profile.scss';
 
@@ -63,7 +63,7 @@ const Profile = ({
           <div className="profile__content">
             <h1 className="profile__title">Your profile</h1>
             <div className="profile__info">
-              <p className="profile__text">email: { profile.email }</p>
+              <p className="profile__text">{ profile.email }</p>
               <ProfileForm />
               <NavLink to="/reset-password">Reset password</NavLink>
             </div>

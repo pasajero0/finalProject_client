@@ -82,7 +82,6 @@ const ResetPasswordForm = (
     submitting,
     invalid,
     submitSucceeded,
-    setSystemMessage,
     token,
     email
   }
@@ -90,9 +89,6 @@ const ResetPasswordForm = (
   let messageType = '';
   let message = '';
 
-  if (submitSucceeded) {
-    setSystemMessage('You have been change your password', 'info');
-  }
   if (error) {
     messageType = 'error';
     message = error;
