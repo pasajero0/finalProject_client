@@ -191,14 +191,13 @@ export function getToken(data) {
     axios.post(URL_API_GET_RESET_PASSWORD_TOKEN, data)
       .then((result) => result.data)
       .then((result) => {
-        const res = result.data;
-        if (res.success) {
+        if (result.success) {
           dispatch({
             type: GET_TOKEN,
             payload: true
           });
         } else {
-          throw new SubmissionError({ ...res.data, _error: res.message });
+          throw new SubmissionError({ ...result.data, _error: result.message });
         }
       })
       .catch((err) => {
@@ -208,7 +207,10 @@ export function getToken(data) {
             payload: false
           }
         );
-        throw err;
+        // throw err;
+        console.log('=================================================>', err);
+        // dispatch(showSystemMessage(err.message, 'error'));
+        dispatch(showSystemMessage(err.errors._error, 'error'));
       });
   };
 }
@@ -234,7 +236,9 @@ export function resetPassword(data) {
             payload: false
           }
         );
-        throw err;
+        // throw err;
+        console.log('=================================================>', err);
+        dispatch(showSystemMessage('resetPassword error', 'error'));
       });
   };
 }
