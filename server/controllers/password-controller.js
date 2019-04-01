@@ -32,7 +32,7 @@ exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMa
             next();
           });
       } else {
-        res.status(200).json(response({}, 'No valid entry found', 1));
+        res.status(200).json(response({email: req.body.email}, 'Not registered user', 1));
         next();
       }
     })

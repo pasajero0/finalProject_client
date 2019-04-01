@@ -36,7 +36,6 @@ class Navbar extends Component {
 
   render() {
     const { currentDepartment, currentDepartmentData,  departments } = this.props;
-
     // filter root level's departments for top menu
     const rootDepartments = departments.filter((department) => department.parent === "0");
 		// collect data for children departments
@@ -162,4 +161,4 @@ const mapStateToProps = state => ({
 
 
 const C =  connect(mapStateToProps, null)(Navbar);
-export default props => <Route render={routeProps => <C {...routeProps} {...props} />}/>;
+export default props => <Route render={routeProps => <C key={routeProps.location.key} {...routeProps} {...props} />}/>;
