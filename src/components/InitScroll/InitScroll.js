@@ -43,7 +43,7 @@ const propTypes = {
 class InitScroll extends Component {
   state = {
     location: ''
-  }
+  };
 
   componentDidMount() {
     const { location: {pathname, search} } = this.props;

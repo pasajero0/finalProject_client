@@ -148,7 +148,6 @@ function ProfileForm({
 }
 
 ProfileForm.propTypes = propTypes;
-
 ProfileForm.defaultProps = defaultProps;
 
 const mapStateToProps = state => ({

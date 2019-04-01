@@ -1,16 +1,15 @@
 @import '../../../../vars';
 
 .navbarIcons {
-
   display: flex;
   align-items: flex-end;
 
   &__button {
-    background: transparent;
-    outline: none;
-    border: 0;
     padding: 0;
-    cursor:pointer;
+    border: 0;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
   }
 
   &__item {
@@ -19,27 +18,24 @@
   }
 
   &__quantity {
-    position: absolute;
     display: block;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     top: 0;
     right: 0;
     width: 22px;
     height: 22px;
     border-radius: 11px;
-    font-size: 12px;
-    color: $primary_light;
-    line-height: 20px;
     background-color: $secondary;
+    color: $primary_light;
+    font-size: 12px;
     font-weight: bold;
+    line-height: 20px;
     text-align: center;
-    align-items: center;
-    justify-content: center;
   }
 
   .userIcon {
     fill: $primary_dark;
   }
 }
-
-
-
