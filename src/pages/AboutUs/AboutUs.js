@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import FooterNavMenu from '../../components/FooterNavMenu/FooterNavMenu';
 import FooterContacts from '../../components/FooterContacts/FooterContacts';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton';
 import './AboutUs.scss'
 import { Helmet } from "react-helmet";
 
@@ -39,6 +40,7 @@ const AboutUs = () => (
       </div>   
     <FooterContacts />
     <FooterNavMenu />
+    <ScrollUpButton />
   </>
 );
 

@@ -1,6 +1,7 @@
 import React, {Component } from 'react';
 import Header from '../../components/Header/Header';
 import FooterNavMenu from '../../components/FooterNavMenu/FooterNavMenu';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton';
 import { FaCheck } from "react-icons/fa";
 import './Careers.scss'
 
@@ -64,6 +65,7 @@ return (
     </div>    
     </div>
     <FooterNavMenu />
+    <ScrollUpButton />
   </>
 );
 }  

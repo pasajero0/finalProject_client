@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import FooterNavMenu from '../../components/FooterNavMenu/FooterNavMenu';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton';
 import './Returns.scss'
 
 
@@ -36,6 +37,7 @@ const Returns = () => (
           </div>
     </section>
     <FooterNavMenu />
+    <ScrollUpButton />
   </>
 );
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout/Layout';
 import ProductsList from '../../components/ProductsList/ProductsList';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton';
 import { buildUrl } from '../../utils/helpers';
 
 const propTypes = {
@@ -35,6 +36,7 @@ const Department = ({ match: { params, url: key }, currentDepartmentData }) => {
         subTitle=""
         key={key}
       />
+      <ScrollUpButton />
     </Layout>
   )
 };
