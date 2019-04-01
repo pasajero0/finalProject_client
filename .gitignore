@@ -8,6 +8,7 @@
 # sessions
 /server/sessions
 /sessions
+sessions
 
 # testing
 /coverage
