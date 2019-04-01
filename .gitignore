@@ -19,7 +19,6 @@
 .idea
 .DS_Store
 .env
-.env.development
 .env.local
 .env.development
 .env.development.local
