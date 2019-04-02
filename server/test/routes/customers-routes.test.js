@@ -222,7 +222,11 @@ describe('customers-routes.js API Integration Tests', function(){
       request(app)
         .get('/customers/profile')
         .end((err, res) => {
-          expect(res.statusCode).to.equal(302);
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.all.keys(['message', 'success']);
+          expect(res.body.success).to.be.a('boolean').to.be.true;
+          expect(res.body.message).to.be.a('string').that.is.empty;
           done();
         });
     });

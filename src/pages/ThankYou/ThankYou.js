@@ -58,7 +58,14 @@ class ThankYou extends Component {
               <h1 className="thankYou__title">Thank you!</h1>
               <div className="thankYou__message">
                 <p>{purchaseInfo.message}</p>
-                <p>Order number: { purchaseInfo.data.number} </p>
+                <p>Order number: {purchaseInfo.data.number} </p>
+                <p>Thank you for shopping at UNO Luxury Store! </p>
+                <p>
+                  You are always able to review your order on UNO website in the Order History Section of your Profile.
+                </p>
+                <p>
+                  Thanks again and see you soon!
+                </p>
               </div>
             </div>
           </div>

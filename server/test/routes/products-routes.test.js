@@ -25,7 +25,7 @@ describe('products-routes.js API Integration Tests', function(){
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.all.keys(['data', 'message', 'success']);
-          expect(res.body.data).to.have.all.keys(['records', 'count', 'page', 'perPage', 'pagesTotal', 'filters']);
+          expect(res.body.data).to.have.all.keys(['records', 'count', 'page', 'perPage', 'pagesTotal', 'filters', 'q']);
           expect(res.body.data.count).to.be.a('number');
           expect(res.body.data.page).to.be.a('number');
           expect(res.body.data.perPage).to.be.a('number');
