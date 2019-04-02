@@ -54,10 +54,10 @@ class Navbar extends Component {
             <div className="navbar__menuSwitch">
               <div className={this.state.menuOpened ? 'navBurger open' : 'navBurger'}
                    onClick={this.toogleMenu.bind(this)}>
-                <span className="navBurger__line"></span>
-                <span className="navBurger__line"></span>
-                <span className="navBurger__line"></span>
-                <span className="navBurger__line"></span>
+                <span className="navBurger__line"/>
+                <span className="navBurger__line"/>
+                <span className="navBurger__line"/>
+                <span className="navBurger__line"/>
               </div>
             </div>
 

@@ -60,7 +60,7 @@ describe('/services/mail.test.js Tests', function() {
       });
   });
 
-  it('should send restore password email', (done) => {
+  it('should send new order email', (done) => {
     sendOnNewOrderLetter(data.to, '0234567')
       .then((info) => {
         expect(info).to.be.an('object');
