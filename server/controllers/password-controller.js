@@ -24,7 +24,7 @@ exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMa
       if (result.nModified > 0) {
         sendOnRestorePasswordLetter(
           req.body.email,
-          `/restore-password/${token}`,
+          `/reset-password/${token}`,
           (new Date(time)).toString()
         )
           .then(() => {
