@@ -196,6 +196,7 @@ export function getToken(data) {
             type: GET_TOKEN,
             payload: true
           });
+          dispatch(showSystemMessage(result.message, 'success'));
         } else {
           throw new SubmissionError({ ...result.data, _error: result.message });
         }
@@ -222,6 +223,7 @@ export function resetPassword(data) {
             type: RESET_PASSWORD,
             payload: true
           });
+          dispatch(showSystemMessage(result.message, 'success'));
         } else {
           throw new SubmissionError({ ...result.data, _error: result.message });
         }
