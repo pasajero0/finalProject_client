@@ -36,13 +36,16 @@ class PromoProductsList extends Component {
       }
     }
   }
-
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
   componentDidMount() {
+    this._isMounted = true;
     const { type } = this.props;
     axios.get(URL_API_FETCH_PROMO_PRODUCTS.replace(/:type/, type), {})
       .then(res => res.data)
       .then((data) => {
-        if (data.success) {
+        if (data.success && this._isMounted) {
           this.setState(prevState => ({
             ...prevState,
             productsList: data.data,

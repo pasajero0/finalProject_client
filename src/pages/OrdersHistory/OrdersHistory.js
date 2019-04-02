@@ -50,7 +50,6 @@ class OrdersHistory extends Component {
 
   render() {
     const { match, ordersList: { records }, isFetching, isAuthenticated } = this.props;
-    console.log('----------------------> match: ', match);
     if (!isAuthenticated) {
       return <Redirect to="/login" />;
     }
@@ -65,7 +64,6 @@ class OrdersHistory extends Component {
                 {isFetching
                   ? <div>Loading...</div>
                   : records.map((order) => {
-                    console.log('/////////////////////////////////', order);
                     return (
                     <div key={order.id} className="ordersHistory__card">
                       <div className="ordersHistory__cardInfo">
@@ -73,7 +71,7 @@ class OrdersHistory extends Component {
                         <p className="ordersHistory__cardInfoField">Order date: <span className="ordersHistory__cardInfoFieldStrong">{order.creation_date}</span></p>
                         <p className="ordersHistory__cardInfoField">Total price: <span className="ordersHistory__cardInfoFieldStrong">${order.total}</span></p>
                       </div>
-                      <OrderHistoryDetails products={order.products}/>
+                      <OrderHistoryDetails order={order}/>
                     </div>
                     );
                   })
