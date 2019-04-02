@@ -36,7 +36,7 @@ class OrderHistoryDetails extends Component {
     });
   };
   render () {
-    const { products } = this.props;
+    const { order: { number, products}  } = this.props;
     return (
       <div className="orderHistoryDetails">
         <button 
@@ -56,7 +56,7 @@ class OrderHistoryDetails extends Component {
             <tbody>
               {products.map((product) => {
                 return (
-                  <tr key={product.id} className="service">
+                  <tr key={number} className="service">
                     <td className="orderHistoryDetails__tableDataName">{product.name}</td>
                     <td className="orderHistoryDetails__tableData">{product.quantity}</td>
                     <td className="orderHistoryDetails__tableData">${product.price}</td>

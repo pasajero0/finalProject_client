@@ -26,10 +26,9 @@ const Department = ({ match: { params, url: key }, currentDepartmentData }) => {
   const fetchProductsParams = {...params};
   const urlTemplatePagination = buildUrl('/:department/filters/:filters/page/:page', { ...params, page: ':page' });
   const urlTemplateProduct = buildUrl('/:department/filters/:filters/page/:page/product/:product', { ...params, product: ':product' });
-  console.log('.....................................................................', !currentDepartmentData.slug);
-  if (!currentDepartmentData.slug) {
-    return <Redirect to="/not-found" />;
-  }
+  // if (!currentDepartmentData.slug) {
+  //   return <Redirect to="/not-found" />;
+  // }
   return (
     <Layout>
       <ProductsList
