@@ -62,6 +62,7 @@ exports.sendOnNewOrderLetter = (email, number) => {
  * @param time {string}
  */
 exports.sendOnRestorePasswordLetter = (email, link, time) => {
+
   const hello = 'Dear Customer,';
   const message = `This is a temporary link to restore forgotten password: <a href="${siteName}:link">:link</a>, It is valid till :time. \n If you did not request to restore password just ignore this letter.`;
   const html = createHtml(template, { hello, message, link, time, emailFrom, siteName });

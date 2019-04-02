@@ -28,7 +28,7 @@ exports.history = function getAllOrders(req, res, next) {
   }
   const {email} = req.user;
 
-  Order.find({ email }).skip(data.perPage * ( data.page - 1 )).limit(data.perPage)
+  Order.find({ email }).sort({ creationDate: -1 }).skip(data.perPage * ( data.page - 1 )).limit(data.perPage)
     .then((records) => {
       data.records = records;
       return Order.find({ email }).countDocuments();
