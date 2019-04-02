@@ -8,7 +8,7 @@ const request = require('supertest');
 const chai = require('chai');
 const app = require('../../server');
 const Customer = require('../../models/customer-model');
-const Counter = require('../../models/counter-model');
+
 
 mongoose.set('useCreateIndex', true);
 
@@ -21,11 +21,7 @@ const newCustomer = new Customer({
   last_name: 'smith',
   email: 'johnsmith@gmail.om'
 });
-const newCounter = new Counter({
-  _id: new mongoose.Types.ObjectId(),
-  subject: 'customer',
-  count: 333
-});
+
 const validCustomerData = {
   password: 'anyPassword',
   first_name: 'bob',
@@ -58,8 +54,6 @@ describe('customers-routes.js API Integration Tests', function(){
 
   before((done) => {
     Customer.deleteMany({})
-      .then(() => Counter.deleteMany())
-      .then(() => newCounter.save())
       .then(() => newCustomer.save())
       .then(() => done())
       .catch(console.log);
